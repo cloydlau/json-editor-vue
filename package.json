@@ -1,0 +1,36 @@
+{
+  "name": "json-editor-vue",
+  "version": "0.0.1",
+  "author": "cloydlau",
+  "license": "MIT",
+  "description": "",
+  "keywords": [],
+  "private": false,
+  "main": "dist/json-editor-vue.umd.min.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lib": "vue-cli-service build --target lib --name json-editor-vue src/main.ts"
+  },
+  "dependencies": {
+    "core-js": "^3.6.0",
+    "jsoneditor": "^9.0.3"
+  },
+  "peerDependencies": {
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.4.0",
+    "@vue/cli-service": "~4.4.0",
+    "element-ui": "^2.13.2",
+    "sass": "^1.26.0",
+    "sass-loader": "^9.0.0",
+    "typescript": "^3.9.6",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
