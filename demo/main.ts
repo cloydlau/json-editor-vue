@@ -8,6 +8,20 @@ import ElementUI from 'element-ui'
 
 Vue.use(ElementUI)
 
+/**
+ * 全局参数会被组件props中的同名参数（如果有）的值覆盖
+ */
+//import JsonEditorVue from '../src/main.ts' //dev
+//import JsonEditorVue from '../dist/json-editor-vue.umd' //prod
+//import JsonEditorVue from 'json-editor-vue' //todo
+/*Vue.use(JsonEditorVue, {
+  options: {
+    mainMenuBar: true,
+    navigationBar: true,
+    statusBar: true,
+  },
+})*/
+
 new Vue({
   render: h => h(App),
 }).$mount('#app')

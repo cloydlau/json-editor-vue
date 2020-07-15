@@ -5,6 +5,7 @@
 <script>
 import 'jsoneditor/dist/jsoneditor.min.css'
 import JSONEditor from 'jsoneditor'
+import { options } from './config.ts'
 
 export default {
   name: 'json-editor-vue',
@@ -23,6 +24,12 @@ export default {
       id: `json-editor-vue.${new Date().getTime() + Math.random()}`,
       jsonEditor: null,
       synchronizing: false
+    }
+  },
+  computed: {
+    Options () {
+      //this.options中存在__ob__
+      return Object.getOwnPropertyNames(this.options || {}).length > 1 ? this.options : options
     }
   },
   watch: {
@@ -72,7 +79,7 @@ export default {
           } catch (e) {
           }
         },
-        ...this.options,
+        ...this.Options,
       }, this.value || {})
     }
   }

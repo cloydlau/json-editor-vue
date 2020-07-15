@@ -1,6 +1,6 @@
 {
   "name": "json-editor-vue",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "cloydlau",
   "license": "MIT",
   "description": "A json editor powered by jsoneditor for Vue",

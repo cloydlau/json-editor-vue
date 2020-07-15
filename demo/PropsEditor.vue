@@ -9,9 +9,12 @@
         </template>
         <el-card>
           <div slot="header">
-            <JsonEditorVue v-model="value.options"/>
+            <json-editor-vue v-model="value.options"/>
           </div>
-          <JsonEditorVue v-model="defaultOptions" :options="defaultOptionsOptions"/>
+          <json-editor-vue v-model="defaultOptions" :options="{
+            mode: 'view',
+            name: '默认值',
+          }"/>
         </el-card>
       </el-collapse-item>
     </el-collapse>
@@ -20,7 +23,7 @@
 
 <script>
 //import JsonEditorVue from '../src/index' //dev
-import { JsonEditorVue } from '../dist/json-editor-vue.umd' //npm
+import { JsonEditorVue } from '../dist/json-editor-vue.umd' //prod
 
 export default {
   props: {
@@ -37,10 +40,6 @@ export default {
         statusBar: false,
         mode: 'code'
       },
-      defaultOptionsOptions: {
-        mode: 'view',
-        name: '默认值',
-      }
     }
   }
 }
