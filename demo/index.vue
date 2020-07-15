@@ -1,19 +1,26 @@
 <template>
   <el-dialog :visible.sync="showDialog" :close-on-click-modal="false" title="json-editor-vue">
-    <JsonEditorVue v-model="value" :options="options"/>
+    <p>{{JSON.stringify(value)}}</p>
+    <JsonEditorVue v-model="value" :options="props.options"/>
+
+    <PropsEditor v-model="props"/>
   </el-dialog>
 </template>
 
 <script>
-import JsonEditorVue from '../src/index'
-//todo: import { JsonEditorVue } from 'json-editor-vue'
+//import JsonEditorVue from '../src/index' //dev
+import { JsonEditorVue } from '../dist/json-editor-vue.umd' //npm
+//import { JsonEditorVue } from 'json-editor-vue' //prod
+import PropsEditor from './PropsEditor'
 
 export default {
-  components: { JsonEditorVue },
+  components: { JsonEditorVue, PropsEditor },
   data () {
     return {
-      value: {},
-      options: {},
+      value: null,
+      props: {
+        options: {},
+      },
 
       showDialog: true,
     }

@@ -3,8 +3,11 @@
   "version": "0.0.1",
   "author": "cloydlau",
   "license": "MIT",
-  "description": "",
-  "keywords": [],
+  "description": "A json editor powered by jsoneditor for Vue",
+  "keywords": [
+    "json",
+    "editor"
+  ],
   "private": false,
   "main": "dist/json-editor-vue.umd.min.js",
   "repository": {

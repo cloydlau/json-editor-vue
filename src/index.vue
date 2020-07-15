@@ -30,39 +30,51 @@ export default {
       immediate: true,
       deep: true,
       handler (newVal) {
-        if (newVal) {
-          if (this.jsonEditor) {
-            if (this.synchronizing) {
-              this.synchronizing = false
-            } else {
-              this.jsonEditor.set(newVal)
-            }
+        if (this.jsonEditor) {
+          if (this.synchronizing) {
+            this.synchronizing = false
           } else {
-            this.$nextTick(() => {
-              this.jsonEditor = new JSONEditor(document.getElementById(this.id), {
-                mainMenuBar: false,
-                navigationBar: false,
-                statusBar: false,
-                mode: 'code',
-                onChange: () => {
-                  try {
-                    this.synchronizing = true
-                    this.$emit('change', this.jsonEditor.get())
-                  } catch (e) {
-                    this.synchronizing = false
-                  }
-                },
-                onBlur: () => {
-                  this.jsonEditor.repair()
-                  this.jsonEditor.format()
-                },
-                ...this.options,
-              }, newVal)
-            })
+            this.jsonEditor.set(newVal)
           }
+        } else {
+          this.$nextTick(this.init)
         }
       }
     },
+    options: {
+      deep: true,
+      handler (newVal) {
+        this.jsonEditor.destroy()
+        this.jsonEditor = null
+        this.init()
+      }
+    }
+  },
+  methods: {
+    init () {
+      this.jsonEditor = new JSONEditor(document.getElementById(this.id), {
+        mainMenuBar: false,
+        navigationBar: false,
+        statusBar: false,
+        mode: 'code',
+        onChange: () => {
+          try {
+            this.synchronizing = true
+            this.$emit('change', this.jsonEditor.get())
+          } catch (e) {
+            this.synchronizing = false
+          }
+        },
+        onBlur: () => {
+          try {
+            this.jsonEditor.repair && this.jsonEditor.repair()
+            this.jsonEditor.format && this.jsonEditor.format()
+          } catch (e) {
+          }
+        },
+        ...this.options,
+      }, this.value || {})
+    }
   }
 }
 </script>
