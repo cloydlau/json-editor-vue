@@ -68,7 +68,7 @@ export default {
           this.synchronizing = true
           try {
             this.$emit('change', this.jsonEditor.get())
-            //fix: 外层表单校验规则为blur时 无法触发
+            //fix: 用于el表单中 且校验触发方式为blur时 没有生效
             if (this.$parent?.$options?._componentTag === ('el-form-item') && this.$parent.rules?.trigger === 'blur') {
               this.$parent.$emit('el.form.blur')
             }
