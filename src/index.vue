@@ -65,9 +65,13 @@ export default {
         statusBar: false,
         mode: 'code',
         onChange: () => {
+          this.synchronizing = true
           try {
-            this.synchronizing = true
             this.$emit('change', this.jsonEditor.get())
+            //fix: 外层表单校验规则为blur时 无法触发
+            if (this.$parent?.$options?._componentTag === ('el-form-item') && this.$parent.rules?.trigger === 'blur') {
+              this.$parent.$emit('el.form.blur')
+            }
           } catch (e) {
             this.synchronizing = false
           }

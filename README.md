@@ -8,7 +8,7 @@
 - √ 约定大于配置 同时提供options参数进行定制化混入
 - √ 动态options options的变化有实时效果
 - √ 失焦时自动修复、格式化json
-- √ 全局安装/单独引入 部分参数支持全局配置
+- √ 全局安装/单独引入 通用参数支持全局配置
 
 ### Installation
 ![NPM](https://nodei.co/npm/json-editor-vue.png)
