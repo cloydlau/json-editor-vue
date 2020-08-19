@@ -1,5 +1,5 @@
 <template>
-  <el-dialog :visible.sync="showDialog" :close-on-click-modal="false" title="json-editor-vue">
+  <el-dialog visible :close-on-click-modal="false" :show-close="false" title="json-editor-vue">
     <p>{{JSON.stringify(value)}}</p>
     <json-editor-vue v-model="value" :options="props.options"/>
 
@@ -8,9 +8,7 @@
 </template>
 
 <script>
-//import JsonEditorVue from '../src/index' //dev
-import { JsonEditorVue } from '../dist/json-editor-vue.umd' //prod
-//import { JsonEditorVue } from 'json-editor-vue' //todo
+import JsonEditorVue from '../src/index'
 import PropsEditor from './PropsEditor'
 
 export default {
@@ -21,8 +19,6 @@ export default {
       props: {
         options: {},
       },
-
-      showDialog: true,
     }
   },
 }

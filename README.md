@@ -12,21 +12,31 @@
 
 ### Installation
 ![NPM](https://nodei.co/npm/json-editor-vue.png)
+``` bash
+$ yarn add json-editor-vue
 ```
-yarn add json-editor-vue
-Dependencies: vue
 
-全局引入：
+**依赖项**：vue
+
+**全局引入**
+```js
 import JsonEditorVue from 'json-editor-vue'
 Vue.use(JsonEditorVue)
+```
 
-局部引入：
+**局部引入**
+```js
 import { JsonEditorVue } from 'json-editor-vue'
 components: { JsonEditorVue }
 ```
 
-
 ### Quick Start
+
+```html
+<json-editor-vue v-model="value" :options=""/>
 ```
-请参考/demo中极简示例
-```
+
+| 参数 | 说明 | 是否支持全局配置 | 类型 | 可选值 | 默认值 |
+| --- | --- | --- | --- | --- | --- |
+| value / v-model | 数据对象 | | Object / Array | | |
+| options | jsoneditor配置 | 支持 | Object | https://github.com/josdejong/jsoneditor/blob/master/docs/api.md | { mainMenuBar:false, navigationBar:false, statusBar:false, mode:'code' } |

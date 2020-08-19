@@ -15,7 +15,7 @@ export default {
   },
   props: {
     value: {
-      validator: value => ['Null', 'Object'].includes(({}).toString.call(value).slice(8, -1)),
+      validator: value => ['Null', 'Object', 'Array'].includes(({}).toString.call(value).slice(8, -1)),
     },
     options: Object,
   },
@@ -80,6 +80,7 @@ export default {
           try {
             this.jsonEditor.repair && this.jsonEditor.repair()
             this.jsonEditor.format && this.jsonEditor.format()
+            this.$emit('change', this.jsonEditor.get())
           } catch (e) {
           }
         },

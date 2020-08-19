@@ -11,9 +11,7 @@ Vue.use(ElementUI)
 /**
  * 全局参数会被组件props中的同名参数（如果有）的值覆盖
  */
-//import JsonEditorVue from '../src/main.ts' //dev
-//import JsonEditorVue from '../dist/json-editor-vue.umd' //prod
-//import JsonEditorVue from 'json-editor-vue' //todo
+//import JsonEditorVue from '../src/main.ts'
 /*Vue.use(JsonEditorVue, {
   options: {
     mainMenuBar: true,
