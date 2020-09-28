@@ -13,6 +13,11 @@ export default {
     prop: 'value',
     event: 'change'
   },
+  inject: {
+    elForm: {
+      default: ''
+    },
+  },
   props: {
     value: {
       validator: value => ['Null', 'Object', 'Array'].includes(({}).toString.call(value).slice(8, -1)),
@@ -27,6 +32,9 @@ export default {
     }
   },
   computed: {
+    Disabled () {
+      return this.disabled || (this.elForm || {}).disabled
+    },
     Options () {
       //this.options中存在__ob__
       return Object.getOwnPropertyNames(this.options || {}).length > 1 ? this.options : options
