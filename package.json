@@ -21,18 +21,18 @@
   },
   "dependencies": {
     "core-js": "^3.6.0",
-    "jsoneditor": "^9.0.4"
+    "jsoneditor": "^9.1.1"
   },
   "peerDependencies": {
-    "vue": "^2.6.11"
+    "vue": "^2.6.12"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "element-ui": "^2.13.2",
     "sass": "^1.26.0",
-    "sass-loader": "^9.0.0",
-    "vue": "^2.6.11",
-    "vue-template-compiler": "^2.6.11"
+    "sass-loader": "^10.0.0",
+    "vue": "^2.6.12",
+    "vue-template-compiler": "^2.6.12"
   }
 }
