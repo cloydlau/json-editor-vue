@@ -42,7 +42,6 @@ export default {
   },
   watch: {
     value: {
-      immediate: true,
       deep: true,
       handler (newVal) {
         if (this.jsonEditor) {
@@ -51,8 +50,6 @@ export default {
           } else {
             this.jsonEditor.set(newVal)
           }
-        } else {
-          this.$nextTick(this.init)
         }
       }
     },
@@ -64,6 +61,9 @@ export default {
         this.init()
       }
     }
+  },
+  mounted () {
+    this.init()
   },
   methods: {
     init () {
