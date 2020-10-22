@@ -21,7 +21,9 @@
   },
   "dependencies": {
     "core-js": "^3.6.0",
-    "jsoneditor": "^9.1.1"
+    "jsoneditor": "^9.1.1",
+    "plain-kit": "^0.4.2",
+    "vue-json-viewer": "^2.2.15"
   },
   "peerDependencies": {
     "vue": "^2.6.12"
@@ -30,6 +32,7 @@
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-typescript": "^4.5.0",
     "@vue/cli-service": "~4.5.0",
+    "babel-plugin-import": "^1.13.1",
     "element-ui": "^2.13.2",
     "sass": "^1.27.0",
     "sass-loader": "^10.0.0",

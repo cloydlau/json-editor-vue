@@ -1,29 +1,26 @@
 <template>
   <div>
     <h2>props</h2>
-    <el-collapse>
-      <el-collapse-item>
-        <template slot="title">
-          <span class="title">【options】jsoneditor配置</span>
-          <el-tag>Object</el-tag>
-        </template>
-        <el-card>
-          <div slot="header">
-            <json-editor-vue v-model="value.options"/>
-          </div>
-          <json-editor-vue v-model="defaultOptions" :options="{
-            mode: 'view',
-            name: '默认值',
-          }"/>
-        </el-card>
-      </el-collapse-item>
-    </el-collapse>
+    <el-form>
+      <el-form-item label="disabled">
+        <el-switch
+          v-model="value.disabled"
+          :active-value="true"
+          :inactive-value="false"
+        />
+      </el-form-item>
+      <el-form-item label="options">
+        <json-editor-vue v-model="value.options"/>
+      </el-form-item>
+      <el-form-item label="vueJsonViewerProps">
+        <json-editor-vue v-model="value.vueJsonViewerProps"/>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 
 <script>
-//import JsonEditorVue from '../src/index' //dev
-import { JsonEditorVue } from '../dist/json-editor-vue.umd' //prod
+import JsonEditorVue from '../src/index'
 
 export default {
   props: {
@@ -32,16 +29,6 @@ export default {
   components: {
     JsonEditorVue
   },
-  data () {
-    return {
-      defaultOptions: {
-        mainMenuBar: false,
-        navigationBar: false,
-        statusBar: false,
-        mode: 'code'
-      },
-    }
-  }
 }
 </script>
 

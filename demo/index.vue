@@ -1,7 +1,7 @@
 <template>
   <el-dialog visible :close-on-click-modal="false" :show-close="false" title="json-editor-vue">
-    <p>{{JSON.stringify(value)}}</p>
-    <json-editor-vue v-model="value" :options="props.options"/>
+    <p>{{ JSON.stringify(value) }}</p>
+    <json-editor-vue v-model="value" v-bind="props"/>
 
     <PropsEditor v-model="props"/>
   </el-dialog>
@@ -18,6 +18,8 @@ export default {
       value: null,
       props: {
         options: {},
+        disabled: false,
+        vueJsonViewerProps: {}
       },
     }
   },
@@ -25,5 +27,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+::v-deep .el-dialog {
+  min-width: 600px;
+}
 </style>

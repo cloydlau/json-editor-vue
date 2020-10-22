@@ -42,7 +42,31 @@ components: { JsonEditorVue }
 <json-editor-vue v-model="value" :options=""/>
 ```
 
-| 参数 | 说明 | 是否支持全局配置 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Way Of Configuration | Type | Accepted Values | Default |
 | --- | --- | --- | --- | --- | --- |
-| value / v-model | 数据对象 | | Object / Array | | |
-| options | jsoneditor配置 | 支持 | Object | https://github.com/josdejong/jsoneditor/blob/master/docs/api.md | { mainMenuBar:false, navigationBar:false, statusBar:false, mode:'code' } |
+| value / v-model | 数据对象 | prop | object / array | | |
+| options | jsoneditor配置 | global, prop | object | https://github.com/josdejong/jsoneditor | *详见后文 |
+| vueJsonViewerProps | vue-json-viewer配置 | global, prop | object | https://github.com/chenfengjw163/vue-json-viewer| *详见后文 |
+| disabled | 是否禁用 | global, prop | boolean | | false |
+
+options默认值：
+
+```
+{ 
+  mainMenuBar:false, 
+  navigationBar:false, 
+  statusBar:false, 
+  mode:'code' 
+}
+```
+
+vueJsonViewerProps默认值：
+
+```
+{
+  expandDepth: 2,
+  copyable: { copyText: '复制', copiedText: '已复制', timeout: 2000 },
+  sort: true,
+  boxed: true,
+}
+```
