@@ -61,10 +61,11 @@ export default {
     VueJsonViewerProps () {
       return {
         expanded: false,
-        expandDepth: 2,
+        sort: false,
+        expandDepth: 1,
         copyable: { copyText: '复制', copiedText: '已复制', timeout: 2000 },
-        sort: true,
         boxed: true,
+        previewMode: true,
         ...getFinalProp(vueJsonViewerProps, this.vueJsonViewerProps, {})
       }
     },

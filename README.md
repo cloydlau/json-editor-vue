@@ -64,9 +64,8 @@ vueJsonViewerProps默认值：
 
 ```
 {
-  expandDepth: 2,
   copyable: { copyText: '复制', copiedText: '已复制', timeout: 2000 },
-  sort: true,
   boxed: true,
+  previewMode: true,
 }
 ```
