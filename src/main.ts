@@ -20,7 +20,12 @@ if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
 
-export default {
-  install,
+// @ts-ignore
+JsonEditorVue.install = install
+
+export default JsonEditorVue
+
+// todo: deprecated
+export {
   JsonEditorVue
 }

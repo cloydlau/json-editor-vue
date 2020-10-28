@@ -2,7 +2,7 @@
 
 ![preview](./preview.png)
 
-<br/><br/>
+<br/>
 
 ### Features
 
@@ -14,7 +14,7 @@
 - √ 适配element-ui的el-form组件 支持el-form的全局disabled
 - √ 全局安装/单独引入 通用参数支持全局配置
 
-<br/><br/>
+<br/>
 
 ### Installation
 ![NPM](https://nodei.co/npm/json-editor-vue.png)
@@ -24,19 +24,19 @@ $ yarn add json-editor-vue
 
 **依赖项**：vue
 
-**全局引入**
 ```js
 import JsonEditorVue from 'json-editor-vue'
+
+// 组件内引入
+components: { JsonEditorVue }
+// ≤0.0.4（deprecated）
+components: { JsonEditorVue.JsonEditorVue }
+
+// 全局引入
 Vue.use(JsonEditorVue)
 ```
 
-**局部引入**
-```js
-import { JsonEditorVue } from 'json-editor-vue'
-components: { JsonEditorVue }
-```
-
-<br/><br/>
+<br/>
 
 ### Quick Start
 
