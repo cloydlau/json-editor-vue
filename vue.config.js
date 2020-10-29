@@ -21,7 +21,7 @@ module.exports = {
       library: 'json-editor-vue',
       libraryTarget: 'umd',
       umdNamedDefine: true,
-      libraryExport: 'default'
+      //libraryExport: 'default'
     },
     externals
   }
