@@ -1,9 +1,5 @@
 # json-editor-vue / JSON编辑器vue版
 
-![preview](./preview.png)
-
-<br/>
-
 ### Features
 
 - √ json编辑 + json预览
