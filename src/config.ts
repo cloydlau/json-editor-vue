@@ -1,15 +1,9 @@
-let options, vueJsonViewerProps, disabled
+let globalProps: any = {}
 
-export const init = (opts: {
-  options?: object
-  vueJsonViewerProps?: object
-  disabled?: boolean
-} = {}) => {
-  options = opts.options
-  vueJsonViewerProps = opts.vueJsonViewerProps
-  disabled = opts.disabled
+export const init = (opts: any = {}) => {
+  for (let k in opts) {
+    globalProps[k] = opts[k]
+  }
 }
 
-export {
-  options
-}
+export default globalProps

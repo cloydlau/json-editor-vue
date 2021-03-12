@@ -24,8 +24,3 @@ if (typeof window !== 'undefined' && window.Vue) {
 JsonEditorVue.install = install
 
 export default JsonEditorVue
-
-// todo: deprecated
-export {
-  JsonEditorVue
-}

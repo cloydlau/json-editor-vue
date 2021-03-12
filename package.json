@@ -2,7 +2,7 @@
   "name": "json-editor-vue",
   "version": "0.0.4",
   "author": "cloydlau",
-  "license": "MIT",
+  "license": "ISC",
   "description": "A json editor powered by jsoneditor for Vue",
   "keywords": [
     "json",
@@ -20,24 +20,23 @@
     "lib": "vue-cli-service build --target lib --name json-editor-vue src/main.ts"
   },
   "dependencies": {
-    "core-js": "^3.6.0",
-    "jsoneditor": "^9.1.1",
-    "plain-kit": "^0.4.2",
-    "vue-json-viewer": "^2.2.15"
+    "kayran": "0",
+    "svelte-jsoneditor": "0",
+    "vue-json-viewer": "2"
   },
   "peerDependencies": {
-    "vue": "^2.6.12"
+    "vue": "2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-typescript": "^4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "babel-plugin-import": "^1.13.1",
-    "element-ui": "^2.13.2",
-    "sass": "^1.27.0",
-    "sass-loader": "^10.0.0",
-    "typescript": "^4.0.0",
-    "vue": "^2.6.12",
-    "vue-template-compiler": "^2.6.12"
+    "@vue/cli-plugin-babel": "4",
+    "@vue/cli-plugin-typescript": "4",
+    "@vue/cli-service": "4",
+    "babel-plugin-import": "1",
+    "element-ui": "2",
+    "sass": "1",
+    "sass-loader": "10",
+    "typescript": "4",
+    "vue": "2",
+    "vue-template-compiler": "2"
   }
 }

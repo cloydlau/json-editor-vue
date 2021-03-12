@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import JsonEditorVue from '../src/index'
+import JsonEditorVue from '../src/main'
 import PropsEditor from './PropsEditor'
 
 export default {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="json-editor-vue">
     <vue-json-viewer
       v-show="Disabled"
       v-if="value"
@@ -11,11 +11,12 @@
 </template>
 
 <script>
-import 'jsoneditor/dist/jsoneditor.min.css'
-import JSONEditor from 'jsoneditor'
-import { options, vueJsonViewerProps, disabled } from './config.ts'
-import { typeOf } from 'plain-kit'
+import { JSONEditor } from 'svelte-jsoneditor'
+import { typeOf } from 'kayran'
 import VueJsonViewer from 'vue-json-viewer'
+import * as globalProps from './config.ts'
+
+const { props, vueJsonViewerProps, disabled } = globalProps
 
 /**
  * 参数有全局参数、实例参数和默认值之分 取哪个取决于用户传了哪个：
@@ -43,12 +44,12 @@ export default {
   },
   props: {
     value: {
-      validator: value => ['null', 'object', 'array'].includes(typeOf(value)),
+      validator: value => ['null', 'object', 'array', 'string'].includes(typeOf(value)),
     },
-    options: Object,
+    props: Object,
     vueJsonViewerProps: Object,
     disabled: {
-      validator: value => ['boolean'].includes(typeOf(value))
+      validator: value => value === '' || ['boolean'].includes(typeOf(value))
     }
   },
   data () {
@@ -70,16 +71,17 @@ export default {
       }
     },
     Disabled () {
-      return getFinalProp(disabled, this.disabled, this.elForm?.disabled)
+      return getFinalProp(disabled, this.disabled === '' ? true : this.disabled, this.elForm?.disabled)
     },
-    Options () {
-      // this.options中存在__ob__
+    Props () {
+      // this.props中存在__ob__
       return {
         mainMenuBar: false,
         navigationBar: false,
         statusBar: false,
+        indentation: 2,
         mode: 'code',
-        ...getFinalProp(options, this.options, {})
+        ...getFinalProp(props, this.props)
       }
     }
   },
@@ -96,7 +98,7 @@ export default {
         }
       }
     },
-    options: {
+    props: {
       deep: true,
       handler (newVal) {
         this.jsonEditor.destroy()
@@ -113,13 +115,27 @@ export default {
   mounted () {
     this.init()
   },
+  destroyed () {
+    this.jsonEditor.destroy()
+  },
   methods: {
     init () {
-      this.jsonEditor = new JSONEditor(this.$refs.jsonEditorVue, {
-        onChange: () => {
-          this.synchronizing = true
-          try {
-            this.$emit('input', this.jsonEditor.get())
+      this.jsonEditor = new JSONEditor({
+        target: this.$refs.jsonEditorVue,
+        props: {
+          json: this.value,
+          onChange: ({ json, text }) => {
+            this.synchronizing = true
+            console.log(json, text)
+            if (text?.startsWith('{') && text.endsWith('}')) {
+              try {
+
+              } catch (e) {
+
+              }
+            }
+            //console.log(this.jsonEditor.get())
+            this.$emit('input', json || text)
             //fix: 用于el表单中 且校验触发方式为blur时 没有生效
             if (this.$parent?.$options?._componentTag === ('el-form-item') && this.$parent.rules?.trigger === 'blur') {
               // fix: el-form-item深层嵌套时事件触发过早
@@ -127,28 +143,29 @@ export default {
                 this.$parent.$emit('el.form.blur')
               })
             }
-          } catch (e) {
-            this.synchronizing = false
-          }
+          },
+          ...this.Props,
         },
-        onBlur: () => {
-          try {
-            this.jsonEditor.repair && this.jsonEditor.repair()
-            this.jsonEditor.format && this.jsonEditor.format()
-            this.$emit('input', this.jsonEditor.get())
-          } catch (e) {
-          }
-        },
-        ...this.Options,
-      }, this.value || {})
+      })
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-::v-deep .jsoneditor {
-  border: thin solid lightgrey;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+.json-editor-vue {
+
+  & > div {
+    height: 200px;
+  }
+
+  ::v-deep .jsoneditor-main {
+    border: thin solid lightgrey;
+    box-shadow: none !important;
+
+    &:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04) !important;
+    }
+  }
 }
 </style>

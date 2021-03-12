@@ -1,53 +1,61 @@
-# json-editor-vue / JSON编辑器vue版
+# json-editor-vue
 
-### Features
+## Features
 
 - √ json编辑 + json预览
 - √ v-model双绑 用户输入、编程式设值都是响应式的
-- √ 约定大于配置 同时提供options参数进行定制化混入
-- √ 动态options options的变化有实时效果
-- √ 失焦时自动修复、格式化json
+- √ 约定大于配置 同时提供props参数进行定制化混入
 - √ 适配element-ui的el-form组件 支持el-form的全局disabled
-- √ 全局安装/单独引入 通用参数支持全局配置
+- √ 全局引入/局部引入 通用参数支持全局配置
 
 <br/>
 
-### Installation
+## Installation
+
 ![NPM](https://nodei.co/npm/json-editor-vue.png)
+
 ``` bash
 $ yarn add json-editor-vue
 ```
 
 **依赖项**：vue
 
-```js
+```vue
+
+<script>
+// 局部引入
 import JsonEditorVue from 'json-editor-vue'
 
-// 组件内引入
-components: { JsonEditorVue }
-// ≤0.0.4（deprecated）
-components: { JsonEditorVue.JsonEditorVue }
+export default {
+  components: { JsonEditorVue }
+}
+</script>
+```
 
+```js
 // 全局引入
+import JsonEditorVue from 'json-editor-vue'
+
 Vue.use(JsonEditorVue)
 ```
 
 <br/>
 
-### Quick Start
+## Quick Start
 
 ```html
+
 <json-editor-vue v-model="value" :options=""/>
 ```
 
-| Attribute | Description | Way Of Configuration | Type | Accepted Values | Default |
+| Attribute | Description | Configuration Mode | Type | Accepted Values | Default |
 | --- | --- | --- | --- | --- | --- |
 | value / v-model | 数据对象 | prop | object / array | | |
-| options | jsoneditor配置 | global, prop | object | https://github.com/josdejong/jsoneditor | *详见后文 |
-| vueJsonViewerProps | vue-json-viewer配置 | global, prop | object | https://github.com/chenfengjw163/vue-json-viewer| *详见后文 |
+| props* | svelte-jsoneditor配置 | global, prop | object | https://github.com/josdejong/svelte-jsoneditor/ | |
+| vueJsonViewerProps* | vue-json-viewer配置 | global, prop | object | https://github.com/chenfengjw163/vue-json-viewer| |
 | disabled | 是否禁用 | global, prop | boolean | | false |
 
-options默认值：
+### props默认值
 
 ```
 { 
@@ -58,7 +66,7 @@ options默认值：
 }
 ```
 
-vueJsonViewerProps默认值：
+### vueJsonViewerProps默认值
 
 ```
 {
