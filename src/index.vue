@@ -1,22 +1,24 @@
 <template>
   <div class="json-editor-vue">
     <vue-json-viewer
-      v-show="Disabled"
+      v-show="Readonly"
       v-if="value"
       :value="value"
       v-bind="VueJsonViewerProps"
     />
-    <div v-show="!Disabled" ref="jsonEditorVue"/>
+    <div v-show="!Readonly" ref="jsonEditorVue"/>
   </div>
 </template>
 
 <script>
 import { JSONEditor } from 'svelte-jsoneditor'
+import jsonrepair from 'jsonrepair'
+import { isPlainObject, throttle } from 'lodash-es'
 import { typeOf } from 'kayran'
 import VueJsonViewer from 'vue-json-viewer'
-import * as globalProps from './config.ts'
+import globalProps from './config.ts'
 
-const { props, vueJsonViewerProps, disabled } = globalProps
+//const validator = createAjvValidator(schema, schemaRefs)
 
 /**
  * 参数有全局参数、实例参数和默认值之分 取哪个取决于用户传了哪个：
@@ -28,10 +30,31 @@ const { props, vueJsonViewerProps, disabled } = globalProps
  * @param {any} defaultValue - 默认值
  * @return {any} 最终
  */
-function getFinalProp (globalProp, prop, defaultValue) {
-  return prop !== undefined ? prop :
-    globalProp !== undefined ? globalProp :
-      defaultValue
+export function getFinalProp (globalProp, prop, defaultValue) {
+  if (prop !== undefined) {
+    if (typeOf(defaultValue) === 'boolean') {
+      return ['', true].includes(prop)
+    } else if (isPlainObject(prop)) {
+      return {
+        ...defaultValue,
+        ...globalProp,
+        ...prop,
+      }
+    } else {
+      return prop
+    }
+  } else if (globalProp !== undefined) {
+    if (isPlainObject(globalProp)) {
+      return {
+        ...defaultValue,
+        ...globalProp,
+      }
+    } else {
+      return globalProp
+    }
+  } else {
+    return defaultValue
+  }
 }
 
 export default {
@@ -39,16 +62,15 @@ export default {
   components: { VueJsonViewer },
   inject: {
     elForm: {
-      default: ''
+      default: {}
     },
   },
   props: {
     value: {
       validator: value => ['null', 'object', 'array', 'string'].includes(typeOf(value)),
     },
-    props: Object,
     vueJsonViewerProps: Object,
-    disabled: {
+    readonly: {
       validator: value => value === '' || ['boolean'].includes(typeOf(value))
     }
   },
@@ -59,54 +81,63 @@ export default {
     }
   },
   computed: {
-    VueJsonViewerProps () {
-      return {
-        expanded: false,
-        sort: false,
-        expandDepth: 1,
-        copyable: { copyText: '复制', copiedText: '已复制', timeout: 2000 },
-        boxed: true,
-        previewMode: true,
-        ...getFinalProp(vueJsonViewerProps, this.vueJsonViewerProps, {})
-      }
+    Readonly () {
+      return getFinalProp(
+        globalProps.readonly,
+        this.readonly,
+        Boolean(this.elForm.disabled)
+      )
     },
-    Disabled () {
-      return getFinalProp(disabled, this.disabled === '' ? true : this.disabled, this.elForm?.disabled)
-    },
-    Props () {
-      // this.props中存在__ob__
+    svelteJsoneditorProps () {
+      let temp = {}
+      Object.keys(this.$attrs).filter(v => !Object.keys(this.$props).includes(v)).map(v => {
+        temp[v] = getFinalProp(globalProps[v], this.$attrs[v])
+      })
       return {
+        //navigationBar: false,
+        //statusBar: false,
         mainMenuBar: false,
-        navigationBar: false,
-        statusBar: false,
-        indentation: 2,
         mode: 'code',
-        ...getFinalProp(props, this.props)
+        ...temp
       }
-    }
+    },
+    VueJsonViewerProps () {
+      return getFinalProp(
+        globalProps.vueJsonViewerProps,
+        this.vueJsonViewerProps,
+        {
+          expanded: false,
+          sort: false,
+          expandDepth: 1,
+          copyable: { copyText: '复制', copiedText: '已复制', timeout: 2000 },
+          boxed: true,
+          previewMode: true,
+        })
+    },
   },
   watch: {
     value: {
       deep: true,
-      handler (newVal) {
+      handler (n) {
         if (this.jsonEditor) {
           if (this.synchronizing) {
+            console.log(`${typeOf(n)} value: `, n)
             this.synchronizing = false
           } else {
-            this.jsonEditor.set(newVal)
+            this.jsonEditor.set(n)
           }
         }
       }
     },
-    props: {
+    svelteJsoneditorProps: {
       deep: true,
-      handler (newVal) {
+      handler (n) {
         this.jsonEditor.destroy()
         this.jsonEditor = null
         this.init()
       }
     },
-    Disabled (newVal) {
+    Readonly (newVal) {
       if (!newVal && !this.jsonEditor) {
         this.$nextTick(this.init)
       }
@@ -120,22 +151,53 @@ export default {
   },
   methods: {
     init () {
+      const parseText = (json, text) => {
+        if (!json && text) {
+          if (
+            (text.startsWith('{') && text.endsWith('}')) ||
+            (text.startsWith('[') && text.endsWith(']'))
+          ) {
+            try {
+              return JSON.parse(text)
+            } catch (e) {
+              return text
+            }
+          }
+          return text
+        }
+        return text
+      }
+
+      if (!this.syncValueThrottle) {
+        this.syncValueThrottle = throttle(({
+          json, text, onlySyncJson
+        }) => {
+          const newValue = parseText(json, text)
+          if (onlySyncJson) {
+            if (['array', 'object'].includes(typeOf(newValue))) {
+              this.$emit('input', newValue)
+            }
+            return
+          }
+          this.$emit('input', newValue)
+        }, 500, {
+          leading: false, // true会导致：如果调用≥2次 则至少触发2次 但此时可能只期望触发1次
+          trailing: true
+        })
+      }
+
       this.jsonEditor = new JSONEditor({
         target: this.$refs.jsonEditorVue,
         props: {
+          ...this.svelteJsoneditorProps,
           json: this.value,
-          onChange: ({ json, text }) => {
+          onChange: (content) => {
+            // content is an object { json: JSON | undefined, text: string | undefined }
+            console.log(content)
+            let { json, text } = content
             this.synchronizing = true
-            console.log(json, text)
-            if (text?.startsWith('{') && text.endsWith('}')) {
-              try {
+            this.syncValueThrottle({ json, text })
 
-              } catch (e) {
-
-              }
-            }
-            //console.log(this.jsonEditor.get())
-            this.$emit('input', json || text)
             //fix: 用于el表单中 且校验触发方式为blur时 没有生效
             if (this.$parent?.$options?._componentTag === ('el-form-item') && this.$parent.rules?.trigger === 'blur') {
               // fix: el-form-item深层嵌套时事件触发过早
@@ -143,11 +205,30 @@ export default {
                 this.$parent.$emit('el.form.blur')
               })
             }
+
+            this.svelteJsoneditorProps.onChange?.()
           },
-          ...this.Props,
+          onBlur: () => {
+            if (typeOf(this.value) === 'string' && this.value) {
+              let newValue = this.value
+              newValue = jsonrepair(newValue)
+              console.log(`repaired value: `, newValue)
+
+              //newValue = JSON.stringify(JSON.parse(newValue), null, 2)
+              //console.log('formatted value: ', newValue)
+
+              //this.synchronizing = true
+              this.syncValueThrottle({
+                text: newValue,
+                onlySyncJson: true
+              })
+            }
+
+            this.svelteJsoneditorProps.onBlur?.()
+          },
         },
       })
-    }
+    },
   }
 }
 </script>

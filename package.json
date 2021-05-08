@@ -1,42 +1,52 @@
 {
   "name": "json-editor-vue",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "author": "cloydlau",
   "license": "ISC",
-  "description": "A json editor powered by jsoneditor for Vue",
+  "description": "Optionated json editor & json viewer",
   "keywords": [
     "json",
-    "editor"
+    "editor",
+    "viewer"
   ],
   "private": false,
-  "main": "dist/json-editor-vue.umd.min.js",
+  "main": "dist/json-editor-vue.umd.js",
+  "module": "./dist/json-editor-vue.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/json-editor-vue.es.js",
+      "require": "./dist/json-editor-vue.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/cloydlau/json-editor-vue"
   },
   "scripts": {
-    "dev": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lib": "vue-cli-service build --target lib --name json-editor-vue src/main.ts"
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "clean": "rd /s /q .\\node_modules",
+    "ri": "npm run clean && pnpm i"
   },
   "dependencies": {
-    "kayran": "0",
-    "svelte-jsoneditor": "0",
-    "vue-json-viewer": "2"
+    "jsonrepair": "^2.2.0",
+    "kayran": "^0.1.1",
+    "lodash-es": "^4.17.21",
+    "svelte-jsoneditor": "^0.0.19",
+    "vue-json-viewer": "^2.2.18"
   },
   "peerDependencies": {
-    "vue": "2"
+    "vue": "^2.6.12"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "4",
-    "@vue/cli-plugin-typescript": "4",
-    "@vue/cli-service": "4",
-    "babel-plugin-import": "1",
-    "element-ui": "2",
-    "sass": "1",
-    "sass-loader": "10",
-    "typescript": "4",
-    "vue": "2",
-    "vue-template-compiler": "2"
+    "element-ui": "^2.15.1",
+    "sass": "^1.32.12",
+    "typescript": "^4.2.4",
+    "vite": "^2.2.4",
+    "vite-plugin-vue2": "^1.5.1",
+    "vite-plugin-windicss": "^0.15.10",
+    "vue": "^2.6.12"
   }
 }

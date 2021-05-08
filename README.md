@@ -1,77 +1,100 @@
 # json-editor-vue
 
+Optionated json editor & json viewer powered by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
+& [vue-json-viewer](https://github.com/chenfengjw163/vue-json-viewer)
+
+<br>
+
 ## Features
 
 - √ json编辑 + json预览
-- √ v-model双绑 用户输入、编程式设值都是响应式的
-- √ 约定大于配置 同时提供props参数进行定制化混入
-- √ 适配element-ui的el-form组件 支持el-form的全局disabled
-- √ 全局引入/局部引入 通用参数支持全局配置
+- √ v-model双绑
+- √ 适配 `element-ui` 的el-form组件 支持el-form的全局disabled
+- √ 全局或局部引入 参数支持全局或局部配置
 
-<br/>
+<br>
 
 ## Installation
 
 ![NPM](https://nodei.co/npm/json-editor-vue.png)
 
-``` bash
-$ yarn add json-editor-vue
+**Dependencies**：vue
+
+```ts
+// 全局引入
+
+import 'json-editor-vue/dist/style.css'
+import JsonEditorVue from 'json-editor-vue'
+
+Vue.use(JsonEditorVue, {
+  // 全局配置
+})
 ```
 
-**依赖项**：vue
-
 ```vue
+<!-- 局部引入 -->
+
+<template>
+  <JsonEditorVue v-bind="config"/>
+</template>
 
 <script>
-// 局部引入
+import 'json-editor-vue/dist/style.css'
 import JsonEditorVue from 'json-editor-vue'
 
 export default {
-  components: { JsonEditorVue }
+  components: { JsonEditorVue },
+  data () {
+    return {
+      config: {
+        // 局部配置
+      }
+    }
+  }
 }
 </script>
 ```
 
-```js
-// 全局引入
-import JsonEditorVue from 'json-editor-vue'
+<br>
 
-Vue.use(JsonEditorVue)
-```
+## Props
 
-<br/>
+| Attribute | Description | Type | Accepted Values | Default |
+| --- | --- | --- | --- | --- |
+| value / v-model | 数据对象 | object / array / undefined / null / | | |
+| readonly | 是否只读 | boolean | | false |
+| vueJsonViewerProps | vue-json-viewer props | object | [vue-json-viewer](https://github.com/chenfengjw163/vue-json-viewer) | *see below* |
+| ... | svelte-jsoneditor props | object | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/) | *see below* |
 
-## Quick Start
-
-```html
-
-<json-editor-vue v-model="value" :options=""/>
-```
-
-| Attribute | Description | Configuration Mode | Type | Accepted Values | Default |
-| --- | --- | --- | --- | --- | --- |
-| value / v-model | 数据对象 | prop | object / array | | |
-| props* | svelte-jsoneditor配置 | global, prop | object | https://github.com/josdejong/svelte-jsoneditor/ | |
-| vueJsonViewerProps* | vue-json-viewer配置 | global, prop | object | https://github.com/chenfengjw163/vue-json-viewer| |
-| disabled | 是否禁用 | global, prop | boolean | | false |
-
-### props默认值
+### Default props for svelte-jsoneditor
 
 ```
 { 
-  mainMenuBar:false, 
-  navigationBar:false, 
-  statusBar:false, 
-  mode:'code' 
+  mainMenuBar: false,
+  mode: 'code',
 }
 ```
-
-### vueJsonViewerProps默认值
+### Default props for vue-json-viewer
 
 ```
 {
+  expanded: false,
+  sort: false,
+  expandDepth: 1,
   copyable: { copyText: '复制', copiedText: '已复制', timeout: 2000 },
   boxed: true,
   previewMode: true,
 }
 ```
+
+<br>
+
+## Config rules
+
+- 双向绑定参数（`v-model` / `value` / `*.sync`）仅支持局部配置
+- 其余参数均支持全局或局部配置
+
+权重：
+
+- 局部配置高于全局配置
+- 对于对象类型的参数 局部配置会与全局配置进行合并 同名属性会被局部配置覆盖

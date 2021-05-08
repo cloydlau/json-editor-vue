@@ -1,6 +1,5 @@
 <template>
   <el-dialog visible :close-on-click-modal="false" :show-close="false" title="json-editor-vue">
-    <p>{{ JSON.stringify(value) }}</p>
     <json-editor-vue v-model="value" v-bind="props"/>
 
     <PropsEditor v-model="props"/>
@@ -9,7 +8,7 @@
 
 <script>
 import JsonEditorVue from '../src/main'
-import PropsEditor from './PropsEditor'
+import PropsEditor from './PropsEditor.vue'
 
 export default {
   components: { PropsEditor, JsonEditorVue },
@@ -17,8 +16,7 @@ export default {
     return {
       value: null,
       props: {
-        options: {},
-        disabled: false,
+        readonly: false,
         vueJsonViewerProps: {}
       },
     }

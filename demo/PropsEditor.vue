@@ -1,26 +1,26 @@
 <template>
   <div>
-    <h2>props</h2>
-    <el-form>
-      <el-form-item label="disabled">
+    <br>
+    <h3>Props</h3>
+    <el-form
+      label-position="top"
+    >
+      <el-form-item label="readonly">
         <el-switch
-          v-model="value.disabled"
+          v-model="value.readonly"
           :active-value="true"
           :inactive-value="false"
         />
       </el-form-item>
-      <el-form-item label="options">
-        <json-editor-vue v-model="value.options"/>
-      </el-form-item>
       <el-form-item label="vueJsonViewerProps">
-        <json-editor-vue v-model="value.vueJsonViewerProps"/>
+        <json-editor-vue v-model="value.vueJsonViewerProps" readonly/>
       </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script>
-import JsonEditorVue from '../src/index'
+import JsonEditorVue from '../src/index.vue'
 
 export default {
   props: {
@@ -33,15 +33,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h2 {
-  margin-top: 50px;
-}
-
-.el-tag ~ .el-tag {
-  margin-left: 16px;
-}
-
-.title {
-  margin-right: 16px;
-}
 </style>
