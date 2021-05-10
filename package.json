@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "author": "cloydlau",
   "license": "ISC",
-  "description": "Optionated json editor & json viewer",
+  "description": "Optionated json editor & json viewer powerd by svelte-jsoneditor & vue-json-viewer",
   "keywords": [
     "jsoneditor",
     "svelte-jsoneditor",
