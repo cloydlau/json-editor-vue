@@ -233,15 +233,19 @@ export default {
 <style lang="scss" scoped>
 .json-editor-vue {
 
-  & > div {
+  ::v-deep .jsoneditor-main {
     height: 200px;
   }
 
   & > .jv-container {
-    overflow: auto; // 引起svelte-jsoneditor闪烁
+    //overflow: auto; // 引起svelte-jsoneditor闪烁
+
+    ::v-deep .jv-code {
+      padding: 20px;
+    }
 
     ::v-deep .jv-code.boxed {
-      max-height: unset;
+      max-height: 160px;
     }
   }
 
