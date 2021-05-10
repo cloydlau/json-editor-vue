@@ -5,9 +5,12 @@
   "license": "ISC",
   "description": "Optionated json editor & json viewer",
   "keywords": [
+    "jsoneditor",
+    "svelte-jsoneditor",
     "json",
     "editor",
-    "viewer"
+    "viewer",
+    "vue"
   ],
   "private": false,
   "main": "dist/json-editor-vue.umd.js",
