@@ -239,6 +239,10 @@ export default {
 
   & > .jv-container {
     overflow: auto; // 引起svelte-jsoneditor闪烁
+
+    ::v-deep .jv-code.boxed {
+      max-height: unset;
+    }
   }
 
   ::v-deep .jsoneditor-main {
