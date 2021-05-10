@@ -106,9 +106,6 @@ export default {
         globalProps.vueJsonViewerProps,
         this.vueJsonViewerProps,
         {
-          expanded: false,
-          sort: false,
-          expandDepth: 1,
           copyable: { copyText: '复制', copiedText: '已复制', timeout: 2000 },
           boxed: true,
           previewMode: true,
@@ -238,6 +235,10 @@ export default {
 
   & > div {
     height: 200px;
+  }
+
+  & > .jv-container {
+    overflow: auto; // 引起svelte-jsoneditor闪烁
   }
 
   ::v-deep .jsoneditor-main {
