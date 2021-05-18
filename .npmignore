@@ -35,5 +35,5 @@ tests/
 .gitignore
 vite.config.ts
 windi.config.ts
-*.html
-/pnpm-lock.yaml
+/dist/*.html
+/*.html
