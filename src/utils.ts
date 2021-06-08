@@ -21,7 +21,7 @@ function customizer (value: any) {
 export function getFinalProp () {
   const defaultValue = arguments[arguments.length - 1]
   let result = defaultValue
-  console.log('传参：', arguments)
+  //console.log('传参：', arguments)
   for (let i = 0; i < arguments.length - 1; i++) {
     const prop = arguments[i]
     if (prop !== undefined) {
@@ -37,6 +37,6 @@ export function getFinalProp () {
       break
     }
   }
-  console.log('生效：', result)
+  //console.log('生效：', result)
   return result
 }
