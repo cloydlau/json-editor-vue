@@ -1,8 +1,5 @@
 <template>
   <el-dialog visible :close-on-click-modal="false" :show-close="false" title="json-editor-vue">
-    <json-editor-vue v-model="value" v-bind="props"/>
-
-    <PropsEditor v-model="props"/>
   </el-dialog>
 </template>
 
@@ -14,10 +11,15 @@ export default {
   components: { PropsEditor, JsonEditorVue },
   data () {
     return {
-      value: null,
       props: {
+        value: null,
         readonly: false,
-        vueJsonViewerProps: {}
+        vueJsonViewerProps: {
+          boxed: false,
+          copyable: {
+            timeout: 0
+          }
+        }
       },
     }
   },

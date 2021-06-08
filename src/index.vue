@@ -13,49 +13,13 @@
 <script>
 import { JSONEditor } from 'svelte-jsoneditor'
 import jsonrepair from 'jsonrepair'
-import { isPlainObject, throttle } from 'lodash-es'
+import { throttle } from 'lodash-es'
 import { typeOf } from 'kayran'
 import VueJsonViewer from 'vue-json-viewer'
 import globalProps from './config.ts'
+import { getFinalProp } from './utils'
 
 //const validator = createAjvValidator(schema, schemaRefs)
-
-/**
- * 参数有全局参数、实例参数和默认值之分 取哪个取决于用户传了哪个：
- *   1. 怎么判断用户传没传？ —— 以该参数是否全等于undefined作为标识
- *   2. 如果传了多个，权重顺序是怎样的？ —— 实例＞全局＞默认
- *
- * @param {any} globalProp - 全局参数
- * @param {any} prop - 实例参数
- * @param {any} defaultValue - 默认值
- * @return {any} 最终
- */
-export function getFinalProp (globalProp, prop, defaultValue) {
-  if (prop !== undefined) {
-    if (typeOf(defaultValue) === 'boolean') {
-      return ['', true].includes(prop)
-    } else if (isPlainObject(prop)) {
-      return {
-        ...defaultValue,
-        ...globalProp,
-        ...prop,
-      }
-    } else {
-      return prop
-    }
-  } else if (globalProp !== undefined) {
-    if (isPlainObject(globalProp)) {
-      return {
-        ...defaultValue,
-        ...globalProp,
-      }
-    } else {
-      return globalProp
-    }
-  } else {
-    return defaultValue
-  }
-}
 
 export default {
   name: 'json-editor-vue',
@@ -83,15 +47,26 @@ export default {
   computed: {
     Readonly () {
       return getFinalProp(
-        globalProps.readonly,
         this.readonly,
+        globalProps.readonly,
         Boolean(this.elForm.disabled)
       )
     },
-    svelteJsoneditorProps () {
+    VueJsonViewerProps () {
+      return getFinalProp(
+        this.vueJsonViewerProps,
+        globalProps.vueJsonViewerProps,
+        {
+          copyable: { copyText: '复制', copiedText: '已复制', timeout: 2000 },
+          boxed: true,
+          previewMode: true,
+        }
+      )
+    },
+    SvelteJsoneditorProps () {
       let temp = {}
       Object.keys(this.$attrs).filter(v => !Object.keys(this.$props).includes(v)).map(v => {
-        temp[v] = getFinalProp(globalProps[v], this.$attrs[v])
+        temp[v] = getFinalProp(this.$attrs[v], globalProps[v],)
       })
       return {
         //navigationBar: false,
@@ -100,16 +75,6 @@ export default {
         mode: 'code',
         ...temp
       }
-    },
-    VueJsonViewerProps () {
-      return getFinalProp(
-        globalProps.vueJsonViewerProps,
-        this.vueJsonViewerProps,
-        {
-          copyable: { copyText: '复制', copiedText: '已复制', timeout: 2000 },
-          boxed: true,
-          previewMode: true,
-        })
     },
   },
   watch: {
@@ -126,7 +91,7 @@ export default {
         }
       }
     },
-    svelteJsoneditorProps: {
+    SvelteJsoneditorProps: {
       deep: true,
       handler (n) {
         this.jsonEditor.destroy()
@@ -186,16 +151,16 @@ export default {
       this.jsonEditor = new JSONEditor({
         target: this.$refs.jsonEditorVue,
         props: {
-          ...this.svelteJsoneditorProps,
+          ...this.SvelteJsoneditorProps,
           json: this.value,
           onChange: (content) => {
             // content is an object { json: JSON | undefined, text: string | undefined }
-            console.log(content)
+            //console.log('content: ', content)
             let { json, text } = content
             this.synchronizing = true
             this.syncValueThrottle({ json, text })
 
-            //fix: 用于el表单中 且校验触发方式为blur时 没有生效
+            // fix: 用于el表单中 且校验触发方式为blur时 没有生效
             if (this.$parent?.$options?._componentTag === ('el-form-item') && this.$parent.rules?.trigger === 'blur') {
               // fix: el-form-item深层嵌套时事件触发过早
               this.$parent.$nextTick(() => {
@@ -203,7 +168,7 @@ export default {
               })
             }
 
-            this.svelteJsoneditorProps.onChange?.()
+            this.SvelteJsoneditorProps.onChange?.()
           },
           onBlur: () => {
             if (typeOf(this.value) === 'string' && this.value) {
@@ -221,7 +186,7 @@ export default {
               })
             }
 
-            this.svelteJsoneditorProps.onBlur?.()
+            this.SvelteJsoneditorProps.onBlur?.()
           },
         },
       })
