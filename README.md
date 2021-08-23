@@ -7,10 +7,11 @@ Optionated json editor & json viewer powered by [svelte-jsoneditor](https://gith
 
 ## Features
 
-- √ json编辑 + json预览
-- √ v-model双绑，失焦触发绑定值同步
-- √ 适配 `element-ui` 的el-form组件，支持el-form的全局disabled
-- √ 全局或局部引入，参数支持全局或局部配置
+- json编辑 + json预览
+- v-model双绑，失焦触发绑定值同步
+- 失焦时自动修复json
+- 适配 `element-ui` 的el-form组件，支持el-form的全局disabled
+- 全局或局部引入，参数支持全局或局部配置
 
 <br>
 
