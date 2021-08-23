@@ -1,4 +1,4 @@
-import JSONEditorVue from './index.vue'
+import JsonEditorVue from './index.vue'
 import { init } from './config'
 
 interface installInterface {
@@ -12,7 +12,7 @@ const install: installInterface = (Vue, opts = {}) => {
     return
   }
   init(opts)
-  Vue.component(JSONEditorVue.name, JSONEditorVue)
+  Vue.component(JsonEditorVue.name, JsonEditorVue)
   install.installed = true
 }
 
@@ -21,6 +21,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 // @ts-ignore
-JSONEditorVue.install = install
+JsonEditorVue.install = install
 
-export default JSONEditorVue
+export default JsonEditorVue

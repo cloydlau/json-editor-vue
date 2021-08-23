@@ -25,9 +25,9 @@ Optionated json editor & json viewer powered by [svelte-jsoneditor](https://gith
 // 全局引入
 
 import 'json-editor-vue/dist/style.css'
-import JSONEditorVue from 'json-editor-vue'
+import JsonEditorVue from 'json-editor-vue'
 
-Vue.use(JSONEditorVue, {
+Vue.use(JsonEditorVue, {
   // 全局配置
 })
 ```
@@ -36,15 +36,15 @@ Vue.use(JSONEditorVue, {
 <!-- 局部引入 -->
 
 <template>
-  <JSONEditorVue v-bind="config"/>
+  <JsonEditorVue v-bind="config"/>
 </template>
 
 <script>
 import 'json-editor-vue/dist/style.css'
-import JSONEditorVue from 'json-editor-vue'
+import JsonEditorVue from 'json-editor-vue'
 
 export default {
-  components: { JSONEditorVue },
+  components: { JsonEditorVue },
   data () {
     return {
       config: {

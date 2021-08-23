@@ -1,21 +1,21 @@
 <template>
   <el-dialog visible :close-on-click-modal="false" :show-close="false" title="json-editor-vue">
-    <JSONEditorVue v-model="value" v-bind="props"/>
+    <JsonEditorVue v-model="value" v-bind="props"/>
 
     <h2>Value</h2>
-    <JSONEditorVue :value="value"/>
+    <JsonEditorVue :value="value"/>
     <el-button @click="set" type="primary" style="width:100%">编程式设值</el-button>
 
     <h2>Props</h2>
-    <JSONEditorVue v-model="props"/>
+    <JsonEditorVue v-model="props"/>
   </el-dialog>
 </template>
 
 <script>
-import JSONEditorVue from '../src/main'
+import JsonEditorVue from '../src/main'
 
 export default {
-  components: { JSONEditorVue },
+  components: { JsonEditorVue },
   data () {
     return {
       value: null,
