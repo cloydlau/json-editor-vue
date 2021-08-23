@@ -8,9 +8,9 @@ Optionated json editor & json viewer powered by [svelte-jsoneditor](https://gith
 ## Features
 
 - √ json编辑 + json预览
-- √ v-model双绑
-- √ 适配 `element-ui` 的el-form组件 支持el-form的全局disabled
-- √ 全局或局部引入 参数支持全局或局部配置
+- √ v-model双绑，失焦触发绑定值同步
+- √ 适配 `element-ui` 的el-form组件，支持el-form的全局disabled
+- √ 全局或局部引入，参数支持全局或局部配置
 
 <br>
 
@@ -24,9 +24,9 @@ Optionated json editor & json viewer powered by [svelte-jsoneditor](https://gith
 // 全局引入
 
 import 'json-editor-vue/dist/style.css'
-import JsonEditorVue from 'json-editor-vue'
+import JSONEditorVue from 'json-editor-vue'
 
-Vue.use(JsonEditorVue, {
+Vue.use(JSONEditorVue, {
   // 全局配置
 })
 ```
@@ -35,15 +35,15 @@ Vue.use(JsonEditorVue, {
 <!-- 局部引入 -->
 
 <template>
-  <JsonEditorVue v-bind="config"/>
+  <JSONEditorVue v-bind="config"/>
 </template>
 
 <script>
 import 'json-editor-vue/dist/style.css'
-import JsonEditorVue from 'json-editor-vue'
+import JSONEditorVue from 'json-editor-vue'
 
 export default {
-  components: { JsonEditorVue },
+  components: { JSONEditorVue },
   data () {
     return {
       config: {
@@ -61,10 +61,10 @@ export default {
 
 | Attribute | Description | Type | Accepted Values | Default |
 | --- | --- | --- | --- | --- |
-| value / v-model | 数据对象 | object / array / undefined / null / | | |
+| value / v-model | 数据对象 | any | | |
 | readonly | 是否只读 | boolean | | false |
 | vueJsonViewerProps | vue-json-viewer props | object | [vue-json-viewer](https://github.com/chenfengjw163/vue-json-viewer) | *see below* |
-| ... | svelte-jsoneditor props | object | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/) | *see below* |
+| ... | svelte-jsoneditor props | | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/) | *see below* |
 
 ### Default props for svelte-jsoneditor
 

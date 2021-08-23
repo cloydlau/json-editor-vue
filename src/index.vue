@@ -11,9 +11,8 @@
 </template>
 
 <script>
-import { JSONEditor } from 'svelte-jsoneditor'
+import { JSONEditor } from 'svelte-jsoneditor/dist/jsoneditor.js'
 import jsonrepair from 'jsonrepair'
-import { throttle } from 'lodash-es'
 import { typeOf } from 'kayran'
 import VueJsonViewer from 'vue-json-viewer'
 import globalProps from './config.ts'
@@ -30,9 +29,7 @@ export default {
     },
   },
   props: {
-    value: {
-      validator: value => ['null', 'object', 'array', 'string'].includes(typeOf(value)),
-    },
+    value: {},
     vueJsonViewerProps: Object,
     readonly: {
       validator: value => value === '' || ['boolean'].includes(typeOf(value))
@@ -41,7 +38,6 @@ export default {
   data () {
     return {
       jsonEditor: null,
-      synchronizing: false
     }
   },
   computed: {
@@ -64,33 +60,21 @@ export default {
       )
     },
     SvelteJsoneditorProps () {
-      let temp = {}
+      // 全局配置 排除$props并让位$attrs
+      let globalAttrs = {}
       Object.keys(this.$attrs).filter(v => !Object.keys(this.$props).includes(v)).map(v => {
-        temp[v] = getFinalProp(this.$attrs[v], globalProps[v],)
+        globalAttrs[v] = getFinalProp(this.$attrs[v], globalProps[v])
       })
       return {
         //navigationBar: false,
         //statusBar: false,
         mainMenuBar: false,
         mode: 'code',
-        ...temp
+        ...globalAttrs
       }
     },
   },
   watch: {
-    value: {
-      deep: true,
-      handler (n) {
-        if (this.jsonEditor) {
-          if (this.synchronizing) {
-            console.log(`${typeOf(n)} value: `, n)
-            this.synchronizing = false
-          } else {
-            this.jsonEditor.set(n)
-          }
-        }
-      }
-    },
     SvelteJsoneditorProps: {
       deep: true,
       handler (n) {
@@ -113,76 +97,27 @@ export default {
   },
   methods: {
     init () {
-      const parseText = (json, text) => {
-        if (!json && text) {
-          if (
-            (text.startsWith('{') && text.endsWith('}')) ||
-            (text.startsWith('[') && text.endsWith(']'))
-          ) {
-            try {
-              return JSON.parse(text)
-            } catch (e) {
-              return text
-            }
-          }
-          return text
-        }
-        return text
-      }
-
-      if (!this.syncValueThrottle) {
-        this.syncValueThrottle = throttle(({
-          json, text, onlySyncJson
-        }) => {
-          const newValue = parseText(json, text)
-          if (onlySyncJson) {
-            if (['array', 'object'].includes(typeOf(newValue))) {
-              this.$emit('input', newValue)
-            }
-            return
-          }
-          this.$emit('input', newValue)
-        }, 500, {
-          leading: false, // true会导致：如果调用≥2次 则至少触发2次 但此时可能只期望触发1次
-          trailing: true
-        })
-      }
-
       this.jsonEditor = new JSONEditor({
         target: this.$refs.jsonEditorVue,
         props: {
           ...this.SvelteJsoneditorProps,
           json: this.value,
-          onChange: (content) => {
-            // content is an object { json: JSON | undefined, text: string | undefined }
-            //console.log('content: ', content)
-            let { json, text } = content
-            this.synchronizing = true
-            this.syncValueThrottle({ json, text })
+          onBlur: () => {
+            let newVal = this.jsonEditor.get()
+            if (typeof newVal === 'string' && newVal) {
+              try {
+                newVal = jsonrepair(newVal)
+              } catch (e) {
+                //console.warn(e)
+              }
+            }
+            this.$emit('input', newVal)
 
             // fix: 用于el表单中 且校验触发方式为blur时 没有生效
             if (this.$parent?.$options?._componentTag === ('el-form-item') && this.$parent.rules?.trigger === 'blur') {
               // fix: el-form-item深层嵌套时事件触发过早
               this.$parent.$nextTick(() => {
                 this.$parent.$emit('el.form.blur')
-              })
-            }
-
-            this.SvelteJsoneditorProps.onChange?.()
-          },
-          onBlur: () => {
-            if (typeOf(this.value) === 'string' && this.value) {
-              let newValue = this.value
-              newValue = jsonrepair(newValue)
-              console.log(`repaired value: `, newValue)
-
-              //newValue = JSON.stringify(JSON.parse(newValue), null, 2)
-              //console.log('formatted value: ', newValue)
-
-              //this.synchronizing = true
-              this.syncValueThrottle({
-                text: newValue,
-                onlySyncJson: true
               })
             }
 
@@ -206,7 +141,7 @@ export default {
     //overflow: auto; // 引起svelte-jsoneditor闪烁
 
     ::v-deep .jv-code {
-      padding: 20px;
+      padding: 0;
     }
 
     ::v-deep .jv-code.boxed {
