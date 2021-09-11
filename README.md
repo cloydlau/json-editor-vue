@@ -19,7 +19,7 @@ Optionated json editor & json viewer powered by [svelte-jsoneditor](https://gith
 
 ![NPM](https://nodei.co/npm/json-editor-vue.png)
 
-**Dependencies**：vue
+**Dependencies**：vue svelte-jsoneditor vue-json-viewer
 
 ```ts
 // 全局引入

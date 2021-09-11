@@ -1,0 +1,15 @@
+{
+  "0 info pnpm:global": "Nothing to stop. No server is running for the store at C:\\Users\\admin\\.pnpm-store\\v3",
+  "1 debug pnpm:scope": {
+    "selected": 1
+  },
+  "2 error pnpm": {
+    "code": "ERR_PNPM_REGISTRIES_MISMATCH",
+    "err": {
+      "name": "pnpm",
+      "message": "This modules directory was created using the following registries configuration: {\"default\":\"http://mirrors.cloud.tencent.com/npm/\"}. The current configuration is {\"default\":\"https://registry.npmjs.org/\"}. To recreate the modules directory using the new settings, run \"pnpm install\".",
+      "code": "ERR_PNPM_REGISTRIES_MISMATCH",
+      "stack": "pnpm: This modules directory was created using the following registries configuration: {\"default\":\"http://mirrors.cloud.tencent.com/npm/\"}. The current configuration is {\"default\":\"https://registry.npmjs.org/\"}. To recreate the modules directory using the new settings, run \"pnpm install\".\n    at validateModules (D:\\nodejs\\node_modules\\pnpm\\dist\\pnpm.cjs:90558:15)\n    at async Object.getContext [as default] (D:\\nodejs\\node_modules\\pnpm\\dist\\pnpm.cjs:90430:28)\n    at async Object.mutateModules (D:\\nodejs\\node_modules\\pnpm\\dist\\pnpm.cjs:113047:19)\n    at async Object.handler [as default] (D:\\nodejs\\node_modules\\pnpm\\dist\\pnpm.cjs:123619:35)\n    at async D:\\nodejs\\node_modules\\pnpm\\dist\\pnpm.cjs:133231:20\n    at async run (D:\\nodejs\\node_modules\\pnpm\\dist\\pnpm.cjs:133206:34)\n    at async runPnpm (D:\\nodejs\\node_modules\\pnpm\\dist\\pnpm.cjs:133416:5)\n    at async D:\\nodejs\\node_modules\\pnpm\\dist\\pnpm.cjs:133408:7"
+    }
+  }
+}

@@ -34,23 +34,25 @@
     "ri": "npm run clean && pnpm i"
   },
   "dependencies": {
-    "jsonrepair": "^2.2.1",
-    "kayran": "^0.4.0",
-    "lodash-es": "^4.17.21",
-    "svelte-jsoneditor": "^0.2.8",
-    "vue-json-viewer": "^2.2.19"
+    "jsonrepair": "latest",
+    "kayran": "latest",
+    "lodash-es": "latest"
   },
   "peerDependencies": {
-    "vue": "2"
+    "svelte-jsoneditor": "latest",
+    "vue": "2",
+    "vue-json-viewer": "latest"
   },
   "devDependencies": {
-    "element-ui": "^2.15.5",
-    "sass": "^1.38.0",
-    "typescript": "^4.3.5",
-    "vite": "^2.5.0",
-    "vite-plugin-vue2": "^1.8.1",
-    "vite-plugin-windicss": "^1.2.7",
+    "element-ui": "latest",
+    "sass": "latest",
+    "svelte-jsoneditor": "latest",
+    "typescript": "latest",
+    "vite": "latest",
+    "vite-plugin-vue2": "latest",
+    "vite-plugin-windicss": "latest",
     "vue": "^2.6.14",
-    "vue-template-compiler": "^2.6.14"
+    "vue-json-viewer": "latest",
+    "vue-template-compiler": "latest"
   }
 }
