@@ -10,124 +10,100 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref, computed, watch, inject, useAttrs, nextTick, onMounted, onUnmounted } from 'vue-demi'
 import { JSONEditor } from 'svelte-jsoneditor/dist/jsoneditor.js'
 import jsonrepair from 'jsonrepair'
-import { typeOf } from 'kayran'
+import { getFinalProp, getGlobalAttrs } from 'kayran'
 import VueJsonViewer from 'vue-json-viewer'
-import globalProps from './config.ts'
-import { getFinalProp } from './utils'
+import globalConfig from './config.ts'
 
 //const validator = createAjvValidator(schema, schemaRefs)
 
-export default {
-  name: 'json-editor-vue',
-  components: { VueJsonViewer },
-  inject: {
-    elForm: {
-      default: {}
-    },
-  },
-  props: {
-    value: {},
-    vueJsonViewerProps: Object,
-    readonly: {
-      validator: value => value === '' || ['boolean'].includes(typeOf(value))
-    }
-  },
-  data () {
-    return {
-      jsonEditor: null,
-    }
-  },
-  computed: {
-    Readonly () {
-      return getFinalProp(
-        this.readonly,
-        globalProps.readonly,
-        Boolean(this.elForm.disabled)
-      )
-    },
-    VueJsonViewerProps () {
-      return getFinalProp(
-        this.vueJsonViewerProps,
-        globalProps.vueJsonViewerProps,
-        {
-          copyable: { copyText: '复制', copiedText: '已复制', timeout: 2000 },
-          boxed: true,
-          previewMode: true,
-        }
-      )
-    },
-    SvelteJsoneditorProps () {
-      // 全局配置 排除$props并让位$attrs
-      let globalAttrs = {}
-      Object.keys(this.$attrs).filter(v => !Object.keys(this.$props).includes(v)).map(v => {
-        globalAttrs[v] = getFinalProp(this.$attrs[v], globalProps[v])
-      })
-      return {
-        //navigationBar: false,
-        //statusBar: false,
-        mainMenuBar: false,
-        mode: 'code',
-        ...globalAttrs
-      }
-    },
-  },
-  watch: {
-    SvelteJsoneditorProps: {
-      deep: true,
-      handler (n) {
-        this.jsonEditor.destroy()
-        this.jsonEditor = null
-        this.init()
-      }
-    },
-    Readonly (newVal) {
-      if (!newVal && !this.jsonEditor) {
-        this.$nextTick(this.init)
-      }
-    }
-  },
-  mounted () {
-    this.init()
-  },
-  destroyed () {
-    this.jsonEditor.destroy()
-  },
-  methods: {
-    init () {
-      this.jsonEditor = new JSONEditor({
-        target: this.$refs.jsonEditorVue,
-        props: {
-          ...this.SvelteJsoneditorProps,
-          json: this.value,
-          onBlur: () => {
-            let newVal = this.jsonEditor.get()
-            if (typeof newVal === 'string' && newVal) {
-              try {
-                newVal = jsonrepair(newVal)
-              } catch (e) {
-                //console.warn(e)
-              }
-            }
-            this.$emit('input', newVal)
+const name = 'json-editor-vue'
+const props = defineProps({
+  modelValue: {},
+  vueJsonViewerProps: {},
+  readonly: {}
+})
+const emit = defineEmits(['input'])
 
-            // fix: 用于el表单中 且校验触发方式为blur时 没有生效
-            if (this.$parent?.$options?._componentTag === ('el-form-item') && this.$parent.rules?.trigger === 'blur') {
-              // fix: el-form-item深层嵌套时事件触发过早
-              this.$parent.$nextTick(() => {
-                this.$parent.$emit('el.form.blur')
-              })
-            }
+let elForm = inject('elForm')
+let jsonEditor = ref(null)
+let jsonEditorVue = ref(null)
 
-            this.SvelteJsoneditorProps.onBlur?.()
-          },
-        },
-      })
-    },
+const Readonly = computed(() => getFinalProp([
+  [true, ''].includes(props.readonly) ? true : props.readonly,
+  globalConfig.readonly,
+  Boolean(elForm?.disabled)
+], {
+  type: 'boolean'
+}))
+const VueJsonViewerProps = computed(() => getFinalProp([
+  props.vueJsonViewerProps,
+  globalConfig.vueJsonViewerProps,
+  {
+    copyable: { copyText: '复制', copiedText: '已复制', timeout: 2000 },
+    boxed: true,
+    previewMode: true,
   }
+], {
+  type: 'object'
+}))
+const SvelteJsoneditorProps = computed(() => {
+  return getFinalProp([
+    useAttrs(),
+    getGlobalAttrs(globalConfig, props),
+    {
+      //navigationBar: false,
+      //statusBar: false,
+      mainMenuBar: false,
+      mode: 'code',
+    }
+  ])
+})
+
+function init () {
+  jsonEditor = new JSONEditor({
+    target: jsonEditorVue.value,
+    props: {
+      ...SvelteJsoneditorProps.value,
+      json: props.modelValue,
+      onBlur: () => {
+        let newVal = jsonEditor.get()
+        if (typeof newVal === 'string' && newVal) {
+          try {
+            newVal = jsonrepair(newVal)
+          } catch (e) {
+            //console.warn(e)
+          }
+        }
+        emit('update:modelValue', newVal)
+        SvelteJsoneditorProps.value.onBlur?.()
+      },
+    },
+  })
 }
+
+watch(SvelteJsoneditorProps, n => {
+  jsonEditor.destroy()
+  jsonEditor = null
+  init()
+}, {
+  deep: true,
+})
+
+watch(Readonly, n => {
+  if (!n && !jsonEditor.value) {
+    nextTick(init)
+  }
+})
+
+onMounted(init)
+
+onUnmounted(() => {
+  jsonEditor.destroy()
+})
 </script>
 
 <style lang="scss" scoped>

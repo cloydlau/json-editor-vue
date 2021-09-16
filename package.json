@@ -10,7 +10,9 @@
     "json",
     "editor",
     "viewer",
-    "vue"
+    "vue",
+    "vue2",
+    "vue3"
   ],
   "private": false,
   "main": "dist/json-editor-vue.umd.js",
@@ -36,23 +38,36 @@
   "dependencies": {
     "jsonrepair": "latest",
     "kayran": "latest",
-    "lodash-es": "latest"
+    "lodash-es": "latest",
+    "vue-demi": "latest"
   },
   "peerDependencies": {
+    "@vue/composition-api": "latest",
     "svelte-jsoneditor": "latest",
-    "vue": "2",
+    "vue": "^2.0.0 || >=3.0.0",
     "vue-json-viewer": "latest"
   },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    },
+    "svelte-jsoneditor": {
+      "optional": true
+    },
+    "vue-json-viewer": {
+      "optional": true
+    }
+  },
   "devDependencies": {
-    "element-ui": "latest",
+    "@vitejs/plugin-vue": "latest",
+    "@vue/compiler-sfc": "latest",
+    "element-plus": "latest",
     "sass": "latest",
     "svelte-jsoneditor": "latest",
     "typescript": "latest",
     "vite": "latest",
-    "vite-plugin-vue2": "latest",
     "vite-plugin-windicss": "latest",
-    "vue": "^2.6.14",
-    "vue-json-viewer": "latest",
-    "vue-template-compiler": "latest"
+    "vue": "3",
+    "vue-json-viewer": "latest"
   }
 }

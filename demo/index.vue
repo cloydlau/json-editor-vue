@@ -1,5 +1,5 @@
 <template>
-  <el-dialog visible :close-on-click-modal="false" :show-close="false" title="json-editor-vue">
+  <el-dialog modelValue :close-on-click-modal="false" :show-close="false" title="json-editor-vue">
     <JsonEditorVue v-model="value" v-bind="props"/>
 
     <h2>Value</h2>
@@ -11,31 +11,24 @@
   </el-dialog>
 </template>
 
-<script>
+<script setup>
+import { ref, reactive } from 'vue-demi'
 import JsonEditorVue from '../src/main'
 
-export default {
-  components: { JsonEditorVue },
-  data () {
-    return {
-      value: null,
-      props: {
-        readonly: false,
-        vueJsonViewerProps: {
-          boxed: false,
-          copyable: {
-            timeout: 0
-          }
-        }
-      },
+let value = ref(null)
+const props = reactive({
+  readonly: false,
+  vueJsonViewerProps: {
+    boxed: false,
+    copyable: {
+      timeout: 0
     }
-  },
-  methods: {
-    set () {
-      this.value = {
-        a: 3
-      }
-    }
+  }
+})
+
+function set () {
+  value = {
+    a: 3
   }
 }
 </script>
