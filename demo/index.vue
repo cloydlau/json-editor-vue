@@ -21,7 +21,7 @@
 import { ref, reactive } from 'vue-demi'
 import JsonEditorVue from '../src/main'
 
-let value = ref({
+let value = reactive({
   a: 1
 })
 const props = reactive({
