@@ -36,6 +36,7 @@
     "ri": "npm run clean && pnpm i"
   },
   "dependencies": {
+    "clipboard": "^2.0.8",
     "jsonrepair": "latest",
     "kayran": "latest",
     "lodash-es": "latest",
@@ -45,7 +46,7 @@
     "@vue/composition-api": "latest",
     "svelte-jsoneditor": "latest",
     "vue": "^2.0.0 || >=3.0.0",
-    "vue-json-viewer": "latest"
+    "vue3-json-viewer": "latest"
   },
   "peerDependenciesMeta": {
     "@vue/composition-api": {
@@ -54,7 +55,7 @@
     "svelte-jsoneditor": {
       "optional": true
     },
-    "vue-json-viewer": {
+    "vue3-json-viewer": {
       "optional": true
     }
   },
@@ -62,12 +63,13 @@
     "@vitejs/plugin-vue": "latest",
     "@vue/compiler-sfc": "latest",
     "element-plus": "latest",
+    "rollup-plugin-peer-deps-external": "latest",
     "sass": "latest",
     "svelte-jsoneditor": "latest",
     "typescript": "latest",
     "vite": "latest",
     "vite-plugin-windicss": "latest",
-    "vue": "3",
-    "vue-json-viewer": "latest"
+    "vue": "^3.2.11",
+    "vue3-json-viewer": "latest"
   }
 }
