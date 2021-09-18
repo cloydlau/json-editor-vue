@@ -69,14 +69,6 @@ export default {
 | vueJsonViewerProps | vue-json-viewer props | object | [vue-json-viewer](https://github.com/chenfengjw163/vue-json-viewer) | *see below* |
 | ... | svelte-jsoneditor props | | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/) | *see below* |
 
-### Default props for svelte-jsoneditor
-
-```
-{ 
-  mainMenuBar: false,
-  mode: 'code',
-}
-```
 ### Default props for vue-json-viewer
 
 ```
