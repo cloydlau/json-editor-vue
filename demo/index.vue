@@ -19,7 +19,7 @@
     <JsonEditorVue
       :modelValue="data.value"
       readonly
-      v-bind="data.props"
+      v-bind.sync="data.props"
     />
     <el-button @click="set" type="primary" style="width:100%">
       编程式设值
