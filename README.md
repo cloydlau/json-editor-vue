@@ -20,7 +20,7 @@ Fully configurable json editor & json viewer powered by [svelte-jsoneditor](http
 ![NPM](https://nodei.co/npm/json-editor-vue.png)
 
 ```bash
-pnpm add json-editor-vue svelte-jsoneditor vue3-json-viewer
+pnpm add json-editor-vue svelte-jsoneditor
 ```
 
 ```ts
@@ -38,7 +38,7 @@ Vue.use(JsonEditorVue, {
 <!-- 局部引入 -->
 
 <template>
-  <JsonEditorVue v-bind="config"/>
+  <JsonEditorVue v-bind="props"/>
 </template>
 
 <script>
@@ -49,7 +49,7 @@ export default {
   components: { JsonEditorVue },
   data () {
     return {
-      config: {
+      props: {
         // 局部配置
       }
     }
