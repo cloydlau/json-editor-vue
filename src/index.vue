@@ -18,7 +18,7 @@ import { ref, reactive, computed, watch, inject, toRaw, useAttrs, nextTick, onMo
 import { JSONEditor } from 'svelte-jsoneditor/dist/jsoneditor.js'
 import jsonrepair from 'jsonrepair'
 import { getFinalProp, getGlobalAttrs } from 'kayran'
-//import Vue3JsonViewer from 'vue3-json-viewer'
+import { JsonViewer } from 'vue3-json-viewer'
 import globalConfig from './config.ts'
 import { elFormKey } from 'element-plus/lib/tokens'
 
