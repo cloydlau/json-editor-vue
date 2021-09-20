@@ -1,11 +1,17 @@
 <template>
-  <div v-if="!Readonly" ref="jsonEditorVue"/>
+  <div v-show="!Readonly" ref="jsonEditorVue"/>
   <json-viewer
-    v-else-if="$props.modelValue"
+    v-show="Readonly&&$props.modelValue"
     :value="$props.modelValue"
     v-bind="VueJsonViewerProps"
   />
 </template>
+
+<script>
+export default {
+  name: 'JsonEditorVue',
+}
+</script>
 
 <script setup>
 import { ref, reactive, computed, watch, inject, toRaw, useAttrs, nextTick, onMounted, onUnmounted } from 'vue-demi'
@@ -14,26 +20,24 @@ import jsonrepair from 'jsonrepair'
 import { getFinalProp, getGlobalAttrs } from 'kayran'
 //import Vue3JsonViewer from 'vue3-json-viewer'
 import globalConfig from './config.ts'
-import { cloneDeep } from 'lodash-es'
 import { elFormKey } from 'element-plus/lib/tokens'
 
 //const validator = createAjvValidator(schema, schemaRefs)
 
-const name = 'json-editor-vue'
 const $props = defineProps([
   'modelValue',
   'vueJsonViewerProps',
   'readonly'
 ])
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'change'])
 
-let elForm = inject(elFormKey)
+let elForm = inject(elFormKey, {})
 let jsonEditor = reactive({})
 let syncing = ref(false)
 const Readonly = computed(() => getFinalProp([
   [true, ''].includes($props.readonly) ? true : $props.readonly,
   globalConfig.readonly,
-  Boolean(elForm?.disabled)
+  Boolean(elForm.disabled)
 ], {
   type: 'boolean'
 }))
@@ -53,7 +57,7 @@ function syncValue (n) {
 }
 
 const VueJsonViewerProps = computed(() => getFinalProp([
-  $props.vueJsonViewerProps,
+  toRaw($props.vueJsonViewerProps),
   globalConfig.vueJsonViewerProps,
   {
     copyable: {
@@ -78,15 +82,21 @@ const SvelteJsoneditorProps = computed(() => {
       mode: 'code',
     }*/
   ], {
-    dynamicDefault: ({ mode }) => mode === 'code' ? {
+    mergeFunction: (accumulator, item) => n => {
+      item?.(n)
+      accumulator(n)
+    },
+    default: ({ mode }) => mode === 'code' ? {
       onBlur: () => {
+        // tree模式无法获取编辑状态下的值，包括onBlur时，所以失焦同步仅适用于code模式
         syncValue(jsonEditor.get())
       }
     } : {
       onChange: n => {
         syncValue(n)
       }
-    }
+    },
+    defaultIsDynamic: true,
   })
 })
 

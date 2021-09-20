@@ -1,6 +1,6 @@
 {
   "name": "json-editor-vue",
-  "version": "0.2.1",
+  "version": "0.3.0-alpha.0",
   "author": "cloydlau",
   "license": "ISC",
   "description": "Optionated json editor & json viewer powered by svelte-jsoneditor & vue-json-viewer",
@@ -36,7 +36,7 @@
     "ri": "npm run clean && pnpm i"
   },
   "dependencies": {
-    "clipboard": "^2.0.8",
+    "clipboard": "latest",
     "jsonrepair": "latest",
     "kayran": "latest",
     "lodash-es": "latest",

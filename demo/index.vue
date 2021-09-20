@@ -15,7 +15,7 @@
       </el-form-item>
     </el-form>
 
-    <h2>Value</h2>
+    <p>Value</p>
     <JsonEditorVue
       :modelValue="data.value"
       readonly
@@ -25,7 +25,7 @@
       编程式设值
     </el-button>
 
-    <h2>Props</h2>
+    <p>Props</p>
     <JsonEditorVue
       v-model="data.props"
     />
@@ -41,9 +41,9 @@ let data = reactive({
   props: {
     readonly: false,
     vueJsonViewerProps: {
-      //boxed: false,
+      boxed: true,
       copyable: {
-        timeout: 0
+        timeout: 1,
       }
     }
   }

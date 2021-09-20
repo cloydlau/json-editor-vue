@@ -1,15 +1,15 @@
 # json-editor-vue
 
-Optionated json editor & json viewer powered by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
-& [vue-json-viewer](https://github.com/chenfengjw163/vue-json-viewer)
+Fully configurable json editor & json viewer powered by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
+& [vue3-json-viewer](https://github.com/qiuquanwu/vue3-json-viewer)
 
 <br>
 
 ## Features
 
 - json编辑 + json预览
-- v-model双绑，失焦触发绑定值同步
-- 失焦时自动修复json
+- v-model双绑
+- 自动修复json字符串
 - 适配 `element-ui` 的el-form组件，支持el-form的全局disabled
 - 全局或局部引入，参数支持全局或局部配置
 
@@ -20,7 +20,7 @@ Optionated json editor & json viewer powered by [svelte-jsoneditor](https://gith
 ![NPM](https://nodei.co/npm/json-editor-vue.png)
 
 ```bash
-pnpm add json-editor-vue svelte-jsoneditor vue-json-viewer vue@2
+pnpm add json-editor-vue svelte-jsoneditor vue3-json-viewer
 ```
 
 ```ts
@@ -64,29 +64,19 @@ export default {
 
 | Attribute | Description | Type | Accepted Values | Default |
 | --- | --- | --- | --- | --- |
-| value / v-model | 数据对象 | any | | |
+| modelValue / v-model | 绑定值 | any | | |
 | readonly | 是否只读 | boolean | | false |
-| vueJsonViewerProps | vue-json-viewer props | object | [vue-json-viewer](https://github.com/chenfengjw163/vue-json-viewer) | *see below* |
-| ... | svelte-jsoneditor props | | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/) | *see below* |
-
-### Default props for vue-json-viewer
-
-```
-{
-  copyable: { copyText: '复制', copiedText: '已复制', timeout: 2000 },
-  boxed: true,
-  previewMode: true,
-}
-```
+| vueJsonViewerProps | props of [vue3-json-viewer](https://github.com/qiuquanwu/vue3-json-viewer) | object | | |
+| ... | props of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/) | | | |
 
 <br>
 
 ## Config rules
 
-- 双向绑定参数（`v-model` / `value` / `*.sync`）仅支持局部配置
+- 双向绑定参数（`v-model` / `modelValue`）仅支持局部配置
 - 其余参数均支持全局或局部配置
 
 权重：
 
 - 局部配置高于全局配置
-- 对于对象类型的参数 局部配置会与全局配置进行合并 同名属性会被局部配置覆盖
+- 对于对象类型的参数，局部配置会与全局配置进行合并，同名属性会被局部配置覆盖
