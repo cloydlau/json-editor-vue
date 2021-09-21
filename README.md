@@ -7,6 +7,7 @@ Fully configurable json editor & json viewer powered by [svelte-jsoneditor](http
 
 ## Features
 
+- 支持Vue3 & Vue2
 - json编辑 + json预览
 - v-model双绑
 - 自动修复json字符串
@@ -21,6 +22,12 @@ Fully configurable json editor & json viewer powered by [svelte-jsoneditor](http
 
 ```bash
 pnpm add json-editor-vue svelte-jsoneditor
+```
+
+For Vue2:
+
+```bash
+pnpm add json-editor-vue@0.2
 ```
 
 ```ts
