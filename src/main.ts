@@ -1,4 +1,4 @@
-import JsonEditorVue from './index.vue'
+import JsonEditorVue from './index'
 import { init } from './config'
 
 // @ts-ignore

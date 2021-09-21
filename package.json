@@ -1,6 +1,6 @@
 {
   "name": "json-editor-vue",
-  "version": "0.3.0-alpha.2",
+  "version": "0.3.0-beta.0",
   "author": "cloydlau",
   "license": "ISC",
   "description": "Optionated json editor & json viewer powered by svelte-jsoneditor & vue-json-viewer",
