@@ -44,8 +44,8 @@
     "vue3-json-viewer": "latest"
   },
   "peerDependencies": {
-    "@vue/composition-api": "latest",
-    "svelte-jsoneditor": "latest",
+    "@vue/composition-api": "*",
+    "svelte-jsoneditor": "*",
     "vue": "^2.0.0 || >=3.0.0"
   },
   "peerDependenciesMeta": {
