@@ -29,8 +29,7 @@ import jsonrepair from 'jsonrepair'
 import { getFinalProp, getGlobalAttrs } from 'kayran'
 import { JsonViewer } from 'vue3-json-viewer'
 import globalConfig from './config.ts'
-import { elFormKey } from 'element-plus/lib/tokens'
-
+//import { elFormKey } from 'element-plus/lib/tokens'
 //const validator = createAjvValidator(schema, schemaRefs)
 
 export default defineComponent({
@@ -41,14 +40,16 @@ export default defineComponent({
     'readonly'
   ],
   setup (props, { attrs, slots, emit }) {
-    /*const props = defineProps([
-    'modelValue',
-    'vueJsonViewerProps',
-    'readonly'
-  ])
-  const emit = defineEmits(['update:modelValue', 'change'])*/
+    /*
+    const props = defineProps([
+      'modelValue',
+      'vueJsonViewerProps',
+      'readonly'
+    ])
+    const emit = defineEmits(['update:modelValue', 'change'])
+    */
 
-    let elForm = inject(elFormKey, {})
+    let elForm = inject('elForm', {})
     let jsonEditor = reactive({})
     let syncing = ref(false)
     const Readonly = computed(() => getFinalProp([

@@ -16,7 +16,7 @@
   ],
   "private": false,
   "main": "dist/json-editor-vue.umd.js",
-  "module": "./dist/json-editor-vue.es.js",
+  "module": "dist/json-editor-vue.es.js",
   "exports": {
     ".": {
       "import": "./dist/json-editor-vue.es.js",
@@ -31,6 +31,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:rollup": "rollup -c",
     "serve": "vite preview",
     "clean": "rd /s /q .\\node_modules",
     "ri": "npm run clean && pnpm i"
@@ -60,12 +61,16 @@
     "@vitejs/plugin-vue": "latest",
     "@vue/compiler-sfc": "latest",
     "element-plus": "latest",
+    "rollup": "^2.57.0",
+    "rollup-plugin-dts": "^4.0.0",
     "rollup-plugin-peer-deps-external": "latest",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
     "sass": "latest",
     "svelte-jsoneditor": "latest",
     "typescript": "latest",
     "vite": "latest",
     "vite-plugin-windicss": "latest",
-    "vue": "^3.2.12"
+    "vue": "^3.2.13"
   }
 }

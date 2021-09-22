@@ -33,7 +33,6 @@ pnpm add json-editor-vue@0.2
 ```ts
 // 全局引入
 
-import 'json-editor-vue/dist/style.css'
 import JsonEditorVue from 'json-editor-vue'
 
 Vue.use(JsonEditorVue, {

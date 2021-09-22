@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import WindiCSS from 'vite-plugin-windicss'
+//import WindiCSS from 'vite-plugin-windicss'
 import { name } from './package.json'
 //import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 
@@ -11,7 +11,7 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    WindiCSS(),
+    //WindiCSS(),
     //peerDepsExternal(
   ],
   build: {
@@ -21,13 +21,17 @@ export default defineConfig({
     },
     rollupOptions: {
       external: [
-        'svelte-jsoneditor',
+        '@vue/composition-api',
+        'svelte-jsoneditor', // todo: 无效
+        'vue',
         'vue-demi',
       ],
       output: {
         // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
         globals: {
-          //vue: 'Vue',
+          '@vue/composition-api': 'VueCompositionAPI',
+          //'svelte-jsoneditor': 'JsonEditor',
+          vue: 'Vue',
           'vue-demi': 'VueDemi',
         }
       },
