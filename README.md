@@ -94,7 +94,7 @@ export default {
 
 | Attribute | Description | Type | Accepted Values | Default |
 | --- | --- | --- | --- | --- |
-| modelValue / v-model | 绑定值 | any | | |
+| v-model / modelValue | 绑定值 | any | | |
 | readonly | 是否只读 | boolean | | false |
 | readonlyOptions | props of [vue-json-viewer](https://github.com/chenfengjw163/vue-json-viewer) | object | | |
 | ... | props of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/) | | | |
