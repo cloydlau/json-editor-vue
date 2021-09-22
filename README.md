@@ -1,8 +1,11 @@
 # json-editor-vue
 
-Fully configurable json editor & json viewer powered
+JSON editor & viewer powered
 by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
-& [vue3-json-viewer](https://github.com/qiuquanwu/vue3-json-viewer)
+& [vue-json-viewer](https://github.com/chenfengjw163/vue-json-viewer)
+
+> svelte-jsoneditor是 [jsoneditor](https://github.com/josdejong/jsoneditor) 作者带来的全新JSON编辑器。
+> 作者开这个新坑的原因是老库已难以维护、架构需要大改、体验亟待提升。json-editor-vue是svelte-jsoneditor的Vue版本。
 
 <br>
 
@@ -10,9 +13,9 @@ by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
 
 - 同时支持Vue3 & Vue2
 - json编辑 + json预览
-- v-model双绑
-- 自动修复json字符串
-- 适配 `element-ui` 的el-form组件，支持el-form的全局disabled
+- 双向绑定输入值
+- 自动修复格式错误的json字符串
+- 适配 `element-plus` & `element-ui`（禁用状态默认跟随 `el-form`）
 - 全局或局部引入，参数支持全局或局部配置
 
 <br>
@@ -42,8 +45,8 @@ createApp(App)
 <!-- 局部引入 -->
 
 <template>
-  <JsonEditorVue 
-    :modelValue.sync="value" 
+  <JsonEditorVue
+    v-model="value"
     v-bind="{/* 局部配置 */}"
   />
 </template>
@@ -93,7 +96,7 @@ export default {
 | --- | --- | --- | --- | --- |
 | modelValue / v-model | 绑定值 | any | | |
 | readonly | 是否只读 | boolean | | false |
-| vueJsonViewerProps | props of [vue3-json-viewer](https://github.com/qiuquanwu/vue3-json-viewer) | object | | |
+| readonlyOptions | props of [vue-json-viewer](https://github.com/chenfengjw163/vue-json-viewer) | object | | |
 | ... | props of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/) | | | |
 
 <br>

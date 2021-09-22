@@ -1,12 +1,14 @@
 {
   "name": "json-editor-vue",
-  "version": "0.3.0-beta.0",
+  "version": "0.3.0",
   "author": "cloydlau",
   "license": "ISC",
   "description": "Optionated json editor & json viewer powered by svelte-jsoneditor & vue-json-viewer",
   "keywords": [
     "jsoneditor",
     "svelte-jsoneditor",
+    "vue-json-viewer",
+    "vue3-json-viewer",
     "json",
     "editor",
     "viewer",
@@ -31,7 +33,6 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:rollup": "rollup -c",
     "serve": "vite preview",
     "clean": "rd /s /q .\\node_modules",
     "ri": "npm run clean && pnpm i"
@@ -61,7 +62,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "latest",
     "@vue/compiler-sfc": "latest",
-    "element-plus": "latest",
+    "element-plus": "1.1.0-beta.12",
     "sass": "latest",
     "svelte-jsoneditor": "latest",
     "typescript": "latest",

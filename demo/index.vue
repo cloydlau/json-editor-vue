@@ -40,7 +40,7 @@ let data = reactive({
   value: 123,
   props: {
     readonly: false,
-    vueJsonViewerProps: {
+    readonlyOptions: {
       boxed: true,
       copyable: {
         timeout: 1,

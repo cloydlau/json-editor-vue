@@ -4,13 +4,12 @@
   <json-viewer
     v-show="Readonly&&props.modelValue"
     :value="props.modelValue"
-    v-bind="VueJsonViewerProps"
+    v-bind="ReadonlyOptions"
   />
 </template>
 */
 
 import {
-  isVue2,
   isVue3,
   defineComponent,
   ref,
@@ -39,20 +38,20 @@ export default defineComponent({
   name: 'JsonEditorVue',
   props: [
     'modelValue',
-    'vueJsonViewerProps',
+    'readonlyOptions',
     'readonly'
   ],
   setup (props, { attrs, slots, emit }) {
     /*
     const props = defineProps([
       'modelValue',
-      'vueJsonViewerProps',
+      'readonlyOptions',
       'readonly'
     ])
     const emit = defineEmits(['update:modelValue', 'change'])
     */
 
-    let elForm = inject('elForm', {})
+    let elForm = inject('elForm', { disabled: false })
     let jsonEditor = reactive({})
     let syncing = ref(false)
     const Readonly = computed(() => getFinalProp([
@@ -63,7 +62,7 @@ export default defineComponent({
       type: 'boolean'
     }))
 
-    function syncValue (n) {
+    function syncValue (n: any) {
       syncing.value = true
       let { text, json } = n
       let value = text ?? json
@@ -77,9 +76,9 @@ export default defineComponent({
       emit('update:modelValue', value)
     }
 
-    const VueJsonViewerProps = computed(() => getFinalProp([
-      toRaw(props.vueJsonViewerProps),
-      globalConfig.vueJsonViewerProps,
+    const ReadonlyOptions = computed(() => getFinalProp([
+      toRaw(props.readonlyOptions),
+      globalConfig.readonlyOptions,
       {
         copyable: {
           copyText: '复制',
@@ -182,47 +181,48 @@ export default defineComponent({
       JsonViewer: isVue3 ? JsonViewer : Vue2JsonViewer,
       props,
       jsonEditorVue,
-      VueJsonViewerProps,
+      ReadonlyOptions,
       Readonly,
     }
   },
   render (ctx: any) {
-    if (isVue2) {
-      ctx = this
-    }
-
-    const content = [
-      isVue3 ? withDirectives(h('div', {
-        ref: 'jsonEditorVue'
-      }), [
-        [vShow, !ctx.Readonly]
-      ]) : h('div', {
-        ref: 'jsonEditorVue',
-        directives: [
-          {
-            name: 'show',
-            value: !ctx.Readonly
-          },
-        ]
-      }),
-      isVue3 ? withDirectives(h(ctx.JsonViewer, {
-        value: ctx.props.modelValue,
-        ...ctx.VueJsonViewerProps,
-      }), [
-        [vShow, ctx.Readonly && ctx.props.modelValue],
-      ]) : h(ctx.JsonViewer, {
-        value: ctx.props.modelValue,
-        ...ctx.VueJsonViewerProps,
-        directives: [
-          {
-            name: 'show',
-            value: ctx.Readonly && ctx.props.modelValue
-          },
-        ]
-      },)
-    ]
+    // vue2中ctx为渲染函数h
     return isVue3 ?
-      content :
-      h('div', undefined, content)
+      [
+        withDirectives(h('div', {
+          ref: 'jsonEditorVue'
+        }), [
+          [vShow, !ctx.Readonly]
+        ]),
+        withDirectives(h(ctx.JsonViewer, {
+          ...ctx.ReadonlyOptions,
+          value: ctx.props.modelValue,
+        }), [
+          [vShow, ctx.Readonly && ctx.props.modelValue],
+        ]),
+      ] :
+      h('div', undefined, [
+        h('div', {
+          ref: 'jsonEditorVue',
+          directives: [
+            {
+              name: 'show',
+              value: !this.Readonly
+            },
+          ]
+        }),
+        h(this.JsonViewer, {
+          ...this.ReadonlyOptions,
+          props: {
+            value: this.props.modelValue,
+          },
+          directives: [
+            {
+              name: 'show',
+              value: this.Readonly && this.props.modelValue
+            },
+          ]
+        })
+      ])
   }
 })
