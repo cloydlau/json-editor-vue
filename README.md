@@ -12,7 +12,7 @@ by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
 ## Features
 
 - 同时支持Vue3 & Vue2
-- json编辑 + json预览
+- JSON编辑 + JSON预览
 - 双向绑定输入值
 - 自动修复格式错误的json字符串
 - 适配 `element-plus` & `element-ui`（禁用状态默认跟随 `el-form`）
