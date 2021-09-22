@@ -21,14 +21,14 @@ export default defineConfig({
     },
     rollupOptions: {
       external: [
-        'svelte-jsoneditor', // todo: 无效
+        'svelte-jsoneditor/dist/jsoneditor.js',
         'vue',
         'vue-demi',
       ],
       output: {
         // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
         globals: {
-          'svelte-jsoneditor': 'JSONEditor',
+          'svelte-jsoneditor/dist/jsoneditor.js': 'JSONEditor',
           'vue': 'Vue',
           'vue-demi': 'VueDemi',
         }
