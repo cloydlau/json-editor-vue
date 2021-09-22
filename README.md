@@ -1,6 +1,6 @@
 # json-editor-vue
 
-JSON editor & viewer powered
+JSON editor & viewer for Vue 2 and 3 powered
 by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
 & [vue-json-viewer](https://github.com/chenfengjw163/vue-json-viewer)
 
