@@ -21,7 +21,6 @@ export default defineConfig({
     },
     rollupOptions: {
       external: [
-        '@vue/composition-api',
         'svelte-jsoneditor', // todo: 无效
         'vue',
         'vue-demi',
@@ -29,9 +28,8 @@ export default defineConfig({
       output: {
         // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
         globals: {
-          '@vue/composition-api': 'VueCompositionAPI',
-          //'svelte-jsoneditor': 'JsonEditor',
-          vue: 'Vue',
+          'svelte-jsoneditor': 'JSONEditor',
+          'vue': 'Vue',
           'vue-demi': 'VueDemi',
         }
       },

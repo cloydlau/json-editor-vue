@@ -10,6 +10,8 @@
 */
 
 import {
+  isVue2,
+  isVue3,
   defineComponent,
   ref,
   reactive,
@@ -20,14 +22,15 @@ import {
   nextTick,
   onMounted,
   onUnmounted,
-  vShow,
-  withDirectives,
   h,
+  vShow, // 不支持Vue2
+  withDirectives, // 不支持Vue2
 } from 'vue-demi'
 import { JSONEditor } from 'svelte-jsoneditor/dist/jsoneditor.js'
 import jsonrepair from 'jsonrepair'
 import { getFinalProp, getGlobalAttrs } from 'kayran'
 import { JsonViewer } from 'vue3-json-viewer'
+import Vue2JsonViewer from 'vue-json-viewer'
 import globalConfig from './config.ts'
 //import { elFormKey } from 'element-plus/lib/tokens'
 //const validator = createAjvValidator(schema, schemaRefs)
@@ -93,12 +96,13 @@ export default defineComponent({
       return getFinalProp([
         { ...attrs },
         getGlobalAttrs(globalConfig, toRaw(props)),
-        /*{
-          navigationBar: false,
-          statusBar: false,
-          mainMenuBar: false,
-          mode: 'code',
-        }*/
+        {
+          //navigationBar: false,
+          //statusBar: false,
+          //mainMenuBar: false,
+          //mode: 'code',
+          readOnly: Boolean(elForm.disabled),
+        }
       ], {
         mergeFunction: (accumulator, item) => n => {
           item?.(n)
@@ -175,26 +179,50 @@ export default defineComponent({
     })
 
     return {
-      JsonViewer,
-      Readonly,
+      JsonViewer: isVue3 ? JsonViewer : Vue2JsonViewer,
       props,
-      VueJsonViewerProps,
       jsonEditorVue,
+      VueJsonViewerProps,
+      Readonly,
     }
   },
   render (ctx: any) {
-    return [
-      withDirectives(h('div', {
+    if (isVue2) {
+      ctx = this
+    }
+
+    const content = [
+      isVue3 ? withDirectives(h('div', {
         ref: 'jsonEditorVue'
       }), [
         [vShow, !ctx.Readonly]
-      ]),
-      withDirectives(h(ctx.JsonViewer, {
+      ]) : h('div', {
+        ref: 'jsonEditorVue',
+        directives: [
+          {
+            name: 'show',
+            value: !ctx.Readonly
+          },
+        ]
+      }),
+      isVue3 ? withDirectives(h(ctx.JsonViewer, {
         value: ctx.props.modelValue,
         ...ctx.VueJsonViewerProps,
       }), [
         [vShow, ctx.Readonly && ctx.props.modelValue],
-      ])
+      ]) : h(ctx.JsonViewer, {
+        value: ctx.props.modelValue,
+        ...ctx.VueJsonViewerProps,
+        directives: [
+          {
+            name: 'show',
+            value: ctx.Readonly && ctx.props.modelValue
+          },
+        ]
+      },)
     ]
+    return isVue3 ?
+      content :
+      h('div', undefined, content)
   }
 })

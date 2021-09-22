@@ -1,13 +1,14 @@
 # json-editor-vue
 
-Fully configurable json editor & json viewer powered by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
+Fully configurable json editor & json viewer powered
+by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
 & [vue3-json-viewer](https://github.com/qiuquanwu/vue3-json-viewer)
 
 <br>
 
 ## Features
 
-- 支持Vue3 & Vue2
+- 同时支持Vue3 & Vue2
 - json编辑 + json预览
 - v-model双绑
 - 自动修复json字符串
@@ -20,14 +21,42 @@ Fully configurable json editor & json viewer powered by [svelte-jsoneditor](http
 
 ![NPM](https://nodei.co/npm/json-editor-vue.png)
 
+### Vue3
+
 ```bash
 pnpm add json-editor-vue svelte-jsoneditor
 ```
 
-For Vue2:
+```ts
+// 全局引入
+
+import JsonEditorVue from 'json-editor-vue'
+
+createApp(App)
+.use(JsonEditorVue, {
+  // 全局配置
+})
+```
+
+```vue
+<!-- 局部引入 -->
+
+<template>
+  <JsonEditorVue 
+    :modelValue.sync="value" 
+    v-bind="{/* 局部配置 */}"
+  />
+</template>
+
+<script setup>
+import JsonEditorVue from 'json-editor-vue'
+</script>
+```
+
+### Vue2
 
 ```bash
-pnpm add json-editor-vue@0.2
+pnpm add json-editor-vue svelte-jsoneditor @vue/composition-api
 ```
 
 ```ts
@@ -44,22 +73,14 @@ Vue.use(JsonEditorVue, {
 <!-- 局部引入 -->
 
 <template>
-  <JsonEditorVue v-bind="props"/>
+  <JsonEditorVue v-bind="{/* 局部配置 */}"/>
 </template>
 
 <script>
-import 'json-editor-vue/dist/style.css'
 import JsonEditorVue from 'json-editor-vue'
 
 export default {
   components: { JsonEditorVue },
-  data () {
-    return {
-      props: {
-        // 局部配置
-      }
-    }
-  }
 }
 </script>
 ```

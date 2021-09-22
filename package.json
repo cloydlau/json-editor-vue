@@ -42,6 +42,7 @@
     "kayran": "latest",
     "lodash-es": "latest",
     "vue-demi": "latest",
+    "vue-json-viewer": "latest",
     "vue3-json-viewer": "latest"
   },
   "peerDependencies": {
@@ -61,11 +62,6 @@
     "@vitejs/plugin-vue": "latest",
     "@vue/compiler-sfc": "latest",
     "element-plus": "latest",
-    "rollup": "^2.57.0",
-    "rollup-plugin-dts": "^4.0.0",
-    "rollup-plugin-peer-deps-external": "latest",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.30.0",
     "sass": "latest",
     "svelte-jsoneditor": "latest",
     "typescript": "latest",
