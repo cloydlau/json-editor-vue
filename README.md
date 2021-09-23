@@ -14,7 +14,7 @@ by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
 - 同时支持Vue3 & Vue2
 - JSON编辑 + JSON预览
 - 双向绑定输入值
-- 自动修复格式错误的json字符串
+- 自动修复格式错误的JSON字符串
 - 适配 `element-plus` & `element-ui`（禁用状态默认跟随 `el-form`）
 - 全局或局部引入，参数支持全局或局部配置
 
@@ -76,7 +76,7 @@ Vue.use(JsonEditorVue, {
 <!-- 局部引入 -->
 
 <template>
-  <JsonEditorVue v-bind="{/* 局部配置 */}"/>
+  <JsonEditorVue :modelValue="value" v-bind="{/* 局部配置 */}"/>
 </template>
 
 <script>
