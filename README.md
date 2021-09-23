@@ -73,7 +73,7 @@ Vue.use(JsonEditorVue, {
 <!-- 局部引入 -->
 
 <template>
-  <JsonEditorVue :modelValue="value" v-bind="{/* 局部配置 */}"/>
+  <JsonEditorVue :modelValue.sync="value" v-bind="{/* 局部配置 */}"/>
 </template>
 
 <script>
