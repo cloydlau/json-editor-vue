@@ -45,10 +45,7 @@ createApp(App)
 <!-- 局部引入 -->
 
 <template>
-  <JsonEditorVue
-    v-model="value"
-    v-bind="{/* 局部配置 */}"
-  />
+  <JsonEditorVue v-model="value" v-bind="{/* 局部配置 */}"/>
 </template>
 
 <script setup>
