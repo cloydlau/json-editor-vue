@@ -1,6 +1,6 @@
 {
   "name": "json-editor-vue",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "author": "cloydlau",
   "license": "ISC",
   "description": "JSON editor & viewer for Vue 2 and 3 powered by svelte-jsoneditor & vue-json-viewer.",
@@ -18,10 +18,10 @@
   ],
   "private": false,
   "main": "dist/json-editor-vue.umd.js",
-  "module": "dist/json-editor-vue.es.js",
+  "module": "dist/json-editor-vue.umd.js",
   "exports": {
     ".": {
-      "import": "./dist/json-editor-vue.es.js",
+      "import": "./dist/json-editor-vue.umd.js",
       "require": "./dist/json-editor-vue.umd.js"
     },
     "./dist/style.css": "./dist/style.css"
