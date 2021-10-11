@@ -12,7 +12,7 @@ export default defineConfig({
   plugins: [
     vue(),
     //WindiCSS(),
-    //peerDepsExternal(
+    //peerDepsExternal()
   ],
   build: {
     lib: {
