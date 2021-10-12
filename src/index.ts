@@ -52,7 +52,7 @@ export default defineComponent({
     */
 
     let elForm = inject('elForm', { disabled: false })
-    let jsonEditor = reactive({})
+    let jsonEditor = ref(null)
     let syncing = ref(false)
     const Readonly = computed(() => getFinalProp([
       [true, ''].includes(props.readonly) ? true : props.readonly,
@@ -110,7 +110,7 @@ export default defineComponent({
         default: ({ mode }) => mode === 'code' ? {
           onBlur: () => {
             // tree模式无法获取编辑状态下的值，包括onBlur时，所以失焦同步仅适用于code模式
-            syncValue(jsonEditor.get())
+            syncValue(jsonEditor.value?.get())
           }
         } : {
           onChange: n => {
@@ -125,7 +125,7 @@ export default defineComponent({
 
     function init () {
       if (!Readonly.value) {
-        jsonEditor = new JSONEditor({
+        jsonEditor.value = new JSONEditor({
           target: jsonEditorVue.value,
           props: {
             ...SvelteJsoneditorProps.value,
@@ -151,20 +151,20 @@ export default defineComponent({
         } else {
           text = ''
         }
-        jsonEditor?.update({ text, json })
+        jsonEditor.value?.update({ text, json })
       }
     })
 
     watch(SvelteJsoneditorProps, n => {
-      /*jsonEditor.destroy()
-      jsonEditor = null
+      /*jsonEditor.value?.destroy()
+      jsonEditor.value = null
       init()*/
-      jsonEditor.updateProps(n)
+      jsonEditor.value?.updateProps(n)
     }, {
       deep: true,
     })
     watch(Readonly, n => {
-      if (!n && !jsonEditor) {
+      if (!n && !jsonEditor.value) {
         nextTick(init)
       }
     })
@@ -174,7 +174,7 @@ export default defineComponent({
     })
 
     onUnmounted(() => {
-      jsonEditor.destroy?.()
+      jsonEditor.value?.destroy?.()
     })
 
     return {
