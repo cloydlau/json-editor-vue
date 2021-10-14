@@ -16,7 +16,7 @@ by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
 - Support both `Vue2` & `Vue3`
 - Support `v-model`
 - Repair malformed JSON strings automatically
-- [element-plus](https://github.com/element-plus/element-plus) & [element-ui](https://github.com/ElemeFE/element) adaptable (`readonly` status goes with `el-form` by default)
+- [element-plus](https://github.com/element-plus/element-plus) & [element-ui](https://github.com/ElemeFE/element) adaptable ( `readonly` status goes with `el-form` by default )
 - Import locally or globally, config locally or globally
 
 <br>
@@ -101,7 +101,7 @@ export default {
 
 ## Config rules
 
-- Props of two-way data binding (`v-model` / `modelValue`) only support local config.
+- Props of two-way data binding ( `v-model` / `modelValue` ) only support local config.
 - All other props support both local and global config.
 
 Priority:
