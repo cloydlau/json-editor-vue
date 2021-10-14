@@ -54,6 +54,8 @@ import JsonEditorVue from 'json-editor-vue'
 </script>
 ```
 
+<br>
+
 ### Vue2
 
 ```bash
