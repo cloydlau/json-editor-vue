@@ -4,19 +4,20 @@ JSON editor & viewer for Vue 2 and 3 powered
 by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
 & [vue-json-viewer](https://github.com/chenfengjw163/vue-json-viewer)
 
-> svelte-jsoneditor是 [jsoneditor](https://github.com/josdejong/jsoneditor) 作者带来的全新JSON编辑器。
-> 作者开这个新坑的原因是老库已难以维护、架构需要大改、体验亟待提升。json-editor-vue是svelte-jsoneditor的Vue版本。
+> svelte-jsoneditor is a brand new JSON editor created by the same author of [jsoneditor](https://github.com/josdejong/jsoneditor)
+> which ['has become hard to maintain, and the architecture needed a big overhaul'](https://github.com/josdejong/jsoneditor/issues/1223).
+> json-editor-vue is the Vue version for svelte-jsoneditor.
 
 <br>
 
 ## Features
 
-- 同时支持Vue3 & Vue2
-- JSON编辑 + JSON预览
-- 双向绑定输入值
-- 自动修复格式错误的JSON字符串
-- 适配 `element-plus` & `element-ui`（禁用状态默认跟随 `el-form`）
-- 全局或局部引入，参数支持全局或局部配置
+- JSON editor + JSON viewer
+- Support both `Vue2` & `Vue3`
+- Support `v-model`
+- Repair malformed JSON strings automatically
+- [element-plus](https://github.com/element-plus/element-plus) & [element-ui](https://github.com/ElemeFE/element) adaptable (`readonly` status goes with `el-form` by default)
+- Import locally or globally, config locally or globally
 
 <br>
 
@@ -27,25 +28,25 @@ by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
 ### Vue3
 
 ```bash
-pnpm add json-editor-vue svelte-jsoneditor
+npm add json-editor-vue svelte-jsoneditor
 ```
 
 ```ts
-// 全局引入
+// import globally
 
 import JsonEditorVue from 'json-editor-vue'
 
 createApp(App)
 .use(JsonEditorVue, {
-  // 全局配置
+  // global config
 })
 ```
 
 ```vue
-<!-- 局部引入 -->
+<!-- import locally -->
 
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* 局部配置 */}"/>
+  <JsonEditorVue v-model="value" v-bind="{/* local config */}"/>
 </template>
 
 <script setup>
@@ -56,24 +57,24 @@ import JsonEditorVue from 'json-editor-vue'
 ### Vue2
 
 ```bash
-pnpm add json-editor-vue svelte-jsoneditor @vue/composition-api
+npm add json-editor-vue svelte-jsoneditor @vue/composition-api
 ```
 
 ```ts
-// 全局引入
+// import globally
 
 import JsonEditorVue from 'json-editor-vue'
 
 Vue.use(JsonEditorVue, {
-  // 全局配置
+  // global config
 })
 ```
 
 ```vue
-<!-- 局部引入 -->
+<!-- import locally -->
 
 <template>
-  <JsonEditorVue :modelValue.sync="value" v-bind="{/* 局部配置 */}"/>
+  <JsonEditorVue :modelValue.sync="value" v-bind="{/* local config */}"/>
 </template>
 
 <script>
@@ -91,8 +92,8 @@ export default {
 
 | Attribute | Description | Type | Accepted Values | Default |
 | --- | --- | --- | --- | --- |
-| v-model / modelValue | 绑定值 | any | | |
-| readonly | 是否只读 | boolean | | false |
+| v-model / modelValue | binding value | any | | |
+| readonly | whether JsonEditorVue is readonly | boolean | | false |
 | readonlyOptions | props of [vue-json-viewer](https://github.com/chenfengjw163/vue-json-viewer) | object | | |
 | ... | props of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/) | | | |
 
@@ -100,10 +101,10 @@ export default {
 
 ## Config rules
 
-- 双向绑定参数（`v-model` / `modelValue`）仅支持局部配置
-- 其余参数均支持全局或局部配置
+- Props of two-way data binding (`v-model` / `modelValue`) only support local config.
+- All other props support both local and global config.
 
-权重：
+Priority:
 
-- 局部配置高于全局配置
-- 对于对象类型的参数，局部配置会与全局配置进行合并，同名属性会被局部配置覆盖
+- Local config is higher than global config.
+- For object type, global config will be merged into local config.
