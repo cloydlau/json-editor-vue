@@ -80,11 +80,11 @@ export default defineComponent({
       toRaw(props.readonlyOptions),
       globalConfig.readonlyOptions,
       {
-        copyable: {
+        /*copyable: {
           copyText: '复制',
           copiedText: '已复制',
           timeout: 2000
-        },
+        },*/
         boxed: true,
         previewMode: true,
       }
