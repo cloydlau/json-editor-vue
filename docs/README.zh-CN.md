@@ -4,7 +4,7 @@ JSON 编辑 & 预览，支持Vue2和Vue3，基于 [svelte-jsoneditor](https://gi
 & [vue-json-viewer](https://github.com/chenfengjw163/vue-json-viewer)
 
 > svelte-jsoneditor是 [jsoneditor](https://github.com/josdejong/jsoneditor) 作者带来的全新JSON编辑器。
-> 作者开这个新坑的原因是[老库已难以维护、架构需要大改、体验亟待提升]((https://github.com/josdejong/jsoneditor/issues/1223)) 。json-editor-vue是svelte-jsoneditor的Vue版本。
+> 作者开这个新坑的原因是[老库已难以维护、架构需要大改、体验亟待提升](https://github.com/josdejong/jsoneditor/issues/1223) 。json-editor-vue是svelte-jsoneditor的Vue版本。
 
 <br>
 
