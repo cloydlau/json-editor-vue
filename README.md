@@ -94,7 +94,7 @@ export default {
 
 ## Props
 
-| Attribute | Description | Type | Accepted Values | Default |
+| Name | Description | Type | Accepted Values | Default |
 | --- | --- | --- | --- | --- |
 | v-model / modelValue | binding value | any | | |
 | readonly | whether JsonEditorVue is readonly | boolean | | false |
