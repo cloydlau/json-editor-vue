@@ -1,3 +1,5 @@
+English | [简体中文](./docs/README.zh-CN.md)
+
 # json-editor-vue
 
 JSON editor & viewer for Vue 2 and 3 powered
@@ -12,7 +14,7 @@ by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
 
 ## Features
 
-- JSON editor + JSON viewer
+- JSON editing + JSON viewing
 - Support both `Vue2` & `Vue3`
 - Support `v-model`
 - Repair malformed JSON strings automatically
