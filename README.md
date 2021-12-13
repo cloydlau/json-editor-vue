@@ -15,7 +15,7 @@ by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
 ## Features
 
 - JSON editing + JSON viewing
-- Support both `Vue2` & `Vue3`
+- Support both `Vue 2` & `Vue 3`
 - Support `v-model`
 - Repair malformed JSON strings automatically
 - [element-plus](https://github.com/element-plus/element-plus) & [element-ui](https://github.com/ElemeFE/element) adaptable ( `readonly` status goes with `el-form` by default )
@@ -96,8 +96,8 @@ export default {
 
 | Name | Description | Type | Accepted Values | Default |
 | --- | --- | --- | --- | --- |
-| v-model / modelValue | binding value | any | | |
-| readonly | whether JsonEditorVue is readonly | boolean | | false |
+| v-model / modelValue | binding value | `any` | | |
+| readonly | whether JsonEditorVue is readonly | boolean | | `false` |
 | readonlyOptions | props of [vue-json-viewer](https://github.com/chenfengjw163/vue-json-viewer) | object | | |
 | ... | props of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/) | | | |
 
