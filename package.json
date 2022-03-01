@@ -34,7 +34,9 @@
     "build": "vite build",
     "serve": "vite preview",
     "clean": "rd /s /q .\\node_modules",
-    "ri": "npm run clean && pnpm i"
+    "ri": "npm run clean && pnpm i",
+    "u": "node scripts/upgrade.js",
+    "release": "node scripts/release.js"
   },
   "dependencies": {
     "clipboard": "latest",
@@ -60,11 +62,16 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "latest",
     "@vue/compiler-sfc": "latest",
+    "chalk": "4.1.2",
     "element-plus": "latest",
+    "enquirer": "latest",
+    "execa": "4.1.0",
+    "minimist": "latest",
     "sass": "latest",
+    "semver": "latest",
     "svelte-jsoneditor": "latest",
     "typescript": "latest",
     "vite": "latest",
-    "vue": "^3.2.22"
+    "vue": "^3.2.31"
   }
 }
