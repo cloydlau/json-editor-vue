@@ -22,7 +22,7 @@ const preId =
 const isDryRun = args.dry
 //const skipTests = args.skipTests
 const skipBuild = args.skipBuild
-const registryManager = 'yrm'
+const registryManager = 'nrm'
 const registry = 'tb'
 
 const versionIncrements = [
