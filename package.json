@@ -3,12 +3,10 @@
   "version": "0.3.5",
   "author": "cloydlau",
   "license": "ISC",
-  "description": "JSON editor & viewer for Vue 2 and 3 powered by svelte-jsoneditor & vue-json-viewer.",
+  "description": "JSON editor for Vue 2 and 3 powered by svelte-jsoneditor",
   "keywords": [
     "jsoneditor",
     "svelte-jsoneditor",
-    "vue-json-viewer",
-    "vue3-json-viewer",
     "json",
     "editor",
     "viewer",
@@ -20,7 +18,7 @@
   "main": "dist/json-editor-vue.umd.js",
   "exports": {
     ".": {
-      "import": "./dist/json-editor-vue.umd.js",
+      "import": "./dist/json-editor-vue.es.js",
       "require": "./dist/json-editor-vue.umd.js"
     },
     "./dist/style.css": "./dist/style.css"
@@ -30,48 +28,44 @@
     "url": "https://github.com/cloydlau/json-editor-vue"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vue-demi-switch 3 && vite",
+    "dev2": "vue-demi-switch 2 && vite",
     "build": "vite build",
     "serve": "vite preview",
     "clean": "rd /s /q .\\node_modules",
     "ri": "npm run clean && pnpm i",
     "u": "node scripts/upgrade.js",
-    "release": "node scripts/release.js"
+    "r": "node scripts/release.js",
+    "rs": "node scripts/release.js --straightforward"
   },
   "dependencies": {
     "clipboard": "latest",
     "jsonrepair": "latest",
-    "kayran": "latest",
+    "lodash-es": "latest",
     "vue-demi": "latest",
-    "vue-json-viewer": "latest",
-    "vue3-json-viewer": "latest"
+    "vue-global-config": "latest"
   },
   "peerDependencies": {
     "@vue/composition-api": "1",
-    "svelte-jsoneditor": "0",
     "vue": "^2.0.0 || >=3.0.0"
   },
   "peerDependenciesMeta": {
     "@vue/composition-api": {
-      "optional": true
-    },
-    "svelte-jsoneditor": {
       "optional": true
     }
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "latest",
     "@vue/compiler-sfc": "latest",
+    "@vue/composition-api": "latest",
     "chalk": "4.1.2",
-    "element-plus": "latest",
     "enquirer": "latest",
     "execa": "4.1.0",
     "minimist": "latest",
-    "sass": "latest",
     "semver": "latest",
     "svelte-jsoneditor": "latest",
     "typescript": "latest",
     "vite": "latest",
-    "vue": "^3.2.31"
+    "vue": "latest"
   }
 }

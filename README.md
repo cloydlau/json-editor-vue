@@ -2,24 +2,28 @@ English | [简体中文](./docs/README.zh-CN.md)
 
 # json-editor-vue
 
-JSON editor & viewer for Vue 2 and 3 powered
+JSON editor for Vue 2 and 3 powered
 by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
-& [vue-json-viewer](https://github.com/chenfengjw163/vue-json-viewer)
 
-> svelte-jsoneditor is a brand new JSON editor created by the same author of [jsoneditor](https://github.com/josdejong/jsoneditor)
-> which ['has become hard to maintain, and the architecture needed a big overhaul'](https://github.com/josdejong/jsoneditor/issues/1223).
+> svelte-jsoneditor is a brand new JSON editor created by the same author
+> of [jsoneditor](https://github.com/josdejong/jsoneditor)
+> which
+> ['has become hard to maintain, and the architecture needed a big overhaul'](https://github.com/josdejong/jsoneditor/issues/1223)
+> .
 > json-editor-vue is the Vue version for svelte-jsoneditor.
 
 <br>
 
 ## Features
 
-- JSON editing + JSON viewing
-- Support both `Vue 2` & `Vue 3`
+- JSON editing
+- Support both Vue 2 & Vue 3
 - Support `v-model`
 - Repair malformed JSON strings automatically
-- [element-plus](https://github.com/element-plus/element-plus) & [element-ui](https://github.com/ElemeFE/element) adaptable ( `readonly` status goes with `el-form` by default )
-- Import locally or globally, config locally or globally
+- [element-plus](https://github.com/element-plus/element-plus) & [element-ui](https://github.com/ElemeFE/element)
+  adaptable ( `readOnly` status goes with `el-form` by default )
+- Import locally or globally, config locally or globally (Powered
+  by [vue-global-config](https://github.com/cloydlau/vue-global-config.git))
 
 <br>
 
@@ -27,10 +31,10 @@ by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
 
 ![NPM](https://nodei.co/npm/json-editor-vue.png)
 
-### Vue3
+### Vue 3
 
 ```bash
-npm add json-editor-vue svelte-jsoneditor
+npm add json-editor-vue
 ```
 
 ```ts
@@ -38,8 +42,7 @@ npm add json-editor-vue svelte-jsoneditor
 
 import JsonEditorVue from 'json-editor-vue'
 
-createApp(App)
-.use(JsonEditorVue, {
+app.use(JsonEditorVue, {
   // global config
 })
 ```
@@ -48,7 +51,7 @@ createApp(App)
 <!-- import locally -->
 
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* local config */}"/>
+  <json-editor-vue v-model="value" v-bind="{/* local config */}"/>
 </template>
 
 <script setup>
@@ -58,10 +61,10 @@ import JsonEditorVue from 'json-editor-vue'
 
 <br>
 
-### Vue2
+### Vue 2
 
 ```bash
-npm add json-editor-vue svelte-jsoneditor @vue/composition-api
+npm add json-editor-vue @vue/composition-api
 ```
 
 ```ts
@@ -78,7 +81,7 @@ Vue.use(JsonEditorVue, {
 <!-- import locally -->
 
 <template>
-  <JsonEditorVue :modelValue.sync="value" v-bind="{/* local config */}"/>
+  <json-editor-vue v-model="value" v-bind="{/* local config */}"/>
 </template>
 
 <script>
@@ -94,18 +97,16 @@ export default {
 
 ## Props
 
-| Name | Description | Type | Accepted Values | Default |
-| --- | --- | --- | --- | --- |
-| v-model / modelValue | binding value | `any` | | |
-| readonly | whether JsonEditorVue is readonly | boolean | | `false` |
-| readonlyOptions | props of [vue-json-viewer](https://github.com/chenfengjw163/vue-json-viewer) | object | | |
-| ... | props of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/) | | | |
+| Name            | Description                                                                     | Type |
+|-----------------|---------------------------------------------------------------------------------|-----|
+| v-model / value | binding value                                                                   | any |
+| ...             | options of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/) |     |
 
 <br>
 
 ## Config rules
 
-- Props of two-way data binding ( `v-model` / `modelValue` ) only support local config.
+- Props of two-way data binding ( `v-model` / `modelValue` / `value` ) only support local config.
 - All other props support both local and global config.
 
 Priority:

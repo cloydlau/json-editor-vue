@@ -3,7 +3,6 @@
  * - pnpm add chalk@^4.1.2 enquirer execa@^4.1.0 minimist semver -D: 需要安装的依赖
  * - "release": "node scripts/release.js": package.json - scripts
  * - pnpm release: 打包 + 发布 + Push + Tag
- * - pnpm release -- --skipBuild: 跳过打包
  */
 
 const args = require('minimist')(process.argv.slice(2))
@@ -21,9 +20,7 @@ const preId =
   (semver.prerelease(currentVersion) && semver.prerelease(currentVersion)[0])
 const isDryRun = args.dry
 //const skipTests = args.skipTests
-const skipBuild = args.skipBuild
-const registryManager = 'yrm'
-const registry = 'tb'
+const straightforward = args.straightforward
 
 const versionIncrements = [
   'patch',
@@ -44,64 +41,68 @@ const step = msg => console.log(chalk.cyan(msg))
 async function main () {
   let targetVersion = args._[0]
 
-  if (!targetVersion) {
-    // no explicit version, offer suggestions
-    const { release } = await prompt({
-      type: 'select',
-      name: 'release',
-      message: 'Select release type',
-      choices: versionIncrements.map(i => `${i} (${inc(i)})`).concat(['custom'])
+  if (straightforward) {
+    targetVersion = currentVersion
+  } else {
+    if (!targetVersion) {
+      // no explicit version, offer suggestions
+      const { release } = await prompt({
+        type: 'select',
+        name: 'release',
+        message: 'Select release type',
+        choices: versionIncrements.map(i => `${i} (${inc(i)})`).concat(['custom'])
+      })
+
+      if (release === 'custom') {
+        targetVersion = (
+          await prompt({
+            type: 'input',
+            name: 'version',
+            message: 'Input custom version',
+            initial: currentVersion
+          })
+        ).version
+      } else {
+        targetVersion = release.match(/\((.*)\)/)[1]
+      }
+    }
+
+    if (!semver.valid(targetVersion)) {
+      throw new Error(`invalid target version: ${targetVersion}`)
+    }
+
+    const { yes } = await prompt({
+      type: 'confirm',
+      name: 'yes',
+      message: `Releasing v${targetVersion}. Confirm?`
     })
 
-    if (release === 'custom') {
-      targetVersion = (
-        await prompt({
-          type: 'input',
-          name: 'version',
-          message: 'Input custom version',
-          initial: currentVersion
-        })
-      ).version
-    } else {
-      targetVersion = release.match(/\((.*)\)/)[1]
+    if (!yes) {
+      return
     }
-  }
 
-  if (!semver.valid(targetVersion)) {
-    throw new Error(`invalid target version: ${targetVersion}`)
-  }
+    // run tests before release
+    /*step('\nRunning tests...')
+    if (!skipTests && !isDryRun) {
+      await run(bin('jest'), ['--clearCache'])
+      await run('pnpm', ['test', '--', '--bail'])
+    } else {
+      console.log(`(skipped)`)
+    }*/
 
-  const { yes } = await prompt({
-    type: 'confirm',
-    name: 'yes',
-    message: `Releasing v${targetVersion}. Confirm?`
-  })
+    step('\nUpdating version...')
+    updateVersions(targetVersion)
 
-  if (!yes) {
-    return
-  }
-
-  // run tests before release
-  /*step('\nRunning tests...')
-  if (!skipTests && !isDryRun) {
-    await run(bin('jest'), ['--clearCache'])
-    await run('pnpm', ['test', '--', '--bail'])
-  } else {
-    console.log(`(skipped)`)
-  }*/
-
-  step('\nUpdating version...')
-  updateVersions(targetVersion)
-
-  // build all packages with types
-  step('\nBuilding...')
-  if (!skipBuild && !isDryRun) {
-    await run('pnpm', ['run', 'build'])
-    // test generated dts files
-    //step('\nVerifying type declarations...')
-    //await run('pnpm', ['run', 'test-dts-only'])
-  } else {
-    console.log(`(skipped)`)
+    // build all packages with types
+    step('\nBuilding...')
+    if (!isDryRun) {
+      await run('pnpm', ['run', 'build'])
+      // test generated dts files
+      //step('\nVerifying type declarations...')
+      //await run('pnpm', ['run', 'test-dts-only'])
+    } else {
+      console.log(`(skipped)`)
+    }
   }
 
   // generate changelog
@@ -112,6 +113,10 @@ async function main () {
   //step('\nUpdating lockfile...')
   //await run(`pnpm`, ['install', '--prefer-offline'])
 
+  // publish packages
+  step('\nPublishing...')
+  await publishPackage(pkg, targetVersion, runIfNotDry)
+
   const { stdout } = await run('git', ['diff'], { stdio: 'pipe' })
   if (stdout) {
     step('\nCommitting changes...')
@@ -120,10 +125,6 @@ async function main () {
   } else {
     console.log('No changes to commit.')
   }
-
-  // publish packages
-  step('\nPublishing...')
-  await publishPackage(pkg, targetVersion, runIfNotDry)
 
   // push to GitHub
   step('\nPushing to GitHub...')
@@ -138,12 +139,12 @@ async function main () {
   console.log()
 }
 
-function updateVersions(version) {
+function updateVersions (version) {
   // update root package.json
   updatePackage(path.resolve(__dirname, '..'), version)
 }
 
-function updatePackage(pkgRoot, version) {
+function updatePackage (pkgRoot, version) {
   const pkgPath = path.resolve(pkgRoot, 'package.json')
   const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
   pkg.version = version
@@ -154,7 +155,7 @@ async function publishPackage (pkgName, version, runIfNotDry) {
   const releaseTag = semver.prerelease(version) && semver.prerelease(version)[0] || null
 
   step(`Publishing ${pkgName}...`)
-  await runIfNotDry(registryManager, ['use', 'npm'])
+  await runIfNotDry('npm', ['config', 'delete', 'registry'])
   try {
     /*await runIfNotDry(
       // note: use of yarn is intentional here as we rely on its publishing
@@ -179,14 +180,17 @@ async function publishPackage (pkgName, version, runIfNotDry) {
     if (e.stderr.match(/previously published/)) {
       console.log(chalk.red(`Skipping already published: ${pkgName}`))
     } else {
-      await runIfNotDry('git', ['reset', '--soft', 'HEAD~1'])
       throw e
     }
   }
-  await runIfNotDry(registryManager, ['use', registry])
+  await runIfNotDry('pnpm', ['config', 'set', 'registry', 'https://registry.npmmirror.com/'])
+
+  runIfNotDry('cnpm', ['sync', pkgName])
+  runIfNotDry('explorer', [`https://npmmirror.com/sync/${pkgName}`])
 }
 
-main().catch(err => {
-  updateVersions(currentVersion)
+main().catch(async err => {
   console.error(err)
+  //await runIfNotDry('git', ['reset', '--soft', 'HEAD~1'])
+  //updateVersions(currentVersion)
 })

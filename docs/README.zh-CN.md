@@ -1,21 +1,22 @@
 # json-editor-vue
 
-JSON 编辑 & 预览，支持 Vue 2 和 Vue 3，基于 [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
-& [vue-json-viewer](https://github.com/chenfengjw163/vue-json-viewer)
+JSON 编辑，支持 Vue 2 和 Vue 3，基于 [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
 
 > svelte-jsoneditor 是 [jsoneditor](https://github.com/josdejong/jsoneditor) 作者带来的全新 JSON 编辑器。
-> 作者开这个新坑的原因是[老库已难以维护、架构需要大改、体验亟待提升](https://github.com/josdejong/jsoneditor/issues/1223) 。json-editor-vue 是 svelte-jsoneditor 的 Vue 版本。
+> 作者开这个新坑的原因是[老库已难以维护、架构需要大改、体验亟待提升](https://github.com/josdejong/jsoneditor/issues/1223) 。json-editor-vue 是
+> svelte-jsoneditor 的 Vue 版本。
 
 <br>
 
 ## 特性
 
-- JSON 编辑 + JSON 预览
-- 同时支持 `Vue 2` & `Vue 3`
+- JSON 编辑
+- Vue 2 & Vue 3 通用
 - 支持 `v-model`
 - 自动修复格式错误的 JSON 字符串
-- 适配 [element-plus](https://github.com/element-plus/element-plus) & [element-ui](https://github.com/ElemeFE/element) （只读状态默认跟随 `el-form`）
-- 全局或局部引入，参数支持全局或局部配置
+- 适配 [element-plus](https://github.com/element-plus/element-plus) & [element-ui](https://github.com/ElemeFE/element)
+  （只读状态默认跟随 `el-form`）
+- 全局或局部引入，参数支持全局或局部配置（[vue-global-config](https://github.com/cloydlau/vue-global-config.git) 提供技术支持）
 
 <br>
 
@@ -26,7 +27,7 @@ JSON 编辑 & 预览，支持 Vue 2 和 Vue 3，基于 [svelte-jsoneditor](https
 ### Vue3
 
 ```bash
-npm add json-editor-vue svelte-jsoneditor
+npm add json-editor-vue
 ```
 
 ```ts
@@ -34,8 +35,7 @@ npm add json-editor-vue svelte-jsoneditor
 
 import JsonEditorVue from 'json-editor-vue'
 
-createApp(App)
-.use(JsonEditorVue, {
+app.use(JsonEditorVue, {
   // 全局配置
 })
 ```
@@ -44,7 +44,7 @@ createApp(App)
 <!-- 局部引入 -->
 
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* 局部配置 */}"/>
+  <json-editor-vue v-model="value" v-bind="{/* 局部配置 */}"/>
 </template>
 
 <script setup>
@@ -55,7 +55,7 @@ import JsonEditorVue from 'json-editor-vue'
 ### Vue2
 
 ```bash
-npm add json-editor-vue svelte-jsoneditor @vue/composition-api
+npm add json-editor-vue @vue/composition-api
 ```
 
 ```ts
@@ -72,7 +72,7 @@ Vue.use(JsonEditorVue, {
 <!-- 局部引入 -->
 
 <template>
-  <JsonEditorVue :modelValue.sync="value" v-bind="{/* 局部配置 */}"/>
+  <json-editor-vue v-model="value" v-bind="{/* 局部配置 */}"/>
 </template>
 
 <script>
@@ -88,18 +88,16 @@ export default {
 
 ## 参数
 
-| 参数名 | 说明 | 类型 | 可接受值 | 默认值 |
-| --- | --- | --- | --- | --- |
-| v-model / modelValue | 绑定值 | `any` | | |
-| readonly | 是否只读 | boolean | | `false` |
-| readonlyOptions | [vue-json-viewer](https://github.com/chenfengjw163/vue-json-viewer) 的参数 | object | | |
-| ... | props of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/) 的参数 | | | |
+| 参数名 | 说明 | 类型  |
+| --- | --- |-----|
+| v-model / value | 绑定值 | any |
+| ... | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/) 参数 |
 
 <br>
 
 ## 配置规则
 
-- 双向绑定参数（`v-model` / `modelValue`）仅支持局部配置
+- 双向绑定参数（`v-model` / `modelValue` / `value`）仅支持局部配置
 - 其余参数均支持全局或局部配置
 
 权重：
