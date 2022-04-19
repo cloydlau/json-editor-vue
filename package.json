@@ -1,6 +1,6 @@
 {
   "name": "json-editor-vue",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "author": "cloydlau",
   "license": "ISC",
   "description": "JSON editor for Vue 2 and 3 powered by svelte-jsoneditor",
@@ -32,8 +32,8 @@
     "dev2": "vue-demi-switch 2 && vite",
     "build": "vite build",
     "serve": "vite preview",
-    "clean": "rd /s /q .\\node_modules",
-    "ri": "npm run clean && pnpm i",
+    "c": "rd /s /q .\\node_modules",
+    "ri": "npm run c && pnpm i",
     "u": "node scripts/upgrade.js",
     "r": "node scripts/release.js",
     "rs": "node scripts/release.js --straightforward"
