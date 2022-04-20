@@ -20,8 +20,6 @@ by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
 - Support both Vue 2 & Vue 3
 - Support `v-model`
 - Repair malformed JSON strings automatically
-- [element-plus](https://github.com/element-plus/element-plus) & [element-ui](https://github.com/ElemeFE/element)
-  adaptable ( `readOnly` status goes with `el-form` by default )
 - Import locally or globally, config locally or globally (Powered
   by [vue-global-config](https://github.com/cloydlau/vue-global-config.git))
 

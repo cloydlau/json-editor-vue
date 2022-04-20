@@ -17,6 +17,7 @@ import jsonrepair from 'jsonrepair'
 import { conclude } from 'vue-global-config'
 import { globalAttrs } from './index'
 import { throttle } from 'lodash-es'
+//import { formContextKey } from 'element-plus'
 
 export default defineComponent({
   name: 'json-editor-vue',
@@ -24,9 +25,9 @@ export default defineComponent({
   setup (props, { attrs, emit }) {
     const currentInstance = getCurrentInstance()
 
-    function syncValue (n: any) {
+    const syncValue = throttle(() => {
       syncing.value = true
-      let { text, json } = n
+      let { text, json } = jsonEditor.value?.get()
       let value = text ?? json
       if (typeof value === 'string' && value) {
         try {
@@ -36,9 +37,12 @@ export default defineComponent({
         }
       }
       emit(isVue3 ? 'update:modelValue' : 'input', value)
-    }
+    }, 500, {
+      leading: false,
+      trailing: true
+    })
 
-    const elForm = inject('elForm', { disabled: false })
+    //const elForm = inject(isVue3 ? formContextKey : 'elForm', { disabled: false })
 
     const jsonEditor = ref(null)
 
@@ -47,20 +51,13 @@ export default defineComponent({
 
     const syncing = ref(false)
 
-    const onChange = throttle(() => {
-      syncValue(jsonEditor.value?.get())
-    }, 5000, {
-      leading: false,
-      trailing: true
-    })
-
     const SvelteJsoneditorProps = computed(() => {
       return conclude([attrs, globalAttrs, {
-        readOnly: Boolean(elForm.disabled),
+        //readOnly: Boolean(elForm.disabled),
         onBlur: () => {
-          syncValue(jsonEditor.value?.get())
+          syncValue()
         },
-        onChange
+        //onChange
       }], {
         camelCase: false,
         mergeFunction: (globalFunction: Function, defaultFunction: Function) => (...args: any) => {
@@ -110,7 +107,12 @@ export default defineComponent({
       jsonEditor.value?.destroy?.()
     })
 
-    return () => h('div', { ref: 'jsonEditorRef' })
+    return () => h('div', {
+      ref: 'jsonEditorRef',
+      ...isVue3 ?
+        { onMouseout: syncValue, } :
+        { on: { mouseout: syncValue, } }
+    })
   },
   /*render (ctx: any) {
     // vue 2 中 ctx 为渲染函数 h

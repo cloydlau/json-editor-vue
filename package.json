@@ -3,7 +3,7 @@
   "version": "0.3.6",
   "author": "cloydlau",
   "license": "ISC",
-  "description": "JSON editor for Vue 2 and 3 powered by svelte-jsoneditor",
+  "description": "JSON editor for Vue 2 and 3 powered by svelte-jsoneditor.",
   "keywords": [
     "jsoneditor",
     "svelte-jsoneditor",
@@ -28,25 +28,27 @@
     "url": "https://github.com/cloydlau/json-editor-vue"
   },
   "scripts": {
-    "dev": "vue-demi-switch 3 && vite",
-    "dev2": "vue-demi-switch 2 && vite",
+    "dev": "node scripts/switch-vue.js 3 && vite --config ./vite.config.ts",
+    "dev2": "node scripts/switch-vue.js 2 && vite --config ./vite.vue2.config.ts",
     "build": "vite build",
     "serve": "vite preview",
-    "c": "rd /s /q .\\node_modules",
-    "ri": "npm run c && pnpm i",
+    "clean": "rd /s /q .\\node_modules",
+    "ri": "npm run clean && pnpm i",
     "u": "node scripts/upgrade.js",
     "r": "node scripts/release.js",
-    "rs": "node scripts/release.js --straightforward"
+    "rs": "node scripts/release.js --straightforward",
+    "test": "vitest --config ./vitest.config.ts",
+    "test2": "vitest --config ./vitest.vue2.config.ts",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "clipboard": "latest",
     "jsonrepair": "latest",
     "lodash-es": "latest",
+    "svelte-jsoneditor": "latest",
     "vue-demi": "latest",
     "vue-global-config": "latest"
   },
   "peerDependencies": {
-    "@vue/composition-api": "1",
     "vue": "^2.0.0 || >=3.0.0"
   },
   "peerDependenciesMeta": {
@@ -55,17 +57,17 @@
     }
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "latest",
-    "@vue/compiler-sfc": "latest",
-    "@vue/composition-api": "latest",
+    "@vitejs/plugin-vue": "^2.3.1",
+    "@vue/compiler-sfc": "^3.2.33",
+    "@vue/test-utils": "^2.0.0-rc.20",
     "chalk": "4.1.2",
+    "element-plus": "^2.1.10",
     "enquirer": "latest",
     "execa": "4.1.0",
     "minimist": "latest",
     "semver": "latest",
-    "svelte-jsoneditor": "latest",
     "typescript": "latest",
     "vite": "latest",
-    "vue": "latest"
+    "vue": "^3.2.33"
   }
 }

@@ -14,8 +14,6 @@ JSON 编辑，支持 Vue 2 和 Vue 3，基于 [svelte-jsoneditor](https://github
 - Vue 2 & Vue 3 通用
 - 支持 `v-model`
 - 自动修复格式错误的 JSON 字符串
-- 适配 [element-plus](https://github.com/element-plus/element-plus) & [element-ui](https://github.com/ElemeFE/element)
-  （只读状态默认跟随 `el-form`）
 - 全局或局部引入，参数支持全局或局部配置（[vue-global-config](https://github.com/cloydlau/vue-global-config.git) 提供技术支持）
 
 <br>
