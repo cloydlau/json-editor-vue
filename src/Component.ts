@@ -51,8 +51,8 @@ export default defineComponent({
     const SvelteJsoneditorProps = computed(() => {
       return conclude([attrs, globalAttrs, {
         //readOnly: Boolean(elForm.disabled),
-        onBlur: syncValue,
-        //onChange
+        //onBlur: syncValue,
+        onChange: syncValue, // 考虑到有切换 boolean 值的情况，还是用 onChange 更加合适
       }], {
         camelCase: false,
         mergeFunction: (globalFunction: Function, defaultFunction: Function) => (...args: any) => {
@@ -100,7 +100,7 @@ export default defineComponent({
 
     return () => h('div', {
       ref: 'jsonEditorRef',
-      ...isVue3 ?
+      /*...isVue3 ?
         {
           onMouseout: syncValue,
         } :
@@ -108,7 +108,7 @@ export default defineComponent({
           on: {
             mouseout: syncValue,
           }
-        }
+        }*/
     })
   },
   /*render (ctx: any) {
