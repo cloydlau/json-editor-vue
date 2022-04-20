@@ -42,7 +42,7 @@ app.use(JsonEditorVue, {
 <!-- 局部引入 -->
 
 <template>
-  <json-editor-vue v-model="value" v-bind="{/* 局部配置 */}"/>
+  <JsonEditorVue v-model="value" v-bind="{/* 局部配置 */}"/>
 </template>
 
 <script setup>
@@ -70,7 +70,7 @@ Vue.use(JsonEditorVue, {
 <!-- 局部引入 -->
 
 <template>
-  <json-editor-vue v-model="value" v-bind="{/* 局部配置 */}"/>
+  <JsonEditorVue v-model="value" v-bind="{/* 局部配置 */}"/>
 </template>
 
 <script>

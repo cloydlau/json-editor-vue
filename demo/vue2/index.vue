@@ -2,7 +2,7 @@
   <div>
     <el-form :model="data" disabled ref="formRef">
       <el-form-item prop="value" required>
-        <json-editor-vue v-model="data.value" v-bind="data.props"/>
+        <JsonEditorVue v-model="data.value" v-bind="data.props"/>
       </el-form-item>
     </el-form>
 
@@ -11,12 +11,13 @@
     <p>{{ JSON.stringify(data.value) }}</p>
     <p>
       <button @click="data.value = 321">编程式设值</button>
+      <button @click="data.value = null">清空</button>
       <button @click="() => { $refs.formRef.validate() }">校验</button>
     </p>
 
     <br>
     <p>Props</p>
-    <json-editor-vue v-model="data.props"/>
+    <JsonEditorVue v-model="data.props"/>
   </div>
 </template>
 

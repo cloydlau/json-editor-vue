@@ -49,7 +49,7 @@ app.use(JsonEditorVue, {
 <!-- import locally -->
 
 <template>
-  <json-editor-vue v-model="value" v-bind="{/* local config */}"/>
+  <JsonEditorVue v-model="value" v-bind="{/* local config */}"/>
 </template>
 
 <script setup>
@@ -79,7 +79,7 @@ Vue.use(JsonEditorVue, {
 <!-- import locally -->
 
 <template>
-  <json-editor-vue v-model="value" v-bind="{/* local config */}"/>
+  <JsonEditorVue v-model="value" v-bind="{/* local config */}"/>
 </template>
 
 <script>

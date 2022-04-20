@@ -20,7 +20,7 @@ import { throttle } from 'lodash-es'
 //import { formContextKey } from 'element-plus'
 
 export default defineComponent({
-  name: 'json-editor-vue',
+  name: 'JsonEditorVue',
   props: [isVue3 ? 'modelValue' : 'value'],
   setup (props, { attrs, emit }) {
     const currentInstance = getCurrentInstance()
@@ -54,9 +54,7 @@ export default defineComponent({
     const SvelteJsoneditorProps = computed(() => {
       return conclude([attrs, globalAttrs, {
         //readOnly: Boolean(elForm.disabled),
-        onBlur: () => {
-          syncValue()
-        },
+        onBlur: syncValue,
         //onChange
       }], {
         camelCase: false,
@@ -68,21 +66,17 @@ export default defineComponent({
     })
 
     watch(() => props[isVue3 ? 'modelValue' : 'value'], (n, o) => {
-      if (syncing.value) {
-        syncing.value = false
-      } else {
-        let text, json
-        if (n) {
-          if (typeof text === 'string') {
-            text = n
-          } else {
-            json = n
-          }
+      let text, json
+      if (n) {
+        if (typeof text === 'string') {
+          text = n
         } else {
-          text = ''
+          json = n
         }
-        jsonEditor.value?.update({ text, json })
+      } else {
+        text = ''
       }
+      jsonEditor.value?.update({ text, json })
     })
 
     onMounted(() => {
@@ -110,8 +104,14 @@ export default defineComponent({
     return () => h('div', {
       ref: 'jsonEditorRef',
       ...isVue3 ?
-        { onMouseout: syncValue, } :
-        { on: { mouseout: syncValue, } }
+        {
+          onMouseout: syncValue,
+        } :
+        {
+          on: {
+            mouseout: syncValue,
+          }
+        }
     })
   },
   /*render (ctx: any) {

@@ -57,17 +57,18 @@
     }
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^2.3.1",
-    "@vue/compiler-sfc": "^3.2.33",
-    "@vue/test-utils": "^2.0.0-rc.20",
+    "@vue/composition-api": "^1.4.9",
+    "@vue/test-utils": "1",
     "chalk": "4.1.2",
-    "element-plus": "^2.1.10",
+    "element-ui": "^2.15.8",
     "enquirer": "latest",
     "execa": "4.1.0",
     "minimist": "latest",
     "semver": "latest",
     "typescript": "latest",
     "vite": "latest",
-    "vue": "^3.2.33"
+    "vite-plugin-vue2": "^1.9.3",
+    "vue": "2",
+    "vue-template-compiler": "^2.6.14"
   }
 }
