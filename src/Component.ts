@@ -26,7 +26,6 @@ export default defineComponent({
     const currentInstance = getCurrentInstance()
 
     const syncValue = throttle(() => {
-      syncing.value = true
       let { text, json } = jsonEditor.value?.get()
       let value = text ?? json
       if (typeof value === 'string' && value) {
@@ -48,8 +47,6 @@ export default defineComponent({
 
     // Vue 2 中报错
     //const jsonEditorRef = ref(null)
-
-    const syncing = ref(false)
 
     const SvelteJsoneditorProps = computed(() => {
       return conclude([attrs, globalAttrs, {
