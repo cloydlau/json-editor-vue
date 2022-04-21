@@ -20,8 +20,7 @@
     ".": {
       "import": "./dist/json-editor-vue.es.js",
       "require": "./dist/json-editor-vue.umd.js"
-    },
-    "./dist/style.css": "./dist/style.css"
+    }
   },
   "repository": {
     "type": "git",
