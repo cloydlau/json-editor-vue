@@ -31,8 +31,8 @@ export default {
       data: {
         value: 123,
         props: {
-          mode: 'tree',
-          //readOnly: false,
+          //mode: 'tree',
+          readOnly: false,
         }
       }
     }

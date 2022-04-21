@@ -13,7 +13,7 @@ import {
   withDirectives, // 不支持 Vue 2
 } from 'vue-demi'
 import { JSONEditor } from 'svelte-jsoneditor/dist/jsoneditor.js'
-import jsonrepair from 'jsonrepair'
+//import jsonrepair from 'jsonrepair'
 import { conclude } from 'vue-global-config'
 import { globalAttrs } from './index'
 import { throttle } from 'lodash-es'
@@ -24,19 +24,21 @@ export default defineComponent({
   props: [isVue3 ? 'modelValue' : 'value'],
   setup (props, { attrs, emit }) {
     const currentInstance = getCurrentInstance()
+    const syncingValue = ref(false)
 
     const syncValue = throttle(() => {
+      syncingValue.value = true
       let { text, json } = jsonEditor.value?.get()
       let value = text ?? json
-      if (typeof value === 'string' && value) {
+      /*if (typeof value === 'string' && value) {
         try {
           value = jsonrepair(value)
         } catch (e) {
           //console.warn(e)
         }
-      }
+      }*/
       emit(isVue3 ? 'update:modelValue' : 'input', value)
-    }, 500, {
+    }, 100, {
       leading: false,
       trailing: true
     })
@@ -51,7 +53,7 @@ export default defineComponent({
     const SvelteJsoneditorProps = computed(() => {
       return conclude([attrs, globalAttrs, {
         //readOnly: Boolean(elForm.disabled),
-        //onBlur: syncValue,
+        //onBlur: () => {syncValue(true)}, // 回车会触发失焦
         onChange: syncValue, // 考虑到有切换 boolean 值的情况，还是用 onChange 更加合适
       }], {
         camelCase: false,
@@ -63,6 +65,11 @@ export default defineComponent({
     })
 
     watch(() => props[isVue3 ? 'modelValue' : 'value'], (n, o) => {
+      if (syncingValue.value) {
+        syncingValue.value = false
+        return
+      }
+
       let text, json
       if (n) {
         if (typeof text === 'string') {
