@@ -4,13 +4,12 @@ import {
   ref,
   computed,
   watch,
-  inject,
   onMounted,
   onUnmounted,
   h,
   getCurrentInstance,
-  vShow, // 不支持 Vue 2
-  withDirectives, // 不支持 Vue 2
+  //vShow, // 不支持 Vue 2
+  //withDirectives, // 不支持 Vue 2
 } from 'vue-demi'
 import { JSONEditor } from 'svelte-jsoneditor/dist/jsoneditor.js'
 //import jsonrepair from 'jsonrepair'
