@@ -29,7 +29,7 @@
   "scripts": {
     "dev": "node scripts/switch-vue.js 3 && vite --config ./vite-vue3.config.ts",
     "dev2": "node scripts/switch-vue.js 2 && vite --config ./vite-vue2.config.ts",
-    "build": "vite build",
+    "build": "vite build --config ./vite-vue2.config.ts",
     "serve": "vite preview",
     "clean": "rd /s /q .\\node_modules",
     "ri": "npm run clean && pnpm i",
