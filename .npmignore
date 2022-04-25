@@ -43,3 +43,6 @@ windi.config.ts
 /scripts/
 /*.config.ts
 /*.config.js
+/test/
+/vitest.*
+*.xmind
