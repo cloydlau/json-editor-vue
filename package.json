@@ -62,10 +62,8 @@
     "element-plus": "^2.1.10",
     "enquirer": "latest",
     "execa": "4.1.0",
-    "minimce": "latest",
     "minimist": "latest",
     "semver": "latest",
-    "tinymce": "latest",
     "typescript": "latest",
     "vite": "latest",
     "vue": "^3.2.33"
