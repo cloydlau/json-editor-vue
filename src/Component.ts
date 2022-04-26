@@ -21,9 +21,10 @@ import { throttle } from 'lodash-es'
 export default defineComponent({
   name: 'JsonEditorVue',
   props: [isVue3 ? 'modelValue' : 'value'],
-  setup (props, { attrs, emit }) {
+  setup(props, { attrs, emit }) {
     const currentInstance = getCurrentInstance()
     const syncingValue = ref(false)
+    const eventName = isVue3 ? 'update:modelValue' : 'input'
 
     const syncValue = throttle(() => {
       syncingValue.value = true
@@ -36,7 +37,7 @@ export default defineComponent({
           //console.warn(e)
         }
       }*/
-      emit(isVue3 ? 'update:modelValue' : 'input', value)
+      emit(eventName, value)
     }, 100, {
       leading: false,
       trailing: true
