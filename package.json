@@ -29,7 +29,7 @@
   "scripts": {
     "dev": "node scripts/switch-vue.js 3 && vite --config ./vite-vue3.config.ts",
     "dev2": "node scripts/switch-vue.js 2 && vite --config ./vite-vue2.config.ts",
-    "build": "vite build --config ./vite-vue2.config.ts",
+    "build": "vite build",
     "serve": "vite preview",
     "clean": "rd /s /q .\\node_modules",
     "ri": "npm run clean && pnpm i",
@@ -59,11 +59,12 @@
     "@vue/compiler-sfc": "^3.2.33",
     "@vue/test-utils": "^2.0.0-rc.21",
     "chalk": "4.1.2",
-    "element-plus": "^2.1.10",
+    "element-plus": "^2.1.11",
     "enquirer": "latest",
     "execa": "4.1.0",
     "minimist": "latest",
     "semver": "latest",
+    "svelte": "latest",
     "typescript": "latest",
     "vite": "latest",
     "vue": "^3.2.33"
