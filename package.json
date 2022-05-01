@@ -12,7 +12,8 @@
     "viewer",
     "vue",
     "vue2",
-    "vue3"
+    "vue3",
+    "vue-demi"
   ],
   "private": false,
   "main": "dist/json-editor-vue.umd.js",
