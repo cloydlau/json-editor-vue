@@ -15,7 +15,7 @@ import { JSONEditor } from 'svelte-jsoneditor/dist/jsoneditor.js'
 //import jsonrepair from 'jsonrepair'
 import { conclude } from 'vue-global-config'
 import { globalAttrs } from './index'
-import { throttle } from 'lodash-es'
+import { throttle, cloneDeep } from 'lodash-es'
 
 const valuePropName = isVue3 ? 'modelValue' : 'value'
 
@@ -27,11 +27,12 @@ export default defineComponent({
     const syncingValue = ref(false)
     const eventName = isVue3 ? 'update:modelValue' : 'input'
     const jsonEditor = ref(null)
-    const initialValue = props[valuePropName]
+    // 防止被 computed 追踪
+    const initialValue = cloneDeep(props[valuePropName])
 
-    const syncValue = throttle(() => {
+    const syncValue = throttle((updatedContent: { text: string | null, json: any }) => {
       syncingValue.value = true
-      emit(eventName, jsonEditor.value.get()[valueKey.value])
+      emit(eventName, updatedContent[valueKey.value])
     }, 100, {
       leading: false,
       trailing: true
@@ -62,18 +63,19 @@ export default defineComponent({
       })
     })
 
-    const valueKey = computed(() => modeToValueKey(SvelteJsoneditorProps.value.mode))
+    const valueKey = ref(modeToValueKey(SvelteJsoneditorProps.value.mode))
 
     watch(() => props[valuePropName], (n, o) => {
       if (syncingValue.value) {
         syncingValue.value = false
         return
       }
-      // Code 模式只接受 string
+      // code 模式只接受 string
       if (valueKey.value === 'text' && typeof n !== 'string') {
         n = String(n)
       }
-      jsonEditor.value.update({ [valueKey.value]: n })
+      // svelte-jsoneditor 不接受 undefined
+      jsonEditor.value.update({ [valueKey.value]: n ?? null })
     })
 
     onMounted(() => {
@@ -84,13 +86,15 @@ export default defineComponent({
     })
 
     watch(SvelteJsoneditorProps, n => {
+      valueKey.value = modeToValueKey(n.mode)
+      delete n.content // 不删除 content 将导致 content 被初始值覆盖
       jsonEditor.value.updateProps(n)
     }, {
-      deep: true,
+      deep: true
     })
 
     onUnmounted(() => {
-      jsonEditor.value.destroy?.()
+      jsonEditor.value.destroy()
     })
 
     return () => h('div', {
