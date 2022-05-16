@@ -2,7 +2,7 @@
   <p>
     <button @click="data.props.mode = data.props.mode === 'code' ? 'tree' : 'code'">切换编辑模式</button>
     <button @click="data.props.readOnly = !data.props.readOnly">切换只读状态</button>
-    <button @click="data.value = 321">编程式设值（字符串）</button>
+    <button @click="data.value = '321'">编程式设值（字符串）</button>
     <button @click="data.value = { a: 1 }">编程式设值（JSON）</button>
     <button @click="data.value = undefined">清空</button>
     <button @click="() => { formRef.validate() }">校验</button>
