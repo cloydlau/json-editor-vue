@@ -28,8 +28,8 @@
     "url": "https://github.com/cloydlau/json-editor-vue"
   },
   "scripts": {
-    "dev": "node scripts/switch-vue.js 3 && vite --config ./vite-vue3.config.ts",
-    "dev2": "node scripts/switch-vue.js 2 && vite --config ./vite-vue2.config.ts",
+    "dev": "node scripts/switch-vue.js 3 && vite --config ./vite-vue3.config.ts --open",
+    "dev2": "node scripts/switch-vue.js 2 && vite --config ./vite-vue2.config.ts --open",
     "build": "vite build",
     "serve": "vite preview",
     "clean": "rd /s /q .\\node_modules",

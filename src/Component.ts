@@ -16,93 +16,81 @@ import { JSONEditor } from 'svelte-jsoneditor/dist/jsoneditor.js'
 import { conclude } from 'vue-global-config'
 import { globalAttrs } from './index'
 import { throttle } from 'lodash-es'
-//import { formContextKey } from 'element-plus'
+
+const valuePropName = isVue3 ? 'modelValue' : 'value'
 
 export default defineComponent({
   name: 'JsonEditorVue',
-  props: [isVue3 ? 'modelValue' : 'value'],
+  props: [valuePropName],
   setup(props, { attrs, emit }) {
     const currentInstance = getCurrentInstance()
     const syncingValue = ref(false)
     const eventName = isVue3 ? 'update:modelValue' : 'input'
+    const jsonEditor = ref(null)
+    const initialValue = props[valuePropName]
 
     const syncValue = throttle(() => {
       syncingValue.value = true
-      let { text, json } = jsonEditor.value?.get()
-      let value = text ?? json
-      /*if (typeof value === 'string' && value) {
-        try {
-          value = jsonrepair(value)
-        } catch (e) {
-          //console.warn(e)
-        }
-      }*/
-      emit(eventName, value)
+      emit(eventName, jsonEditor.value.get()[valueKey.value])
     }, 100, {
       leading: false,
       trailing: true
     })
 
-    //const elForm = inject(isVue3 ? formContextKey : 'elForm', { disabled: false })
-
-    const jsonEditor = ref(null)
-
-    // Vue 2 中报错
-    //const jsonEditorRef = ref(null)
+    const modeToValueKey = (mode: string): string =>
+      mode === 'code' ? 'text' : 'json'
 
     const SvelteJsoneditorProps = computed(() => {
       return conclude([attrs, globalAttrs, {
-        //readOnly: Boolean(elForm.disabled),
         //onBlur: () => {syncValue(true)}, // 回车会触发失焦
         onChange: syncValue, // 考虑到有切换 boolean 值的情况，还是用 onChange 更加合适
+        onChangeMode(mode: string) {
+          valueKey.value = modeToValueKey(mode)
+        },
       }], {
         camelCase: false,
         mergeFunction: (globalFunction: Function, defaultFunction: Function) => (...args: any) => {
           globalFunction(...args)
           defaultFunction(...args)
         },
+        default: (userProp: { [key: string]: any }) => ({
+          content: {
+            [modeToValueKey(userProp.mode)]: initialValue,
+          },
+        }),
+        defaultIsDynamic: true,
       })
     })
 
-    watch(() => props[isVue3 ? 'modelValue' : 'value'], (n, o) => {
+    const valueKey = computed(() => modeToValueKey(SvelteJsoneditorProps.value.mode))
+
+    watch(() => props[valuePropName], (n, o) => {
       if (syncingValue.value) {
         syncingValue.value = false
         return
       }
-
-      let text, json
-      if (n) {
-        if (typeof text === 'string') {
-          text = n
-        } else {
-          json = n
-        }
-      } else {
-        text = ''
+      // Code 模式只接受 string
+      if (valueKey.value === 'text' && typeof n !== 'string') {
+        n = String(n)
       }
-      jsonEditor.value?.update({ text, json })
+      jsonEditor.value.update({ [valueKey.value]: n })
     })
 
     onMounted(() => {
       jsonEditor.value = new JSONEditor({
         target: currentInstance.refs.jsonEditorRef,
-        props: {
-          ...SvelteJsoneditorProps.value,
-          content: {
-            json: props[isVue3 ? 'modelValue' : 'value'] ?? '',
-          },
-        },
+        props: SvelteJsoneditorProps.value,
       })
     })
 
     watch(SvelteJsoneditorProps, n => {
-      jsonEditor.value?.updateProps(n)
+      jsonEditor.value.updateProps(n)
     }, {
       deep: true,
     })
 
     onUnmounted(() => {
-      jsonEditor.value?.destroy?.()
+      jsonEditor.value.destroy?.()
     })
 
     return () => h('div', {
