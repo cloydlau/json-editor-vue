@@ -20,7 +20,7 @@ JSON 编辑器，支持 Vue 2 和 Vue 3，基于 [svelte-jsoneditor](https://git
 
 ![NPM](https://nodei.co/npm/json-editor-vue.png)
 
-### Vue3
+### Vue 3
 
 ```bash
 npm add json-editor-vue
@@ -48,14 +48,19 @@ import JsonEditorVue from 'json-editor-vue'
 </script>
 ```
 
-### Vue2
+### Vue 2
 
 ```bash
-npm add json-editor-vue @vue/composition-api
+# vue@2.6 或更早版本需要额外安装 @vue/composition-api
+npm add json-editor-vue
 ```
 
 ```ts
 // 全局引入
+
+// vue@2.6 或更早版本需要额外安装 @vue/composition-api
+// import VCA from '@vue/composition-api'
+// Vue.use(VCA)
 
 import JsonEditorVue from 'json-editor-vue'
 
@@ -72,6 +77,10 @@ Vue.use(JsonEditorVue, {
 </template>
 
 <script>
+// vue@2.6 或更早版本需要额外安装 @vue/composition-api
+// import VCA from '@vue/composition-api'
+// Vue.use(VCA)
+
 import JsonEditorVue from 'json-editor-vue'
 
 export default {

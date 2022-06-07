@@ -60,11 +60,16 @@ import JsonEditorVue from 'json-editor-vue'
 ### Vue 2
 
 ```bash
-npm add json-editor-vue @vue/composition-api
+# Vue version before 2.7 should add an extra @vue/composition-api
+npm add json-editor-vue
 ```
 
 ```ts
 // import globally
+
+// Vue version before 2.7 should add an extra @vue/composition-api
+// import VCA from '@vue/composition-api'
+// Vue.use(VCA)
 
 import JsonEditorVue from 'json-editor-vue'
 
@@ -81,6 +86,10 @@ Vue.use(JsonEditorVue, {
 </template>
 
 <script>
+// Vue version before 2.7 should add an extra @vue/composition-api
+// import VCA from '@vue/composition-api'
+// Vue.use(VCA)
+
 import JsonEditorVue from 'json-editor-vue'
 
 export default {
