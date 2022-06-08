@@ -79,7 +79,7 @@ export default defineComponent({
       jsonEditor.value.update(
         // svelte-jsoneditor 不接受 undefined
         // 其默认值为 { text: '' }
-        // 只有 { text: '' } 才能清空编辑器
+        // 只有默认值才能清空编辑器
         n === undefined ? { text: '' } :
           {
             [valueKey.value]:
