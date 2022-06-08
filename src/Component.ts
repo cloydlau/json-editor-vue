@@ -89,6 +89,8 @@ export default defineComponent({
                 n
           }
       )
+    }, {
+      deep: true
     })
 
     watch(SvelteJsoneditorProps, n => {
