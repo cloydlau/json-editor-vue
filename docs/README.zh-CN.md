@@ -6,12 +6,13 @@ JSON 编辑器，支持 Vue 2 和 Vue 3，基于 [svelte-jsoneditor](https://git
 > 作者开这个新坑的原因是[老库已难以维护、架构需要大改、体验亟待提升](https://github.com/josdejong/jsoneditor/issues/1223) 。json-editor-vue 是
 > svelte-jsoneditor 的 Vue 版本。
 
+![jsoneditor_screenshot](./jsoneditor_screenshot.png)
+
 <br>
 
 ## 特性
 
-- Vue 2 & Vue 3 通用
-- 支持 `v-model`
+- Vue 2 & 3 通用
 - 全局或局部引入，参数支持全局或局部配置（[vue-global-config](https://github.com/cloydlau/vue-global-config.git) 提供技术支持）
 
 <br>
