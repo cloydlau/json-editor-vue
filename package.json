@@ -1,6 +1,6 @@
 {
   "name": "json-editor-vue",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "author": "cloydlau",
   "license": "ISC",
   "description": "JSON editor for Vue 2 and 3 powered by svelte-jsoneditor.",
@@ -56,17 +56,18 @@
     }
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^2.3.1",
-    "@vue/compiler-sfc": "^3.2.33",
-    "@vue/test-utils": "^2.0.0-rc.21",
+    "@vue/composition-api": "^1.6.2",
+    "@vue/test-utils": "1",
     "chalk": "4.1.2",
-    "element-plus": "^2.1.11",
+    "element-ui": "^2.15.9",
     "enquirer": "latest",
     "execa": "4.1.0",
     "minimist": "latest",
     "semver": "latest",
     "typescript": "latest",
     "vite": "latest",
-    "vue": "^3.2.33"
+    "vite-plugin-vue2": "^2.0.1",
+    "vue": "2",
+    "vue-template-compiler": "^2.6.14"
   }
 }
