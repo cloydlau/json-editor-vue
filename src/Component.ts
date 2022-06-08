@@ -76,7 +76,7 @@ export default defineComponent({
         syncingValue.value = false
         return
       }
-      jsonEditor.value.update(
+      jsonEditor.value.set(
         // svelte-jsoneditor 不接受 undefined
         // 其默认值为 { text: '' }
         // 只有默认值才能清空编辑器
