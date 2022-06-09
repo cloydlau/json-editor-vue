@@ -12,12 +12,13 @@ by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
 > .
 > json-editor-vue is the Vue version for svelte-jsoneditor.
 
+![jsoneditor_screenshot](./docs/jsoneditor_screenshot.png)
+
 <br>
 
 ## Features
 
-- Support both Vue 2 & Vue 3
-- Support `v-model`
+- Support both Vue 2 & 3
 - Import locally or globally, config locally or globally (Powered
   by [vue-global-config](https://github.com/cloydlau/vue-global-config.git))
 
