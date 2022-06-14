@@ -56,6 +56,30 @@ import JsonEditorVue from 'json-editor-vue'
 </script>
 ```
 
+```html
+<!-- Without Build Tools -->
+
+<div id="app">
+  <json-editor-vue v-model="data"></json-editor-vue>
+  <p><button onclick="console.log(app.data)">print data</button></p>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/vue-demi"></script>
+<script src="https://unpkg.com/json-editor-vue/dist/json-editor-vue.umd.js"></script>
+<script>
+const { createApp } = Vue
+const app = createApp({
+  components: { 'json-editor-vue': window['json-editor-vue'].default },
+  data() {
+    return {
+      data: 'initial data'
+    }
+  },
+}).mount('#app')
+</script>
+```
+
 <br>
 
 ### Vue 2
@@ -99,14 +123,37 @@ export default {
 </script>
 ```
 
+```html
+<!-- Without Build Tools -->
+
+<div id="app">
+  <json-editor-vue v-model="data"></json-editor-vue>
+  <p><button onclick="console.log(app.data)">print data</button></p>
+</div>
+<script src="https://unpkg.com/vue@2"></script>
+<script src="https://unpkg.com/@vue/composition-api"></script>
+<script src="https://unpkg.com/vue-demi"></script>
+<script src="https://unpkg.com/json-editor-vue/dist/json-editor-vueumd.js"></script>
+<script>
+const app = new Vue({
+  components: { 'json-editor-vue': window['json-editor-vue'].default },
+  data() {
+    return {
+      data: 'initial data'
+    }
+  },
+}).$mount('#app')
+</script>
+```
+
 <br>
 
 ## Props
 
 | Name            | Description                                                                     | Type |
-|-----------------|---------------------------------------------------------------------------------|-----|
-| v-model / value | binding value                                                                   | any |
-| ...             | options of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/) |     |
+| --------------- | ------------------------------------------------------------------------------- | ---- |
+| v-model / value | binding value                                                                   | any  |
+| ...             | options of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/) |      |
 
 <br>
 
