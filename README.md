@@ -35,7 +35,7 @@ npm add json-editor-vue
 ```
 
 ```ts
-// import globally
+// Import globally
 
 import JsonEditorVue from 'json-editor-vue'
 
@@ -45,7 +45,7 @@ app.use(JsonEditorVue, {
 ```
 
 ```vue
-<!-- import locally -->
+<!-- Import locally -->
 
 <template>
   <JsonEditorVue v-model="value" v-bind="{/* local config */}"/>
@@ -90,7 +90,7 @@ npm add json-editor-vue
 ```
 
 ```ts
-// import globally
+// Import globally
 
 // Vue version before 2.7 should add an extra @vue/composition-api
 // import VCA from '@vue/composition-api'
@@ -104,7 +104,7 @@ Vue.use(JsonEditorVue, {
 ```
 
 ```vue
-<!-- import locally -->
+<!-- Import locally -->
 
 <template>
   <JsonEditorVue v-model="value" v-bind="{/* local config */}"/>
