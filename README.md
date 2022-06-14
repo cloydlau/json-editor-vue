@@ -133,7 +133,7 @@ export default {
 <script src="https://unpkg.com/vue@2"></script>
 <script src="https://unpkg.com/@vue/composition-api"></script>
 <script src="https://unpkg.com/vue-demi"></script>
-<script src="https://unpkg.com/json-editor-vue/dist/json-editor-vueumd.js"></script>
+<script src="https://unpkg.com/json-editor-vue/dist/json-editor-vue.umd.js"></script>
 <script>
 const app = new Vue({
   components: { 'json-editor-vue': window['json-editor-vue'].default },
