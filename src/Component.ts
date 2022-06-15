@@ -16,7 +16,7 @@ import { JSONEditor } from 'svelte-jsoneditor/dist/jsoneditor.js'
 //import jsonrepair from 'jsonrepair'
 import { conclude } from 'vue-global-config'
 import { globalAttrs } from './index'
-import { throttle, cloneDeep } from 'lodash-es'
+import { debounce, cloneDeep } from 'lodash-es'
 
 type Mode = 'tree' | 'code' | undefined
 type ValueKey = 'json' | 'text'
@@ -34,13 +34,10 @@ export default defineComponent({
     // 防止被 computed 追踪
     const initialValue = cloneDeep(props[valuePropName])
 
-    const syncValue = throttle((updatedContent: { text: string, json: any }) => {
+    const syncValue = debounce((updatedContent: { text: string, json: any }) => {
       syncingValue.value = true
       emit(eventName, updatedContent[valueKey.value])
-    }, 100, {
-      leading: false,
-      trailing: true
-    })
+    }, 100)
 
     const modeToValueKey = (mode: Mode): ValueKey =>
       mode === 'code' ? 'text' : 'json'
