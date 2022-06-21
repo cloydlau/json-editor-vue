@@ -19,7 +19,7 @@ by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
 ## Features
 
 - Support both Vue 2 & 3
-- Import locally or globally, config locally or globally (Powered
+- Import locally or globally, configure locally or globally (Powered
   by [vue-global-config](https://github.com/cloydlau/vue-global-config.git))
 
 <br>
