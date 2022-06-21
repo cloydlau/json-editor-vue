@@ -153,7 +153,7 @@ const app = new Vue({
 | Name            | Description                                                                     | Type |
 | --------------- | ------------------------------------------------------------------------------- | ---- |
 | v-model / value | binding value                                                                   | any  |
-| ...             | options of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/) |      |
+| ...             | options of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#api) |      |
 
 <br>
 
