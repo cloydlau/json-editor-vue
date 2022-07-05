@@ -16,10 +16,8 @@ const vue3Deps = [
   '@vue/compiler-sfc',
   'element-plus',
 ], vue2Deps = [
-  '@vue/composition-api',
+  "@vitejs/plugin-vue2",
   'element-ui',
-  'vite-plugin-vue2',
-  'vue-template-compiler',
 ]
 
 const targetVersion = Number(process.argv[2]) || 3
@@ -79,7 +77,7 @@ async function useVueVersion(targetVersion) {
     await removeDeps(vue3Deps)
     await run('pnpm', ['add', ...vue2Deps, '-D'])
     await run('pnpm', ['clean'])
-    await run('pnpm', ['add', 'vue@v2-latest', '@vue/test-utils@1', '-D'])
+    await run('pnpm', ['add', 'vue@2', '@vue/test-utils@1', '-D'])
     await run('npx', ['vue-demi-switch', '2'])
     console.warn('Vue 版本已切换至 2')
   } else {
