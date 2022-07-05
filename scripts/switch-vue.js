@@ -23,20 +23,26 @@ const vue3Deps = [
 ]
 
 const targetVersion = Number(process.argv[2]) || 3
-const currentVersion = require('vue').version
+let currentVersion
+try {
+  currentVersion = require('vue').version
+} catch { }
 
 useVueVersion(targetVersion)
 
-async function removeDeps (deps) {
+async function removeDeps(deps) {
   const depsInstalled = deps.filter(dep => dep in devDependencies || dep in dependencies)
   if (depsInstalled.length) {
     await run('pnpm', ['remove', ...depsInstalled, '-D'])
   }
 }
 
-async function useVueVersion (targetVersion) {
+async function useVueVersion(targetVersion) {
   if (
-    (currentVersion.startsWith('2') || currentVersion.substring(1).startsWith('2')) &&
+    (
+      !currentVersion ||
+      (currentVersion.startsWith('2') || currentVersion.substring(1).startsWith('2'))
+    ) &&
     targetVersion === 3
   ) {
     const { yes } = await prompt({
@@ -50,11 +56,15 @@ async function useVueVersion (targetVersion) {
 
     await removeDeps(vue2Deps)
     await run('pnpm', ['add', ...vue3Deps, '-D'])
+    await run('pnpm', ['clean'])
     await run('pnpm', ['add', 'vue@latest', '@vue/test-utils@latest', '-D'])
     await run('npx', ['vue-demi-switch', '3'])
     console.warn('Vue 版本已切换至 3')
   } else if (
-    (currentVersion === 'latest' || currentVersion.startsWith('3') || currentVersion.substring(1).startsWith('3')) &&
+    (
+      !currentVersion ||
+      (currentVersion === 'latest' || currentVersion.startsWith('3') || currentVersion.substring(1).startsWith('3'))
+    ) &&
     targetVersion === 2
   ) {
     const { yes } = await prompt({
@@ -68,7 +78,8 @@ async function useVueVersion (targetVersion) {
 
     await removeDeps(vue3Deps)
     await run('pnpm', ['add', ...vue2Deps, '-D'])
-    await run('pnpm', ['add', 'vue@2', '@vue/test-utils@1', '-D'])
+    await run('pnpm', ['clean'])
+    await run('pnpm', ['add', 'vue@v2-latest', '@vue/test-utils@1', '-D'])
     await run('npx', ['vue-demi-switch', '2'])
     console.warn('Vue 版本已切换至 2')
   } else {
