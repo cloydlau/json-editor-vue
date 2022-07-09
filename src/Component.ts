@@ -18,7 +18,7 @@ import { conclude } from 'vue-global-config'
 import { globalAttrs } from './index'
 import { debounce, cloneDeep } from 'lodash-es'
 
-type Mode = 'tree' | 'code' | undefined
+type Mode = 'tree' | 'text' | undefined
 type ValueKey = 'json' | 'text'
 
 const valuePropName = isVue3 ? 'modelValue' : 'value'
@@ -40,7 +40,7 @@ export default defineComponent({
     }, 100)
 
     const modeToValueKey = (mode: Mode): ValueKey =>
-      mode === 'code' ? 'text' : 'json'
+      mode === 'text' ? 'text' : 'json'
 
     const SvelteJsoneditorProps = computed(() => {
       return conclude([attrs, globalAttrs, {
@@ -80,7 +80,7 @@ export default defineComponent({
         n === undefined ? { text: '' } :
           {
             [valueKey.value]:
-              // code 模式只接受 string
+              // text 模式只接受 string
               (typeof n !== 'string' && valueKey.value === 'text') ?
                 JSON.stringify(n) :
                 n
