@@ -30,7 +30,9 @@ export default defineComponent({
     const currentInstance = getCurrentInstance() as ComponentInternalInstance
     const syncingValue = ref(false)
     const eventName = isVue3 ? 'update:modelValue' : 'input'
-    const jsonEditor = ref() as JSONEditor
+    const jsonEditor = ref()
+    // 初始模式为 tree，故初始 valueKey 为 json
+    const valueKey = ref<ValueKey>('json')
     // 防止被 computed 追踪
     const initialValue = cloneDeep(props[valuePropName])
 
@@ -40,7 +42,7 @@ export default defineComponent({
     }, 100)
 
     const modeToValueKey = (mode: Mode): ValueKey =>
-      mode === 'text' ? 'text' : 'json'
+      mode ? { 'text': 'text', 'tree': 'json' }[mode] as ValueKey : valueKey.value
 
     const SvelteJsoneditorProps = computed(() => {
       return conclude([attrs, globalAttrs, {
@@ -56,17 +58,18 @@ export default defineComponent({
           defaultFunction(...args)
         },
         ...initialValue !== undefined && {
-          default: (userProp: { [key: string]: any }) => ({
-            content: {
-              [modeToValueKey(userProp.mode)]: initialValue,
-            },
-          }),
+          default: ({ mode }: { mode: Mode }) => {
+            valueKey.value = modeToValueKey(mode)
+            return {
+              content: {
+                [valueKey.value]: initialValue,
+              },
+            }
+          },
           defaultIsDynamic: true,
         }
       })
     })
-
-    const valueKey = ref<ValueKey>(modeToValueKey(SvelteJsoneditorProps.value.mode))
 
     watch(() => props[valuePropName], (n, o) => {
       if (syncingValue.value) {

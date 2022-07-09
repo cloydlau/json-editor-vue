@@ -11,7 +11,7 @@
     <p>{{ JSON.stringify(data.value) }}</p>
     <p>
       <button @click="data.value = 321">编程式设值</button>
-      <button @click="data.value = null">清空</button>
+      <button @click="data.value = undefined">清空</button>
       <button @click="() => { $refs.formRef.validate() }">校验</button>
     </p>
 
