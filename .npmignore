@@ -46,3 +46,4 @@ windi.config.ts
 /test/
 /vitest.*
 *.xmind
+.husky
