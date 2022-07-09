@@ -1,5 +1,5 @@
 import type { UserConfigExport, ConfigEnv } from 'vite'
-import { createVuePlugin } from 'vite-plugin-vue2'
+import vue from '@vitejs/plugin-vue2'
 
 // https://vitejs.dev/config/
 export default ({ command }: ConfigEnv): UserConfigExport => {
@@ -11,7 +11,7 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
       exclude: ['vue-demi']
     },
     plugins: [
-      createVuePlugin(),
+      vue(),
       {
         name: 'html-transform',
         transformIndexHtml (html: string) {

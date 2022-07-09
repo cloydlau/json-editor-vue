@@ -73,7 +73,7 @@ const app = createApp({
   components: { 'json-editor-vue': window['json-editor-vue'].default },
   data() {
     return {
-      data: 'initial data'
+      data: 'initial data',
     }
   },
 }).mount('#app')
@@ -131,7 +131,8 @@ export default {
   <p><button onclick="console.log(app.data)">print data</button></p>
 </div>
 <script src="https://unpkg.com/vue@2"></script>
-<script src="https://unpkg.com/@vue/composition-api"></script>
+<!-- Vue version before 2.7 should add an extra @vue/composition-api -->
+<!-- <script src="https://unpkg.com/@vue/composition-api"></script> -->
 <script src="https://unpkg.com/vue-demi"></script>
 <script src="https://unpkg.com/json-editor-vue@0.4/dist/json-editor-vue.umd.js"></script>
 <script>
@@ -139,7 +140,7 @@ const app = new Vue({
   components: { 'json-editor-vue': window['json-editor-vue'].default },
   data() {
     return {
-      data: 'initial data'
+      data: 'initial data',
     }
   },
 }).$mount('#app')

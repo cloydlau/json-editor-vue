@@ -100,7 +100,7 @@ export default defineComponent({
 
     onMounted(() => {
       jsonEditor.value = new JSONEditor({
-        target: currentInstance.refs.jsonEditorRef,
+        target: currentInstance.proxy.$refs.jsonEditorRef,
         props: SvelteJsoneditorProps.value,
       })
     })
