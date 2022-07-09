@@ -39,7 +39,8 @@
     "rs": "node scripts/release.js --straightforward",
     "test": "vitest --config ./vitest.config.ts",
     "test2": "vitest --config ./vitest.vue2.config.ts",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "prepare": "husky install"
   },
   "dependencies": {
     "lodash-es": "latest",
@@ -62,6 +63,7 @@
     "element-ui": "^2.15.9",
     "enquirer": "latest",
     "execa": "4.1.0",
+    "husky": "latest",
     "minimist": "latest",
     "semver": "latest",
     "typescript": "latest",
