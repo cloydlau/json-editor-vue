@@ -50,7 +50,7 @@ import JsonEditorVue from 'json-editor-vue'
 ```
 
 ```html
-<!-- 直接用 <script> 引入 -->
+<!-- CDN 引入 / 不使用打包工具 -->
 
 <div id="app">
   <json-editor-vue v-model="data"></json-editor-vue>
@@ -115,7 +115,7 @@ export default {
 ```
 
 ```html
-<!-- 直接用 <script> 引入 -->
+<!-- CDN 引入 / 不使用打包工具 -->
 
 <div id="app">
   <json-editor-vue v-model="data"></json-editor-vue>

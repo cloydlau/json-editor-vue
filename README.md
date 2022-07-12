@@ -57,7 +57,7 @@ import JsonEditorVue from 'json-editor-vue'
 ```
 
 ```html
-<!-- Without Build Tools -->
+<!-- CDN / Without Build Tools -->
 
 <div id="app">
   <json-editor-vue v-model="data"></json-editor-vue>
@@ -124,7 +124,7 @@ export default {
 ```
 
 ```html
-<!-- Without Build Tools -->
+<!-- CDN / Without Build Tools -->
 
 <div id="app">
   <json-editor-vue v-model="data"></json-editor-vue>
