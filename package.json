@@ -53,7 +53,7 @@
   },
   "dependencies": {
     "lodash-es": "latest",
-    "svelte-jsoneditor": "latest",
+    "vanilla-jsoneditor": "latest",
     "vue-demi": "latest",
     "vue-global-config": "latest"
   },

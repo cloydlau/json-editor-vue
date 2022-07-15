@@ -12,7 +12,7 @@ import {
   //withDirectives, // 不支持 Vue 2
 } from 'vue-demi'
 import type { ComponentInternalInstance } from 'vue-demi'
-import { JSONEditor } from 'svelte-jsoneditor/dist/jsoneditor.js'
+import { JSONEditor} from "vanilla-jsoneditor"
 //import jsonrepair from 'jsonrepair'
 import { conclude } from 'vue-global-config'
 import { globalAttrs } from './index'
