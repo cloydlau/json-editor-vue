@@ -23,3 +23,5 @@ pnpm-debug.log*
 
 /.env.development
 /pnpm-lock.yaml
+/.prettierrc
+/.eslintrc.js
