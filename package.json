@@ -16,10 +16,11 @@
     "vue-demi"
   ],
   "private": false,
-  "main": "dist/json-editor-vue.umd.js",
+  "main": "./dist/json-editor-vue.umd.js",
+  "module": "./dist/json-editor-vue.mjs",
   "exports": {
     ".": {
-      "import": "./dist/json-editor-vue.es.js",
+      "import": "./dist/json-editor-vue.mjs",
       "require": "./dist/json-editor-vue.umd.js"
     }
   },
