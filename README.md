@@ -8,7 +8,7 @@ JSON editor for Vue 2 and 3 powered by [svelte-jsoneditor](https://github.com/jo
 
 ![jsoneditor_screenshot](./docs/jsoneditor_screenshot.png)
 
-[Online Playground](https://github.com/cloydlau/json-editor-vue/blob/master/demo/vue3/without-bundler.html)
+[Online Playground](https://cloydlau.github.io/demo/json-editor-vue.html)
 
 <br>
 
