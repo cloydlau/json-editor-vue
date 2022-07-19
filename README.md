@@ -2,17 +2,13 @@ English | [简体中文](./docs/README.zh-CN.md)
 
 # json-editor-vue
 
-JSON editor for Vue 2 and 3 powered
-by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
+JSON editor for Vue 2 and 3 powered by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor).
 
-> svelte-jsoneditor is a brand new JSON editor created by the same author
-> of [jsoneditor](https://github.com/josdejong/jsoneditor)
-> which
-> ['has become hard to maintain, and the architecture needed a big overhaul'](https://github.com/josdejong/jsoneditor/issues/1223)
-> .
-> json-editor-vue is the Vue version for svelte-jsoneditor.
+> svelte-jsoneditor is a brand new JSON editor created by the same author of [jsoneditor](https://github.com/josdejong/jsoneditor), which ['has become hard to maintain, and the architecture needed a big overhaul'](https://github.com/josdejong/jsoneditor/issues/1223). json-editor-vue is the Vue version for svelte-jsoneditor.
 
 ![jsoneditor_screenshot](./docs/jsoneditor_screenshot.png)
+
+[Online Playground](https://github.com/cloydlau/json-editor-vue/blob/master/demo/vue3/without-bundler.html)
 
 <br>
 
@@ -57,26 +53,31 @@ import JsonEditorVue from 'json-editor-vue'
 ```
 
 ```html
-<!-- CDN / Without Build Tools -->
+<!-- Without Bundler / CDN -->
 
 <div id="app">
   <json-editor-vue v-model="data"></json-editor-vue>
-  <p><button onclick="console.log(app.data)">print data</button></p>
+  <p v-text="data"></p>
 </div>
 
 <script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/vue-demi"></script>
-<script src="https://unpkg.com/json-editor-vue@0.4/dist/json-editor-vue.umd.js"></script>
+<script
+  src="https://unpkg.com/json-editor-vue@0.4/dist/json-editor-vue.umd.js"></script>
 <script>
-const { createApp } = Vue
-const app = createApp({
-  components: { 'json-editor-vue': window['json-editor-vue'].default },
-  data() {
-    return {
-      data: 'initial data',
+  const { createApp, ref } = Vue
+
+  createApp({
+    setup() {
+      const data = ref({
+        a: 1,
+      })
+      return {
+        data
+      }
     }
-  },
-}).mount('#app')
+  }).use(window['json-editor-vue'].default)
+    .mount('#app')
 </script>
 ```
 
@@ -124,26 +125,30 @@ export default {
 ```
 
 ```html
-<!-- CDN / Without Build Tools -->
+<!-- Without Bundler / CDN -->
 
 <div id="app">
   <json-editor-vue v-model="data"></json-editor-vue>
-  <p><button onclick="console.log(app.data)">print data</button></p>
+  <p v-text="data"></p>
 </div>
+
 <script src="https://unpkg.com/vue@2"></script>
 <!-- Vue version before 2.7 should add an extra @vue/composition-api -->
 <!-- <script src="https://unpkg.com/@vue/composition-api"></script> -->
 <script src="https://unpkg.com/vue-demi"></script>
-<script src="https://unpkg.com/json-editor-vue@0.4/dist/json-editor-vue.umd.js"></script>
+<script
+  src="https://unpkg.com/json-editor-vue@0.4/dist/json-editor-vue.umd.js"></script>
 <script>
-const app = new Vue({
-  components: { 'json-editor-vue': window['json-editor-vue'].default },
-  data() {
-    return {
-      data: 'initial data',
-    }
-  },
-}).$mount('#app')
+  new Vue({
+    components: { 'json-editor-vue': window['json-editor-vue'].default },
+    data() {
+      return {
+        data: {
+          a: 1,
+        },
+      }
+    },
+  }).$mount('#app')
 </script>
 ```
 
@@ -151,9 +156,9 @@ const app = new Vue({
 
 ## Props
 
-| Name            | Description                                                                     | Type |
-| --------------- | ------------------------------------------------------------------------------- | ---- |
-| v-model / value | binding value                                                                   | any  |
+| Name            | Description                                                                         | Type |
+| --------------- | ----------------------------------------------------------------------------------- | ---- |
+| v-model / value | binding value                                                                       | any  |
 | ...             | options of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#api) |      |
 
 <br>

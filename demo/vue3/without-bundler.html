@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>json-editor-vue</title>
+</head>
+
+<body>
+  <div id="app">
+    <json-editor-vue v-model="data"></json-editor-vue>
+    <p v-text="data"></p>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vue-demi"></script>
+  <script
+    src="https://unpkg.com/json-editor-vue@0.4/dist/json-editor-vue.umd.js"></script>
+  <script>
+    const { createApp, ref } = Vue
+
+   createApp({
+      setup() {
+        const data = ref({
+          a: 1,
+        })
+        return {
+          data
+        }
+      }
+    }).use(window['json-editor-vue'].default)
+      .mount('#app')
+  </script>
+</body>
+
+</html>
