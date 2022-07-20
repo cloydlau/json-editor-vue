@@ -53,7 +53,7 @@ import JsonEditorVue from 'json-editor-vue'
 ```
 
 ```html
-<!-- Without Bundler / CDN -->
+<!-- Without bundler / CDN -->
 
 <div id="app">
   <json-editor-vue v-model="data"></json-editor-vue>
@@ -68,14 +68,21 @@ import JsonEditorVue from 'json-editor-vue'
   const { createApp, ref } = Vue
 
   createApp({
-    setup() {
-      const data = ref({
-        a: 1,
+    setup: () => ({
+      data: ref({
+        'array with numbers': [1, 2, 3],
+        boolean: true,
+        color: '#82b92c',
+        null: null,
+        number: 123,
+        object: {
+          a: 'b',
+          c: 'd',
+        },
+        time: 1575599819000,
+        string: 'Hello World',
       })
-      return {
-        data
-      }
-    }
+    })
   }).use(window['json-editor-vue'].default)
     .mount('#app')
 </script>
@@ -125,7 +132,7 @@ export default {
 ```
 
 ```html
-<!-- Without Bundler / CDN -->
+<!-- Without bundler / CDN -->
 
 <div id="app">
   <json-editor-vue v-model="data"></json-editor-vue>
@@ -144,7 +151,17 @@ export default {
     data() {
       return {
         data: {
-          a: 1,
+          'array with numbers': [1, 2, 3],
+          boolean: true,
+          color: '#82b92c',
+          null: null,
+          number: 123,
+          object: {
+            a: 'b',
+            c: 'd',
+          },
+          time: 1575599819000,
+          string: 'Hello World',
         },
       }
     },
