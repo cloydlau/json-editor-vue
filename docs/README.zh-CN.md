@@ -6,7 +6,7 @@ JSON 编辑器，支持 Vue 2 和 Vue 3，基于 [svelte-jsoneditor](https://git
 
 ![jsoneditor_screenshot](./jsoneditor_screenshot.png)
 
-[在线预览](https://cloydlau.github.io/demo/json-editor-vue.html)
+🤹‍♂️ [在线预览](https://cloydlau.github.io/demo/json-editor-vue.html)
 
 <br>
 
