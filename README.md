@@ -69,19 +69,7 @@ import JsonEditorVue from 'json-editor-vue'
 
   createApp({
     setup: () => ({
-      data: ref({
-        'array with numbers': [1, 2, 3],
-        boolean: true,
-        color: '#82b92c',
-        null: null,
-        number: 123,
-        object: {
-          a: 'b',
-          c: 'd',
-        },
-        time: 1575599819000,
-        string: 'Hello World',
-      })
+      data: ref()
     })
   }).use(window['json-editor-vue'].default)
     .mount('#app')
@@ -150,19 +138,7 @@ export default {
     components: { 'json-editor-vue': window['json-editor-vue'].default },
     data() {
       return {
-        data: {
-          'array with numbers': [1, 2, 3],
-          boolean: true,
-          color: '#82b92c',
-          null: null,
-          number: 123,
-          object: {
-            a: 'b',
-            c: 'd',
-          },
-          time: 1575599819000,
-          string: 'Hello World',
-        },
+        data: undefined,
       }
     },
   }).$mount('#app')
