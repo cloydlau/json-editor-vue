@@ -1,9 +1,14 @@
 {
   "name": "json-editor-vue",
   "version": "0.4.12",
+  "private": false,
+  "description": "JSON editor for Vue 2 & 3",
   "author": "cloydlau",
   "license": "ISC",
-  "description": "JSON editor for Vue 2 & 3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloydlau/json-editor-vue"
+  },
   "keywords": [
     "jsoneditor",
     "svelte-jsoneditor",
@@ -15,19 +20,14 @@
     "vue3",
     "vue-demi"
   ],
-  "private": false,
-  "main": "./dist/json-editor-vue.umd.js",
-  "module": "./dist/json-editor-vue.mjs",
   "exports": {
     ".": {
-      "import": "./dist/json-editor-vue.mjs",
-      "require": "./dist/json-editor-vue.umd.js"
+      "require": "./dist/json-editor-vue.umd.js",
+      "import": "./dist/json-editor-vue.mjs"
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cloydlau/json-editor-vue"
-  },
+  "main": "./dist/json-editor-vue.umd.js",
+  "module": "./dist/json-editor-vue.mjs",
   "scripts": {
     "dev": "node scripts/switch-vue.js 3 && vite --config ./vite-vue3.config.ts --open",
     "dev2": "node scripts/switch-vue.js 2 && vite --config ./vite-vue2.config.ts --open",
@@ -40,23 +40,7 @@
     "rs": "node scripts/release.js --straightforward",
     "test": "vitest --config ./vitest.config.ts",
     "test2": "vitest --config ./vitest.vue2.config.ts",
-    "coverage": "vitest run --coverage",
-    "prepare": "husky install"
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --write"
-    ],
-    "*.ts?(x)": [
-      "eslint",
-      "prettier --parser=typescript --write"
-    ]
-  },
-  "dependencies": {
-    "lodash-es": "latest",
-    "vanilla-jsoneditor": "latest",
-    "vue-demi": "latest",
-    "vue-global-config": "latest"
+    "coverage": "vitest run --coverage"
   },
   "peerDependencies": {
     "vue": "^2.0.0 || >=3.0.0"
@@ -66,26 +50,32 @@
       "optional": true
     }
   },
+  "dependencies": {
+    "lodash-es": "latest",
+    "vanilla-jsoneditor": "latest",
+    "vue-demi": "latest",
+    "vue-global-config": "latest"
+  },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "latest",
-    "@typescript-eslint/parser": "latest",
+    "@antfu/eslint-config": "latest",
     "@vitejs/plugin-vue2": "^1.1.2",
     "@vue/test-utils": "1",
     "chalk": "4.1.2",
     "element-ui": "^2.15.9",
     "enquirer": "latest",
     "eslint": "latest",
-    "eslint-config-prettier": "latest",
-    "eslint-plugin-prettier": "latest",
-    "eslint-plugin-vue": "latest",
     "execa": "4.1.0",
     "husky": "latest",
     "lint-staged": "latest",
     "minimist": "latest",
-    "prettier": "latest",
     "semver": "latest",
     "typescript": "latest",
     "vite": "latest",
     "vue": "2"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,vue,md}": [
+      "eslint --fix"
+    ]
   }
 }
