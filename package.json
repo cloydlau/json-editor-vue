@@ -1,6 +1,6 @@
 {
   "name": "json-editor-vue",
-  "version": "0.4.12",
+  "version": "0.4.13",
   "private": false,
   "description": "JSON editor for Vue 2 & 3",
   "author": "cloydlau",
@@ -35,9 +35,9 @@
     "serve": "vite preview",
     "clean": "rd /s /q .\\node_modules",
     "ri": "npm run clean && pnpm i",
-    "u": "node scripts/upgrade.js",
-    "r": "node scripts/release.js",
-    "rs": "node scripts/release.js --straightforward",
+    "u": "node scripts/u.js",
+    "r": "node scripts/r.js",
+    "rs": "node scripts/r.js --straightforward",
     "test": "vitest --config ./vitest.config.ts",
     "test2": "vitest --config ./vitest.vue2.config.ts",
     "coverage": "vitest run --coverage"
