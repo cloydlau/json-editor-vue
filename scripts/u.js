@@ -2,35 +2,34 @@
  * 更新依赖
  */
 
-const path = require('path')
-const chalk = require('chalk')
-const execa = require('execa')
-
-const mirror = 'https://registry.npmmirror.com/'
-const bin = name => path.resolve(__dirname, '../node_modules/.bin/' + name)
-const run = (bin, args, opts = {}) =>
-  execa(bin, args, { stdio: 'inherit', ...opts })
-const step = msg => console.log(chalk.cyan(msg))
-
-async function main () {
-  step('\nChecking pnpm version...')
-  const currVersion = await run('pnpm', ['-v'], { stdio: 'pipe' })
-  const latestVersion = await run('npm', ['view', 'pnpm', 'version'], { stdio: 'pipe' })
-
-  if (currVersion.stdout !== latestVersion.stdout) {
-    step(`\nFound new pnpm version ${latestVersion.stdout}, updating...`)
-    await run('npm', ['add', 'pnpm', '-g'])
-
-    step('\nSetting pnpm registry...')
-    await run('pnpm', ['config', 'set', 'registry', mirror])
+const run = async (opt) => {
+  if (opt.cmd) {
+    opt.cmd = ['cmd', '/c', ...opt.cmd.split(' ')]
   }
-
-  step('\nUpdating dependencies...')
-  await run('pnpm', ['upgrade'])
-
-  console.log()
+  const p = Deno.run(opt)
+  const { code } = await p.status() // (*1); wait here for child to finish
+  p.close()
+  if (opt.stdout === 'piped')
+    return new TextDecoder().decode(await p.output()).trim()
 }
 
-main().catch(err => {
-  console.error(err)
+async function main() {
+  console.log('\nChecking pnpm version...')
+  const currVersion = await run({ cmd: 'pnpm -v', stdout: 'piped' })
+  const latestVersion = await run({ cmd: 'npm view pnpm version', stdout: 'piped' })
+
+  if (currVersion.stdout !== latestVersion.stdout) {
+    console.log(`\n%cFound new pnpm version ${latestVersion.stdout}, updating...`, 'color:red;font-weight:bold')
+    await run({ cmd: 'npm add pnpm -g', })
+
+    console.log('\nSetting pnpm registry...')
+    await run({ cmd: 'pnpm config set registry https://registry.npmmirror.com' })
+  }
+
+  console.log('\nUpdating dependencies...')
+  await run({ cmd: 'pnpm upgrade' })
+}
+
+main().catch(e => {
+  console.error(e)
 })

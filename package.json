@@ -29,8 +29,12 @@
   "main": "./dist/json-editor-vue.umd.js",
   "module": "./dist/json-editor-vue.mjs",
   "scripts": {
-    "dev": "node scripts/switch-vue.js 3 && vite --config ./vite-vue3.config.ts --open",
-    "dev2": "node scripts/switch-vue.js 2 && vite --config ./vite-vue2.config.ts --open",
+    "dev": "pnpm switch3 && vite --config ./demo/vue3/vite.config.ts --open",
+    "dev2.7": "pnpm switch2.7 && vite --config ./demo/vue2.7/vite.config.ts --open",
+    "dev2": "pnpm switch2 && vite --config ./demo/vue2/vite.config.ts --open",
+    "switch3": "deno run --allow-run --allow-read --allow-write ./scripts/switch-vue.js 3",
+    "switch2.7": "deno run --allow-run --allow-read --allow-write ./scripts/switch-vue.js 2.7",
+    "switch2": "deno run --allow-run --allow-read --allow-write ./scripts/switch-vue.js 2",
     "build": "vite build",
     "serve": "vite preview",
     "clean": "rd /s /q .\\node_modules",
@@ -39,7 +43,6 @@
     "r": "node scripts/r.js",
     "rs": "node scripts/r.js --straightforward",
     "test": "vitest --config ./vitest.config.ts",
-    "test2": "vitest --config ./vitest.vue2.config.ts",
     "coverage": "vitest run --coverage"
   },
   "peerDependencies": {
@@ -58,10 +61,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "latest",
-    "@vitejs/plugin-vue2": "^1.1.2",
-    "@vue/test-utils": "1",
     "chalk": "4.1.2",
-    "element-ui": "^2.15.9",
     "enquirer": "latest",
     "eslint": "latest",
     "execa": "4.1.0",
@@ -71,7 +71,11 @@
     "semver": "latest",
     "typescript": "latest",
     "vite": "latest",
-    "vue": "2"
+    "@vitejs/plugin-vue": "latest",
+    "@vue/compiler-sfc": "latest",
+    "@vue/test-utils": "latest",
+    "element-plus": "latest",
+    "vue": "latest"
   },
   "lint-staged": {
     "*.{js,ts,tsx,vue,md}": [

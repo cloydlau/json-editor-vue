@@ -1,21 +1,13 @@
-import type { UserConfigExport, ConfigEnv } from 'vite'
+import type { ConfigEnv, UserConfigExport } from 'vite'
 import { name } from './package.json'
 
 // https://vitejs.dev/config/
 export default ({ command }: ConfigEnv): UserConfigExport => {
   return {
-    plugins: [
-      {
-        name: 'html-transform',
-        transformIndexHtml (html: string) {
-          return html.replace(/{{.*}}/, `/demo/vue2/index.ts`)
-        },
-      },
-    ],
     build: {
       lib: {
         name,
-        entry: 'src/index.ts'
+        entry: 'src/index.ts',
       },
       rollupOptions: {
         external: [
@@ -27,9 +19,9 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
           globals: {
             'vue': 'Vue',
             'vue-demi': 'VueDemi',
-          }
+          },
         },
-      }
-    }
+      },
+    },
   }
 }
