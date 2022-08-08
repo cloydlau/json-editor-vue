@@ -26,7 +26,7 @@ JSON editor for Vue 2 and 3 powered by [svelte-jsoneditor](https://github.com/jo
 
 ### Vue 3
 
-```bash
+```sh
 npm add json-editor-vue
 ```
 
@@ -80,7 +80,7 @@ import JsonEditorVue from 'json-editor-vue'
 
 ### Vue 2
 
-```bash
+```sh
 # Vue version before 2.7 should add an extra @vue/composition-api
 npm add json-editor-vue
 ```
