@@ -168,10 +168,10 @@ export default {
 
 ## 参数
 
-| 参数名          | 说明                                                                      | 类型 |
-| --------------- | ------------------------------------------------------------------------- | ---- |
-| v-model / value | 绑定值                                                                    | any  |
-| ...             | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/) 参数 |
+| 参数名  | 说明                                                                      | 类型 |
+| ------- | ------------------------------------------------------------------------- | ---- |
+| v-model | 绑定值                                                                    | any  |
+| ...     | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/) 参数 |
 
 <br>
 
