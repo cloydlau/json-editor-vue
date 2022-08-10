@@ -1,25 +1,15 @@
 /**
  * 搭建 eslint + prettier：
- *   1. pnpm add lint-staged eslint eslint-plugin-vue @typescript-eslint/eslint-plugin @typescript-eslint/parser prettier eslint-config-prettier eslint-plugin-prettier -D
+ *   1. pnpm add husky lint-staged eslint @antfu/eslint-config -D
+ *   3. npx husky install
  *   2. npx husky add .husky/pre-commit "npx lint-staged"
  */
 
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true
+  extends: '@antfu',
+  rules: {
+    'vue/component-tags-order': ['error', {
+      order: [['script', 'template'], 'style'],
+    }],
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:vue/vue3-essential',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended'
-  ],
-  parserOptions: {
-    ecmaVersion: 'latest',
-    parser: '@typescript-eslint/parser',
-    sourceType: 'module'
-  },
-  plugins: ['vue', '@typescript-eslint'],
-  rules: {}
 }
