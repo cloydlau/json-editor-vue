@@ -29,6 +29,9 @@
   },
   "main": "./dist/json-editor-vue.umd.js",
   "module": "./dist/json-editor-vue.mjs",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "pnpm switch3 && vite --config ./demo/vue3/vite.config.ts --open",
     "dev2.7": "pnpm switch2.7 && vite --config ./demo/vue2.7/vite.config.ts --open",
