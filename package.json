@@ -5,10 +5,7 @@
   "description": "JSON editor for Vue 2 & 3",
   "author": "cloydlau",
   "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cloydlau/json-editor-vue"
-  },
+  "repository": "https://github.com/cloydlau/json-editor-vue",
   "keywords": [
     "jsoneditor",
     "svelte-jsoneditor",
@@ -45,7 +42,8 @@
     "coverage": "vitest run --coverage"
   },
   "peerDependencies": {
-    "vue": "^2.0.0 || >=3.0.0"
+    "@vue/composition-api": "1",
+    "vue": "2 || 3"
   },
   "peerDependenciesMeta": {
     "@vue/composition-api": {
