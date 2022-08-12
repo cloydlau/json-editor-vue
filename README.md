@@ -16,7 +16,7 @@ JSON editor for Vue 2 and 3 powered by [svelte-jsoneditor](https://github.com/jo
 
 - Support both Vue 2 & 3
 - Import locally or globally, configure locally or globally (Powered
-  by [vue-global-config](https://github.com/cloydlau/vue-global-config.git))
+  by [vue-global-config](https://github.com/cloydlau/vue-global-config))
 
 <br>
 
