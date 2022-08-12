@@ -13,7 +13,7 @@ JSON 编辑器，支持 Vue 2 和 Vue 3，基于 [svelte-jsoneditor](https://git
 ## 特性
 
 - Vue 2 & 3 通用
-- 全局或局部引入，参数支持全局或局部配置（[vue-global-config](https://github.com/cloydlau/vue-global-config.git) 提供技术支持）
+- 全局或局部引入，参数支持全局或局部配置（[vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持）
 
 <br>
 
@@ -41,7 +41,7 @@ app.use(JsonEditorVue, {
 <!-- 局部引入 -->
 
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* 局部配置 */}"/>
+  <JsonEditorVue v-model="value" v-bind="{/* 局部配置 */}" />
 </template>
 
 <script setup>
@@ -98,7 +98,7 @@ Vue.use(JsonEditorVue, {
 <!-- 局部引入 -->
 
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* 局部配置 */}"/>
+  <JsonEditorVue v-model="value" v-bind="{/* 局部配置 */}" />
 </template>
 
 <script>
