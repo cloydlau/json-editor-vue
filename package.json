@@ -43,6 +43,7 @@
   },
   "peerDependencies": {
     "@vue/composition-api": "1",
+    "vanilla-jsoneditor": "0",
     "vue": "2 || 3"
   },
   "peerDependenciesMeta": {
@@ -52,23 +53,24 @@
   },
   "dependencies": {
     "lodash-es": "latest",
-    "vanilla-jsoneditor": "latest",
     "vue-demi": "latest",
     "vue-global-config": "latest"
   },
   "devDependencies": {
     "@antfu/eslint-config": "latest",
     "@cloydlau/scripts": "latest",
+    "@types/lodash-es": "latest",
+    "@vitejs/plugin-vue": "latest",
+    "@vue/compiler-sfc": "latest",
+    "@vue/test-utils": "latest",
+    "element-plus": "latest",
     "eslint": "latest",
     "husky": "latest",
     "lint-staged": "latest",
     "typescript": "latest",
+    "vanilla-jsoneditor": "latest",
     "vite": "latest",
-    "@vitejs/plugin-vue2": "latest",
-    "@vue/test-utils": "1",
-    "vue": "2.7",
-    "vue-template-compiler": "2.7",
-    "element-ui": "latest"
+    "vue": "latest"
   },
   "lint-staged": {
     "*.{js,ts,tsx,vue,md}": [

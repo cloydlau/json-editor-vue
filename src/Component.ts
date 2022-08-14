@@ -1,22 +1,22 @@
 import {
-  isVue3,
-  defineComponent,
-  ref,
   computed,
-  watch,
+  defineComponent,
+  getCurrentInstance,
+  h,
+  isVue3,
   onMounted,
   onUnmounted,
-  h,
-  getCurrentInstance,
-  //vShow, // 不支持 Vue 2
-  //withDirectives, // 不支持 Vue 2
+  ref,
+  watch,
+  // vShow, // 不支持 Vue 2
+  // withDirectives, // 不支持 Vue 2
 } from 'vue-demi'
 import type { ComponentInternalInstance } from 'vue-demi'
-import { JSONEditor} from "vanilla-jsoneditor"
-//import jsonrepair from 'jsonrepair'
+import { JSONEditor } from 'vanilla-jsoneditor'
+// import jsonrepair from 'jsonrepair'
 import { conclude } from 'vue-global-config'
+import { cloneDeep, debounce } from 'lodash-es'
 import { globalAttrs } from './index'
-import { debounce, cloneDeep } from 'lodash-es'
 
 type Mode = 'tree' | 'text' | undefined
 type ValueKey = 'json' | 'text'
@@ -36,17 +36,17 @@ export default defineComponent({
     // 防止被 computed 追踪
     const initialValue = cloneDeep(props[valuePropName])
 
-    const syncValue = debounce((updatedContent: { text: string, json: any }) => {
+    const syncValue = debounce((updatedContent: { text: string; json: any }) => {
       syncingValue.value = true
       emit(eventName, updatedContent[valueKey.value])
     }, 100)
 
     const modeToValueKey = (mode: Mode): ValueKey =>
-      mode ? { 'text': 'text', 'tree': 'json' }[mode] as ValueKey : valueKey.value
+      mode ? { text: 'text', tree: 'json' }[mode] as ValueKey : valueKey.value
 
     const SvelteJsoneditorProps = computed(() => {
       return conclude([attrs, globalAttrs, {
-        //onBlur: () => {syncValue(true)}, // 回车会触发失焦
+        // onBlur: () => {syncValue(true)}, // 回车会触发失焦
         onChange: syncValue, // 考虑到有切换 boolean 值的情况，还是用 onChange 更加合适
         onChangeMode(mode: Mode) {
           valueKey.value = modeToValueKey(mode)
@@ -67,11 +67,11 @@ export default defineComponent({
             }
           },
           defaultIsDynamic: true,
-        }
+        },
       })
     })
 
-    watch(() => props[valuePropName], (n, o) => {
+    watch(() => props[valuePropName], (n) => {
       if (syncingValue.value) {
         syncingValue.value = false
         return
@@ -80,25 +80,26 @@ export default defineComponent({
         // svelte-jsoneditor 不接受 undefined
         // 其默认值为 { text: '' }
         // 只有默认值才能清空编辑器
-        n === undefined ? { text: '' } :
-          {
-            [valueKey.value]:
+        n === undefined
+          ? { text: '' }
+          : {
+              [valueKey.value]:
               // text 模式只接受 string
-              (typeof n !== 'string' && valueKey.value === 'text') ?
-                JSON.stringify(n) :
-                n
-          }
+              (typeof n !== 'string' && valueKey.value === 'text')
+                ? JSON.stringify(n)
+                : n,
+            },
       )
     }, {
-      deep: true
+      deep: true,
     })
 
-    watch(SvelteJsoneditorProps, n => {
+    watch(SvelteJsoneditorProps, (n) => {
       valueKey.value = modeToValueKey(n.mode)
       delete n.content // 不删除 content 将导致 content 被初始值覆盖
       jsonEditor.value.updateProps(n)
     }, {
-      deep: true
+      deep: true,
     })
 
     onMounted(() => {
@@ -114,7 +115,7 @@ export default defineComponent({
 
     return () => h('div', {
       ref: 'jsonEditorRef',
-      /*...isVue3 ?
+      /* ...isVue3 ?
         {
           onMouseout: syncValue,
         } :
@@ -122,11 +123,11 @@ export default defineComponent({
           on: {
             mouseout: syncValue,
           }
-        }*/
+        } */
     })
   },
-  /*render (ctx: any) {
+  /* render (ctx: any) {
     // vue 2 中 ctx 为渲染函数 h
     return h('div', { ref: isVue3 ? ctx.jsonEditorRef : 'jsonEditorRef' })
-  }*/
+  } */
 })
