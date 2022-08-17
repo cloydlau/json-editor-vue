@@ -63,6 +63,7 @@
     "@vitejs/plugin-vue": "latest",
     "@vue/compiler-sfc": "latest",
     "@vue/test-utils": "latest",
+    "case-police": "latest",
     "element-plus": "latest",
     "eslint": "latest",
     "husky": "latest",
