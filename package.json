@@ -62,7 +62,6 @@
     "@types/lodash-es": "latest",
     "@vitejs/plugin-vue": "latest",
     "@vue/compiler-sfc": "latest",
-    "@vue/test-utils": "latest",
     "case-police": "latest",
     "element-plus": "latest",
     "eslint": "latest",
@@ -71,6 +70,7 @@
     "typescript": "latest",
     "vanilla-jsoneditor": "latest",
     "vite": "latest",
+    "@vue/test-utils": "latest",
     "vue": "latest"
   },
   "lint-staged": {

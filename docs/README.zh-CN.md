@@ -24,7 +24,7 @@ JSON 编辑器，支持 Vue 2 和 Vue 3，基于 [svelte-jsoneditor](https://git
 ### Vue 3
 
 ```sh
-npm add json-editor-vue
+npm add vanilla-jsoneditor json-editor-vue
 ```
 
 ```ts
@@ -59,6 +59,7 @@ import JsonEditorVue from 'json-editor-vue'
 
 <script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/vue-demi"></script>
+<script src="https://unpkg.com/vanilla-jsoneditor"></script>
 <script
   src="https://unpkg.com/json-editor-vue@0.4/dist/json-editor-vue.umd.js"></script>
 <script>
@@ -77,7 +78,7 @@ import JsonEditorVue from 'json-editor-vue'
 
 ```sh
 # vue@2.6 或更早版本需要额外安装 @vue/composition-api
-npm add json-editor-vue
+npm add vanilla-jsoneditor json-editor-vue
 ```
 
 ```ts
@@ -126,6 +127,7 @@ export default {
 <!-- Vue version before 2.7 should add an extra @vue/composition-api -->
 <!-- <script src="https://unpkg.com/@vue/composition-api"></script> -->
 <script src="https://unpkg.com/vue-demi"></script>
+<script src="https://unpkg.com/vanilla-jsoneditor"></script>
 <script
   src="https://unpkg.com/json-editor-vue@0.4/dist/json-editor-vue.umd.js"></script>
 <script>
@@ -142,7 +144,7 @@ export default {
 
 <br>
 
-## 参数
+## Props
 
 | 参数名  | 说明                                                                      | 类型 |
 | ------- | ------------------------------------------------------------------------- | ---- |
