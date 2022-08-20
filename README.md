@@ -156,6 +156,16 @@ export default {
 
 <br>
 
+## Expose
+
+> Vue 3 only, all instance properties are accessable using `$refs` in Vue 2.
+
+| name       | description         | type   |
+| ---------- | ------------------- | ------ |
+| jsonEditor | JSONEditor instance | object |
+
+<br>
+
 ## Config rules
 
 - Props of two-way data binding ( `v-model` / `modelValue` / `value` ) only support local config.

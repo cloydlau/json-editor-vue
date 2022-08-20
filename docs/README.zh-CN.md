@@ -151,6 +151,16 @@ export default {
 
 <br>
 
+## Expose
+
+> 仅限 Vue 3，Vue 2 通过 `$refs` 能拿到所有的实例 property
+
+| 名称       | 说明                | 类型   |
+| ---------- | ------------------- | ------ |
+| jsonEditor | JSONEditor instance | object |
+
+<br>
+
 ## 配置规则
 
 - 双向绑定参数（`v-model` / `modelValue` / `value`）仅支持局部配置

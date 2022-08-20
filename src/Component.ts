@@ -26,7 +26,7 @@ const valuePropName = isVue3 ? 'modelValue' : 'value'
 export default defineComponent({
   name: 'JsonEditorVue',
   props: [valuePropName],
-  setup(props, { attrs, emit }) {
+  setup(props, { attrs, emit, expose }) {
     const currentInstance = getCurrentInstance() as ComponentInternalInstance
     const syncingValue = ref(false)
     const eventName = isVue3 ? 'update:modelValue' : 'input'
@@ -112,6 +112,9 @@ export default defineComponent({
     onUnmounted(() => {
       jsonEditor.value.destroy()
     })
+
+    if (isVue3)
+      expose({ jsonEditor })
 
     return () => h('div', {
       ref: 'jsonEditorRef',
