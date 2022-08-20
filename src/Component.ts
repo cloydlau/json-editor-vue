@@ -1,5 +1,4 @@
 import {
-  computed,
   defineComponent,
   getCurrentInstance,
   h,
@@ -44,31 +43,29 @@ export default defineComponent({
     const modeToValueKey = (mode: Mode): ValueKey =>
       mode ? { text: 'text', tree: 'json' }[mode] as ValueKey : valueKey.value
 
-    const SvelteJsoneditorProps = computed(() => {
-      return conclude([attrs, globalAttrs, {
-        // onBlur: () => {syncValue(true)}, // 回车会触发失焦
-        onChange: syncValue, // 考虑到有切换 boolean 值的情况，还是用 onChange 更加合适
-        onChangeMode(mode: Mode) {
+    const SvelteJsoneditorProps = conclude([attrs, globalAttrs, {
+      // onBlur: () => {syncValue(true)}, // 回车会触发失焦
+      onChange: syncValue, // 考虑到有切换 boolean 值的情况，还是用 onChange 更加合适
+      onChangeMode(mode: Mode) {
+        valueKey.value = modeToValueKey(mode)
+      },
+    }], {
+      camelCase: false,
+      mergeFunction: (globalFunction: Function, defaultFunction: Function) => (...args: any) => {
+        globalFunction(...args)
+        defaultFunction(...args)
+      },
+      ...initialValue !== undefined && {
+        default: ({ mode }: { mode: Mode }) => {
           valueKey.value = modeToValueKey(mode)
+          return {
+            content: {
+              [valueKey.value]: initialValue,
+            },
+          }
         },
-      }], {
-        camelCase: false,
-        mergeFunction: (globalFunction: Function, defaultFunction: Function) => (...args: any) => {
-          globalFunction(...args)
-          defaultFunction(...args)
-        },
-        ...initialValue !== undefined && {
-          default: ({ mode }: { mode: Mode }) => {
-            valueKey.value = modeToValueKey(mode)
-            return {
-              content: {
-                [valueKey.value]: initialValue,
-              },
-            }
-          },
-          defaultIsDynamic: true,
-        },
-      })
+        defaultIsDynamic: true,
+      },
     })
 
     watch(() => props[valuePropName], (n) => {
@@ -94,9 +91,8 @@ export default defineComponent({
       deep: true,
     })
 
-    watch(SvelteJsoneditorProps, (n) => {
-      valueKey.value = modeToValueKey(n.mode)
-      delete n.content // 不删除 content 将导致 content 被初始值覆盖
+    watch(() => attrs, (n) => {
+      valueKey.value = modeToValueKey(n.mode as Mode)
       jsonEditor.value.updateProps(n)
     }, {
       deep: true,
@@ -105,7 +101,7 @@ export default defineComponent({
     onMounted(() => {
       jsonEditor.value = new JSONEditor({
         target: currentInstance.proxy.$refs.jsonEditorRef,
-        props: SvelteJsoneditorProps.value,
+        props: SvelteJsoneditorProps,
       })
     })
 
