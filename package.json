@@ -22,9 +22,12 @@
       "require": "./dist/json-editor-vue.umd.js",
       "import": "./dist/json-editor-vue.mjs",
       "browser": "./dist/json-editor-vue.mjs"
-    }
+    },
+    "./*": "./*"
   },
   "main": "./dist/json-editor-vue.umd.js",
+  "jsdelivr": "./dist/json-editor-vue.umd.js",
+  "unpkg": "./dist/json-editor-vue.umd.js",
   "module": "./dist/json-editor-vue.mjs",
   "files": [
     "dist"
