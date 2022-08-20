@@ -66,6 +66,7 @@
     "element-plus": "latest",
     "eslint": "latest",
     "husky": "latest",
+    "json-editor-vue": "latest",
     "lint-staged": "latest",
     "typescript": "latest",
     "vanilla-jsoneditor": "latest",

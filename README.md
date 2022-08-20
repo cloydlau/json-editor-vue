@@ -62,9 +62,8 @@ import JsonEditorVue from 'json-editor-vue'
 
 <script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/vue-demi"></script>
-<script src="https://unpkg.com/vanilla-jsoneditor"></script>
 <script
-  src="https://unpkg.com/json-editor-vue@0.5/dist/json-editor-vue.umd.js"></script>
+  src="https://unpkg.com/json-editor-vue@0.4/dist/json-editor-vue.umd.js"></script>
 <script>
   const { createApp, ref } = Vue
 
@@ -132,9 +131,8 @@ export default {
 <!-- Vue version before 2.7 should add an extra @vue/composition-api -->
 <!-- <script src="https://unpkg.com/@vue/composition-api"></script> -->
 <script src="https://unpkg.com/vue-demi"></script>
-<script src="https://unpkg.com/vanilla-jsoneditor"></script>
 <script
-  src="https://unpkg.com/json-editor-vue@0.5/dist/json-editor-vue.umd.js"></script>
+  src="https://unpkg.com/json-editor-vue@0.4/dist/json-editor-vue.umd.js"></script>
 <script>
   new Vue({
     components: { 'json-editor-vue': window['json-editor-vue'].default },
