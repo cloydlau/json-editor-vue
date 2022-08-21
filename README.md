@@ -2,7 +2,7 @@ English | [简体中文](./docs/README.zh-CN.md)
 
 # json-editor-vue
 
-JSON editor for Vue 2 and 3 powered by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor).
+JSON editor for Vue 2.6 / 2.7 / 3, powered by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor).
 
 > svelte-jsoneditor is a brand new JSON editor created by the same author of [jsoneditor](https://github.com/josdejong/jsoneditor), which ['has become hard to maintain, and the architecture needed a big overhaul'](https://github.com/josdejong/jsoneditor/issues/1223). json-editor-vue is the Vue version for svelte-jsoneditor.
 
@@ -14,7 +14,7 @@ JSON editor for Vue 2 and 3 powered by [svelte-jsoneditor](https://github.com/jo
 
 ## Features
 
-- Support Vue **2.6** & **2.7** & **3**
+- Support Vue 2.6 / 2.7 / 3
 - Import locally or globally, configure locally or globally (Powered
   by [vue-global-config](https://github.com/cloydlau/vue-global-config))
 
