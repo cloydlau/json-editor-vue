@@ -1,6 +1,6 @@
 {
   "name": "json-editor-vue",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "private": false,
   "description": "JSON editor for Vue 2.6 / 2.7 / 3. 支持 Vue 2.6 / 2.7 / 3 的 JSON 编辑器。",
   "author": "cloydlau",
@@ -26,9 +26,9 @@
     "./*": "./*"
   },
   "main": "./dist/json-editor-vue.umd.js",
-  "jsdelivr": "./dist/json-editor-vue.umd.js",
-  "unpkg": "./dist/json-editor-vue.umd.js",
   "module": "./dist/json-editor-vue.mjs",
+  "unpkg": "./dist/json-editor-vue.umd.js",
+  "jsdelivr": "./dist/json-editor-vue.umd.js",
   "files": [
     "dist"
   ],
@@ -63,10 +63,7 @@
     "@antfu/eslint-config": "latest",
     "@cloydlau/scripts": "latest",
     "@types/lodash-es": "latest",
-    "@vitejs/plugin-vue": "latest",
-    "@vue/compiler-sfc": "latest",
     "case-police": "latest",
-    "element-plus": "latest",
     "eslint": "latest",
     "husky": "latest",
     "json-editor-vue": "latest",
@@ -74,8 +71,11 @@
     "typescript": "latest",
     "vanilla-jsoneditor": "latest",
     "vite": "latest",
+    "@vitejs/plugin-vue": "latest",
+    "@vue/compiler-sfc": "latest",
     "@vue/test-utils": "latest",
-    "vue": "latest"
+    "vue": "latest",
+    "element-plus": "latest"
   },
   "lint-staged": {
     "*.{js,ts,tsx,vue,md}": [

@@ -7,12 +7,9 @@ import {
   onUnmounted,
   ref,
   watch,
-  // vShow, // 不支持 Vue 2
-  // withDirectives, // 不支持 Vue 2
 } from 'vue-demi'
 import type { ComponentInternalInstance } from 'vue-demi'
 import { JSONEditor } from 'vanilla-jsoneditor'
-// import jsonrepair from 'jsonrepair'
 import { conclude } from 'vue-global-config'
 import { debounce } from 'lodash-es'
 import { globalAttrs } from './index'
@@ -21,6 +18,7 @@ type Mode = 'tree' | 'text' | undefined
 type ValueKey = 'json' | 'text'
 
 const valuePropName = isVue3 ? 'modelValue' : 'value'
+const eventName = isVue3 ? 'update:modelValue' : 'input'
 
 export default defineComponent({
   name: 'JsonEditorVue',
@@ -28,7 +26,6 @@ export default defineComponent({
   setup(props, { attrs, emit, expose }) {
     const currentInstance = getCurrentInstance() as ComponentInternalInstance
     const syncingValue = ref(false)
-    const eventName = isVue3 ? 'update:modelValue' : 'input'
     const jsonEditor = ref()
     // 初始模式为 tree，故初始 valueKey 为 json
     const valueKey = ref<ValueKey>('json')
@@ -98,7 +95,7 @@ export default defineComponent({
 
     onMounted(() => {
       jsonEditor.value = new JSONEditor({
-        target: currentInstance.proxy.$refs.jsonEditorRef,
+        target: currentInstance.proxy?.$refs.jsonEditorRef as Element,
         props: SvelteJsoneditorProps,
       })
     })
@@ -110,21 +107,6 @@ export default defineComponent({
     if (isVue3)
       expose({ jsonEditor })
 
-    return () => h('div', {
-      ref: 'jsonEditorRef',
-      /* ...isVue3 ?
-        {
-          onMouseout: syncValue,
-        } :
-        {
-          on: {
-            mouseout: syncValue,
-          }
-        } */
-    })
+    return () => h('div', { ref: 'jsonEditorRef' })
   },
-  /* render (ctx: any) {
-    // vue 2 中 ctx 为渲染函数 h
-    return h('div', { ref: isVue3 ? ctx.jsonEditorRef : 'jsonEditorRef' })
-  } */
 })
