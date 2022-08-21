@@ -14,7 +14,7 @@ JSON editor for Vue 2 and 3 powered by [svelte-jsoneditor](https://github.com/jo
 
 ## Features
 
-- Support both Vue 2 & 3
+- Support Vue **2.6** & **2.7** & **3**
 - Import locally or globally, configure locally or globally (Powered
   by [vue-global-config](https://github.com/cloydlau/vue-global-config))
 
@@ -30,9 +30,9 @@ JSON editor for Vue 2 and 3 powered by [svelte-jsoneditor](https://github.com/jo
 npm add vanilla-jsoneditor json-editor-vue
 ```
 
-```ts
-// Import globally
+#### Import globally
 
+```ts
 import JsonEditorVue from 'json-editor-vue'
 
 app.use(JsonEditorVue, {
@@ -40,9 +40,9 @@ app.use(JsonEditorVue, {
 })
 ```
 
-```vue
-<!-- Import locally -->
+#### Import locally
 
+```vue
 <template>
   <JsonEditorVue v-model="value" v-bind="{/* local config */}" />
 </template>
@@ -52,46 +52,49 @@ import JsonEditorVue from 'json-editor-vue'
 </script>
 ```
 
-```html
-<!-- Without bundler / CDN -->
+#### Without bundler / CDN
 
+```html
 <div id="app">
-  <json-editor-vue v-model="data"></json-editor-vue>
-  <p v-text="data"></p>
+  <json-editor-vue v-model="value"></json-editor-vue>
+  <p v-text="value"></p>
 </div>
 
-<script src="https://unpkg.com/vue"></script>
-<script src="https://unpkg.com/vue-demi"></script>
-<script
-  src="https://unpkg.com/json-editor-vue@0.4/dist/json-editor-vue.umd.js"></script>
-<script>
-  const { createApp, ref } = Vue
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue/dist/vue.esm-browser.prod.js",
+      "vue-demi": "https://unpkg.com/vue-demi/lib/v3/index.mjs",
+      "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
+      "json-editor-vue": "https://unpkg.com/json-editor-vue@0.5/dist/json-editor-vue.mjs"
+    }
+  }
+</script>
+<script type="module">
+  import { createApp, ref } from 'vue'
+  import JsonEditorVue from 'json-editor-vue'
 
   createApp({
     setup: () => ({
-      data: ref()
+      value: ref()
     })
-  }).use(window['json-editor-vue'].default)
+  })
+    .use(JsonEditorVue)
     .mount('#app')
 </script>
 ```
 
 <br>
 
-### Vue 2
+### Vue 2.7
 
 ```sh
-# Vue version before 2.7 should add an extra @vue/composition-api
 npm add vanilla-jsoneditor json-editor-vue
 ```
 
+#### Import globally
+
 ```ts
-// Import globally
-
-// Vue version before 2.7 should add an extra @vue/composition-api
-// import VCA from '@vue/composition-api'
-// Vue.use(VCA)
-
 import JsonEditorVue from 'json-editor-vue'
 
 Vue.use(JsonEditorVue, {
@@ -99,18 +102,14 @@ Vue.use(JsonEditorVue, {
 })
 ```
 
-```vue
-<!-- Import locally -->
+#### Import locally
 
+```vue
 <template>
   <JsonEditorVue v-model="value" v-bind="{/* local config */}" />
 </template>
 
 <script>
-// Vue version before 2.7 should add an extra @vue/composition-api
-// import VCA from '@vue/composition-api'
-// Vue.use(VCA)
-
 import JsonEditorVue from 'json-editor-vue'
 
 export default {
@@ -119,29 +118,113 @@ export default {
 </script>
 ```
 
-```html
-<!-- Without bundler / CDN -->
+#### Without bundler / CDN
 
+```html
 <div id="app">
-  <json-editor-vue v-model="data"></json-editor-vue>
-  <p v-text="data"></p>
+  <json-editor-vue v-model="value"></json-editor-vue>
+  <p v-text="value"></p>
 </div>
 
-<script src="https://unpkg.com/vue@2"></script>
-<!-- Vue version before 2.7 should add an extra @vue/composition-api -->
-<!-- <script src="https://unpkg.com/@vue/composition-api"></script> -->
-<script src="https://unpkg.com/vue-demi"></script>
-<script
-  src="https://unpkg.com/json-editor-vue@0.4/dist/json-editor-vue.umd.js"></script>
-<script>
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@2/dist/vue.esm.browser.min.js",
+      "vue-demi": "https://unpkg.com/vue-demi/lib/v2.7/index.mjs",
+      "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
+      "json-editor-vue": "https://unpkg.com/json-editor-vue@0.5/dist/json-editor-vue.mjs"
+    }
+  }
+</script>
+<script type="module">
+  import Vue from 'vue'
+  import JsonEditorVue from 'json-editor-vue'
+
   new Vue({
-    components: { 'json-editor-vue': window['json-editor-vue'].default },
+    components: { JsonEditorVue },
     data() {
       return {
-        data: undefined,
+        value: undefined,
       }
     },
-  }).$mount('#app')
+  })
+    .$mount('#app')
+</script>
+```
+
+<br>
+
+### Vue 2.6 or earlier
+
+```sh
+npm add @vue/composition-api vanilla-jsoneditor json-editor-vue
+```
+
+#### Import globally
+
+```ts
+import VCA from '@vue/composition-api'
+import JsonEditorVue from 'json-editor-vue'
+
+Vue.use(VCA)
+Vue.use(JsonEditorVue, {
+  // global config
+})
+```
+
+#### Import locally
+
+```vue
+<template>
+  <JsonEditorVue v-model="value" v-bind="{/* local config */}" />
+</template>
+
+<script>
+import VCA from '@vue/composition-api'
+import JsonEditorVue from 'json-editor-vue'
+
+Vue.use(VCA)
+
+export default {
+  components: { JsonEditorVue },
+}
+</script>
+```
+
+#### Without bundler / CDN
+
+```html
+<div id="app">
+  <json-editor-vue v-model="value"></json-editor-vue>
+  <p v-text="value"></p>
+</div>
+
+<script>
+  window.process = { env: { NODE_ENV: 'production' } }
+</script>
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@2.6/dist/vue.esm.browser.min.js",
+      "@vue/composition-api": "https://unpkg.com/@vue/composition-api/dist/vue-composition-api.mjs",
+      "@vue/composition-api/dist/vue-composition-api.mjs": "https://unpkg.com/@vue/composition-api/dist/vue-composition-api.mjs",
+      "vue-demi": "https://unpkg.com/vue-demi/lib/v2/index.mjs",
+      "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
+      "json-editor-vue": "https://unpkg.com/json-editor-vue@0.5/dist/json-editor-vue.mjs"
+    }
+  }
+</script>
+<script type="module">
+  import { createApp, ref } from '@vue/composition-api'
+  import JsonEditorVue from 'json-editor-vue'
+
+  const app = createApp({
+    setup: () => ({
+      value: ref()
+    })
+  })
+  app.use(JsonEditorVue)
+  app.mount('#app')
 </script>
 ```
 

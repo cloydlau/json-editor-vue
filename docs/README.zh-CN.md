@@ -12,7 +12,7 @@ JSON 编辑器，支持 Vue 2 和 Vue 3，基于 [svelte-jsoneditor](https://git
 
 ## 特性
 
-- Vue 2 & 3 通用
+- Vue **2.6** & **2.7** & **3** 通用
 - 全局或局部引入，参数支持全局或局部配置（[vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持）
 
 <br>
@@ -27,9 +27,9 @@ JSON 编辑器，支持 Vue 2 和 Vue 3，基于 [svelte-jsoneditor](https://git
 npm add vanilla-jsoneditor json-editor-vue
 ```
 
-```ts
-// 全局引入
+#### 全局引入
 
+```ts
 import JsonEditorVue from 'json-editor-vue'
 
 app.use(JsonEditorVue, {
@@ -37,9 +37,9 @@ app.use(JsonEditorVue, {
 })
 ```
 
-```vue
-<!-- 局部引入 -->
+#### 局部引入
 
+```vue
 <template>
   <JsonEditorVue v-model="value" v-bind="{/* 局部配置 */}" />
 </template>
@@ -49,44 +49,49 @@ import JsonEditorVue from 'json-editor-vue'
 </script>
 ```
 
-```html
-<!-- 不使用打包工具 / CDN 引入 -->
+#### 不使用打包工具 / CDN 引入
 
+```html
 <div id="app">
-  <json-editor-vue v-model="data"></json-editor-vue>
-  <p v-text="data"></p>
+  <json-editor-vue v-model="value"></json-editor-vue>
+  <p v-text="value"></p>
 </div>
 
-<script src="https://unpkg.com/vue"></script>
-<script src="https://unpkg.com/vue-demi"></script>
-<script
-  src="https://unpkg.com/json-editor-vue@0.4/dist/json-editor-vue.umd.js"></script>
-<script>
-  const { createApp, ref } = Vue
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue/dist/vue.esm-browser.prod.js",
+      "vue-demi": "https://unpkg.com/vue-demi/lib/v3/index.mjs",
+      "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
+      "json-editor-vue": "https://unpkg.com/json-editor-vue@0.5/dist/json-editor-vue.mjs"
+    }
+  }
+</script>
+<script type="module">
+  import { createApp, ref } from 'vue'
+  import JsonEditorVue from 'json-editor-vue'
 
   createApp({
     setup: () => ({
-      data: ref()
+      value: ref()
     })
-  }).use(window['json-editor-vue'].default)
+  })
+    .use(JsonEditorVue)
     .mount('#app')
 </script>
 ```
 
-### Vue 2
+<br>
+
+### Vue 2.7
 
 ```sh
-# vue@2.6 或更早版本需要额外安装 @vue/composition-api
 npm add vanilla-jsoneditor json-editor-vue
 ```
 
+#### 全局引入
+
 ```ts
-// 全局引入
-
-// vue@2.6 或更早版本需要额外安装 @vue/composition-api
-// import VCA from '@vue/composition-api'
-// Vue.use(VCA)
-
 import JsonEditorVue from 'json-editor-vue'
 
 Vue.use(JsonEditorVue, {
@@ -94,18 +99,14 @@ Vue.use(JsonEditorVue, {
 })
 ```
 
-```vue
-<!-- 局部引入 -->
+#### 局部引入
 
+```vue
 <template>
   <JsonEditorVue v-model="value" v-bind="{/* 局部配置 */}" />
 </template>
 
 <script>
-// vue@2.6 或更早版本需要额外安装 @vue/composition-api
-// import VCA from '@vue/composition-api'
-// Vue.use(VCA)
-
 import JsonEditorVue from 'json-editor-vue'
 
 export default {
@@ -114,29 +115,113 @@ export default {
 </script>
 ```
 
-```html
-<!-- 不使用打包工具 / CDN 引入 -->
+#### 不使用打包工具 / CDN 引入
 
+```html
 <div id="app">
-  <json-editor-vue v-model="data"></json-editor-vue>
-  <p v-text="data"></p>
+  <json-editor-vue v-model="value"></json-editor-vue>
+  <p v-text="value"></p>
 </div>
 
-<script src="https://unpkg.com/vue@2"></script>
-<!-- Vue version before 2.7 should add an extra @vue/composition-api -->
-<!-- <script src="https://unpkg.com/@vue/composition-api"></script> -->
-<script src="https://unpkg.com/vue-demi"></script>
-<script
-  src="https://unpkg.com/json-editor-vue@0.4/dist/json-editor-vue.umd.js"></script>
-<script>
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@2/dist/vue.esm.browser.min.js",
+      "vue-demi": "https://unpkg.com/vue-demi/lib/v2.7/index.mjs",
+      "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
+      "json-editor-vue": "https://unpkg.com/json-editor-vue@0.5/dist/json-editor-vue.mjs"
+    }
+  }
+</script>
+<script type="module">
+  import Vue from 'vue'
+  import JsonEditorVue from 'json-editor-vue'
+
   new Vue({
-    components: { 'json-editor-vue': window['json-editor-vue'].default },
+    components: { JsonEditorVue },
     data() {
       return {
-        data: undefined,
+        value: undefined,
       }
     },
-  }).$mount('#app')
+  })
+    .$mount('#app')
+</script>
+```
+
+<br>
+
+### Vue 2.6 or earlier
+
+```sh
+npm add @vue/composition-api vanilla-jsoneditor json-editor-vue
+```
+
+#### 全局引入
+
+```ts
+import VCA from '@vue/composition-api'
+import JsonEditorVue from 'json-editor-vue'
+
+Vue.use(VCA)
+Vue.use(JsonEditorVue, {
+  // 全局配置
+})
+```
+
+#### 局部引入
+
+```vue
+<template>
+  <JsonEditorVue v-model="value" v-bind="{/* 局部配置 */}" />
+</template>
+
+<script>
+import VCA from '@vue/composition-api'
+import JsonEditorVue from 'json-editor-vue'
+
+Vue.use(VCA)
+
+export default {
+  components: { JsonEditorVue },
+}
+</script>
+```
+
+#### 不使用打包工具 / CDN 引入
+
+```html
+<div id="app">
+  <json-editor-vue v-model="value"></json-editor-vue>
+  <p v-text="value"></p>
+</div>
+
+<script>
+  window.process = { env: { NODE_ENV: 'production' } }
+</script>
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@2.6/dist/vue.esm.browser.min.js",
+      "@vue/composition-api": "https://unpkg.com/@vue/composition-api/dist/vue-composition-api.mjs",
+      "@vue/composition-api/dist/vue-composition-api.mjs": "https://unpkg.com/@vue/composition-api/dist/vue-composition-api.mjs",
+      "vue-demi": "https://unpkg.com/vue-demi/lib/v2/index.mjs",
+      "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
+      "json-editor-vue": "https://unpkg.com/json-editor-vue@0.5/dist/json-editor-vue.mjs"
+    }
+  }
+</script>
+<script type="module">
+  import { createApp, ref } from '@vue/composition-api'
+  import JsonEditorVue from 'json-editor-vue'
+
+  const app = createApp({
+    setup: () => ({
+      value: ref()
+    })
+  })
+  app.use(JsonEditorVue)
+  app.mount('#app')
 </script>
 ```
 
