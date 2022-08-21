@@ -14,7 +14,7 @@ import type { ComponentInternalInstance } from 'vue-demi'
 import { JSONEditor } from 'vanilla-jsoneditor'
 // import jsonrepair from 'jsonrepair'
 import { conclude } from 'vue-global-config'
-import { cloneDeep, debounce } from 'lodash-es'
+import { debounce } from 'lodash-es'
 import { globalAttrs } from './index'
 
 type Mode = 'tree' | 'text' | undefined
@@ -32,8 +32,6 @@ export default defineComponent({
     const jsonEditor = ref()
     // 初始模式为 tree，故初始 valueKey 为 json
     const valueKey = ref<ValueKey>('json')
-    // 防止被 computed 追踪
-    const initialValue = cloneDeep(props[valuePropName])
 
     const syncValue = debounce((updatedContent: { text: string; json: any }) => {
       syncingValue.value = true
@@ -55,12 +53,12 @@ export default defineComponent({
         globalFunction(...args)
         defaultFunction(...args)
       },
-      ...initialValue !== undefined && {
+      ...props[valuePropName] !== undefined && {
         default: ({ mode }: { mode: Mode }) => {
           valueKey.value = modeToValueKey(mode)
           return {
             content: {
-              [valueKey.value]: initialValue,
+              [valueKey.value]: props[valuePropName],
             },
           }
         },
