@@ -106,12 +106,8 @@ Vue.use(JsonEditorVue, {
   <JsonEditorVue v-model="value" v-bind="{/* 局部配置 */}" />
 </template>
 
-<script>
+<script setup>
 import JsonEditorVue from 'json-editor-vue'
-
-export default {
-  components: { JsonEditorVue },
-}
 </script>
 ```
 
@@ -189,6 +185,8 @@ export default {
 ```
 
 #### 不使用打包工具 / CDN 引入
+
+> 由于 `vanilla-jsoneditor` 没有提供 UMD 导出，这样用会有点绕。
 
 ```html
 <div id="app">

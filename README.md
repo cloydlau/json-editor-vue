@@ -108,12 +108,8 @@ Vue.use(JsonEditorVue, {
   <JsonEditorVue v-model="value" v-bind="{/* local config */}" />
 </template>
 
-<script>
+<script setup>
 import JsonEditorVue from 'json-editor-vue'
-
-export default {
-  components: { JsonEditorVue },
-}
 </script>
 ```
 
@@ -191,6 +187,8 @@ export default {
 ```
 
 #### Without bundler / CDN
+
+> It's quite messy this way due to `vanilla-jsoneditor` does not export UMD.
 
 ```html
 <div id="app">
