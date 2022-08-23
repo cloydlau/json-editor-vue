@@ -15,7 +15,7 @@ JSON editor for Vue 2.6 / 2.7 / 3, powered by [svelte-jsoneditor](https://github
 ## Features
 
 - Support Vue 2.6 / 2.7 / 3
-- Register globally or locally, configure globally or locally (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
+- Local registration + local configuration, can also be global registration + global configuration (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
 
 <br>
 
