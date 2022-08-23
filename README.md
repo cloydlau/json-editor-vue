@@ -229,10 +229,10 @@ export default {
 
 ## Props
 
-| Name    | Description                                                                         | Type |
-| ------- | ----------------------------------------------------------------------------------- | ---- |
-| v-model | binding value                                                                       | any  |
-| ...     | options of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#api) |      |
+| Name    | Description                                                                                   | Type |
+| ------- | --------------------------------------------------------------------------------------------- | ---- |
+| v-model | binding value                                                                                 | any  |
+| ...     | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |      |
 
 <br>
 
