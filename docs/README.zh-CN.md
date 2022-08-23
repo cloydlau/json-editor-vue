@@ -33,7 +33,7 @@ npm add vanilla-jsoneditor json-editor-vue
 import JsonEditorVue from 'json-editor-vue'
 
 app.use(JsonEditorVue, {
-  // 全局配置
+  // 全局 props
 })
 ```
 
@@ -41,7 +41,7 @@ app.use(JsonEditorVue, {
 
 ```vue
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* 局部配置 */}" />
+  <JsonEditorVue v-model="value" v-bind="{/* 局部 props */}" />
 </template>
 
 <script setup>
@@ -95,7 +95,7 @@ npm add vanilla-jsoneditor json-editor-vue
 import JsonEditorVue from 'json-editor-vue'
 
 Vue.use(JsonEditorVue, {
-  // 全局配置
+  // 全局 props
 })
 ```
 
@@ -103,7 +103,7 @@ Vue.use(JsonEditorVue, {
 
 ```vue
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* 局部配置 */}" />
+  <JsonEditorVue v-model="value" v-bind="{/* 局部 props */}" />
 </template>
 
 <script setup>
@@ -161,7 +161,7 @@ import JsonEditorVue from 'json-editor-vue'
 
 Vue.use(VCA)
 Vue.use(JsonEditorVue, {
-  // 全局配置
+  // 全局 props
 })
 ```
 
@@ -169,7 +169,7 @@ Vue.use(JsonEditorVue, {
 
 ```vue
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* 局部配置 */}" />
+  <JsonEditorVue v-model="value" v-bind="{/* 局部 props */}" />
 </template>
 
 <script>
@@ -243,13 +243,3 @@ export default {
 | jsonEditor | JSONEditor instance | object |
 
 <br>
-
-## 配置规则
-
-- 双向绑定参数（`v-model` / `modelValue` / `value`）仅支持局部配置
-- 其余参数均支持全局或局部配置
-
-权重：
-
-- 局部配置高于全局配置
-- 对于对象类型的参数，局部配置会与全局配置进行合并，同名属性会被局部配置覆盖

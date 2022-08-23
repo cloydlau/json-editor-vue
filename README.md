@@ -15,7 +15,7 @@ JSON editor for Vue 2.6 / 2.7 / 3, powered by [svelte-jsoneditor](https://github
 ## Features
 
 - Support Vue 2.6 / 2.7 / 3
-- Local registration + local configuration, can also be global registration + global configuration (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
+- Local registration + local props passing, can also be global registration + global props passing (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
 
 <br>
 
@@ -35,7 +35,7 @@ npm add vanilla-jsoneditor json-editor-vue
 import JsonEditorVue from 'json-editor-vue'
 
 app.use(JsonEditorVue, {
-  // global config
+  // global props
 })
 ```
 
@@ -43,7 +43,7 @@ app.use(JsonEditorVue, {
 
 ```vue
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* local config */}" />
+  <JsonEditorVue v-model="value" v-bind="{/* local props */}" />
 </template>
 
 <script setup>
@@ -97,7 +97,7 @@ npm add vanilla-jsoneditor json-editor-vue
 import JsonEditorVue from 'json-editor-vue'
 
 Vue.use(JsonEditorVue, {
-  // global config
+  // global props
 })
 ```
 
@@ -105,7 +105,7 @@ Vue.use(JsonEditorVue, {
 
 ```vue
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* local config */}" />
+  <JsonEditorVue v-model="value" v-bind="{/* local props */}" />
 </template>
 
 <script setup>
@@ -163,7 +163,7 @@ import JsonEditorVue from 'json-editor-vue'
 
 Vue.use(VCA)
 Vue.use(JsonEditorVue, {
-  // global config
+  // global props
 })
 ```
 
@@ -171,7 +171,7 @@ Vue.use(JsonEditorVue, {
 
 ```vue
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* local config */}" />
+  <JsonEditorVue v-model="value" v-bind="{/* local props */}" />
 </template>
 
 <script>
@@ -245,13 +245,3 @@ export default {
 | jsonEditor | JSONEditor instance | object |
 
 <br>
-
-## Config rules
-
-- Props of two-way data binding ( `v-model` / `modelValue` / `value` ) only support local config.
-- All other props support both local and global config.
-
-Priority:
-
-- Local config is higher than global config.
-- For object type, global config will be merged into local config.
