@@ -13,7 +13,7 @@
 ## 特性
 
 - Vue 2.6 / 2.7 / 3 通用
-- 全局或局部引入，参数支持全局或局部配置（[vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持）
+- 全局或局部注册，全局或局部配置（[vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持）
 
 <br>
 
