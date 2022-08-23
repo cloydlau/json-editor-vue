@@ -109,12 +109,8 @@ Vue.use(JsonEditorVue, {
   <JsonEditorVue v-model="value" v-bind="{/* local config */}" />
 </template>
 
-<script>
+<script setup>
 import JsonEditorVue from 'json-editor-vue'
-
-export default {
-  components: { JsonEditorVue },
-}
 </script>
 ```
 

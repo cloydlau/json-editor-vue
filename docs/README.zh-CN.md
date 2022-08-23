@@ -106,12 +106,8 @@ Vue.use(JsonEditorVue, {
   <JsonEditorVue v-model="value" v-bind="{/* 局部配置 */}" />
 </template>
 
-<script>
+<script setup>
 import JsonEditorVue from 'json-editor-vue'
-
-export default {
-  components: { JsonEditorVue },
-}
 </script>
 ```
 
