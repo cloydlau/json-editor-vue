@@ -189,6 +189,8 @@ export default {
 
 #### Without bundler / CDN
 
+> It's quite messy this way due to`vanilla-jsoneditor` does not export UMD.
+
 ```html
 <div id="app">
   <json-editor-vue v-model="value"></json-editor-vue>
