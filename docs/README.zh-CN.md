@@ -27,7 +27,7 @@
 npm add vanilla-jsoneditor json-editor-vue
 ```
 
-#### 全局引入
+#### 全局注册
 
 ```ts
 import JsonEditorVue from 'json-editor-vue'
@@ -37,7 +37,7 @@ app.use(JsonEditorVue, {
 })
 ```
 
-#### 局部引入
+#### 局部注册
 
 ```vue
 <template>
@@ -49,7 +49,7 @@ import JsonEditorVue from 'json-editor-vue'
 </script>
 ```
 
-#### 不使用打包工具 / CDN 引入
+#### 不使用打包工具 / CDN
 
 ```html
 <div id="app">
@@ -89,7 +89,7 @@ import JsonEditorVue from 'json-editor-vue'
 npm add vanilla-jsoneditor json-editor-vue
 ```
 
-#### 全局引入
+#### 全局注册
 
 ```ts
 import JsonEditorVue from 'json-editor-vue'
@@ -99,7 +99,7 @@ Vue.use(JsonEditorVue, {
 })
 ```
 
-#### 局部引入
+#### 局部注册
 
 ```vue
 <template>
@@ -111,7 +111,7 @@ import JsonEditorVue from 'json-editor-vue'
 </script>
 ```
 
-#### 不使用打包工具 / CDN 引入
+#### 不使用打包工具 / CDN
 
 ```html
 <div id="app">
@@ -153,7 +153,7 @@ import JsonEditorVue from 'json-editor-vue'
 npm add @vue/composition-api vanilla-jsoneditor json-editor-vue
 ```
 
-#### 全局引入
+#### 全局注册
 
 ```ts
 import VCA from '@vue/composition-api'
@@ -165,7 +165,7 @@ Vue.use(JsonEditorVue, {
 })
 ```
 
-#### 局部引入
+#### 局部注册
 
 ```vue
 <template>
@@ -184,7 +184,7 @@ export default {
 </script>
 ```
 
-#### 不使用打包工具 / CDN 引入
+#### 不使用打包工具 / CDN
 
 > 由于 `vanilla-jsoneditor` 没有提供 UMD 导出，这样用会有点绕。
 
