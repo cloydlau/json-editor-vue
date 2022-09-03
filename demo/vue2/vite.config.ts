@@ -1,5 +1,6 @@
 import type { ConfigEnv, UserConfigExport } from 'vite'
 import { createVuePlugin } from 'vite-plugin-vue2'
+import ScriptSetup from 'unplugin-vue2-script-setup/vite'
 
 // https://vitejs.dev/config/
 export default ({ command }: ConfigEnv): UserConfigExport => {
@@ -9,6 +10,7 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
     },
     plugins: [
       createVuePlugin(),
+      ScriptSetup(),
       {
         name: 'html-transform',
         transformIndexHtml(html: string) {

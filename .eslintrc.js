@@ -11,6 +11,8 @@ module.exports = {
     'vue/component-tags-order': ['error', {
       order: [['script', 'template'], 'style'],
     }],
-    'vue/no-deprecated-v-bind-sync': 1,
+    'vue/no-deprecated-v-bind-sync': 0,
+    'vue/attribute-hyphenation': 0,
+    'curly': 0,
   },
 }

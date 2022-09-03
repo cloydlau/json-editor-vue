@@ -13,6 +13,7 @@
 ## 特性
 
 - Vue 2.6 / 2.7 / 3 通用
+- 编辑模式双向绑定
 - 局部注册 + 局部传参，也可以全局注册 + 全局传参（[vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持）
 
 <br>
@@ -227,10 +228,11 @@ export default {
 
 ## Props
 
-| 参数名  | 说明                                                                                          | 类型 |
-| ------- | --------------------------------------------------------------------------------------------- | ---- |
-| v-model | 绑定值                                                                                        | any  |
-| ...     | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的 properties |      |
+| 参数名  | 说明                                                                                   | 类型               | 默认值                                           |
+| ------- | -------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------ |
+| v-model | 绑定值                                                                                 | `any`              |                                                  |
+| mode    | 编辑模式，在 Vue 3 中使用 `v-model:mode`，在 Vue 2 中使用 `:mode.sync`                 | `'tree'`, `'text'` | 初始绑定值为字符串时为 `'text'`，否则为 `'tree'` |
+| ...     | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的参数 |                    |                                                  |
 
 <br>
 
@@ -238,9 +240,8 @@ export default {
 
 > 仅限 Vue 3，Vue 2 通过 `$refs` 能拿到所有的实例 property
 
-| 名称       | 说明            | 类型           |
-| ---------- | --------------- | -------------- |
-| jsonEditor | JSONEditor 实例 | object         |
-| mode       | 编辑模式        | 'tree', 'text' |
+| 名称       | 说明            | 类型   |
+| ---------- | --------------- | ------ |
+| jsonEditor | JSONEditor 实例 | object |
 
 <br>

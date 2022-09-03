@@ -9,7 +9,10 @@ import {
   ref,
   watch,
 } from 'vue-demi'
-import type { ComponentInternalInstance } from 'vue-demi'
+import type {
+  ComponentInternalInstance,
+  PropType,
+} from 'vue-demi'
 import { JSONEditor } from 'vanilla-jsoneditor'
 import { conclude } from 'vue-global-config'
 import { debounce } from 'lodash-es'
@@ -20,35 +23,49 @@ type ValueKey = 'json' | 'text'
 
 const defaultMode: Mode = 'tree'
 
-const valuePropName = isVue3 ? 'modelValue' : 'value'
-const eventName = isVue3 ? 'update:modelValue' : 'input'
+const modelValueProp = isVue3 ? 'modelValue' : 'value'
+const updateModelValue = isVue3 ? 'update:modelValue' : 'input'
 
 export default defineComponent({
   name: 'JsonEditorVue',
   props: {
-    [valuePropName]: {},
+    [modelValueProp]: {},
+    mode: {
+      type: String as PropType<Mode>,
+    },
   },
+  emits: [updateModelValue, 'update:mode'],
   setup(props, { attrs, emit, expose }) {
     // 如果用户指定了模式就用用户指定的模式
     // 否则根据初始值的类型，如果是字符串，则使用 text 模式
     // 否则使用 vanilla-jsoneditor 默认的 tree 模式
-    const handleMode = (mode?: Mode): Mode => mode ?? (typeof props[valuePropName] === 'string' ? 'text' : defaultMode)
+    const handleMode = (mode?: Mode): Mode => mode ?? (typeof props[modelValueProp] === 'string' ? 'text' : defaultMode)
     const modeToValueKey = (mode: Mode): ValueKey => ({ text: 'text', tree: 'json' }[mode] as ValueKey)
 
     const currentInstance = getCurrentInstance() as ComponentInternalInstance
+    const preventUpdate = ref(false)
+    const preventOnChange = ref(false)
     const jsonEditor = ref()
-    const mode = ref<Mode>(defaultMode)
-    const valueKey = computed(() => modeToValueKey(mode.value))
-
-    const syncValue = debounce((updatedContent: { text: string; json: any }) => {
-      emit(eventName, updatedContent.text === undefined ? updatedContent.json : updatedContent.text)
-    }, 100)
-
+    const valueKey = computed(() => modeToValueKey(handleMode(props.mode as Mode)))
     const JsoneditorProps = conclude([attrs, globalAttrs, {
-      // vanilla-jsoneditor@0.7 以后，用户输入 / 编程式设值 / 改变模式 都会触发 onChange
-      onChange: syncValue,
-      onChangeMode(newMode: Mode) {
-        mode.value = newMode
+      // vanilla-jsoneditor@0.7 以后，用户输入 / 编程式设值 / 模式变更为 tree 都会触发 onChange
+      // 如果 value 初始为 undefined，onChange 事件将触发，传出一个 { text: '' }
+      onChange: debounce((updatedContent: { text: string; json: any }) => {
+        if (preventOnChange.value) {
+          preventOnChange.value = false
+          return
+        }
+        preventUpdate.value = true
+        emit(updateModelValue, updatedContent.text === undefined ? updatedContent.json : updatedContent.text)
+      }, 100),
+      onChangeMode(mode: Mode) {
+        emit('update:mode', mode)
+      },
+      mode: handleMode(props.mode as Mode),
+      ...props[modelValueProp] !== undefined && {
+        content: {
+          [valueKey.value]: props[modelValueProp],
+        },
       },
     }], {
       camelCase: false,
@@ -56,29 +73,24 @@ export default defineComponent({
         globalFunction(...args)
         defaultFunction(...args)
       },
-      ...props[valuePropName] !== undefined && {
-        default: (userProp: { [key: string]: any }) => {
-          mode.value = handleMode(userProp.mode)
-          return {
-            mode: mode.value,
-            content: {
-              [valueKey.value]: props[valuePropName],
-            },
-          }
-        },
-        defaultIsDynamic: true,
-      },
     })
 
-    watch(() => props[valuePropName], (n: any) => {
+    emit('update:mode', JsoneditorProps.mode)
+
+    watch(() => props[modelValueProp], (n: any, o: any) => {
+      if (preventUpdate.value) {
+        preventUpdate.value = false
+        return
+      }
       // vanilla-jsoneditor 不接受 undefined
       // 其默认值为 { text: '' }
       // 只有默认值才能清空编辑器
+      preventOnChange.value = true
       jsonEditor.value.update([undefined, ''].includes(n)
         ? { text: '' }
         : {
           // text 模式只接受 string
-            [valueKey.value]: (typeof n !== 'string' && mode.value === 'text')
+            [valueKey.value]: (typeof n !== 'string' && props.mode === 'text')
               ? JSON.stringify(n)
               : n,
           })
@@ -86,9 +98,18 @@ export default defineComponent({
       deep: true,
     })
 
-    watch(() => attrs, (n) => {
-      mode.value = handleMode(n.mode as Mode | undefined)
-      jsonEditor.value.updateProps(n)
+    watch(() => props.mode, (mode) => {
+      if (mode === 'tree') {
+        preventOnChange.value = true
+      }
+
+      jsonEditor.value.updateProps({
+        mode,
+      })
+    })
+
+    watch(() => attrs, (props) => {
+      jsonEditor.value.updateProps(props)
     }, {
       deep: true,
     })
@@ -104,8 +125,8 @@ export default defineComponent({
       jsonEditor.value.destroy()
     })
 
-    if (isVue3)
-      expose({ jsonEditor, mode })
+    // vue@2.6 中没有 expose
+    expose?.({ jsonEditor })
 
     return () => h('div', { ref: 'jsonEditorRef' })
   },

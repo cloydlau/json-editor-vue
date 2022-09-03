@@ -15,6 +15,7 @@ JSON editor for Vue 2.6 / 2.7 / 3, powered by [svelte-jsoneditor](https://github
 ## Features
 
 - Support Vue 2.6 / 2.7 / 3
+- Two-way binding for edit mode
 - Local registration + local props passing, can also be global registration + global props passing (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
 
 <br>
@@ -229,10 +230,11 @@ export default {
 
 ## Props
 
-| Name    | Description                                                                                   | Type |
-| ------- | --------------------------------------------------------------------------------------------- | ---- |
-| v-model | binding value                                                                                 | any  |
-| ...     | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |      |
+| Name    | Description                                                                                   | Type               | Default                                                   |
+| ------- | --------------------------------------------------------------------------------------------- | ------------------ | --------------------------------------------------------- |
+| v-model | binding value                                                                                 | `any`              |                                                           |
+| mode    | edit mode, use `v-model:mode` in Vue 3 and `:mode.sync` in Vue 2                              | `'tree'`, `'text'` | `'text'` when model value is a string, otherwise `'tree'` |
+| ...     | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |                    |                                                           |
 
 <br>
 
@@ -240,9 +242,8 @@ export default {
 
 > Vue 3 only, all instance properties are accessable using `$refs` in Vue 2.
 
-| name       | description         | type           |
-| ---------- | ------------------- | -------------- |
-| jsonEditor | JSONEditor instance | object         |
-| mode       | edit mode           | 'tree', 'text' |
+| name       | description         | type   |
+| ---------- | ------------------- | ------ |
+| jsonEditor | JSONEditor instance | object |
 
 <br>

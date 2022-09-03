@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx cl switchVue 3 --force
-git add -A
 npx case-police --fix
 #npx lint-staged
