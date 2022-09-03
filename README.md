@@ -26,7 +26,7 @@ JSON editor for Vue 2.6 / 2.7 / 3, powered by [svelte-jsoneditor](https://github
 ### Vue 3
 
 ```sh
-npm add vanilla-jsoneditor json-editor-vue
+npm add json-editor-vue vanilla-jsoneditor
 ```
 
 #### Import globally
@@ -88,7 +88,7 @@ import JsonEditorVue from 'json-editor-vue'
 ### Vue 2.7
 
 ```sh
-npm add vanilla-jsoneditor json-editor-vue
+npm add json-editor-vue vanilla-jsoneditor
 ```
 
 #### Import globally
@@ -152,7 +152,7 @@ import JsonEditorVue from 'json-editor-vue'
 ### Vue 2.6 or earlier
 
 ```sh
-npm add @vue/composition-api vanilla-jsoneditor json-editor-vue
+npm add json-editor-vue vanilla-jsoneditor @vue/composition-api
 ```
 
 #### Import globally
