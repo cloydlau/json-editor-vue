@@ -29,7 +29,7 @@ JSON editor for Vue 2.6 / 2.7 / 3, powered by [svelte-jsoneditor](https://github
 npm add json-editor-vue vanilla-jsoneditor
 ```
 
-#### Import globally
+#### Global registration
 
 ```ts
 import JsonEditorVue from 'json-editor-vue'
@@ -39,7 +39,7 @@ app.use(JsonEditorVue, {
 })
 ```
 
-#### Import locally
+#### Local registration
 
 ```vue
 <template>
@@ -91,7 +91,7 @@ import JsonEditorVue from 'json-editor-vue'
 npm add json-editor-vue vanilla-jsoneditor
 ```
 
-#### Import globally
+#### Global registration
 
 ```ts
 import JsonEditorVue from 'json-editor-vue'
@@ -101,7 +101,7 @@ Vue.use(JsonEditorVue, {
 })
 ```
 
-#### Import locally
+#### Local registration
 
 ```vue
 <template>
@@ -155,7 +155,7 @@ import JsonEditorVue from 'json-editor-vue'
 npm add json-editor-vue vanilla-jsoneditor @vue/composition-api
 ```
 
-#### Import globally
+#### Global registration
 
 ```ts
 import VCA from '@vue/composition-api'
@@ -167,7 +167,7 @@ Vue.use(JsonEditorVue, {
 })
 ```
 
-#### Import locally
+#### Local registration
 
 ```vue
 <template>
