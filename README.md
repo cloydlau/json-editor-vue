@@ -240,8 +240,9 @@ export default {
 
 > Vue 3 only, all instance properties are accessable using `$refs` in Vue 2.
 
-| name       | description         | type   |
-| ---------- | ------------------- | ------ |
-| jsonEditor | JSONEditor instance | object |
+| name       | description         | type           |
+| ---------- | ------------------- | -------------- |
+| jsonEditor | JSONEditor instance | object         |
+| mode       | edit mode           | 'tree', 'text' |
 
 <br>

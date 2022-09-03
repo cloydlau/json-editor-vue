@@ -1,47 +1,50 @@
 <template>
   <p>
-    <button
-      @click="data.props.mode = data.props.mode === 'text' ? 'tree' : 'text'"
-    >
-      切换编辑模式
+    <button @click="data.value = '123'">
+      设值为 string
     </button>
-    <button @click="data.props.readOnly = !data.props.readOnly">
-      切换只读状态
-    </button>
-    <button @click="data.value = '321'">
-      编程式设值（字符串）
-    </button>
-    <button @click="data.value = { a: 1 }">
-      编程式设值（JSON）
+    <button @click="data.value = { abc: '123' }">
+      设值为 JSON
     </button>
     <button @click="data.value = undefined">
       清空
     </button>
-    <button @click="() => { formRef.validate() }">
-      校验
+    <button @click="toggleMode">
+      切换模式
+    </button>
+    <button @click="data.props.readOnly = !data.props.readOnly">
+      切换只读状态
     </button>
   </p>
 
   <br>
-  <el-form ref="formRef" :model="data" disabled>
-    <el-form-item prop="value" required>
-      <JsonEditorVue v-model="data.value" v-bind="data.props" />
-    </el-form-item>
-  </el-form>
+  <JsonEditorVue v-bind="data.props" ref="jsonEditorVueRef" v-model="data.value" />
 
   <br>
+  <p>Mode</p>
+  {{ jsonEditorVueRef?.mode }}
   <p>Value</p>
   {{ data.value }}
+  <p>Type</p>
+  {{ typeof data.value }}
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
+import { onMounted, reactive, ref, watch } from 'vue'
 import JsonEditorVue from '../../src'
-
-const formRef = ref()
-
+const jsonEditorVueRef = ref()
 const data = reactive({
   value: '123',
   props: {},
 })
+
+onMounted(() => {
+  watch(() => jsonEditorVueRef.value.mode, (n) => {
+    data.props.mode = n
+  })
+})
+
+const toggleMode = () => {
+  data.props.mode = jsonEditorVueRef.value.mode === 'text' ? 'tree' : 'text'
+}
 </script>

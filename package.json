@@ -33,13 +33,10 @@
     "dist"
   ],
   "scripts": {
-    "dev": "pnpm switch3 && vite --config ./demo/vue3/vite.config.ts --open",
-    "dev2.7": "pnpm switch2.7 && vite --config ./demo/vue2.7/vite.config.ts --open",
-    "dev2": "pnpm switch2 && vite --config ./demo/vue2/vite.config.ts --open",
-    "switch3": "cl switchVue 3 --vue2deps \"element-ui\" --vue3deps \"element-plus\"",
-    "switch2.7": "cl switchVue 2.7 --vue2deps \"element-ui\" --vue3deps \"element-plus\"",
-    "switch2": "cl switchVue 2 --vue2deps \"element-ui\" --vue3deps \"element-plus\"",
-    "build": "pnpm switch3 && vite build",
+    "dev": "cl switchVue 3 && vite --config ./demo/vue3/vite.config.ts --open",
+    "dev2.7": "cl switchVue 2.7 && vite --config ./demo/vue2.7/vite.config.ts --open",
+    "dev2": "cl switchVue 2 && vite --config ./demo/vue2/vite.config.ts --open",
+    "build": "cl switchVue 3 && vite build",
     "serve": "vite preview",
     "test": "vitest --config ./vitest.config.ts",
     "coverage": "vitest run --coverage"
@@ -67,7 +64,6 @@
     "@vue/compiler-sfc": "latest",
     "@vue/test-utils": "latest",
     "case-police": "latest",
-    "element-plus": "latest",
     "eslint": "latest",
     "husky": "latest",
     "json-editor-vue": "latest",
