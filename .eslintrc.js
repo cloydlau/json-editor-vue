@@ -14,6 +14,6 @@ module.exports = {
     'vue/no-deprecated-v-bind-sync': 0,
     'vue/attribute-hyphenation': 0,
     'curly': 0,
-    'brace-style': '1tbs',
+    'brace-style': 0,
   },
 }
