@@ -30,7 +30,7 @@
   "unpkg": "./dist/json-editor-vue.umd.js",
   "jsdelivr": "./dist/json-editor-vue.umd.js",
   "files": [
-    "dist"
+    "dist", "docs"
   ],
   "scripts": {
     "dev": "cl switchVue 3 && vite --config ./demo/vue3/vite.config.ts --open",
