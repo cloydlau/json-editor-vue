@@ -31,11 +31,14 @@ npm add json-editor-vue vanilla-jsoneditor
 #### 全局注册
 
 ```ts
+import { createApp } from 'vue'
 import JsonEditorVue from 'json-editor-vue'
 
-app.use(JsonEditorVue, {
-  // 全局 props
-})
+createApp()
+  .use(JsonEditorVue, {
+    // 全局 props
+  })
+  .mount('#app')
 ```
 
 #### 局部注册
@@ -93,6 +96,7 @@ npm add json-editor-vue vanilla-jsoneditor
 #### 全局注册
 
 ```ts
+import Vue from 'vue'
 import JsonEditorVue from 'json-editor-vue'
 
 Vue.use(JsonEditorVue, {
@@ -157,6 +161,7 @@ npm add json-editor-vue vanilla-jsoneditor @vue/composition-api
 #### 全局注册
 
 ```ts
+import Vue from 'vue'
 import VCA from '@vue/composition-api'
 import JsonEditorVue from 'json-editor-vue'
 
@@ -174,6 +179,7 @@ Vue.use(JsonEditorVue, {
 </template>
 
 <script>
+import Vue from 'vue'
 import VCA from '@vue/composition-api'
 import JsonEditorVue from 'json-editor-vue'
 

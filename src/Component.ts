@@ -77,7 +77,7 @@ export default defineComponent({
 
     emit('update:mode', JsoneditorProps.mode)
 
-    watch(() => props[modelValueProp], (n: any, o: any) => {
+    watch(() => props[modelValueProp], (n: any) => {
       if (preventUpdate.value) {
         preventUpdate.value = false
         return
@@ -102,7 +102,6 @@ export default defineComponent({
       if (mode === 'tree') {
         preventOnChange.value = true
       }
-
       jsonEditor.value.updateProps({
         mode,
       })

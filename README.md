@@ -15,7 +15,7 @@ JSON editor for Vue 2.6 / 2.7 / 3, powered by [svelte-jsoneditor](https://github
 ## Features
 
 - Support Vue 2.6 / 2.7 / 3
-- Two-way binding for edit mode
+- Edit mode two-way binding
 - Local registration + local props passing, can also be global registration + global props passing (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
 
 <br>
@@ -33,11 +33,14 @@ npm add json-editor-vue vanilla-jsoneditor
 #### Global registration
 
 ```ts
+import { createApp } from 'vue'
 import JsonEditorVue from 'json-editor-vue'
 
-app.use(JsonEditorVue, {
-  // global props
-})
+createApp()
+  .use(JsonEditorVue, {
+    // global props
+  })
+  .mount('#app')
 ```
 
 #### Local registration
@@ -95,6 +98,7 @@ npm add json-editor-vue vanilla-jsoneditor
 #### Global registration
 
 ```ts
+import Vue from 'vue'
 import JsonEditorVue from 'json-editor-vue'
 
 Vue.use(JsonEditorVue, {
@@ -159,6 +163,7 @@ npm add json-editor-vue vanilla-jsoneditor @vue/composition-api
 #### Global registration
 
 ```ts
+import Vue from 'vue'
 import VCA from '@vue/composition-api'
 import JsonEditorVue from 'json-editor-vue'
 
@@ -176,6 +181,7 @@ Vue.use(JsonEditorVue, {
 </template>
 
 <script>
+import Vue from 'vue'
 import VCA from '@vue/composition-api'
 import JsonEditorVue from 'json-editor-vue'
 
