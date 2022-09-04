@@ -49,7 +49,6 @@ export default defineComponent({
     const valueKey = computed(() => modeToValueKey(handleMode(props.mode as Mode)))
     const JsoneditorProps = conclude([attrs, globalAttrs, {
       // vanilla-jsoneditor@0.7 以后，用户输入 / 编程式设值 / 模式变更为 tree 都会触发 onChange
-      // 如果 value 初始为 undefined，onChange 事件将触发，传出一个 { text: '' }
       onChange: debounce((updatedContent: { text: string; json: any }) => {
         if (preventOnChange.value) {
           preventOnChange.value = false
