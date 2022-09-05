@@ -1,6 +1,6 @@
 {
   "name": "json-editor-vue",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "private": false,
   "description": "JSON editor for Vue 2.6 / 2.7 / 3.",
   "author": "cloydlau",
@@ -34,9 +34,9 @@
     "docs"
   ],
   "scripts": {
-    "dev": "cl switchVue 3 && vite --config ./demo/vue3/vite.config.ts --open",
+    "dev3": "cl switchVue 3 && vite --config ./demo/vue3/vite.config.ts --open",
     "dev2.7": "cl switchVue 2.7 && vite --config ./demo/vue2.7/vite.config.ts --open",
-    "dev2": "cl switchVue 2 && vite --config ./demo/vue2/vite.config.ts --open",
+    "dev2.6": "cl switchVue 2.6 && vite --config ./demo/vue2.6/vite.config.ts --open",
     "serve": "vite preview",
     "build": "vite build",
     "test": "vitest",
@@ -75,6 +75,7 @@
     "json-editor-vue": "latest",
     "lint-staged": "latest",
     "typescript": "latest",
+    "unplugin-auto-import": "latest",
     "vanilla-jsoneditor": "latest",
     "vite": "latest",
     "vite-plugin-dts": "latest",

@@ -1,7 +1,10 @@
 import { useGlobalConfig } from 'vue-global-config'
 import Component from './Component'
 import type { Mode } from './Component'
-let globalProps = {}; let globalAttrs = {}; let globalListeners = {}; let globalHooks = {}
+let globalProps: { [key: string]: any } = {}
+let globalAttrs: { [key: string]: any } = {}
+let globalListeners: { [key: string]: any } = {}
+let globalHooks: { [key: string]: any } = {}
 
 Component.install = (app: any, options = {}) => {
   if (!Component.name) {
@@ -23,5 +26,7 @@ Component.install = (app: any, options = {}) => {
 }
 
 export default Component
-export { Mode }
-export { globalProps, globalAttrs, globalListeners, globalHooks }
+export {
+  globalProps, globalAttrs, globalListeners, globalHooks,
+  Mode,
+}

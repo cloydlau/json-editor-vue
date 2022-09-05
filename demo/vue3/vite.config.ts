@@ -1,5 +1,6 @@
 import type { ConfigEnv, UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import AutoImport from 'unplugin-auto-import/vite'
 
 // https://vitejs.dev/config/
 export default ({ command }: ConfigEnv): UserConfigExport => {
@@ -8,6 +9,7 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
       exclude: ['vue-demi'],
     },
     plugins: [
+      AutoImport(),
       vue(),
       {
         name: 'html-transform',

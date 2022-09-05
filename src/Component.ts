@@ -1,5 +1,4 @@
 import {
-  computed,
   defineComponent,
   getCurrentInstance,
   h,
@@ -42,11 +41,10 @@ export default defineComponent({
     const preventUpdate = ref(false)
     const preventOnChange = ref(false)
     const jsonEditor = ref()
-    const valueKey = computed(() => modeToValueKey(handleMode(props.mode as Mode)))
-    const JsoneditorProps = conclude([attrs, globalAttrs, {
-      // vanilla-jsoneditor@0.7 以后，用户输入 / 编程式设值 / 模式变更为 tree 都会触发 onChange
     const initialMode = conclude([props.mode, globalProps.mode])
     const initialValue = conclude([props[modelValueProp], globalProps[modelValueProp]])
+    const initialAttrs = conclude([attrs, globalAttrs, {
+      // vanilla-jsoneditor@0.7.1 以后，用户输入 / 编程式设值 都会触发 onChange
       onChange: debounce((updatedContent: { text: string; json: any }) => {
         if (preventOnChange.value) {
           preventOnChange.value = false
@@ -72,8 +70,6 @@ export default defineComponent({
       },
     })
 
-    emit('update:mode', JsoneditorProps.mode)
-
     watch(() => props[modelValueProp], (n: any) => {
       if (preventUpdate.value) {
         preventUpdate.value = false
@@ -87,7 +83,7 @@ export default defineComponent({
         ? { text: '' }
         : {
           // text 模式只接受 string
-            [valueKey.value]: (typeof n !== 'string' && props.mode === 'text')
+            [modeToContentKey(props.mode)]: (typeof n !== 'string' && props.mode === 'text')
               ? JSON.stringify(n)
               : n,
           })
@@ -110,7 +106,7 @@ export default defineComponent({
     onMounted(() => {
       jsonEditor.value = new JSONEditor({
         target: currentInstance.proxy?.$refs.jsonEditorRef as Element,
-        props: JsoneditorProps,
+        props: initialAttrs,
       })
     })
 

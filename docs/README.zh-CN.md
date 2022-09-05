@@ -36,7 +36,7 @@ import JsonEditorVue from 'json-editor-vue'
 
 createApp()
   .use(JsonEditorVue, {
-    // 全局 props
+    // 全局 props & attrs（单向数据流）
   })
   .mount('#app')
 ```
@@ -100,7 +100,7 @@ import Vue from 'vue'
 import JsonEditorVue from 'json-editor-vue'
 
 Vue.use(JsonEditorVue, {
-  // 全局 props
+  // 全局 props & attrs（单向数据流）
 })
 ```
 
@@ -167,7 +167,7 @@ import JsonEditorVue from 'json-editor-vue'
 
 Vue.use(VCA)
 Vue.use(JsonEditorVue, {
-  // 全局 props
+  // 全局 props & attrs（单向数据流）
 })
 ```
 
