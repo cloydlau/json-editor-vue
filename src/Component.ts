@@ -96,9 +96,6 @@ export default defineComponent({
     })
 
     watch(() => props.mode, (mode) => {
-      if (mode === 'tree') {
-        preventOnChange.value = true
-      }
       jsonEditor.value.updateProps({
         mode,
       })
