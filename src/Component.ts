@@ -36,11 +36,7 @@ export default defineComponent({
   },
   emits: [updateModelValue, 'update:mode'],
   setup(props, { attrs, emit, expose }) {
-    // 如果用户指定了模式就用用户指定的模式
-    // 否则根据初始值的类型，如果是字符串，则使用 text 模式
-    // 否则使用 vanilla-jsoneditor 默认的 tree 模式
-    const handleMode = (mode?: Mode): Mode => mode ?? (typeof props[modelValueProp] === 'string' ? 'text' : defaultMode)
-    const modeToValueKey = (mode: Mode): ValueKey => ({ text: 'text', tree: 'json' }[mode] as ValueKey)
+    const modeToContentKey = (mode?: Mode): ValueKey => ({ text: 'text', tree: 'json' }[mode ?? defaultMode] as ValueKey)
 
     const currentInstance = getCurrentInstance() as ComponentInternalInstance
     const preventUpdate = ref(false)

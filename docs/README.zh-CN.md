@@ -234,11 +234,11 @@ export default {
 
 ## Props
 
-| 参数名  | 说明                                                                                   | 类型               | 默认值                                           |
-| ------- | -------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------ |
-| v-model | 绑定值                                                                                 | `any`              |                                                  |
-| mode    | 编辑模式，在 Vue 3 中使用 `v-model:mode`，在 Vue 2 中使用 `:mode.sync`                 | `'tree'`, `'text'` | 初始绑定值为字符串时为 `'text'`，否则为 `'tree'` |
-| ...     | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的参数 |                    |                                                  |
+| 参数名  | 说明                                                                                   | 类型               | 默认值   |
+| ------- | -------------------------------------------------------------------------------------- | ------------------ | -------- |
+| v-model | 绑定值                                                                                 | `any`              |          |
+| mode    | 编辑模式，在 Vue 3 中使用 `v-model:mode`，在 Vue 2 中使用 `:mode.sync`                 | `'tree'`, `'text'` | `'tree'` |
+| ...     | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的参数 |                    |          |
 
 <br>
 
