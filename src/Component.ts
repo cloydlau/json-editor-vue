@@ -16,7 +16,7 @@ import type {
 import { JSONEditor } from 'vanilla-jsoneditor'
 import { conclude } from 'vue-global-config'
 import { debounce } from 'lodash-es'
-import { globalAttrs } from './index'
+import { globalAttrs, globalProps } from './index'
 
 export type Mode = 'tree' | 'text'
 type ValueKey = 'json' | 'text'
@@ -45,6 +45,8 @@ export default defineComponent({
     const valueKey = computed(() => modeToValueKey(handleMode(props.mode as Mode)))
     const JsoneditorProps = conclude([attrs, globalAttrs, {
       // vanilla-jsoneditor@0.7 以后，用户输入 / 编程式设值 / 模式变更为 tree 都会触发 onChange
+    const initialMode = conclude([props.mode, globalProps.mode])
+    const initialValue = conclude([props[modelValueProp], globalProps[modelValueProp]])
       onChange: debounce((updatedContent: { text: string; json: any }) => {
         if (preventOnChange.value) {
           preventOnChange.value = false
@@ -56,10 +58,10 @@ export default defineComponent({
       onChangeMode(mode: Mode) {
         emit('update:mode', mode)
       },
-      mode: handleMode(props.mode as Mode),
-      ...props[modelValueProp] !== undefined && {
+      mode: initialMode,
+      ...initialValue !== undefined && {
         content: {
-          [valueKey.value]: props[modelValueProp],
+          [modeToContentKey(initialMode)]: initialValue,
         },
       },
     }], {
