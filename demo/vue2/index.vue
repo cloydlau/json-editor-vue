@@ -34,7 +34,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import JsonEditorVue from '../../src'
 
 export default {

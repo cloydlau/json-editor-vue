@@ -34,11 +34,18 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { reactive } from 'vue'
 import JsonEditorVue from '../../src'
+import type { Mode } from '../../src'
 
-const data = reactive({
+const data = reactive<{
+  value: any
+  mode?: Mode
+  readOnly: boolean
+}>({
+  value: undefined,
+  mode: undefined,
   readOnly: false,
 })
 </script>

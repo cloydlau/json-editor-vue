@@ -253,3 +253,11 @@ export default {
 | jsonEditor | JSONEditor instance | object |
 
 <br>
+
+## Types
+
+```ts
+type Mode = 'tree' | 'text'
+```
+
+<br>

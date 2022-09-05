@@ -1,5 +1,6 @@
 import { useGlobalConfig } from 'vue-global-config'
 import Component from './Component'
+import type { Mode } from './Component'
 let globalProps = {}; let globalAttrs = {}; let globalListeners = {}; let globalHooks = {}
 
 Component.install = (app: any, options = {}) => {
@@ -22,4 +23,5 @@ Component.install = (app: any, options = {}) => {
 }
 
 export default Component
+export { Mode }
 export { globalProps, globalAttrs, globalListeners, globalHooks }

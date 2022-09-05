@@ -18,7 +18,7 @@ import { conclude } from 'vue-global-config'
 import { debounce } from 'lodash-es'
 import { globalAttrs } from './index'
 
-type Mode = 'tree' | 'text'
+export type Mode = 'tree' | 'text'
 type ValueKey = 'json' | 'text'
 
 const defaultMode: Mode = 'tree'

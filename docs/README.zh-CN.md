@@ -251,3 +251,11 @@ export default {
 | jsonEditor | JSONEditor 实例 | object |
 
 <br>
+
+## 类型
+
+```ts
+type Mode = 'tree' | 'text'
+```
+
+<br>
