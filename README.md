@@ -22,8 +22,6 @@ JSON editor for Vue 2.6 / 2.7 / 3, powered by [svelte-jsoneditor](https://github
 
 ## Installation
 
-![NPM](https://nodei.co/npm/json-editor-vue.png)
-
 ### Vue 3
 
 ```sh
