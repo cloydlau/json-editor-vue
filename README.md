@@ -261,3 +261,17 @@ type Mode = 'tree' | 'text'
 ```
 
 <br>
+
+## Contributing
+
+1. [Install Deno](https://deno.land/#installation)
+
+2. `npm add @cloydlau/scripts -g`
+
+3. Start
+
+    - `npm run dev3`
+    - `npm run dev2.7`
+    - `npm run dev2.6`
+
+<br>

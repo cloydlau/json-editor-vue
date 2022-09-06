@@ -259,3 +259,17 @@ type Mode = 'tree' | 'text'
 ```
 
 <br>
+
+## Contributing
+
+1. [安装 Deno](https://x.deno.js.cn/#%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88)
+
+2. `npm add @cloydlau/scripts -g`
+
+3. 启动
+
+    - `npm run dev3`
+    - `npm run dev2.7`
+    - `npm run dev2.6`
+
+<br>
