@@ -1,6 +1,6 @@
 {
   "name": "json-editor-vue",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "private": false,
   "description": "JSON editor for Vue 2.6 / 2.7 / 3.",
   "author": "cloydlau",
