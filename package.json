@@ -29,6 +29,7 @@
   "module": "./dist/json-editor-vue.mjs",
   "unpkg": "./dist/json-editor-vue.umd.js",
   "jsdelivr": "./dist/json-editor-vue.umd.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist",
     "docs"
