@@ -10,12 +10,10 @@
     "jsoneditor",
     "svelte-jsoneditor",
     "json",
-    "editor",
-    "viewer",
+    "json-editor",
     "vue",
-    "vue2",
-    "vue3",
-    "vue-demi"
+    "vue-demi",
+    "vue-json-viewer"
   ],
   "exports": {
     ".": {
