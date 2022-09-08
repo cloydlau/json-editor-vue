@@ -10,7 +10,19 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
       exclude: ['vue-demi'],
     },
     plugins: [
-      AutoImport(),
+      AutoImport({
+        // targets to transform
+        include: [
+          /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+          /\.vue$/, /\.vue\?vue/, // .vue
+          /\.md$/, // .md
+        ],
+        // global imports to register
+        imports: [
+          // presets
+          'vue',
+        ],
+      }),
       createVuePlugin(),
       ScriptSetup(),
       {

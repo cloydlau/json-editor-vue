@@ -1,5 +1,2 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
-
-npx case-police --fix
-npx lint-staged
