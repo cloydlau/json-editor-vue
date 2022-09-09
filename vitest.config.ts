@@ -8,6 +8,6 @@ export default defineConfig({
     Vue(),
   ],
   test: {
-    environment: 'jsdom',
+    environment: 'happy-dom',
   },
 })
