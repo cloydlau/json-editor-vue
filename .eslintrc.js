@@ -14,5 +14,6 @@ module.exports = {
     'vue/attribute-hyphenation': 0,
     'curly': 0,
     'brace-style': 0,
+    '@typescript-eslint/brace-style': 0,
   },
 }
