@@ -44,8 +44,8 @@
     "release": "npx case-police --fix && npx lint-staged && cl switchVue 3 && vitest run && pnpm build && cl release"
   },
   "peerDependencies": {
-    "@vue/composition-api": "1",
-    "vanilla-jsoneditor": "0",
+    "@vue/composition-api": ">=1",
+    "vanilla-jsoneditor": ">=0",
     "vue": "2 || 3"
   },
   "peerDependenciesMeta": {
