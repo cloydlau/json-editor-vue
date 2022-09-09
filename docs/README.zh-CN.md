@@ -260,16 +260,26 @@ type Mode = 'tree' | 'text'
 
 <br>
 
-## Contributing
+## 更新日志
 
-1. [安装 Deno](https://x.deno.js.cn/#%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88)
+各版本详细改动请参考 [release notes](https://github.com/cloydlau/json-editor-vue/releases) 。
+
+<br>
+
+## 开发
+
+**PR welcome!**
+
+1. 安装 Deno
+    - https://deno.land/#installation
+    - https://x.deno.js.cn/#%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88
 
 2. `npm add @cloydlau/scripts pnpm -g`
 
 3. 启动
 
-    - `npm run dev3`
-    - `npm run dev2.7`
-    - `npm run dev2.6`
+    - `pnpm dev3`
+    - `pnpm dev2.7`
+    - `pnpm dev2.6`
 
 <br>
