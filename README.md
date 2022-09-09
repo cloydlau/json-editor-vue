@@ -45,7 +45,7 @@ createApp()
 
 ```vue
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* local props */}" />
+  <JsonEditorVue v-model="value" v-bind="{/* local props & attrs */}" />
 </template>
 
 <script setup>
@@ -108,7 +108,7 @@ Vue.use(JsonEditorVue, {
 
 ```vue
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* local props */}" />
+  <JsonEditorVue v-model="value" v-bind="{/* local props & attrs */}" />
 </template>
 
 <script setup>
@@ -175,7 +175,7 @@ Vue.use(JsonEditorVue, {
 
 ```vue
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* local props */}" />
+  <JsonEditorVue v-model="value" v-bind="{/* local props & attrs */}" />
 </template>
 
 <script>
