@@ -4,9 +4,15 @@
 
 > svelte-jsoneditor 是 [jsoneditor](https://github.com/josdejong/jsoneditor) 作者带来的全新 JSON 编辑器。作者开这个新坑的原因是[老库已难以维护、架构需要大改、体验亟待提升](https://github.com/josdejong/jsoneditor/issues/1223) 。json-editor-vue 是 svelte-jsoneditor 的 Vue 版本。
 
-![jsoneditor_screenshot](./jsoneditor_screenshot.png)
-
 🤹‍♂️ [在线预览](https://cloydlau.github.io/demo/json-editor-vue.html)
+
+- 浅色主题
+
+  ![./docs/jsoneditor_screenshot.png](https://raw.githubusercontent.com/josdejong/svelte-jsoneditor/main/misc/jsoneditor_tree_mode_screenshot.png)
+
+- [暗色主题](#dark-theme)
+
+  ![./dark-theme.png](./dark-theme.png)
 
 <br>
 
@@ -268,6 +274,8 @@ type Mode = 'tree' | 'text'
 ```
 
 <br>
+
+<a name="dark-theme"></a>
 
 ## 暗色主题
 

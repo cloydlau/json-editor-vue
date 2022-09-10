@@ -6,9 +6,15 @@ JSON editor for Vue 2.6 / 2.7 / 3, powered by [svelte-jsoneditor](https://github
 
 > svelte-jsoneditor is a brand new JSON editor created by the same author of [jsoneditor](https://github.com/josdejong/jsoneditor), which ['has become hard to maintain, and the architecture needed a big overhaul'](https://github.com/josdejong/jsoneditor/issues/1223). json-editor-vue is the Vue version for svelte-jsoneditor.
 
-![jsoneditor_screenshot](./docs/jsoneditor_screenshot.png)
-
 🤹‍♂️ [Online Playground](https://cloydlau.github.io/demo/json-editor-vue.html)
+
+- Light theme
+
+  ![./docs/jsoneditor_screenshot.png](https://raw.githubusercontent.com/josdejong/svelte-jsoneditor/main/misc/jsoneditor_tree_mode_screenshot.png)
+
+- [Dark theme](#dark-theme)
+
+  ![./docs/dark-theme](./docs/dark-theme.png)
 
 <br>
 
@@ -268,6 +274,8 @@ type Mode = 'tree' | 'text'
 ```
 
 <br>
+
+<a name="dark-theme"></a>
 
 ## Dark theme
 
