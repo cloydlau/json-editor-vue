@@ -50,6 +50,8 @@ createApp()
 
 <script setup>
 import JsonEditorVue from 'json-editor-vue'
+
+const value = ref()
 </script>
 ```
 
@@ -113,6 +115,8 @@ Vue.use(JsonEditorVue, {
 
 <script setup>
 import JsonEditorVue from 'json-editor-vue'
+
+const value = ref()
 </script>
 ```
 
@@ -187,6 +191,11 @@ Vue.use(VCA)
 
 export default {
   components: { JsonEditorVue },
+  date() {
+    return {
+      value: undefined,
+    }
+  },
 }
 </script>
 ```
@@ -256,6 +265,21 @@ export default {
 
 ```ts
 type Mode = 'tree' | 'text'
+```
+
+<br>
+
+## 暗色主题
+
+```vue
+<template>
+  <JsonEditorVue class="jse-theme-dark" />
+</template>
+
+<script setup>
+import 'vanilla-jsoneditor/themes/jse-theme-dark.css'
+import JsonEditorVue from 'json-editor-vue'
+</script>
 ```
 
 <br>

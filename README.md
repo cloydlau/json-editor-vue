@@ -50,6 +50,8 @@ createApp()
 
 <script setup>
 import JsonEditorVue from 'json-editor-vue'
+
+const value = ref()
 </script>
 ```
 
@@ -113,6 +115,8 @@ Vue.use(JsonEditorVue, {
 
 <script setup>
 import JsonEditorVue from 'json-editor-vue'
+
+const value = ref()
 </script>
 ```
 
@@ -187,6 +191,11 @@ Vue.use(VCA)
 
 export default {
   components: { JsonEditorVue },
+  date() {
+    return {
+      value: undefined,
+    }
+  },
 }
 </script>
 ```
@@ -237,7 +246,7 @@ export default {
 | Name    | Description                                                                                   | Type               | Default  |
 | ------- | --------------------------------------------------------------------------------------------- | ------------------ | -------- |
 | v-model | binding value                                                                                 | `any`              |          |
-| mode    | edit mode, use `v-model:mode` in Vue 3 or `:mode.sync` in Vue 2                              | `'tree'`, `'text'` | `'tree'` |
+| mode    | edit mode, use `v-model:mode` in Vue 3 or `:mode.sync` in Vue 2                               | `'tree'`, `'text'` | `'tree'` |
 | ...     | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |                    |          |
 
 <br>
@@ -256,6 +265,21 @@ export default {
 
 ```ts
 type Mode = 'tree' | 'text'
+```
+
+<br>
+
+## Dark theme
+
+```vue
+<template>
+  <JsonEditorVue class="jse-theme-dark" />
+</template>
+
+<script setup>
+import 'vanilla-jsoneditor/themes/jse-theme-dark.css'
+import JsonEditorVue from 'json-editor-vue'
+</script>
 ```
 
 <br>
