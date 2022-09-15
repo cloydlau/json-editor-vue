@@ -26,7 +26,7 @@ JSON editor for Vue 2.6 / 2.7 / 3, powered by [svelte-jsoneditor](https://github
 
 <br>
 
-## Installation
+## Install
 
 ### Peer Dependencies
 
@@ -304,7 +304,7 @@ Detailed changes for each release are documented in the [release notes](https://
 
 <br>
 
-## Development
+## Develop
 
 **PR welcome!**
 
