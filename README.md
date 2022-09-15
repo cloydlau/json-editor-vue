@@ -30,7 +30,7 @@ JSON editor for Vue 2.6 / 2.7 / 3, powered by [svelte-jsoneditor](https://github
 
 ### Peer Dependencies
 
-- `vanilla-jsoneditor`: a standalone bundle provided by svelte-jsoneditor
+- `vanilla-jsoneditor` a standalone bundle provided by svelte-jsoneditor
 
 <br>
 
