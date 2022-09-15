@@ -26,7 +26,11 @@
 
 ## 安装
 
-![NPM](https://nodei.co/npm/json-editor-vue.png)
+### 外置依赖
+
+- `vanilla-jsoneditor`: svelte-jsoneditor 提供的原生包
+
+<br>
 
 ### Vue 3
 

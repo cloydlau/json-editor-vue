@@ -44,7 +44,7 @@ export default defineComponent({
     const initialMode = conclude([props.mode, globalProps.mode])
     const initialValue = conclude([props[modelValueProp], globalProps[modelValueProp]])
     const initialAttrs = conclude([attrs, globalAttrs, {
-      // vanilla-jsoneditor@0.7.1 以后，用户输入 / 编程式设值 都会触发 onChange
+      // 用户输入 & 编程式设值 会触发 onChange
       onChange: debounce((updatedContent: { text: string; json: any }) => {
         if (preventOnChange.value) {
           preventOnChange.value = false

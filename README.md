@@ -28,13 +28,19 @@ JSON editor for Vue 2.6 / 2.7 / 3, powered by [svelte-jsoneditor](https://github
 
 ## Installation
 
+### Peer Dependencies
+
+- `vanilla-jsoneditor`: a standalone bundle provided by svelte-jsoneditor
+
+<br>
+
 ### Vue 3
 
 ```sh
 npm add json-editor-vue vanilla-jsoneditor
 ```
 
-#### Global registration
+#### Global Registration
 
 ```ts
 import { createApp } from 'vue'
@@ -47,7 +53,7 @@ createApp()
   .mount('#app')
 ```
 
-#### Local registration
+#### Local Registration
 
 ```vue
 <template>
@@ -61,7 +67,7 @@ const value = ref()
 </script>
 ```
 
-#### Without bundler / CDN
+#### Without Bundler / CDN
 
 ```html
 <div id="app">
@@ -101,7 +107,7 @@ const value = ref()
 npm add json-editor-vue vanilla-jsoneditor
 ```
 
-#### Global registration
+#### Global Registration
 
 ```ts
 import Vue from 'vue'
@@ -112,7 +118,7 @@ Vue.use(JsonEditorVue, {
 })
 ```
 
-#### Local registration
+#### Local Registration
 
 ```vue
 <template>
@@ -126,7 +132,7 @@ const value = ref()
 </script>
 ```
 
-#### Without bundler / CDN
+#### Without Bundler / CDN
 
 ```html
 <div id="app">
@@ -162,13 +168,13 @@ const value = ref()
 
 <br>
 
-### Vue 2.6 or earlier
+### Vue 2.6 or Earlier
 
 ```sh
 npm add json-editor-vue vanilla-jsoneditor @vue/composition-api
 ```
 
-#### Global registration
+#### Global Registration
 
 ```ts
 import Vue from 'vue'
@@ -181,7 +187,7 @@ Vue.use(JsonEditorVue, {
 })
 ```
 
-#### Local registration
+#### Local Registration
 
 ```vue
 <template>
@@ -206,7 +212,7 @@ export default {
 </script>
 ```
 
-#### Without bundler / CDN
+#### Without Bundler / CDN
 
 > It's quite messy this way due to `vanilla-jsoneditor` does not export UMD.
 
@@ -277,7 +283,7 @@ type Mode = 'tree' | 'text'
 
 <a name="dark-theme"></a>
 
-## Dark theme
+## Dark Theme
 
 ```vue
 <template>
