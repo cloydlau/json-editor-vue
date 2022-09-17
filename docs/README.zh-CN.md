@@ -28,7 +28,7 @@
 
 ### 外置依赖
 
-- `vanilla-jsoneditor`: svelte-jsoneditor 提供的原生包
+- `vanilla-jsoneditor` svelte-jsoneditor 提供的原生包
 
 <br>
 
