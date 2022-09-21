@@ -263,9 +263,9 @@ export default {
 
 `svelte-jsoneditor` 的布尔类型参数如 `readOnly` 不会隐式转换为 `true`，因为它们是 [attrs](https://vuejs.org/guide/components/attrs.html):
 
-- ✔️ `<json-editor-vue :readOnly="true" />`
+- ✔️ `<JsonEditorVue :readOnly="true" />`
 
-- ❌ `<json-editor-vue readOnly />`
+- ❌ `<JsonEditorVue readOnly />`
 
 <br>
 

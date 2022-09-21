@@ -265,9 +265,9 @@ export default {
 
 Boolean properties of `svelte-jsoneditor` like `readOnly` won't imply `true` because they are [attrs](https://vuejs.org/guide/components/attrs.html):
 
-- ✔️ `<json-editor-vue :readOnly="true" />`
+- ✔️ `<JsonEditorVue :readOnly="true" />`
 
-- ❌ `<json-editor-vue readOnly />`
+- ❌ `<JsonEditorVue readOnly />`
 
 <br>
 
