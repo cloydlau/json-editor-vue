@@ -97,8 +97,8 @@ export default defineComponent({
       })
     })
 
-    watch(() => attrs, (props) => {
-      jsonEditor.value.updateProps(props)
+    watch(() => attrs, (attrs) => {
+      jsonEditor.value.updateProps(attrs)
     }, {
       deep: true,
     })
