@@ -259,7 +259,7 @@ export default {
 | mode    | 编辑模式，在 Vue 3 中使用 `v-model:mode`，在 Vue 2 中使用 `:mode.sync`                 | `'tree'`, `'text'` | `'tree'` |
 | ...     | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的参数（通过 attrs） |                    |          |
 
-`svelte-jsoneditor` 的布尔类型参数如 `readOnly` 支持隐式转换为 `true`：
+仅写上 `svelte-jsoneditor` 的布尔类型参数如 `readOnly` 但不传值，会隐式转换为 `true`：
 
 - ✔️ `<JsonEditorVue readOnly />`
 
