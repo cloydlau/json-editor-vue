@@ -25,6 +25,15 @@ const defaultMode: Mode = 'tree'
 const modelValueProp = isVue3 ? 'modelValue' : 'value'
 const updateModelValue = isVue3 ? 'update:modelValue' : 'input'
 
+const boolAttrs = [
+  'mainMenuBar',
+  'navigationBar',
+  'statusBar',
+  'readOnly',
+  'escapeControlCharacters',
+  'escapeUnicodeCharacters',
+]
+
 export default defineComponent({
   name: 'JsonEditorVue',
   props: {
@@ -32,17 +41,26 @@ export default defineComponent({
     mode: {
       type: String as PropType<Mode>,
     },
+    ...Object.fromEntries(Array.from(boolAttrs, boolAttr => [boolAttr, {
+      type: Boolean,
+      default: undefined,
+    }])),
   },
   emits: [updateModelValue, 'update:mode'],
   setup(props, { attrs, emit, expose }) {
     const modeToContentKey = (mode?: Mode): ValueKey => ({ text: 'text', tree: 'json' }[mode ?? defaultMode] as ValueKey)
 
     const currentInstance = getCurrentInstance() as ComponentInternalInstance
+    const jsonEditor = ref()
+
     const preventUpdate = ref(false)
     const preventOnChange = ref(false)
-    const jsonEditor = ref()
+
     const initialMode = conclude([props.mode, globalProps.mode])
     const initialValue = conclude([props[modelValueProp], globalProps[modelValueProp]])
+    const initialBoolAttrs = Object.fromEntries(Array.from(boolAttrs, boolAttr =>
+      [boolAttr, conclude([props[boolAttr], globalProps[boolAttr]])])
+      .filter(([, v]) => v !== undefined))
     const initialAttrs = conclude([attrs, globalAttrs, {
       // 用户输入 & 编程式设值 会触发 onChange
       onChange: debounce((updatedContent: { text: string; json: any }) => {
@@ -57,6 +75,7 @@ export default defineComponent({
         emit('update:mode', mode)
       },
       mode: initialMode,
+      ...initialBoolAttrs,
       ...initialValue !== undefined && {
         content: {
           [modeToContentKey(initialMode)]: initialValue,
@@ -83,6 +102,7 @@ export default defineComponent({
         ? { text: '' }
         : {
           // text 模式只接受 string
+          // @ts-expect-error: props.mode can't be a boolean
             [modeToContentKey(props.mode)]: (typeof n !== 'string' && props.mode === 'text')
               ? JSON.stringify(n)
               : n,
@@ -95,6 +115,11 @@ export default defineComponent({
       jsonEditor.value.updateProps({
         mode,
       })
+    })
+
+    watch(() => Array.from(boolAttrs, boolAttr => props[boolAttr]), (values) => {
+      jsonEditor.value.updateProps(Object.fromEntries(Array.from(values, (v, i) =>
+        [boolAttrs[i], v]).filter(([, v]) => v !== undefined)))
     })
 
     watch(() => attrs, (attrs) => {
