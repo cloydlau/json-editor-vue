@@ -65,7 +65,7 @@ const value = ref()
 </script>
 ```
 
-#### 不使用打包工具 / CDN
+#### CDN
 
 ```html
 <div id="app">
@@ -130,7 +130,7 @@ const value = ref()
 </script>
 ```
 
-#### 不使用打包工具 / CDN
+#### CDN
 
 ```html
 <div id="app">
@@ -210,7 +210,7 @@ export default {
 </script>
 ```
 
-#### 不使用打包工具 / CDN
+#### CDN
 
 > 由于 `vanilla-jsoneditor` 没有提供 UMD 导出，这样用会有点绕。
 
@@ -265,9 +265,7 @@ export default {
 
 - ✔️ `<JsonEditorVue :readOnly="true" />`
 
-- ❌ `use(JsonEditorVue, { readOnly: '' })`
-
-- ✔️ `use(JsonEditorVue, { readOnly: true })`
+> 通过 CDN 使用时，标签、prop 名称都必须使用短横线命名
 
 <br>
 

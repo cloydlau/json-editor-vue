@@ -67,7 +67,7 @@ const value = ref()
 </script>
 ```
 
-#### Without Bundler / CDN
+#### CDN
 
 ```html
 <div id="app">
@@ -132,7 +132,7 @@ const value = ref()
 </script>
 ```
 
-#### Without Bundler / CDN
+#### CDN
 
 ```html
 <div id="app">
@@ -212,7 +212,7 @@ export default {
 </script>
 ```
 
-#### Without Bundler / CDN
+#### CDN
 
 > It's quite messy this way due to `vanilla-jsoneditor` does not export UMD.
 
@@ -267,9 +267,7 @@ Boolean properties of `svelte-jsoneditor` like `readOnly` will imply `true`:
 
 - ✔️ `<JsonEditorVue :readOnly="true" />`
 
-- ❌ `use(JsonEditorVue, { readOnly: '' })`
-
-- ✔️ `use(JsonEditorVue, { readOnly: true })`
+> kebab-case is required for tag & prop name when using via CDN
 
 <br>
 
