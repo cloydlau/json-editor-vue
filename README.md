@@ -273,8 +273,6 @@ Including the boolean properties of `svelte-jsoneditor` like `readOnly` with no 
 
 ## Expose
 
-> Vue 3 only, all instance properties are accessable using `$refs` in Vue 2.
-
 | name       | description         | type   |
 | ---------- | ------------------- | ------ |
 | jsonEditor | JSONEditor instance | object |
