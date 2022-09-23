@@ -20,6 +20,11 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
         imports: [
           // presets
           'vue',
+          {
+            vue: [
+              ['default', 'Vue'],
+            ],
+          },
         ],
       }),
       vue(),

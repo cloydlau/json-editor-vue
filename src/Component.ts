@@ -6,6 +6,7 @@ import {
   onMounted,
   onUnmounted,
   ref,
+  unref,
   watch,
 } from 'vue-demi'
 import type {
@@ -133,13 +134,22 @@ export default defineComponent({
         target: currentInstance.proxy?.$refs.jsonEditorRef as Element,
         props: initialAttrs,
       })
+
+      // There's no expose in @vue/composition-api
+      if (!expose) {
+        expose = (exposed: Record<string, any> | undefined): void => {
+          for (const k in exposed) {
+            (currentInstance.proxy as any)[k] = unref(exposed[k])
+          }
+        }
+        expose({ jsonEditor })
+      }
     })
 
     onUnmounted(() => {
       jsonEditor.value.destroy()
     })
 
-    // vue@2.6 中没有 expose
     expose?.({ jsonEditor })
 
     return () => h('div', { ref: 'jsonEditorRef' })

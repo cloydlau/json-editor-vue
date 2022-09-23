@@ -19,10 +19,8 @@
     </p>
 
     <br>
-    <JsonEditorVue
-      v-model="data.value" :mode.sync="data.mode"
-      :readOnly="data.readOnly"
-    />
+    <JsonEditorVue ref="jsonEditorVueRef" v-model="data.value" :mode.sync="data.mode"
+      :readOnly="data.readOnly" />
 
     <br>
     <p>Mode</p>
@@ -35,7 +33,6 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
 import JsonEditorVue from '../../src'
 import type { Mode } from '../../src'
 
@@ -47,5 +44,10 @@ const data = reactive<{
   value: undefined,
   mode: undefined,
   readOnly: false,
+})
+
+const jsonEditorVueRef = ref()
+onMounted(() => {
+  console.log(jsonEditorVueRef.value.jsonEditor.expand)
 })
 </script>

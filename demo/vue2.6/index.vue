@@ -20,7 +20,7 @@
 
     <br>
     <JsonEditorVue
-      v-model="data.value" :mode.sync="data.mode"
+      ref="jsonEditorVueRef" v-model="data.value" :mode.sync="data.mode"
       :readOnly="data.readOnly"
     />
 
@@ -35,18 +35,45 @@
 </template>
 
 <script lang="ts">
+import VueCompositionAPI from '@vue/composition-api'
 import JsonEditorVue from '../../src'
+import type { Mode } from '../../src'
+
+Vue.use(VueCompositionAPI)
+
+let hasSetup = false
 
 export default {
   components: { JsonEditorVue },
-  data() {
-    return {
-      data: {
-        value: undefined,
-        mode: undefined,
-        readOnly: false,
-      },
+  setup: () => {
+    if (hasSetup) {
+      return
+    } else {
+      hasSetup = true
     }
+
+    const jsonEditorVueRef = ref()
+    const data = reactive<{
+      value: any
+      mode?: Mode
+      readOnly: boolean
+    }>({
+      value: undefined,
+      mode: undefined,
+      readOnly: false,
+    })
+
+    onMounted(() => {
+      console.log(jsonEditorVueRef.value)
+    })
+
+    return {
+      jsonEditorVueRef,
+      data,
+    }
+  },
+  mounted() {
+    console.log(this.$refs.jsonEditorVueRef.jsonEditor.expand)
   },
 }
 </script>
