@@ -1,6 +1,6 @@
 # json-editor-vue
 
-支持 Vue 2.6 / 2.7 / 3 的 JSON 编辑器，基于 [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)。
+支持 Vue 2.6 / 2.7 / 3 的 JSON 编辑 & 预览工具，基于 [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)。
 
 > svelte-jsoneditor 是 [jsoneditor](https://github.com/josdejong/jsoneditor) 的继任者，作者开这个新坑的原因是[老库已难以维护、架构需要大改、体验亟待提升](https://github.com/josdejong/jsoneditor/issues/1223) 。
 

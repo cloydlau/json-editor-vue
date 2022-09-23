@@ -2,17 +2,17 @@ English | [简体中文](./docs/README.zh-CN.md)
 
 # json-editor-vue
 
-JSON editor for Vue 2.6 / 2.7 / 3, powered by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor).
+JSON editor & viewer for Vue 2.6 / 2.7 / 3, powered by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor).
 
 > svelte-jsoneditor is the successor of [jsoneditor](https://github.com/josdejong/jsoneditor), which ['has become hard to maintain, and the architecture needed a big overhaul'](https://github.com/josdejong/jsoneditor/issues/1223).
 
 🤹‍♂️ [Online Playground](https://cloydlau.github.io/demo/json-editor-vue.html)
 
-- Light theme
+- Light Theme
 
   ![./docs/jsoneditor_screenshot.png](https://raw.githubusercontent.com/josdejong/svelte-jsoneditor/main/misc/jsoneditor_tree_mode_screenshot.png)
 
-- [Dark theme](#dark-theme)
+- [Dark Theme](#dark-theme)
 
   ![./docs/dark-theme](./docs/dark-theme.png)
 
