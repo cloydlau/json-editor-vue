@@ -10,7 +10,7 @@ import {
   watch,
 } from 'vue-demi'
 import type {
-  ComponentInternalInstance,
+  ComponentPublicInstance,
   PropType,
 } from 'vue-demi'
 import { JSONEditor } from 'vanilla-jsoneditor'
@@ -51,7 +51,7 @@ export default defineComponent({
   setup(props, { attrs, emit, expose }) {
     const modeToContentKey = (mode?: Mode): ValueKey => ({ text: 'text', tree: 'json' }[mode ?? defaultMode] as ValueKey)
 
-    const currentInstance = getCurrentInstance() as ComponentInternalInstance
+    const currentInstance = getCurrentInstance()?.proxy as ComponentPublicInstance
     const jsonEditor = ref()
 
     const preventUpdate = ref(false)
@@ -129,9 +129,15 @@ export default defineComponent({
       deep: true,
     })
 
+    expose?.({ jsonEditor })
+
+    onUnmounted(() => {
+      jsonEditor.value.destroy()
+    })
+
     onMounted(() => {
       jsonEditor.value = new JSONEditor({
-        target: currentInstance.proxy?.$refs.jsonEditorRef as Element,
+        target: currentInstance.$refs.jsonEditorRef as Element,
         props: initialAttrs,
       })
 
@@ -139,18 +145,12 @@ export default defineComponent({
       if (!expose) {
         expose = (exposed: Record<string, any> | undefined): void => {
           for (const k in exposed) {
-            (currentInstance.proxy as any)[k] = unref(exposed[k])
+            (currentInstance as any)[k] = unref(exposed[k])
           }
         }
         expose({ jsonEditor })
       }
     })
-
-    onUnmounted(() => {
-      jsonEditor.value.destroy()
-    })
-
-    expose?.({ jsonEditor })
 
     return () => h('div', { ref: 'jsonEditorRef' })
   },
