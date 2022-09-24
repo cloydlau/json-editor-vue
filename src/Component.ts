@@ -95,14 +95,14 @@ export default defineComponent({
         preventUpdate.value = false
         return
       }
-      // vanilla-jsoneditor 不接受 undefined
-      // 其默认值为 { text: '' }
-      // 只有默认值才能清空编辑器
+      // undefined is not accepted by vanilla-jsoneditor
+      // The default value is { text: '' }
+      // Only default value can clear the editor
       preventOnChange.value = true
       jsonEditor.value.update([undefined, ''].includes(n)
         ? { text: '' }
         : {
-          // text 模式只接受 string
+          // Text mode take strings only
           // @ts-expect-error: props.mode can't be a boolean
             [modeToContentKey(props.mode)]: (typeof n !== 'string' && props.mode === 'text')
               ? JSON.stringify(n)
