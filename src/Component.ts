@@ -63,7 +63,7 @@ export default defineComponent({
       [boolAttr, conclude([props[boolAttr], globalProps[boolAttr]])])
       .filter(([, v]) => v !== undefined))
     const initialAttrs = conclude([attrs, globalAttrs, {
-      // Both user input & set value programmatically will trigger onChange
+      // Both user input & setting value programmatically will trigger onChange
       onChange: debounce((updatedContent: { text: string; json: any }) => {
         if (preventOnChange.value) {
           preventOnChange.value = false
