@@ -63,7 +63,7 @@ export default defineComponent({
       [boolAttr, conclude([props[boolAttr], globalProps[boolAttr]])])
       .filter(([, v]) => v !== undefined))
     const initialAttrs = conclude([attrs, globalAttrs, {
-      // 用户输入 & 编程式设值 会触发 onChange
+      // Both user input & set value programmatically will trigger onChange
       onChange: debounce((updatedContent: { text: string; json: any }) => {
         if (preventOnChange.value) {
           preventOnChange.value = false
