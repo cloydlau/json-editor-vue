@@ -310,7 +310,7 @@ import JsonEditorVue from 'json-editor-vue'
 
 ## 开发
 
-**PR welcome!**
+**PR welcome!** 💗
 
 1. 安装 Deno
     - https://deno.land/#installation
