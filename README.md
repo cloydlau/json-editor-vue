@@ -8,13 +8,9 @@ JSON editor & viewer for Vue 2.6 / 2.7 / 3, powered by [svelte-jsoneditor](https
 
 🤹‍♂️ [Online Playground](https://cloydlau.github.io/demo/json-editor-vue.html)
 
-- Light Theme
+![./docs/jsoneditor_screenshot.png](https://raw.githubusercontent.com/josdejong/svelte-jsoneditor/main/misc/jsoneditor_tree_mode_screenshot.png)
 
-  ![./docs/jsoneditor_screenshot.png](https://raw.githubusercontent.com/josdejong/svelte-jsoneditor/main/misc/jsoneditor_tree_mode_screenshot.png)
-
-- [Dark Theme](#dark-theme)
-
-  ![./docs/dark-theme](./docs/dark-theme.png)
+![./docs/dark-theme](./docs/dark-theme.png)
 
 <br>
 

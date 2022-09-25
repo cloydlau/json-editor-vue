@@ -6,13 +6,9 @@
 
 🤹‍♂️ [在线预览](https://cloydlau.github.io/demo/json-editor-vue.html)
 
-- 浅色主题
+![./docs/jsoneditor_screenshot.png](https://raw.githubusercontent.com/josdejong/svelte-jsoneditor/main/misc/jsoneditor_tree_mode_screenshot.png)
 
-  ![./docs/jsoneditor_screenshot.png](https://raw.githubusercontent.com/josdejong/svelte-jsoneditor/main/misc/jsoneditor_tree_mode_screenshot.png)
-
-- [暗色主题](#dark-theme)
-
-  ![./dark-theme.png](./dark-theme.png)
+![./dark-theme.png](./dark-theme.png)
 
 <br>
 
