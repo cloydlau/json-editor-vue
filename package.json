@@ -13,7 +13,10 @@
     "json-editor",
     "vue",
     "vue-demi",
-    "vue-json-viewer"
+    "vue-json-viewer",
+    "nuxt",
+    "nuxtjs",
+    "ssr"
   ],
   "exports": {
     ".": {
