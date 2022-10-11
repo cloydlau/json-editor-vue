@@ -7,11 +7,9 @@
 <script setup>
 import { ref } from 'vue'
 
-/* import JsonEditorVue from 'json-editor-vue'
-
-Vue.use(() => process.client
+const JsonEditorVue = () => process.client
   ? import('json-editor-vue')
-  : Promise.resolve({ render: h => h('div') })) */
+  : Promise.resolve({ render: h => h('div') })
 
 const value = ref(undefined)
 </script>

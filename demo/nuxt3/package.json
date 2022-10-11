@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "i": "pnpm install --shamefully-hoist",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",

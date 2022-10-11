@@ -2,7 +2,7 @@ English | [简体中文](./docs/README.zh-CN.md)
 
 # json-editor-vue
 
-JSON editor & viewer for Vue 2.6 / 2.7 / 3 and Nuxt 2 / 3, powered by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor).
+JSON editor & viewer for Vue 2.6 / 2.7 / 3 & Nuxt 2 / 3, powered by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor).
 
 > svelte-jsoneditor is the successor of [jsoneditor](https://github.com/josdejong/jsoneditor), which ['has become hard to maintain, and the architecture needed a big overhaul'](https://github.com/josdejong/jsoneditor/issues/1223).
 
@@ -19,7 +19,7 @@ JSON editor & viewer for Vue 2.6 / 2.7 / 3 and Nuxt 2 / 3, powered by [svelte-js
 - Support Vue 2.6 / 2.7 / 3
 - Support SSR (Nuxt 2 / 3)
 - Edit mode two-way binding
-- Local registration + local configuration, can also be global registration + global configuration (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
+- Local registration + local configuration, or global registration + global configuration (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
 
 <br>
 
@@ -252,6 +252,8 @@ Vue.use(JsonEditorVue, {
 
 ### Nuxt 3
 
+#### Local Registration
+
 ```vue
 <!-- ~/components/JsonEditorVue.client.vue -->
 
@@ -267,16 +269,28 @@ const value = ref()
 ```
 
 ```vue
-<!-- app.vue -->
-
 <template>
-  <JsonEditorVue />
+  <client-only>
+    <JsonEditorVue v-model="value" />
+  </client-only>
 </template>
+
+<script setup>
+const value = ref()
+</script>
 ```
 
-<br>
+#### Global Registration
 
-### Nuxt 2 with Vue 2.7
+```ts
+// ~/plugins/JsonEditorVue.client.ts
+
+import JsonEditorVue from 'json-editor-vue'
+
+export default defineNuxtPlugin((nuxtApp) => {
+  nuxtApp.vueApp.use(JsonEditorVue)
+})
+```
 
 ```vue
 <template>
@@ -286,14 +300,87 @@ const value = ref()
 </template>
 
 <script setup>
-import Vue, { ref } from 'vue'
+const value = ref()
+</script>
+```
 
+<br>
+
+### Nuxt 2 + Vue 2.7
+
+#### Local Registration
+
+```ts
+// nuxt.config.js
+
+export default {
+  build: {
+    extend(config) {
+      config.module.rules.push({
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto',
+      })
+    },
+  },
+}
+```
+
+```vue
+<template>
+  <client-only>
+    <JsonEditorVue v-model="value" />
+  </client-only>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const JsonEditorVue = () => process.client
+  ? import('json-editor-vue')
+  : Promise.resolve({ render: h => h('div') })
+
+const value = ref(undefined)
+</script>
+```
+
+#### Global Registration
+
+```ts
+// nuxt.config.js
+
+export default {
+  plugins: ['~/plugins/JsonEditorVue.client'],
+  build: {
+    extend(config) {
+      config.module.rules.push({
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto',
+      })
+    },
+  },
+}
+```
+
+```ts
+// ~/plugins/JsonEditorVue.client.js
+
+import Vue from 'vue'
 import JsonEditorVue from 'json-editor-vue'
 
-Vue.use(() => process.client
-  ? import('json-editor-vue')
-  : Promise.resolve({ render: h => h('div') }))
-// const JsonEditorVue =
+Vue.use(JsonEditorVue)
+```
+
+```vue
+<template>
+  <client-only>
+    <JsonEditorVue v-model="value" />
+  </client-only>
+</template>
+
+<script setup>
+import { ref } from 'vue'
 
 const value = ref(undefined)
 </script>
@@ -301,7 +388,25 @@ const value = ref(undefined)
 
 <br>
 
-### Nuxt 2 with Vue 2.6
+### Nuxt 2 + Vue 2.6
+
+#### Local Registration
+
+```ts
+// nuxt.config.js
+
+export default {
+  build: {
+    extend(config) {
+      config.module.rules.push({
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto',
+      })
+    },
+  },
+}
+```
 
 ```vue
 <template>
@@ -321,6 +426,54 @@ export default {
       ? import('json-editor-vue')
       : Promise.resolve({ render: h => h('div') }),
   },
+  data() {
+    return {
+      value: undefined,
+    }
+  },
+}
+</script>
+```
+
+#### Global Registration
+
+```ts
+// nuxt.config.js
+
+export default {
+  plugins: ['~/plugins/JsonEditorVue.client'],
+  build: {
+    extend(config) {
+      config.module.rules.push({
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto',
+      })
+    },
+  },
+}
+```
+
+```ts
+// ~/plugins/JsonEditorVue.client.js
+
+import Vue from 'vue'
+import VueCompositionAPI from '@vue/composition-api'
+import JsonEditorVue from 'json-editor-vue'
+
+Vue.use(VueCompositionAPI)
+Vue.use(JsonEditorVue)
+```
+
+```vue
+<template>
+  <client-only>
+    <JsonEditorVue v-model="value" />
+  </client-only>
+</template>
+
+<script>
+export default {
   data() {
     return {
       value: undefined,
