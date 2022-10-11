@@ -252,6 +252,10 @@ Vue.use(JsonEditorVue, {
 
 ### Nuxt 3
 
+```sh
+npm add json-editor-vue vanilla-jsoneditor
+```
+
 #### Local Registration
 
 ```vue
@@ -271,7 +275,7 @@ const value = ref()
 ```vue
 <template>
   <client-only>
-    <JsonEditorVue v-model="value" />
+    <JsonEditorVue v-model="value" v-bind="{/* local props & attrs */}" />
   </client-only>
 </template>
 
@@ -288,7 +292,9 @@ const value = ref()
 import JsonEditorVue from 'json-editor-vue'
 
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.use(JsonEditorVue)
+  nuxtApp.vueApp.use(JsonEditorVue, {
+    // global props & attrs (one-way data flow)
+  })
 })
 ```
 
@@ -307,6 +313,10 @@ const value = ref()
 <br>
 
 ### Nuxt 2 + Vue 2.7
+
+```sh
+npm add json-editor-vue vanilla-jsoneditor
+```
 
 #### Local Registration
 
@@ -329,7 +339,7 @@ export default {
 ```vue
 <template>
   <client-only>
-    <JsonEditorVue v-model="value" />
+    <JsonEditorVue v-model="value" v-bind="{/* local props & attrs */}" />
   </client-only>
 </template>
 
@@ -369,7 +379,9 @@ export default {
 import Vue from 'vue'
 import JsonEditorVue from 'json-editor-vue'
 
-Vue.use(JsonEditorVue)
+Vue.use(JsonEditorVue, {
+  // global props & attrs (one-way data flow)
+})
 ```
 
 ```vue
@@ -389,6 +401,10 @@ const value = ref(undefined)
 <br>
 
 ### Nuxt 2 + Vue 2.6 or Earlier
+
+```sh
+npm add json-editor-vue vanilla-jsoneditor @vue/composition-api
+```
 
 #### Local Registration
 
@@ -411,7 +427,7 @@ export default {
 ```vue
 <template>
   <client-only>
-    <JsonEditorVue v-model="value" />
+    <JsonEditorVue v-model="value" v-bind="{/* local props & attrs */}" />
   </client-only>
 </template>
 
@@ -462,7 +478,9 @@ import VueCompositionAPI from '@vue/composition-api'
 import JsonEditorVue from 'json-editor-vue'
 
 Vue.use(VueCompositionAPI)
-Vue.use(JsonEditorVue)
+Vue.use(JsonEditorVue, {
+  // global props & attrs (one-way data flow)
+})
 ```
 
 ```vue
