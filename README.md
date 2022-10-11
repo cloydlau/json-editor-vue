@@ -388,7 +388,7 @@ const value = ref(undefined)
 
 <br>
 
-### Nuxt 2 + Vue 2.6
+### Nuxt 2 + Vue 2.6 or Earlier
 
 #### Local Registration
 
