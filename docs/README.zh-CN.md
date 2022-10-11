@@ -1,10 +1,10 @@
 # json-editor-vue
 
-支持 Vue 2.6 / 2.7 / 3 的 JSON 编辑 & 预览工具，基于 [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)。
+JSON 编辑 & 预览工具，支持 Vue 2.6 / 2.7 / 3，支持 Nuxt 2 / 3，基于 [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)。
 
 > svelte-jsoneditor 是 [jsoneditor](https://github.com/josdejong/jsoneditor) 的继任者，作者开这个新坑的原因是[老库已难以维护、架构需要大改、体验亟待提升](https://github.com/josdejong/jsoneditor/issues/1223) 。
 
-🤹‍♂️ [在线预览](https://cloydlau.github.io/demo/json-editor-vue.html)
+🤹‍♂️ [在线试玩](https://cloydlau.github.io/demo/json-editor-vue.html)
 
 ![./docs/jsoneditor_screenshot.png](https://raw.githubusercontent.com/josdejong/svelte-jsoneditor/main/misc/jsoneditor_tree_mode_screenshot.png)
 
@@ -15,6 +15,7 @@
 ## 特性
 
 - Vue 2.6 / 2.7 / 3 通用
+- 支持 SSR，Nuxt 2 / 3 通用
 - 编辑模式双向绑定
 - 局部注册 + 局部传参，也可以全局注册 + 全局传参（[vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持）
 
@@ -34,6 +35,20 @@
 npm add json-editor-vue vanilla-jsoneditor
 ```
 
+#### 局部注册
+
+```vue
+<template>
+  <JsonEditorVue v-model="value" v-bind="{/* 局部 props & attrs */}" />
+</template>
+
+<script setup>
+import JsonEditorVue from 'json-editor-vue'
+
+const value = ref()
+</script>
+```
+
 #### 全局注册
 
 ```ts
@@ -45,20 +60,6 @@ createApp()
     // 全局 props & attrs（单向数据流）
   })
   .mount('#app')
-```
-
-#### 局部注册
-
-```vue
-<template>
-  <JsonEditorVue v-model="value" v-bind="{/* 局部 props */}" />
-</template>
-
-<script setup>
-import JsonEditorVue from 'json-editor-vue'
-
-const value = ref()
-</script>
 ```
 
 #### CDN
@@ -101,6 +102,20 @@ const value = ref()
 npm add json-editor-vue vanilla-jsoneditor
 ```
 
+#### 局部注册
+
+```vue
+<template>
+  <JsonEditorVue v-model="value" v-bind="{/* 局部 props & attrs */}" />
+</template>
+
+<script setup>
+import JsonEditorVue from 'json-editor-vue'
+
+const value = ref()
+</script>
+```
+
 #### 全局注册
 
 ```ts
@@ -110,20 +125,6 @@ import JsonEditorVue from 'json-editor-vue'
 Vue.use(JsonEditorVue, {
   // 全局 props & attrs（单向数据流）
 })
-```
-
-#### 局部注册
-
-```vue
-<template>
-  <JsonEditorVue v-model="value" v-bind="{/* 局部 props */}" />
-</template>
-
-<script setup>
-import JsonEditorVue from 'json-editor-vue'
-
-const value = ref()
-</script>
 ```
 
 #### CDN
@@ -168,24 +169,11 @@ const value = ref()
 npm add json-editor-vue vanilla-jsoneditor @vue/composition-api
 ```
 
-#### 全局注册
-
-```ts
-import Vue from 'vue'
-import VCA from '@vue/composition-api'
-import JsonEditorVue from 'json-editor-vue'
-
-Vue.use(VCA)
-Vue.use(JsonEditorVue, {
-  // 全局 props & attrs（单向数据流）
-})
-```
-
 #### 局部注册
 
 ```vue
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* 局部 props */}" />
+  <JsonEditorVue v-model="value" v-bind="{/* 局部 props & attrs */}" />
 </template>
 
 <script>
@@ -204,6 +192,19 @@ export default {
   },
 }
 </script>
+```
+
+#### 全局注册
+
+```ts
+import Vue from 'vue'
+import VCA from '@vue/composition-api'
+import JsonEditorVue from 'json-editor-vue'
+
+Vue.use(VCA)
+Vue.use(JsonEditorVue, {
+  // 全局 props & attrs（单向数据流）
+})
 ```
 
 #### CDN
@@ -242,6 +243,259 @@ export default {
   })
   app.use(JsonEditorVue)
   app.mount('#app')
+</script>
+```
+
+<br>
+
+### Nuxt 3
+
+```sh
+npm add json-editor-vue vanilla-jsoneditor
+```
+
+#### 局部注册
+
+```vue
+<!-- ~/components/JsonEditorVue.client.vue -->
+
+<template>
+  <JsonEditorVue v-model="value" />
+</template>
+
+<script setup>
+import JsonEditorVue from 'json-editor-vue'
+
+const value = ref()
+</script>
+```
+
+```vue
+<template>
+  <client-only>
+    <JsonEditorVue v-model="value" v-bind="{/* 局部 props & attrs */}" />
+  </client-only>
+</template>
+
+<script setup>
+const value = ref()
+</script>
+```
+
+#### 全局注册
+
+```ts
+// ~/plugins/JsonEditorVue.client.ts
+
+import JsonEditorVue from 'json-editor-vue'
+
+export default defineNuxtPlugin((nuxtApp) => {
+  nuxtApp.vueApp.use(JsonEditorVue, {
+    // 全局 props & attrs（单向数据流）
+  })
+})
+```
+
+```vue
+<template>
+  <client-only>
+    <JsonEditorVue v-model="value" />
+  </client-only>
+</template>
+
+<script setup>
+const value = ref()
+</script>
+```
+
+<br>
+
+### Nuxt 2 + Vue 2.7
+
+```sh
+npm add json-editor-vue vanilla-jsoneditor
+```
+
+#### 局部注册
+
+```ts
+// nuxt.config.js
+
+export default {
+  build: {
+    extend(config) {
+      config.module.rules.push({
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto',
+      })
+    },
+  },
+}
+```
+
+```vue
+<template>
+  <client-only>
+    <JsonEditorVue v-model="value" v-bind="{/* 局部 props & attrs */}" />
+  </client-only>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const JsonEditorVue = () => process.client
+  ? import('json-editor-vue')
+  : Promise.resolve({ render: h => h('div') })
+
+const value = ref(undefined)
+</script>
+```
+
+#### 全局注册
+
+```ts
+// nuxt.config.js
+
+export default {
+  plugins: ['~/plugins/JsonEditorVue.client'],
+  build: {
+    extend(config) {
+      config.module.rules.push({
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto',
+      })
+    },
+  },
+}
+```
+
+```ts
+// ~/plugins/JsonEditorVue.client.js
+
+import Vue from 'vue'
+import JsonEditorVue from 'json-editor-vue'
+
+Vue.use(JsonEditorVue, {
+  // 全局 props & attrs（单向数据流）
+})
+```
+
+```vue
+<template>
+  <client-only>
+    <JsonEditorVue v-model="value" />
+  </client-only>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const value = ref(undefined)
+</script>
+```
+
+<br>
+
+### Nuxt 2 + Vue 2.6 或更早版本
+
+```sh
+npm add json-editor-vue vanilla-jsoneditor @vue/composition-api
+```
+
+#### 局部注册
+
+```ts
+// nuxt.config.js
+
+export default {
+  build: {
+    extend(config) {
+      config.module.rules.push({
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto',
+      })
+    },
+  },
+}
+```
+
+```vue
+<template>
+  <client-only>
+    <JsonEditorVue v-model="value" v-bind="{/* 局部 props & attrs */}" />
+  </client-only>
+</template>
+
+<script>
+import Vue from 'vue'
+import VCA from '@vue/composition-api'
+Vue.use(VCA)
+
+export default {
+  components: {
+    JsonEditorVue: () => process.client
+      ? import('json-editor-vue')
+      : Promise.resolve({ render: h => h('div') }),
+  },
+  data() {
+    return {
+      value: undefined,
+    }
+  },
+}
+</script>
+```
+
+#### 全局注册
+
+```ts
+// nuxt.config.js
+
+export default {
+  plugins: ['~/plugins/JsonEditorVue.client'],
+  build: {
+    extend(config) {
+      config.module.rules.push({
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto',
+      })
+    },
+  },
+}
+```
+
+```ts
+// ~/plugins/JsonEditorVue.client.js
+
+import Vue from 'vue'
+import VCA from '@vue/composition-api'
+import JsonEditorVue from 'json-editor-vue'
+
+Vue.use(VCA)
+Vue.use(JsonEditorVue, {
+  // 全局 props & attrs（单向数据流）
+})
+```
+
+```vue
+<template>
+  <client-only>
+    <JsonEditorVue v-model="value" />
+  </client-only>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      value: undefined,
+    }
+  },
+}
 </script>
 ```
 
@@ -308,9 +562,7 @@ import JsonEditorVue from 'json-editor-vue'
 
 **PR welcome!** 💗
 
-1. 安装 Deno
-    - https://deno.land/#installation
-    - https://x.deno.js.cn/#%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88
+1. 安装 Deno: https://x.deno.js.cn/#%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88
 
 2. `npm add pnpm @cloydlau/scripts -g; pnpm i`
 

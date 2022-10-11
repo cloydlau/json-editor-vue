@@ -433,8 +433,8 @@ export default {
 
 <script>
 import Vue from 'vue'
-import VueCompositionAPI from '@vue/composition-api'
-Vue.use(VueCompositionAPI)
+import VCA from '@vue/composition-api'
+Vue.use(VCA)
 
 export default {
   components: {
@@ -474,10 +474,10 @@ export default {
 // ~/plugins/JsonEditorVue.client.js
 
 import Vue from 'vue'
-import VueCompositionAPI from '@vue/composition-api'
+import VCA from '@vue/composition-api'
 import JsonEditorVue from 'json-editor-vue'
 
-Vue.use(VueCompositionAPI)
+Vue.use(VCA)
 Vue.use(JsonEditorVue, {
   // global props & attrs (one-way data flow)
 })
@@ -564,9 +564,7 @@ Detailed changes for each release are documented in the [release notes](https://
 
 **PR welcome!** 💗
 
-1. Install Deno
-    - https://deno.land/#installation
-    - https://x.deno.js.cn/#%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88
+1. Install Deno: https://deno.land/#installation
 
 2. `npm add pnpm @cloydlau/scripts -g; pnpm i`
 
