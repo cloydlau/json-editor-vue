@@ -6,9 +6,9 @@ JSON 编辑 & 预览工具，支持 Vue 2.6 / 2.7 / 3，支持 Nuxt 2 / 3，基�
 
 🤹‍♂️ [在线试玩](https://cloydlau.github.io/demo/json-editor-vue.html)
 
-![./docs/jsoneditor_screenshot.png](https://raw.githubusercontent.com/josdejong/svelte-jsoneditor/main/misc/jsoneditor_tree_mode_screenshot.png)
+![./light-theme.png](./light-theme.png)
 
-![./dark-theme.png](./dark-theme.png)
+![./dark-theme](./dark-theme.png)
 
 <br>
 

@@ -8,7 +8,7 @@ JSON editor & viewer for Vue 2.6 / 2.7 / 3 & Nuxt 2 / 3, powered by [svelte-json
 
 🤹‍♂️ [Online Playground](https://cloydlau.github.io/demo/json-editor-vue.html)
 
-![./docs/jsoneditor_screenshot.png](https://raw.githubusercontent.com/josdejong/svelte-jsoneditor/main/misc/jsoneditor_tree_mode_screenshot.png)
+![./docs/light-theme.png](./docs/light-theme.png)
 
 ![./docs/dark-theme](./docs/dark-theme.png)
 
