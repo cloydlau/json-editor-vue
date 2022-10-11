@@ -1,0 +1,25 @@
+{
+  "name": "nuxt2",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@vue/composition-api": "latest",
+    "core-js": "latest",
+    "json-editor-vue": "latest",
+    "nuxt": "2",
+    "vanilla-jsoneditor": "latest",
+    "vue": "2.6",
+    "vue-server-renderer": "2.6",
+    "vue-template-compiler": "2.6"
+  },
+  "devDependencies": {
+    "@nuxt/types": "2",
+    "@nuxt/typescript-build": "2"
+  }
+}

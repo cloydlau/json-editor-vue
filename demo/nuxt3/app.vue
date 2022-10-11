@@ -1,0 +1,3 @@
+<template>
+  <JsonEditorVue />
+</template>
