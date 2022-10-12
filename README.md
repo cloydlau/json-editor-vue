@@ -18,6 +18,7 @@ JSON editor & viewer for Vue 2.6 / 2.7 / 3 & Nuxt 2 / 3, powered by [svelte-json
 
 - Support Vue 2.6 / 2.7 / 3
 - Support SSR (Nuxt 2 / 3)
+- 11kb gziped
 - Edit mode two-way binding
 - Local registration + local configuration, or global registration + global configuration (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
 

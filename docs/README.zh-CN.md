@@ -16,6 +16,7 @@ JSON 编辑 & 预览工具，支持 Vue 2.6 / 2.7 / 3，支持 Nuxt 2 / 3，基�
 
 - Vue 2.6 / 2.7 / 3 通用
 - 支持 SSR，Nuxt 2 / 3 通用
+- gzip 压缩后 11kb
 - 编辑模式双向绑定
 - 局部注册 + 局部传参，也可以全局注册 + 全局传参（[vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持）
 
