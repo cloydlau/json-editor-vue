@@ -2,23 +2,25 @@ English | [简体中文](./docs/README.zh-CN.md)
 
 # json-editor-vue
 
-JSON editor & viewer for Vue 2.6 / 2.7 / 3 & Nuxt 2 / 3, powered by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor).
+<p align="left">
+  <img src="https://img.shields.io/npm/v/json-editor-vue.svg" alt="npm package">
+  <img src="http://img.badgesize.io/https://unpkg.com/json-editor-vue/dist/json-editor-vue.umd.js?compression=gzip&label=gziped">
+  <img src="https://img.shields.io/npm/dm/json-editor-vue" alt="downloads">
+</p>
 
+> JSON editor & viewer for Vue 2.6 / 2.7 / 3 & Nuxt 2 / 3, powered by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor).
 > svelte-jsoneditor is the successor of [jsoneditor](https://github.com/josdejong/jsoneditor), which ['has become hard to maintain, and the architecture needed a big overhaul'](https://github.com/josdejong/jsoneditor/issues/1223).
 
-🤹‍♂️ [Online Playground](https://cloydlau.github.io/demo/json-editor-vue.html)
+<img src="./docs/light-theme.png" alt="light-theme"> &nbsp; <img src="./docs/dark-theme.png" alt="dark-theme">
 
-![./docs/light-theme.png](./docs/light-theme.png)
+🕹 [Online Playground](https://cloydlau.github.io/demo/json-editor-vue.html)
 
-![./docs/dark-theme](./docs/dark-theme.png)
-
-<br>
+<br/>
 
 ## Features
 
 - Support Vue 2.6 / 2.7 / 3
 - Support SSR (Nuxt 2 / 3)
-- 11kb gziped
 - Edit mode two-way binding
 - Local registration + local configuration, or global registration + global configuration (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
 

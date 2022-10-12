@@ -1,14 +1,17 @@
 # json-editor-vue
 
-JSON 编辑 & 预览工具，支持 Vue 2.6 / 2.7 / 3，支持 Nuxt 2 / 3，基于 [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)。
+<p align="left">
+  <img src="https://img.shields.io/npm/v/json-editor-vue.svg" alt="npm package">
+  <img src="http://img.badgesize.io/https://unpkg.com/json-editor-vue/dist/json-editor-vue.umd.js?compression=gzip&label=gziped">
+  <img src="https://img.shields.io/npm/dm/json-editor-vue" alt="downloads">
+</p>
 
+> JSON 编辑 & 预览工具，支持 Vue 2.6 / 2.7 / 3，支持 Nuxt 2 / 3，基于 [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)。
 > svelte-jsoneditor 是 [jsoneditor](https://github.com/josdejong/jsoneditor) 的继任者，作者开这个新坑的原因是[老库已难以维护、架构需要大改、体验亟待提升](https://github.com/josdejong/jsoneditor/issues/1223) 。
 
-🤹‍♂️ [在线试玩](https://cloydlau.github.io/demo/json-editor-vue.html)
+<img src="./light-theme.png" alt="light-theme"> &nbsp; <img src="./dark-theme.png" alt="dark-theme">
 
-![./light-theme.png](./light-theme.png)
-
-![./dark-theme](./dark-theme.png)
+🕹 [在线试玩](https://cloydlau.github.io/demo/json-editor-vue.html)
 
 <br>
 
@@ -16,7 +19,6 @@ JSON 编辑 & 预览工具，支持 Vue 2.6 / 2.7 / 3，支持 Nuxt 2 / 3，基�
 
 - Vue 2.6 / 2.7 / 3 通用
 - 支持 SSR，Nuxt 2 / 3 通用
-- gzip 压缩后 11kb
 - 编辑模式双向绑定
 - 局部注册 + 局部传参，也可以全局注册 + 全局传参（[vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持）
 
