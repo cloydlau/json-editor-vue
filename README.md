@@ -10,7 +10,7 @@ English | [简体中文](./docs/README.zh-CN.md)
 
 > JSON editor & viewer for Vue 2.6 / 2.7 / 3 & Nuxt 2 / 3, powered by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) (successor of [jsoneditor](https://github.com/josdejong/jsoneditor)).
 
-<img width="500" src="./docs/light-theme.png" alt="light-theme">&nbsp;<img width="500" src="./docs/dark-theme.png" alt="dark-theme">
+<img width="49.78%" src="./docs/light-theme.png" alt="light-theme">&nbsp;<img width="49.78%" src="./docs/dark-theme.png" alt="dark-theme">
 
 🕹 [Online Playground](https://cloydlau.github.io/demo/json-editor-vue.html)
 
