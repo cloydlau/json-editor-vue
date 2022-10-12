@@ -26,7 +26,9 @@ JSON 编辑 & 预览工具，支持 Vue 2.6 / 2.7 / 3，支持 Nuxt 2 / 3，基�
 
 ### 外置依赖
 
+- `vue`
 - `vanilla-jsoneditor` svelte-jsoneditor 提供的原生包
+- `@vue/composition-api` 仅 Vue 2.6 或更早版本需要
 
 <br>
 

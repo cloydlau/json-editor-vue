@@ -28,7 +28,9 @@ JSON editor & viewer for Vue 2.6 / 2.7 / 3 & Nuxt 2 / 3, powered by [svelte-json
 
 ### Peer Dependencies
 
+- `vue`
 - `vanilla-jsoneditor` standalone bundle provided by svelte-jsoneditor
+- `@vue/composition-api` only for Vue 2.6 or earlier
 
 <br>
 
