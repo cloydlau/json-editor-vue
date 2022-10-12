@@ -8,7 +8,7 @@
 
 > JSON 编辑 & 预览工具，支持 Vue 2.6 / 2.7 / 3，支持 Nuxt 2 / 3，基于 [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) （[jsoneditor](https://github.com/josdejong/jsoneditor) 的继任者）。
 
-<img width="49.78%" src="./light-theme.png" alt="light-theme">&nbsp;<img width="49.78%" src="./dark-theme.png" alt="dark-theme">
+<img width="49.738%" src="./light-theme.png" alt="light-theme">&nbsp;<img width="49.738%" src="./dark-theme.png" alt="dark-theme">
 
 🕹 [在线试玩](https://cloydlau.github.io/demo/json-editor-vue.html)
 
