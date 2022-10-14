@@ -1,9 +1,9 @@
 <template>
-  <JsonEditorVue v-model="value" />
+  <JsonEditorVue v-bind="attrs" />
 </template>
 
 <script setup>
 import JsonEditorVue from 'json-editor-vue'
 
-const value = ref()
+const attrs = useAttrs()
 </script>
