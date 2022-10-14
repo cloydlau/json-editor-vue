@@ -43,7 +43,7 @@ const LosslessJSONParser = {
   parse, /* : (json) => {    return JSON.parse(json, (k, v, { source }) =>
       (typeof source === 'number' && source > Number.MAX_SAFE_INTEGER)
         ? BigInt(source)
-        : source,
+        : val,
     )
   } */
   stringify,
