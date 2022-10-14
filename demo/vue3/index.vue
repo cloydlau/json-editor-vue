@@ -4,7 +4,7 @@
       <button @click="data.value = '123'">
         设值为 string
       </button>
-      <button @click="data.value = { abc: '123' }">
+      <button @click="data.value = { abc: 124124124124124124124n }">
         设值为 JSON
       </button>
       <button @click="data.value = undefined">
@@ -20,33 +20,45 @@
 
     <br>
     <JsonEditorVue
-      v-model="data.value" v-model:mode="data.mode"
-      :readOnly="data.readOnly"
-      ref="jsonEditorVueRef"
+      ref="jsonEditorVueRef" v-model="data.value" v-model:mode="data.mode"
+      :readOnly="data.readOnly" :parser="data.parser"
     />
 
     <br>
     <p>Mode</p>
     {{ data.mode }}
     <p>Value</p>
-    {{ data.value }}
+    {{ LosslessJSONParser.stringify(data.value) }}
     <p>Type</p>
     {{ typeof data.value }}
   </div>
 </template>
 
 <script setup lang="ts">
+import { parse, stringify } from 'lossless-json'
 import JsonEditorVue from '../../src'
 import type { Mode } from '../../src'
+
+const LosslessJSONParser = {
+  parse, /* : (json) => {    return JSON.parse(json, (k, v, { source }) =>
+      (typeof source === 'number' && source > Number.MAX_SAFE_INTEGER)
+        ? BigInt(source)
+        : source,
+    )
+  } */
+  stringify,
+}
 
 const data = reactive<{
   value: any
   mode?: Mode
   readOnly?: boolean
+  parser?: { parse: Function; stringify: Function }
 }>({
   value: undefined,
   mode: undefined,
   readOnly: false,
+  parser: LosslessJSONParser,
 })
 
 const jsonEditorVueRef = ref()

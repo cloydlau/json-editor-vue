@@ -70,7 +70,9 @@ export default defineComponent({
           return
         }
         preventUpdate.value = true
-        emit(updateModelValue, updatedContent.text === undefined ? updatedContent.json : updatedContent.text)
+        emit(updateModelValue, updatedContent.text === undefined
+          ? updatedContent.json
+          : updatedContent.text)
       }, 100),
       onChangeMode(mode: Mode) {
         emit('update:mode', mode)
@@ -104,9 +106,7 @@ export default defineComponent({
         : {
           // Text mode take strings only
           // @ts-expect-error: props.mode can't be a boolean
-            [modeToContentKey(props.mode)]: (typeof n !== 'string' && props.mode === 'text')
-              ? JSON.stringify(n)
-              : n,
+            [modeToContentKey(props.mode)]: n,
           })
     }, {
       deep: true,

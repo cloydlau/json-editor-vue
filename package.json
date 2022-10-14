@@ -75,6 +75,7 @@
     "husky": "latest",
     "json-editor-vue": "latest",
     "lint-staged": "latest",
+    "lossless-json": "latest",
     "typescript": "latest",
     "unplugin-auto-import": "latest",
     "vanilla-jsoneditor": "latest",
