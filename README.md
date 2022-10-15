@@ -354,7 +354,7 @@ const JsonEditorVue = () => process.client
   ? import('json-editor-vue')
   : Promise.resolve({ render: h => h('div') })
 
-const value = ref(undefined)
+const value = ref()
 </script>
 ```
 
@@ -398,7 +398,7 @@ Vue.use(JsonEditorVue, {
 <script setup>
 import { ref } from 'vue'
 
-const value = ref(undefined)
+const value = ref()
 </script>
 ```
 
