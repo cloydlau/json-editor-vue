@@ -511,7 +511,7 @@ export default {
 
 | Name    | Description                                                                                   | Type               | Default  |
 | ------- | --------------------------------------------------------------------------------------------- | ------------------ | -------- |
-| v-model | binding value                                                                                 | `any`              |          |
+| v-model | binding value                                                                                 | `any` under `tree` mode, `string` under `text` mode              |          |
 | mode    | edit mode, use `v-model:mode` in Vue 3 or `:mode.sync` in Vue 2                               | `'tree'`, `'text'` | `'tree'` |
 | ...     | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |                    |          |
 
