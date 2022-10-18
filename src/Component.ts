@@ -78,7 +78,7 @@ export default defineComponent({
       ...initialBoolAttrs,
       ...initialValue !== undefined && {
         content: {
-          [valueToContentKey(initialMode)]: initialValue,
+          [valueToContentKey(initialValue)]: initialValue,
         },
       },
     }], {
