@@ -10,7 +10,6 @@ import {
   watch,
 } from 'vue-demi'
 import type {
-  ComponentPublicInstance,
   PropType,
 } from 'vue-demi'
 import { JSONEditor } from 'vanilla-jsoneditor'
@@ -20,8 +19,6 @@ import { globalAttrs, globalProps } from './index'
 
 export type Mode = 'tree' | 'text'
 type ValueKey = 'json' | 'text'
-
-const defaultMode: Mode = 'tree'
 
 const modelValueProp = isVue3 ? 'modelValue' : 'value'
 const updateModelValue = isVue3 ? 'update:modelValue' : 'input'
@@ -49,9 +46,9 @@ export default defineComponent({
   },
   emits: [updateModelValue, 'update:mode'],
   setup(props, { attrs, emit, expose }) {
-    const modeToContentKey = (mode?: Mode): ValueKey => ({ text: 'text', tree: 'json' }[mode ?? defaultMode] as ValueKey)
+    const valueToContentKey = (value: any): ValueKey => typeof value === 'string' ? 'text' : 'json'
 
-    const currentInstance = getCurrentInstance()?.proxy as ComponentPublicInstance
+    const currentInstance = getCurrentInstance()?.proxy
     const jsonEditor = ref()
 
     const preventUpdate = ref(false)
@@ -81,7 +78,7 @@ export default defineComponent({
       ...initialBoolAttrs,
       ...initialValue !== undefined && {
         content: {
-          [modeToContentKey(initialMode)]: initialValue,
+          [valueToContentKey(initialMode)]: initialValue,
         },
       },
     }], {
@@ -103,11 +100,7 @@ export default defineComponent({
       preventOnChange.value = true
       jsonEditor.value.update([undefined, ''].includes(n)
         ? { text: '' }
-        : {
-          // Text mode take strings only
-          // @ts-expect-error: props.mode can't be a boolean
-            [modeToContentKey(props.mode)]: n,
-          })
+        : { [valueToContentKey(n)]: n })
     }, {
       deep: true,
     })
@@ -137,7 +130,7 @@ export default defineComponent({
 
     onMounted(() => {
       jsonEditor.value = new JSONEditor({
-        target: currentInstance.$refs.jsonEditorRef as Element,
+        target: currentInstance?.$refs.jsonEditorRef as Element,
         props: initialAttrs,
       })
 

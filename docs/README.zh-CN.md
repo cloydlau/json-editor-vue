@@ -507,10 +507,10 @@ export default {
 
 ## Props
 
-| 参数名  | 说明                                                                                   | 类型               | 默认值   |
-| ------- | -------------------------------------------------------------------------------------- | ------------------ | -------- |
-| v-model | 绑定值                                                                                 | `tree` 模式时 `any`，<br>`text` 模式时 `string`              |          |
-| mode    | 编辑模式，<br>在 Vue 3 中使用 `v-model:mode`，<br>在 Vue 2 中使用 `:mode.sync`                 | `'tree'`, `'text'` | `'tree'` |
+| 参数名  | 说明                                                                                                 | 类型               | 默认值   |
+| ------- | ---------------------------------------------------------------------------------------------------- | ------------------ | -------- |
+| v-model | 绑定值                                                                                               | `any`              |          |
+| mode    | 编辑模式，<br>在 Vue 3 中使用 `v-model:mode`，<br>在 Vue 2 中使用 `:mode.sync`                       | `'tree'`, `'text'` | `'tree'` |
 | ...     | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的参数（通过 attrs） |                    |          |
 
 仅写上 `svelte-jsoneditor` 的布尔类型参数如 `readOnly` 但不传值，会隐式转换为 `true`：
