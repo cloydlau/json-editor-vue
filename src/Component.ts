@@ -9,16 +9,13 @@ import {
   unref,
   watch,
 } from 'vue-demi'
-import type {
-  PropType,
-} from 'vue-demi'
+import type { PropType } from 'vue-demi'
 import { JSONEditor } from 'vanilla-jsoneditor'
 import { conclude } from 'vue-global-config'
 import { debounce } from 'lodash-es'
 import { globalAttrs, globalProps } from './index'
 
 export type Mode = 'tree' | 'text'
-type ValueKey = 'json' | 'text'
 
 const modelValueProp = isVue3 ? 'modelValue' : 'value'
 const updateModelValue = isVue3 ? 'update:modelValue' : 'input'
@@ -46,8 +43,6 @@ export default defineComponent({
   },
   emits: [updateModelValue, 'update:mode'],
   setup(props, { attrs, emit, expose }) {
-    const valueToContentKey = (value: any): ValueKey => typeof value === 'string' ? 'text' : 'json'
-
     const currentInstance = getCurrentInstance()?.proxy
     const jsonEditor = ref()
 
@@ -78,7 +73,7 @@ export default defineComponent({
       ...initialBoolAttrs,
       ...initialValue !== undefined && {
         content: {
-          [valueToContentKey(initialValue)]: initialValue,
+          json: initialValue,
         },
       },
     }], {
@@ -100,7 +95,7 @@ export default defineComponent({
       preventOnChange.value = true
       jsonEditor.value.update([undefined, ''].includes(n)
         ? { text: '' }
-        : { [valueToContentKey(n)]: n })
+        : { json: n })
     }, {
       deep: true,
     })
