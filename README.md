@@ -562,7 +562,7 @@ import JsonEditorVue from 'json-editor-vue'
 
 |               | `svelte-jsoneditor`                                                                                                            | `json-editor-vue`                                |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ |
-| Binding value | An object contains a stringified JSON or a parsed JSON, <br>will do `JSON.parse` when passing as a stringified JSON. | JSON itself. What users see is what users pass. |
+| Binding value | An object contains a stringified JSON or a parsed JSON, will do `JSON.parse` when passing as a stringified JSON. | JSON itself. What users see is what users pass. |
 
 Check https://github.com/josdejong/svelte-jsoneditor/pull/166 for more details.
 

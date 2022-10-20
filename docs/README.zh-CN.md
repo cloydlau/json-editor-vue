@@ -560,7 +560,7 @@ import JsonEditorVue from 'json-editor-vue'
 
 |        | `svelte-jsoneditor`                                                                                                   | `json-editor-vue`                               |
 | ------ | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| 绑定值 | 一个包含「stringified JSON」或「parsed JSON」的对象，<br>当作为「stringified JSON」传入时，会经过 `JSON.parse` 解析。 | JSON 本身。用户传什么参数编辑器就展示什么数据。 |
+| 绑定值 | 一个包含「stringified JSON」或「parsed JSON」的对象，当作为「stringified JSON」传入时，会经过 `JSON.parse` 解析。 | JSON 本身。用户传什么参数编辑器就展示什么数据。 |
 
 详情见 https://github.com/josdejong/svelte-jsoneditor/pull/166.
 
