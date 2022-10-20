@@ -556,6 +556,16 @@ import JsonEditorVue from 'json-editor-vue'
 
 <br>
 
+## `svelte-jsoneditor` 与 `json-editor-vue` 的差异
+
+|        | `svelte-jsoneditor`                                                                                                   | `json-editor-vue`                               |
+| ------ | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| 绑定值 | 一个包含「stringified JSON」或「parsed JSON」的对象，<br>当作为「stringified JSON」传入时，会经过 `JSON.parse` 解析。 | JSON 本身。用户传什么参数编辑器就展示什么数据。 |
+
+详情见 https://github.com/josdejong/svelte-jsoneditor/pull/166.
+
+<br>
+
 ## 更新日志
 
 各版本详细改动请参考 [release notes](https://github.com/cloydlau/json-editor-vue/releases) 。
