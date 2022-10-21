@@ -513,6 +513,15 @@ export default {
 | mode    | 编辑模式，<br>在 Vue 3 中使用 `v-model:mode`，<br>在 Vue 2 中使用 `:mode.sync`                       | `'tree'`, `'text'` | `'tree'` |
 | ...     | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的参数（通过 attrs） |                    |          |
 
+### `svelte-jsoneditor` 与 `json-editor-vue` 中绑定值的差异
+
+- `svelte-jsoneditor` 一个包含「stringified JSON」或「parsed JSON」的对象，当作为「stringified JSON」传入时，会经过 `JSON.parse` 解析。
+- `json-editor-vue` JSON 本身，所见即所得。
+
+> 详情见 https://github.com/josdejong/svelte-jsoneditor/pull/166.
+
+### 布尔类型参数
+
 仅写上 `svelte-jsoneditor` 的布尔类型参数如 `readOnly` 但不传值，会隐式转换为 `true`：
 
 - ✔️ `<JsonEditorVue readOnly />`
@@ -553,16 +562,6 @@ import 'vanilla-jsoneditor/themes/jse-theme-dark.css'
 import JsonEditorVue from 'json-editor-vue'
 </script>
 ```
-
-<br>
-
-## `svelte-jsoneditor` 与 `json-editor-vue` 的差异
-
-|        | `svelte-jsoneditor`                                                                                                   | `json-editor-vue`                               |
-| ------ | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| 绑定值 | 一个包含「stringified JSON」或「parsed JSON」的对象，当作为「stringified JSON」传入时，会经过 `JSON.parse` 解析。 | JSON 本身。用户传什么参数编辑器就展示什么数据。 |
-
-详情见 https://github.com/josdejong/svelte-jsoneditor/pull/166.
 
 <br>
 

@@ -515,6 +515,15 @@ export default {
 | mode    | edit mode, <br>use `v-model:mode` in Vue 3 <br>or `:mode.sync` in Vue 2                       | `'tree'`, `'text'` | `'tree'` |
 | ...     | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |                    |          |
 
+### Binding value difference between `svelte-jsoneditor` and `json-editor-vue`
+
+- `svelte-jsoneditor` An object contains a stringified JSON or a parsed JSON, will do `JSON.parse` when passing as a stringified JSON.
+- `json-editor-vue` JSON itself. What users see is what users get.
+
+> Check https://github.com/josdejong/svelte-jsoneditor/pull/166 for more details.
+
+### Boolean properties
+
 Including the boolean properties of `svelte-jsoneditor` like `readOnly` with no value will imply `true`:
 
 - ✔️ `<JsonEditorVue readOnly />`
@@ -555,16 +564,6 @@ import 'vanilla-jsoneditor/themes/jse-theme-dark.css'
 import JsonEditorVue from 'json-editor-vue'
 </script>
 ```
-
-<br>
-
-## Differences between `svelte-jsoneditor` and `json-editor-vue`
-
-|               | `svelte-jsoneditor`                                                                                                            | `json-editor-vue`                                |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ |
-| Binding value | An object contains a stringified JSON or a parsed JSON, will do `JSON.parse` when passing as a stringified JSON. | JSON itself. What users see is what users pass. |
-
-Check https://github.com/josdejong/svelte-jsoneditor/pull/166 for more details.
 
 <br>
 
