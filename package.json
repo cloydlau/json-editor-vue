@@ -1,6 +1,6 @@
 {
   "name": "json-editor-vue",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "private": false,
   "description": "JSON editor & viewer for Vue 2.6 / 2.7 / 3 & Nuxt 2 / 3.",
   "author": "cloydlau",
