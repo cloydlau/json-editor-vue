@@ -518,6 +518,16 @@ export default {
 - `svelte-jsoneditor` 一个包含「stringified JSON」或「parsed JSON」的对象，当作为「stringified JSON」传入时，会经过 `JSON.parse` 解析。
 - `json-editor-vue` JSON 本身，所见即所得。
 
+如果你更倾向于 `svelte-jsoneditor` 的行为：
+
+```html
+<JsonEditorVue
+  :content="content" :onChange="updatedContent => {
+    content = updatedContent
+  }"
+/>
+```
+
 > 详情见 https://github.com/josdejong/svelte-jsoneditor/pull/166.
 
 ### 布尔类型参数

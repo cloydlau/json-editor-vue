@@ -520,6 +520,16 @@ export default {
 - `svelte-jsoneditor` An object contains a stringified JSON or a parsed JSON, will do `JSON.parse` when passing as a stringified JSON.
 - `json-editor-vue` JSON itself. What users see is what users get.
 
+If you prefer the behavior of `svelte-jsoneditor`:
+
+```html
+<JsonEditorVue
+  :content="content" :onChange="updatedContent => {
+    content = updatedContent
+  }"
+/>
+```
+
 > Check https://github.com/josdejong/svelte-jsoneditor/pull/166 for more details.
 
 ### Boolean properties
