@@ -1,6 +1,7 @@
 import type { ConfigEnv, UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
+import { name } from '../../package.json'
 
 // https://vitejs.dev/config/
 export default ({ command }: ConfigEnv): UserConfigExport => {
@@ -26,7 +27,7 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
       {
         name: 'html-transform',
         transformIndexHtml(html: string) {
-          return html.replace(/\{\{VUE_VERSION\}\}/g, '3')
+          return html.replace(/\{\{NAME\}\}/, name).replace(/\{\{VUE_VERSION\}\}/g, '3')
         },
       },
     ],
