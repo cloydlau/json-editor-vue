@@ -4,7 +4,7 @@
   "private": false,
   "description": "JSON editor & viewer for Vue 2.6 / 2.7 / 3 & Nuxt 2 / 3.",
   "author": "cloydlau",
-  "license": "ISC",
+  "license": "MIT",
   "repository": "https://github.com/cloydlau/json-editor-vue",
   "keywords": [
     "jsoneditor",

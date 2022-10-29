@@ -6,6 +6,7 @@ English | [简体中文](./docs/README.zh-CN.md)
   <a href="https://npmjs.com/package/json-editor-vue"><img src="https://img.shields.io/npm/v/json-editor-vue.svg" alt="npm package"></a>
   <a href="https://npmjs.com/package/json-editor-vue"><img src="http://img.badgesize.io/https://unpkg.com/json-editor-vue/dist/json-editor-vue.umd.js?compression=gzip&label=gziped" alt="gziped"></a>
   <a href="https://npmjs.com/package/json-editor-vue"><img src="https://img.shields.io/npm/dm/json-editor-vue" alt="downloads"></a>
+  <a href="https://npmjs.com/package/json-editor-vue"><img src="https://img.shields.io/npm/l/json-editor-vue" alt="license"></a>
 </p>
 
 > JSON editor & viewer for Vue 2.6 / 2.7 / 3 & Nuxt 2 / 3, powered by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) (successor to [jsoneditor](https://github.com/josdejong/jsoneditor)).
