@@ -531,7 +531,7 @@ If you prefer the behavior of `svelte-jsoneditor`:
 />
 ```
 
-> Check https://github.com/josdejong/svelte-jsoneditor/pull/166 for more details.
+> See https://github.com/josdejong/svelte-jsoneditor/pull/166 for more details.
 
 ### Boolean properties
 
