@@ -4,7 +4,7 @@
   <a href="https://npmjs.com/package/json-editor-vue"><img src="https://img.shields.io/npm/v/json-editor-vue.svg" alt="npm package"></a>
   <a href="https://npmjs.com/package/json-editor-vue"><img src="http://img.badgesize.io/https://unpkg.com/json-editor-vue/dist/json-editor-vue.umd.js?compression=gzip&label=gziped" alt="gziped"></a>
   <a href="https://npmjs.com/package/json-editor-vue"><img src="https://img.shields.io/npm/dm/json-editor-vue" alt="downloads"></a>
-  <a href="https://npmjs.com/package/json-editor-vue"><img src="https://img.shields.io/npm/l/json-editor-vue" alt="license"></a>
+  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue.svg?type=shield"/></a>
 </p>
 
 > JSON 编辑 & 预览工具，支持 Vue 2.6 / 2.7 / 3，支持 Nuxt 2 / 3，基于 [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) （[jsoneditor](https://github.com/josdejong/jsoneditor) 的继任者）。
