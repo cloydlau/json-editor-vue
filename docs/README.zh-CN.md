@@ -81,7 +81,7 @@ createApp()
       "vue": "https://unpkg.com/vue/dist/vue.esm-browser.prod.js",
       "vue-demi": "https://unpkg.com/vue-demi/lib/v3/index.mjs",
       "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
-      "json-editor-vue": "https://unpkg.com/json-editor-vue@0.8/dist/json-editor-vue.mjs"
+      "json-editor-vue": "https://unpkg.com/json-editor-vue@0.9/dist/json-editor-vue.mjs"
     }
   }
 </script>
@@ -146,7 +146,7 @@ Vue.use(JsonEditorVue, {
       "vue": "https://unpkg.com/vue@2/dist/vue.esm.browser.min.js",
       "vue-demi": "https://unpkg.com/vue-demi/lib/v2.7/index.mjs",
       "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
-      "json-editor-vue": "https://unpkg.com/json-editor-vue@0.8/dist/json-editor-vue.mjs"
+      "json-editor-vue": "https://unpkg.com/json-editor-vue@0.9/dist/json-editor-vue.mjs"
     }
   }
 </script>
@@ -233,7 +233,7 @@ Vue.use(JsonEditorVue, {
       "@vue/composition-api/dist/vue-composition-api.mjs": "https://unpkg.com/@vue/composition-api/dist/vue-composition-api.mjs",
       "vue-demi": "https://unpkg.com/vue-demi/lib/v2/index.mjs",
       "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
-      "json-editor-vue": "https://unpkg.com/json-editor-vue@0.8/dist/json-editor-vue.mjs"
+      "json-editor-vue": "https://unpkg.com/json-editor-vue@0.9/dist/json-editor-vue.mjs"
     }
   }
 </script>
