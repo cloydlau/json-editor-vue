@@ -588,7 +588,7 @@ Detailed changes for each release are documented in the [release notes](https://
 
 **PR welcome!** 💗
 
-1. Install Deno: https://deno.land/#installation
+1. [Install Deno](https://deno.land/#installation)
 
 2. `npm add pnpm @cloydlau/scripts -g; pnpm i`
 
