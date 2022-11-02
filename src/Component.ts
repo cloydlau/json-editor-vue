@@ -54,21 +54,31 @@ export default defineComponent({
     const initialBoolAttrs = Object.fromEntries(Array.from(boolAttrs, boolAttr =>
       [boolAttr, conclude([props[boolAttr], globalProps[boolAttr]])])
       .filter(([, v]) => v !== undefined))
+
+    const onChange = debounce((updatedContent: { text: string; json: any }) => {
+      if (preventOnChange.value) {
+        preventOnChange.value = false
+        return
+      }
+      preventUpdate.value = true
+      emit(updateModelValue, updatedContent.text === undefined
+        ? updatedContent.json
+        : updatedContent.text)
+    }, 100)
+
+    const onChangeMode = (mode: Mode) => {
+      emit('update:mode', mode)
+    }
+
+    const mergeFunction = (previousValue: Function, currentValue: Function) => (...args: any) => {
+      previousValue(...args)
+      currentValue(...args)
+    }
+
     const initialAttrs = conclude([attrs, globalAttrs, {
       // Both user input & setting value programmatically will trigger onChange
-      onChange: debounce((updatedContent: { text: string; json: any }) => {
-        if (preventOnChange.value) {
-          preventOnChange.value = false
-          return
-        }
-        preventUpdate.value = true
-        emit(updateModelValue, updatedContent.text === undefined
-          ? updatedContent.json
-          : updatedContent.text)
-      }, 100),
-      onChangeMode(mode: Mode) {
-        emit('update:mode', mode)
-      },
+      onChange,
+      onChangeMode,
       mode: initialMode,
       ...initialBoolAttrs,
       ...initialValue !== undefined && {
@@ -78,10 +88,7 @@ export default defineComponent({
       },
     }], {
       camelCase: false,
-      mergeFunction: (globalFunction: Function, defaultFunction: Function) => (...args: any) => {
-        globalFunction(...args)
-        defaultFunction(...args)
-      },
+      mergeFunction,
     })
 
     watch(() => props[modelValueProp], (n: any) => {
@@ -111,8 +118,19 @@ export default defineComponent({
         [boolAttrs[i], v]).filter(([, v]) => v !== undefined)))
     })
 
-    watch(() => attrs, (attrs) => {
-      jsonEditor.value.updateProps(attrs)
+    watch(() => attrs, newAttrs => {
+      // Functions need to be merged again
+      const defaultFunctionAttrs: { onChange?: Function, onChangeMode?: Function } = {}
+      if (newAttrs.onChange) {
+        defaultFunctionAttrs.onChange = onChange
+      }
+      if (newAttrs.onChangeMode) {
+        defaultFunctionAttrs.onChangeMode = onChangeMode
+      }
+      jsonEditor.value.updateProps(conclude([newAttrs, defaultFunctionAttrs], {
+        camelCase: false,
+        mergeFunction,
+      }))
     }, {
       deep: true,
     })

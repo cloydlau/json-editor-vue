@@ -77,7 +77,7 @@
     "lint-staged": "latest",
     "lossless-json": "latest",
     "typescript": "latest",
-    "unplugin-auto-import": "latest",
+    "unplugin-auto-import": "0.11.2",
     "vanilla-jsoneditor": "latest",
     "vite": "latest",
     "vite-plugin-dts": "latest",

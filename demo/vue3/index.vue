@@ -39,6 +39,8 @@ import { parse, stringify } from 'lossless-json'
 import JsonEditorVue from '../../src'
 import type { Mode } from '../../src'
 
+const console = window.console
+
 const LosslessJSONParser = {
   parse, /* : (json) => {    return JSON.parse(json, (k, v, { source }) =>
       (typeof source === 'number' && source > Number.MAX_SAFE_INTEGER)
