@@ -147,7 +147,7 @@ export default defineComponent({
         props: initialAttrs,
       })
 
-      // There's no expose in @vue/composition-api
+      // There's no `expose` in @vue/composition-api
       if (!expose) {
         expose = (exposed: Record<string, any> | undefined): void => {
           for (const k in exposed) {
