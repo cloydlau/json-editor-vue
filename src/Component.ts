@@ -96,8 +96,8 @@ export default defineComponent({
         preventUpdate.value = false
         return
       }
-      // undefined is not accepted by vanilla-jsoneditor
-      // The default value is { text: '' }
+      // `undefined` is not accepted by vanilla-jsoneditor
+      // The default value is `{ text: '' }`
       // Only default value can clear the editor
       preventOnChange.value = true
       jsonEditor.value.update([undefined, ''].includes(n)
