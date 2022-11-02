@@ -118,9 +118,9 @@ export default defineComponent({
         [boolAttrs[i], v]).filter(([, v]) => v !== undefined)))
     })
 
-    watch(() => attrs, newAttrs => {
+    watch(() => attrs, (newAttrs) => {
       // Functions need to be merged again
-      const defaultFunctionAttrs: { onChange?: Function, onChangeMode?: Function } = {}
+      const defaultFunctionAttrs: { onChange?: Function; onChangeMode?: Function } = {}
       if (newAttrs.onChange) {
         defaultFunctionAttrs.onChange = onChange
       }
