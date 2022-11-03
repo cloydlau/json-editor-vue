@@ -50,7 +50,9 @@ export default defineComponent({
     const preventOnChange = ref(false)
 
     const initialMode = conclude([props.mode, globalProps.mode])
-    const initialValue = conclude([props[modelValueProp], globalProps[modelValueProp]])
+    const initialValue = conclude([props[modelValueProp], globalProps[modelValueProp]], {
+      camelCase: false,
+    })
     const initialBoolAttrs = Object.fromEntries(Array.from(boolAttrs, boolAttr =>
       [boolAttr, conclude([props[boolAttr], globalProps[boolAttr]])])
       .filter(([, v]) => v !== undefined))
