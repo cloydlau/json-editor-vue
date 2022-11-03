@@ -129,10 +129,12 @@ export default defineComponent({
       if (newAttrs.onChangeMode) {
         defaultFunctionAttrs.onChangeMode = onChangeMode
       }
-      jsonEditor.value.updateProps(conclude([newAttrs, defaultFunctionAttrs], {
-        camelCase: false,
-        mergeFunction,
-      }))
+      jsonEditor.value.updateProps(Object.getOwnPropertyNames(defaultFunctionAttrs).length > 0
+        ? conclude([newAttrs, defaultFunctionAttrs], {
+          camelCase: false,
+          mergeFunction,
+        })
+        : newAttrs)
     }, {
       deep: true,
     })
