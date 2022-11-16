@@ -44,7 +44,7 @@
     "build": "vite build",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "release": "npx case-police --fix && npx lint-staged && cl switchVue 3 && vitest run && pnpm build && cl release"
+    "release": "cl switchVue 3 && npx case-police --fix && npx lint-staged && vitest run && pnpm build && cl release"
   },
   "peerDependencies": {
     "@vue/composition-api": ">=1",
