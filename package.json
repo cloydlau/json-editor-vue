@@ -41,6 +41,7 @@
     "dev2.7": "cl switchVue 2.7 && vite --config ./demo/vue2.7/vite.config.ts --open",
     "dev2.6": "cl switchVue 2.6 && vite --config ./demo/vue2.6/vite.config.ts --open",
     "serve": "vite preview",
+    "doc": "vitepress dev --open /README",
     "build": "vite build",
     "test": "vitest",
     "coverage": "vitest run --coverage",
@@ -81,6 +82,7 @@
     "vanilla-jsoneditor": "latest",
     "vite": "latest",
     "vite-plugin-dts": "latest",
+    "vitepress": "latest",
     "vitest": "latest",
     "vue": "latest"
   },
