@@ -15,7 +15,7 @@ English | [简体中文](./docs/README.zh-CN.md)
 
 🕹 [Online Playground](https://cloydlau.github.io/demo/json-editor-vue.html)
 
-<br/>
+<br>
 
 ## Features
 
