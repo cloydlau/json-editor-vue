@@ -7,6 +7,7 @@ English | [简体中文](./docs/README.zh-CN.md)
   <a href="https://npmjs.com/package/json-editor-vue"><img src="http://img.badgesize.io/https://unpkg.com/json-editor-vue/dist/json-editor-vue.umd.js?compression=gzip&label=gziped" alt="gziped"></a>
   <a href="https://npmjs.com/package/json-editor-vue"><img src="https://img.shields.io/npm/dm/json-editor-vue" alt="downloads"></a>
   <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue.svg?type=shield"/></a>
+  <a href="https://github.com/cloydlau/json-editor-vue#develop"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
 </p>
 
 > JSON editor & viewer for Vue 2.6 / 2.7 / 3 & Nuxt 2 / 3, powered by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) (successor to [jsoneditor](https://github.com/josdejong/jsoneditor)).
@@ -588,8 +589,6 @@ Detailed changes for each release are documented in the [release notes](https://
 <br>
 
 ## Develop
-
-**PR welcome!** 💗
 
 1. [Install Deno](https://deno.land/#installation)
 
