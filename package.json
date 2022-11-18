@@ -42,10 +42,11 @@
     "dev2.6": "cl switchVue 2.6 && vite --config ./demo/vue2.6/vite.config.ts --open",
     "serve": "vite preview",
     "doc": "vitepress dev --open /README",
+    "lint": "eslint --cache {src,__tests__}/**.*",
     "build": "vite build",
-    "test": "vitest",
+    "test-unit": "vitest",
     "coverage": "vitest run --coverage",
-    "release": "cl switchVue 3 && npx case-police --fix && npx lint-staged && vitest run && pnpm build && cl release"
+    "release": "cl switchVue 3 && npx case-police --fix && npx lint-staged && pnpm test-unit && pnpm build && cl release"
   },
   "peerDependencies": {
     "@vue/composition-api": ">=1",
@@ -87,7 +88,7 @@
     "vue": "latest"
   },
   "lint-staged": {
-    "!(demo/**/*)*.{js,ts,tsx,vue,md}": [
+    "{src,__tests__}/**.*": [
       "eslint --fix"
     ]
   },
