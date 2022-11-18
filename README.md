@@ -6,7 +6,8 @@ English | [简体中文](./docs/README.zh-CN.md)
   <a href="https://npmjs.com/package/json-editor-vue"><img src="https://img.shields.io/npm/v/json-editor-vue.svg" alt="npm package"></a>
   <a href="https://npmjs.com/package/json-editor-vue"><img src="http://img.badgesize.io/https://unpkg.com/json-editor-vue/dist/json-editor-vue.umd.js?compression=gzip&label=gziped" alt="gziped"></a>
   <a href="https://npmjs.com/package/json-editor-vue"><img src="https://img.shields.io/npm/dm/json-editor-vue" alt="downloads"></a>
-  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue.svg?type=shield"/></a>
+  <a href="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml"><img src="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml/badge.svg?branch=main" alt="build status"></a>
+  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue?ref=badge_shield" alt="fossa status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue.svg?type=shield"/></a>
   <a href="https://github.com/cloydlau/json-editor-vue#develop"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
 </p>
 
