@@ -1,31 +1,45 @@
+import type { Plugin } from 'vue'
 import { useGlobalConfig } from 'vue-global-config'
 import Component from './Component'
 import type { Mode } from './Component'
-let globalProps: { [key: string]: any } = {}
-let globalAttrs: { [key: string]: any } = {}
-let globalListeners: { [key: string]: any } = {}
-let globalHooks: { [key: string]: any } = {}
 
-Component.install = (app: any, options = {}) => {
-  if (!Component.name) {
-    throw new Error('Name is required for a global component.')
+type SFCWithInstall<T> = T & Plugin
+
+const withInstall = <T, E extends Record<string, any>>(
+  main: T,
+  extra?: E,
+) => {
+  (main as SFCWithInstall<T>).install = (app): void => {
+    for (const comp of [main, ...Object.values(extra ?? {})]) {
+      app.component(comp.name, comp)
+    }
   }
-  else if (Component.install.installed) {
-    console.warn(`${Component.name} has been registered.`)
-    return
+
+  if (extra) {
+    for (const [key, comp] of Object.entries(extra)) {
+      (main as any)[key] = comp
+    }
   }
-
-  const { props, attrs, listeners, hooks } = useGlobalConfig(options, Component.props)
-  globalProps = props
-  globalAttrs = attrs
-  globalListeners = listeners
-  globalHooks = hooks
-
-  app.component(Component.name, Component)
-  Component.install.installed = true
+  return main as SFCWithInstall<T> & E
 }
 
-export default Component
+const globalProps: Record<string, any> = {}
+const globalAttrs: Record<string, any> = {}
+const globalListeners: Record<string, any> = {}
+const globalHooks: Record<string, any> = {}
+
+const ComponentWithInstall = withInstall(Component)
+
+ComponentWithInstall.install = (app: any, options = {}) => {
+  const { props, attrs, listeners, hooks } = useGlobalConfig(options, Component.props)
+  Object.assign(globalProps, props)
+  Object.assign(globalAttrs, attrs)
+  Object.assign(globalListeners, listeners)
+  Object.assign(globalHooks, hooks)
+  app.component(ComponentWithInstall.name, ComponentWithInstall)
+}
+
+export default ComponentWithInstall
 export {
   globalProps, globalAttrs, globalListeners, globalHooks,
   Mode,
