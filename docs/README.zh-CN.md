@@ -17,7 +17,7 @@
     <img alt="fossa status" src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue.svg?type=shield"/>
   </a>
   <a href="https://eslint.org">
-    <img alt="codestyle" src="https://img.shields.io/badge/codestyle-eslint-4B32C3.svg">
+    <img alt="code style" src="https://img.shields.io/badge/code_style-eslint-4B32C3.svg">
   </a>
   <a href="https://github.com/cloydlau/json-editor-vue#develop">
     <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-ff69b4.svg">
