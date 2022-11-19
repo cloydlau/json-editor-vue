@@ -13,9 +13,6 @@
   <a href="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml">
     <img alt="build status" src="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml/badge.svg?branch=main">
   </a>
-  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue?ref=badge_shield">
-    <img alt="fossa status" src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue.svg?type=shield"/>
-  </a>
   <a href="https://eslint.org">
     <img alt="code style" src="https://img.shields.io/badge/code_style-eslint-4B32C3.svg">
   </a>
