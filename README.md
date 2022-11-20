@@ -110,8 +110,7 @@ createApp()
     setup: () => ({
       value: ref()
     })
-  })
-    .use(JsonEditorVue)
+  }).use(JsonEditorVue)
     .mount('#app')
 </script>
 ```
@@ -178,8 +177,7 @@ Vue.use(JsonEditorVue, {
         value: undefined,
       }
     },
-  })
-    .$mount('#app')
+  }).$mount('#app')
 </script>
 ```
 
