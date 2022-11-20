@@ -10,7 +10,7 @@ English | [简体中文](./docs/README.zh-CN.md)
     <img alt="minzipped size" src="https://img.shields.io/bundlephobia/minzip/json-editor-vue">
   </a>
   <a href="https://npmcharts.com/compare/json-editor-vue">
-    <img alt="downloads" src="https://img.shields.io/npm/dm/json-editor-vue">
+    <img alt="downloads" src="https://img.shields.io/npm/dm/json-editor-vue?color=black">
   </a>
   <a href="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml">
     <img alt="build status" src="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml/badge.svg?branch=main">
