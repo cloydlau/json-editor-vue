@@ -66,6 +66,8 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "latest",
+    "@commitlint/cli": "latest",
+    "@commitlint/config-conventional": "latest",
     "@types/lodash-es": "latest",
     "@vitejs/plugin-vue": "latest",
     "@vitest/coverage-c8": "latest",

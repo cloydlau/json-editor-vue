@@ -27,6 +27,9 @@ jobs:
 
       - run: PUPPETEER_SKIP_DOWNLOAD=1 pnpm install
 
+      - name: Run case police
+        run: npx case-police --fix
+
       - name: Run eslint
         run: pnpm run lint
 
