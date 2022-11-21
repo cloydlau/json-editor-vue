@@ -18,12 +18,17 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
+        with:
+          version: latest
 
       - name: Set node version to LTS
         uses: actions/setup-node@v3
         with:
           node-version: lts/*
           cache: 'pnpm'
+
+      - name: Use npmmirror registry
+        run: pnpm config set registry https://registry.npmmirror.com
 
       - run: PUPPETEER_SKIP_DOWNLOAD=1 pnpm install
 
@@ -40,12 +45,17 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
+        with:
+          version: latest
 
       - name: Set node version to LTS
         uses: actions/setup-node@v3
         with:
           node-version: lts/*
           cache: 'pnpm'
+
+      - name: Use npmmirror registry
+        run: pnpm config set registry https://registry.npmmirror.com
 
       - run: PUPPETEER_SKIP_DOWNLOAD=1 pnpm install
 
