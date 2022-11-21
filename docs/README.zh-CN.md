@@ -1,11 +1,12 @@
-# json-editor-vue
+# JSON Editor Vue <sup>[![Version Badge][npm-version-svg]][package-url]</sup>
+
+[npm-version-svg]: https://versionbadg.es/cloydlau/json-editor-vue.svg
+[package-url]: https://npmjs.com/package/json-editor-vue
 
 <p align="left">
-  <a href="https://npmjs.com/package/json-editor-vue"><img alt="npm package" src="https://img.shields.io/npm/v/json-editor-vue.svg?logo=npm"></a>
+  <a href="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml"><img alt="build status" src="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml/badge.svg?branch=main"></a>
   <a href="https://bundlephobia.com/package/json-editor-vue"><img alt="minzipped size" src="https://img.shields.io/bundlephobia/minzip/json-editor-vue"></a>
   <a href="https://npmcharts.com/compare/json-editor-vue"><img alt="downloads" src="https://img.shields.io/npm/dm/json-editor-vue?color="></a>
-  <a href="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml"><img alt="build status" src="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml/badge.svg?branch=main"></a>
-  <br>
   <a href="https://eslint.org"><img alt="code style" src="https://img.shields.io/badge/code_style-eslint-4B32C3.svg"></a>
   <a href="https://conventionalcommits.org"><img alt="conventional commits" src="https://img.shields.io/badge/commits-conventional-fe5196.svg"></a>
   <a href="https://github.com/cloydlau/json-editor-vue#develop"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
