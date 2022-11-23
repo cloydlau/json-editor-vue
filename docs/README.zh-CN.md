@@ -75,6 +75,8 @@ createApp()
 
 #### CDN
 
+> 目前仅支持原生 ESM，详情见 https://github.com/josdejong/svelte-jsoneditor/pull/195 。
+
 ```html
 <div id="app">
   <json-editor-vue v-model="value"></json-editor-vue>
@@ -138,6 +140,8 @@ Vue.use(JsonEditorVue, {
 ```
 
 #### CDN
+
+> 目前仅支持原生 ESM，详情见 https://github.com/josdejong/svelte-jsoneditor/pull/195 。
 
 ```html
 <div id="app">
@@ -218,7 +222,7 @@ Vue.use(JsonEditorVue, {
 
 #### CDN
 
-> 由于 `vanilla-jsoneditor` 没有提供 UMD 导出，这样用会有点绕。
+> 目前仅支持原生 ESM，详情见 https://github.com/josdejong/svelte-jsoneditor/pull/195 。
 
 ```html
 <div id="app">
@@ -533,7 +537,7 @@ export default {
 />
 ```
 
-> 详情见 https://github.com/josdejong/svelte-jsoneditor/pull/166.
+> 详情见 https://github.com/josdejong/svelte-jsoneditor/pull/166 。
 
 ### 布尔类型参数
 

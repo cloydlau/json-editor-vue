@@ -77,6 +77,8 @@ createApp()
 
 #### CDN
 
+> Native ESM only (at present), see https://github.com/josdejong/svelte-jsoneditor/pull/195.
+
 ```html
 <div id="app">
   <json-editor-vue v-model="value"></json-editor-vue>
@@ -140,6 +142,8 @@ Vue.use(JsonEditorVue, {
 ```
 
 #### CDN
+
+> Native ESM only (at present), see https://github.com/josdejong/svelte-jsoneditor/pull/195.
 
 ```html
 <div id="app">
@@ -220,7 +224,7 @@ Vue.use(JsonEditorVue, {
 
 #### CDN
 
-> It's quite messy this way due to `vanilla-jsoneditor` does not export UMD.
+> Native ESM only (at present), see https://github.com/josdejong/svelte-jsoneditor/pull/195.
 
 ```html
 <div id="app">
