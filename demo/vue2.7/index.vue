@@ -32,15 +32,10 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import JsonEditorVue from '../../src'
-import type { Mode } from '../../src'
 
-const data = reactive<{
-  value: any
-  mode?: Mode
-  readOnly: boolean
-}>({
+const data = reactive({
   value: undefined,
   mode: undefined,
   readOnly: false,
@@ -48,6 +43,6 @@ const data = reactive<{
 
 const jsonEditorVueRef = ref()
 onMounted(() => {
-  console.log(jsonEditorVueRef.value.jsonEditor.expand)
+  console.log('expand: ', jsonEditorVueRef.value.jsonEditor.expand)
 })
 </script>

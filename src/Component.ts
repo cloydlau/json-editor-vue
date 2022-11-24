@@ -98,11 +98,12 @@ export default defineComponent({
         preventUpdate.value = false
         return
       }
-      // `undefined` is not accepted by vanilla-jsoneditor
-      // The default value is `{ text: '' }`
-      // Only default value can clear the editor
       preventOnChange.value = true
-      jsonEditor.value.update([undefined, ''].includes(n)
+      // `jsonEditor.value` could be `undefined` in Vue 2.6 (dev environment)
+      jsonEditor.value?.update([undefined, ''].includes(n)
+        // `undefined` is not accepted by vanilla-jsoneditor
+        // The default value is `{ text: '' }`
+        // Only default value can clear the editor
         ? { text: '' }
         : { json: n })
     }, {

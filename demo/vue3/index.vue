@@ -65,6 +65,6 @@ const data = reactive<{
 
 const jsonEditorVueRef = ref()
 onMounted(() => {
-  console.log(jsonEditorVueRef.value.jsonEditor.expand)
+  console.log('expand: ', jsonEditorVueRef.value.jsonEditor.expand)
 })
 </script>

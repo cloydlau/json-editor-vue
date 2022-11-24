@@ -19,10 +19,8 @@
     </p>
 
     <br>
-    <JsonEditorVue
-      ref="jsonEditorVueRef" v-model="data.value" :mode.sync="data.mode"
-      :readOnly="data.readOnly"
-    />
+    <JsonEditorVue ref="jsonEditorVueRef" v-model="data.value" :mode.sync="data.mode"
+      :readOnly="data.readOnly" />
 
     <br>
     <p>Mode</p>
@@ -52,7 +50,6 @@ export default {
       hasSetup = true
     }
 
-    const jsonEditorVueRef = ref()
     const data = reactive<{
       value: any
       mode?: Mode
@@ -63,17 +60,18 @@ export default {
       readOnly: false,
     })
 
+    /* const jsonEditorVueRef = ref()
     onMounted(() => {
       console.log(jsonEditorVueRef.value)
-    })
+    }) */
 
     return {
-      jsonEditorVueRef,
+      //jsonEditorVueRef,
       data,
     }
   },
   mounted() {
-    console.log(this.$refs.jsonEditorVueRef.jsonEditor.expand)
+    console.log('expand: ', this.$refs.jsonEditorVueRef.jsonEditor.expand)
   },
 }
 </script>
