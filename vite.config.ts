@@ -1,6 +1,7 @@
 import type { ConfigEnv, UserConfigExport } from 'vite'
 import dts from 'vite-plugin-dts'
 import { name } from './package.json'
+import { name as globalVariableName } from './src/Component'
 
 // https://vitejs.dev/config/
 export default ({ command }: ConfigEnv): UserConfigExport => {
@@ -10,6 +11,7 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
         name,
         entry: 'src/index.ts',
       },
+      sourcemap: true,
       rollupOptions: {
         external: [
           'vanilla-jsoneditor',
@@ -17,11 +19,8 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
           'vue-demi',
         ],
         output: {
-          // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
           globals: {
-            'vanilla-jsoneditor': 'JSONEditor',
-            'vue': 'Vue',
-            'vue-demi': 'VueDemi',
+            [name]: globalVariableName,
           },
         },
       },

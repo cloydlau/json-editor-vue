@@ -17,9 +17,9 @@ import { globalAttrs, globalProps } from './index'
 
 export type Mode = 'tree' | 'text'
 
+const name = 'JsonEditorVue'
 const modelValueProp = isVue3 ? 'modelValue' : 'value'
 const updateModelValue = isVue3 ? 'update:modelValue' : 'input'
-
 const boolAttrs = [
   'mainMenuBar',
   'navigationBar',
@@ -30,7 +30,7 @@ const boolAttrs = [
 ]
 
 export default defineComponent({
-  name: 'JsonEditorVue',
+  name,
   props: {
     [modelValueProp]: {},
     mode: {
@@ -166,3 +166,5 @@ export default defineComponent({
     return () => h('div', { ref: 'jsonEditorRef' })
   },
 })
+
+export { name }
