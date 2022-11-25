@@ -23,8 +23,7 @@
     ".": {
       "types": "./dist/index.d.ts",
       "require": "./dist/json-editor-vue.umd.js",
-      "import": "./dist/json-editor-vue.mjs",
-      "browser": "./dist/json-editor-vue.mjs"
+      "import": "./dist/json-editor-vue.mjs"
     },
     "./*": "./*"
   },
