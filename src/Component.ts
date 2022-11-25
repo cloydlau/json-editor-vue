@@ -13,11 +13,11 @@ import type { PropType } from 'vue-demi'
 import { JSONEditor } from 'vanilla-jsoneditor'
 import { conclude } from 'vue-global-config'
 import { debounce } from 'lodash-es'
+import { pascalCasedName as name } from '../package.json'
 import { globalAttrs, globalProps } from './index'
 
 export type Mode = 'tree' | 'text'
 
-const name = 'JsonEditorVue'
 const modelValueProp = isVue3 ? 'modelValue' : 'value'
 const updateModelValue = isVue3 ? 'update:modelValue' : 'input'
 const boolAttrs = [
@@ -166,5 +166,3 @@ export default defineComponent({
     return () => h('div', { ref: 'jsonEditorRef' })
   },
 })
-
-export { name }
