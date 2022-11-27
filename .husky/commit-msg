@@ -1,4 +1,12 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx --no -- commitlint --edit ${1}
+case `uname` in
+  # bug on Windows/Github Desktop: add `.cmd` extension fixes it
+  *CYGWIN*|*MINGW*|*MSYS*)
+    npx.cmd --no -- commitlint --edit ${1}
+  ;;
+  *)
+    npx --no -- commitlint --edit ${1}
+  ;;
+esac
