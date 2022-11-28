@@ -35,8 +35,8 @@
 ### 外置依赖
 
 - `vue`
-- `vanilla-jsoneditor` svelte-jsoneditor 提供的原生包
-- `@vue/composition-api` 仅 Vue 2.6 或更早版本需要
+- `vanilla-jsoneditor`: `svelte-jsoneditor` 提供的原生包
+- `@vue/composition-api`: 仅 Vue 2.6 或更早版本需要
 
 <br>
 
@@ -73,9 +73,7 @@ createApp()
   .mount('#app')
 ```
 
-#### CDN
-
-##### 使用 ESM 构建版本
+#### CDN + ESM
 
 ```html
 <!DOCTYPE html>
@@ -116,7 +114,7 @@ createApp()
 </html>
 ```
 
-##### 使用全局构建版本
+#### CDN + UMD
 
 > ⚠ 暂不支持（`vanilla-jsoneditor` 不提供 UMD 导出），如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
 
@@ -185,9 +183,7 @@ Vue.use(JsonEditorVue, {
 })
 ```
 
-#### CDN
-
-##### 使用 ESM 构建版本
+#### CDN + ESM
 
 ```html
 <!DOCTYPE html>
@@ -230,7 +226,7 @@ Vue.use(JsonEditorVue, {
 </html>
 ```
 
-##### 使用全局构建版本
+#### CDN + UMD
 
 > ⚠ 暂不支持（`vanilla-jsoneditor` 不提供 UMD 导出），如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
 
@@ -312,9 +308,7 @@ Vue.use(JsonEditorVue, {
 })
 ```
 
-#### CDN
-
-##### 使用 ESM 构建版本
+#### CDN + ESM
 
 ```html
 <!DOCTYPE html>
@@ -337,7 +331,7 @@ Vue.use(JsonEditorVue, {
       "imports": {
         "vue": "https://unpkg.com/vue@2.6/dist/vue.esm.browser.min.js",
         "@vue/composition-api": "https://unpkg.com/@vue/composition-api/dist/vue-composition-api.mjs",
-        "@vue/composition-api/dist/vue-composition-api.mjs": "https://unpkg.com/@vue/composition-api/dist/  vue-composition-api.mjs",
+        "@vue/composition-api/dist/vue-composition-api.mjs": "https://unpkg.com/@vue/composition-api/dist/vue-composition-api.mjs",
         "vue-demi": "https://unpkg.com/vue-demi/lib/v2/index.mjs",
         "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
         "json-editor-vue": "https://unpkg.com/json-editor-vue@0.10/dist/json-editor-vue.mjs"
@@ -350,9 +344,10 @@ Vue.use(JsonEditorVue, {
 
     const app = createApp({
       setup: () => ({
-        value: ref()
-      })
+        value: ref(),
+      }),
     })
+
     app.use(JsonEditorVue)
     app.mount('#app')
   </script>
@@ -361,7 +356,7 @@ Vue.use(JsonEditorVue, {
 </html>
 ```
 
-##### 使用全局构建版本
+#### CDN + UMD
 
 > ⚠ 暂不支持（`vanilla-jsoneditor` 不提供 UMD 导出），如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
 
@@ -666,8 +661,8 @@ export default {
 
 ### `svelte-jsoneditor` 与 `json-editor-vue` 中绑定值的差异
 
-- `svelte-jsoneditor` 一个包含「stringified JSON」或「parsed JSON」的对象，当作为「stringified JSON」传入时，会经过 `JSON.parse` 解析。
-- `json-editor-vue` JSON 本身，所见即所得。
+- `svelte-jsoneditor`: 一个包含「stringified JSON」或「parsed JSON」的对象，当作为「stringified JSON」传入时，会经过 `JSON.parse` 解析。
+- `json-editor-vue`: JSON 本身，所见即所得。
 
 如果你更倾向于 `svelte-jsoneditor` 的行为：
 

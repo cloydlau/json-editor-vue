@@ -37,8 +37,8 @@ English | [简体中文](./docs/README.zh-CN.md)
 ### Peer Dependencies
 
 - `vue`
-- `vanilla-jsoneditor` standalone bundle provided by svelte-jsoneditor
-- `@vue/composition-api` only for Vue 2.6 or earlier
+- `vanilla-jsoneditor`: standalone bundle provided by `svelte-jsoneditor`
+- `@vue/composition-api`: only for Vue 2.6 or earlier
 
 <br>
 
@@ -75,9 +75,7 @@ createApp()
   .mount('#app')
 ```
 
-#### CDN
-
-##### Using the ESM Build
+#### CDN + ESM
 
 ```html
 <!DOCTYPE html>
@@ -118,7 +116,7 @@ createApp()
 </html>
 ```
 
-##### Using the Global Build
+#### CDN + UMD
 
 > ⚠ Not yet supported because `vanilla-jsoneditor` does not export UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
 
@@ -187,9 +185,7 @@ Vue.use(JsonEditorVue, {
 })
 ```
 
-#### CDN
-
-##### Using the ESM Build
+#### CDN + ESM
 
 ```html
 <!DOCTYPE html>
@@ -232,7 +228,7 @@ Vue.use(JsonEditorVue, {
 </html>
 ```
 
-##### Using the Global Build
+#### CDN + UMD
 
 > ⚠ Not yet supported because `vanilla-jsoneditor` does not export UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
 
@@ -314,9 +310,7 @@ Vue.use(JsonEditorVue, {
 })
 ```
 
-#### CDN
-
-##### Using the ESM Build
+#### CDN + ESM
 
 ```html
 <!DOCTYPE html>
@@ -339,7 +333,7 @@ Vue.use(JsonEditorVue, {
       "imports": {
         "vue": "https://unpkg.com/vue@2.6/dist/vue.esm.browser.min.js",
         "@vue/composition-api": "https://unpkg.com/@vue/composition-api/dist/vue-composition-api.mjs",
-        "@vue/composition-api/dist/vue-composition-api.mjs": "https://unpkg.com/@vue/composition-api/dist/  vue-composition-api.mjs",
+        "@vue/composition-api/dist/vue-composition-api.mjs": "https://unpkg.com/@vue/composition-api/dist/vue-composition-api.mjs",
         "vue-demi": "https://unpkg.com/vue-demi/lib/v2/index.mjs",
         "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
         "json-editor-vue": "https://unpkg.com/json-editor-vue@0.10/dist/json-editor-vue.mjs"
@@ -352,9 +346,10 @@ Vue.use(JsonEditorVue, {
 
     const app = createApp({
       setup: () => ({
-        value: ref()
-      })
+        value: ref(),
+      }),
     })
+
     app.use(JsonEditorVue)
     app.mount('#app')
   </script>
@@ -363,7 +358,7 @@ Vue.use(JsonEditorVue, {
 </html>
 ```
 
-##### Using the Global Build
+#### CDN + UMD
 
 > ⚠ Not yet supported because `vanilla-jsoneditor` does not export UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
 
@@ -670,8 +665,8 @@ export default {
 
 ### Binding value difference between `svelte-jsoneditor` and `json-editor-vue`
 
-- `svelte-jsoneditor` An object contains a stringified JSON or a parsed JSON, will do `JSON.parse` when passing as a stringified JSON.
-- `json-editor-vue` JSON itself. What users see is what users get.
+- `svelte-jsoneditor`: An object contains a stringified JSON or a parsed JSON, will do `JSON.parse` when passing as a stringified JSON.
+- `json-editor-vue`: JSON itself. What users see is what users get.
 
 If you prefer the behavior of `svelte-jsoneditor`:
 
