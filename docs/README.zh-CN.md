@@ -75,35 +75,81 @@ createApp()
 
 #### CDN
 
-> 目前仅支持原生 ESM，详情见 https://github.com/josdejong/svelte-jsoneditor/pull/195 。
+##### 使用 ESM 构建版本
 
 ```html
-<div id="app">
-  <json-editor-vue v-model="value"></json-editor-vue>
-  <p v-text="value"></p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
 
-<script type="importmap">
-  {
-    "imports": {
-      "vue": "https://unpkg.com/vue/dist/vue.esm-browser.prod.js",
-      "vue-demi": "https://unpkg.com/vue-demi/lib/v3/index.mjs",
-      "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
-      "json-editor-vue": "https://unpkg.com/json-editor-vue@0.9/dist/json-editor-vue.mjs"
+<head>
+  <meta charset="UTF-8" />
+</head>
+
+<body>
+  <div id="app">
+    <json-editor-vue v-model="value"></json-editor-vue>
+  </div>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue/dist/vue.esm-browser.prod.js",
+        "vue-demi": "https://unpkg.com/vue-demi/lib/v3/index.mjs",
+        "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
+        "json-editor-vue": "https://unpkg.com/json-editor-vue@0.9/dist/json-editor-vue.mjs"
+      }
     }
-  }
-</script>
-<script type="module">
-  import { createApp, ref } from 'vue'
-  import JsonEditorVue from 'json-editor-vue'
+  </script>
+  <script type="module">
+    import { createApp, ref } from 'vue'
+    import JsonEditorVue from 'json-editor-vue'
 
-  createApp({
-    setup: () => ({
-      value: ref()
-    })
-  }).use(JsonEditorVue)
-    .mount('#app')
-</script>
+    createApp({
+      setup: () => ({
+        value: ref()
+      })
+    }).use(JsonEditorVue)
+      .mount('#app')
+  </script>
+</body>
+
+</html>
+```
+
+##### 使用全局构建版本
+
+> 暂不支持（`vanilla-jsoneditor` 不提供 UMD 导出），如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+</head>
+
+<body>
+  <div id="app">
+    <json-editor-vue v-model="value"></json-editor-vue>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vue-demi"></script>
+  <!-- TODO --> <script src="./vanilla-jsoneditor.umd.js"></script>
+  <script src="https://unpkg.com/json-editor-vue"></script>
+  <script>
+    const { createApp, ref } = Vue
+
+    createApp({
+      setup: () => ({
+        value: ref(),
+      }),
+    }).component('json-editor-vue', JsonEditorVue)
+      .mount('#app')
+  </script>
+</body>
+
+</html>
 ```
 
 <br>
@@ -141,37 +187,83 @@ Vue.use(JsonEditorVue, {
 
 #### CDN
 
-> 目前仅支持原生 ESM，详情见 https://github.com/josdejong/svelte-jsoneditor/pull/195 。
+##### 使用 ESM 构建版本
 
 ```html
-<div id="app">
-  <json-editor-vue v-model="value"></json-editor-vue>
-  <p v-text="value"></p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
 
-<script type="importmap">
-  {
-    "imports": {
-      "vue": "https://unpkg.com/vue@2/dist/vue.esm.browser.min.js",
-      "vue-demi": "https://unpkg.com/vue-demi/lib/v2.7/index.mjs",
-      "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
-      "json-editor-vue": "https://unpkg.com/json-editor-vue@0.9/dist/json-editor-vue.mjs"
-    }
-  }
-</script>
-<script type="module">
-  import Vue from 'vue'
-  import JsonEditorVue from 'json-editor-vue'
+<head>
+  <meta charset="UTF-8" />
+</head>
 
-  new Vue({
-    components: { JsonEditorVue },
-    data() {
-      return {
-        value: undefined,
+<body>
+  <div id="app">
+    <json-editor-vue v-model="value"></json-editor-vue>
+  </div>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@2/dist/vue.esm.browser.min.js",
+        "vue-demi": "https://unpkg.com/vue-demi/lib/v2.7/index.mjs",
+        "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
+        "json-editor-vue": "https://unpkg.com/json-editor-vue@0.9/dist/json-editor-vue.mjs"
       }
-    },
-  }).$mount('#app')
-</script>
+    }
+  </script>
+  <script type="module">
+    import Vue from 'vue'
+    import JsonEditorVue from 'json-editor-vue'
+
+    new Vue({
+      components: { JsonEditorVue },
+      data() {
+        return {
+          value: undefined,
+        }
+      },
+    }).$mount('#app')
+  </script>
+</body>
+
+</html>
+```
+
+##### 使用全局构建版本
+
+> 暂不支持（`vanilla-jsoneditor` 不提供 UMD 导出），如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+</head>
+
+<body>
+  <div id="app">
+    <json-editor-vue v-model="value"></json-editor-vue>
+  </div>
+
+  <script src="https://unpkg.com/vue@2"></script>
+  <script src="https://unpkg.com/vue-demi"></script>
+  <!-- TODO --> <script src="./vanilla-jsoneditor.umd.js"></script>
+  <script src="https://unpkg.com/json-editor-vue"></script>
+  <script>
+    new Vue({
+      components: { 'json-editor-vue': JsonEditorVue },
+      data() {
+        return {
+          value: undefined,
+        }
+      },
+    }).$mount('#app')
+  </script>
+</body>
+
+</html>
 ```
 
 <br>
@@ -222,41 +314,91 @@ Vue.use(JsonEditorVue, {
 
 #### CDN
 
-> 目前仅支持原生 ESM，详情见 https://github.com/josdejong/svelte-jsoneditor/pull/195 。
+##### 使用 ESM 构建版本
 
 ```html
-<div id="app">
-  <json-editor-vue v-model="value"></json-editor-vue>
-  <p v-text="value"></p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
 
-<script>
-  window.process = { env: { NODE_ENV: 'production' } }
-</script>
-<script type="importmap">
-  {
-    "imports": {
-      "vue": "https://unpkg.com/vue@2.6/dist/vue.esm.browser.min.js",
-      "@vue/composition-api": "https://unpkg.com/@vue/composition-api/dist/vue-composition-api.mjs",
-      "@vue/composition-api/dist/vue-composition-api.mjs": "https://unpkg.com/@vue/composition-api/dist/vue-composition-api.mjs",
-      "vue-demi": "https://unpkg.com/vue-demi/lib/v2/index.mjs",
-      "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
-      "json-editor-vue": "https://unpkg.com/json-editor-vue@0.9/dist/json-editor-vue.mjs"
+<head>
+  <meta charset="UTF-8" />
+</head>
+
+<body>
+  <div id="app">
+    <json-editor-vue v-model="value"></json-editor-vue>
+  </div>
+
+  <script>
+    window.process = { env: { NODE_ENV: 'production' } }
+  </script>
+  <script type="importmap">
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@2.6/dist/vue.esm.browser.min.js",
+        "@vue/composition-api": "https://unpkg.com/@vue/composition-api/dist/vue-composition-api.mjs",
+        "@vue/composition-api/dist/vue-composition-api.mjs": "https://unpkg.com/@vue/composition-api/dist/  vue-composition-api.mjs",
+        "vue-demi": "https://unpkg.com/vue-demi/lib/v2/index.mjs",
+        "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
+        "json-editor-vue": "https://unpkg.com/json-editor-vue@0.9/dist/json-editor-vue.mjs"
+      }
     }
-  }
-</script>
-<script type="module">
-  import { createApp, ref } from '@vue/composition-api'
-  import JsonEditorVue from 'json-editor-vue'
+  </script>
+  <script type="module">
+    import { createApp, ref } from '@vue/composition-api'
+    import JsonEditorVue from 'json-editor-vue'
 
-  const app = createApp({
-    setup: () => ({
-      value: ref()
+    const app = createApp({
+      setup: () => ({
+        value: ref()
+      })
     })
-  })
-  app.use(JsonEditorVue)
-  app.mount('#app')
-</script>
+    app.use(JsonEditorVue)
+    app.mount('#app')
+  </script>
+</body>
+
+</html>
+```
+
+##### 使用全局构建版本
+
+> 暂不支持（`vanilla-jsoneditor` 不提供 UMD 导出），如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+</head>
+
+<body>
+  <div id="app">
+    <json-editor-vue v-model="value"></json-editor-vue>
+  </div>
+
+  <script src="https://unpkg.com/vue@2.6"></script>
+  <script src="https://unpkg.com/@vue/composition-api"></script>
+  <script src="https://unpkg.com/vue-demi"></script>
+  <!-- TODO --> <script src="./vanilla-jsoneditor.umd.js"></script>
+  <script src="https://unpkg.com/json-editor-vue"></script>
+  <script>
+    const { createApp, ref } = VueCompositionAPI
+
+    const app = createApp({
+      setup: () => ({
+        value: ref(),
+      }),
+    })
+
+    app.use(VueCompositionAPI)
+    app.component('json-editor-vue', JsonEditorVue)
+    app.mount('#app')
+  </script>
+</body>
+
+</html>
 ```
 
 <br>
