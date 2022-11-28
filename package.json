@@ -1,7 +1,7 @@
 {
   "name": "json-editor-vue",
   "pascalCasedName": "JsonEditorVue",
-  "version": "0.9.2",
+  "version": "0.10.0",
   "private": false,
   "packageManager": "pnpm@latest",
   "description": "JSON editor & viewer for Vue 2.6 / 2.7 / 3 & Nuxt 2 / 3.",
@@ -45,7 +45,7 @@
     "doc": "vitepress dev --open /README",
     "lint": "eslint --cache {src,__tests__}/**.*",
     "build": "vite build",
-    "test-unit": "vitest",
+    "test-unit": "vitest run",
     "coverage": "vitest run --coverage",
     "release": "cl switchVue 3 && npx case-police --fix && npx lint-staged && pnpm test-unit && pnpm build && cl release"
   },

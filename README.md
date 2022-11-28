@@ -98,7 +98,7 @@ createApp()
         "vue": "https://unpkg.com/vue/dist/vue.esm-browser.prod.js",
         "vue-demi": "https://unpkg.com/vue-demi/lib/v3/index.mjs",
         "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
-        "json-editor-vue": "https://unpkg.com/json-editor-vue@0.9/dist/json-editor-vue.mjs"
+        "json-editor-vue": "https://unpkg.com/json-editor-vue@0.10/dist/json-editor-vue.mjs"
       }
     }
   </script>
@@ -120,7 +120,7 @@ createApp()
 
 ##### Using the Global Build
 
-> Not yet supported because `vanilla-jsoneditor` does not export UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
+> ⚠ Not yet supported because `vanilla-jsoneditor` does not export UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
 
 ```html
 <!DOCTYPE html>
@@ -138,7 +138,7 @@ createApp()
   <script src="https://unpkg.com/vue"></script>
   <script src="https://unpkg.com/vue-demi"></script>
   <!-- TODO --> <script src="./vanilla-jsoneditor.umd.js"></script>
-  <script src="https://unpkg.com/json-editor-vue"></script>
+  <script src="https://unpkg.com/json-editor-vue@0.10"></script>
   <script>
     const { createApp, ref } = Vue
 
@@ -210,7 +210,7 @@ Vue.use(JsonEditorVue, {
         "vue": "https://unpkg.com/vue@2/dist/vue.esm.browser.min.js",
         "vue-demi": "https://unpkg.com/vue-demi/lib/v2.7/index.mjs",
         "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
-        "json-editor-vue": "https://unpkg.com/json-editor-vue@0.9/dist/json-editor-vue.mjs"
+        "json-editor-vue": "https://unpkg.com/json-editor-vue@0.10/dist/json-editor-vue.mjs"
       }
     }
   </script>
@@ -234,7 +234,7 @@ Vue.use(JsonEditorVue, {
 
 ##### Using the Global Build
 
-> Not yet supported because `vanilla-jsoneditor` does not export UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
+> ⚠ Not yet supported because `vanilla-jsoneditor` does not export UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
 
 ```html
 <!DOCTYPE html>
@@ -252,7 +252,7 @@ Vue.use(JsonEditorVue, {
   <script src="https://unpkg.com/vue@2"></script>
   <script src="https://unpkg.com/vue-demi"></script>
   <!-- TODO --> <script src="./vanilla-jsoneditor.umd.js"></script>
-  <script src="https://unpkg.com/json-editor-vue"></script>
+  <script src="https://unpkg.com/json-editor-vue@0.10"></script>
   <script>
     new Vue({
       components: { 'json-editor-vue': JsonEditorVue },
@@ -342,7 +342,7 @@ Vue.use(JsonEditorVue, {
         "@vue/composition-api/dist/vue-composition-api.mjs": "https://unpkg.com/@vue/composition-api/dist/  vue-composition-api.mjs",
         "vue-demi": "https://unpkg.com/vue-demi/lib/v2/index.mjs",
         "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
-        "json-editor-vue": "https://unpkg.com/json-editor-vue@0.9/dist/json-editor-vue.mjs"
+        "json-editor-vue": "https://unpkg.com/json-editor-vue@0.10/dist/json-editor-vue.mjs"
       }
     }
   </script>
@@ -365,7 +365,7 @@ Vue.use(JsonEditorVue, {
 
 ##### Using the Global Build
 
-> Not yet supported because `vanilla-jsoneditor` does not export UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
+> ⚠ Not yet supported because `vanilla-jsoneditor` does not export UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
 
 ```html
 <!DOCTYPE html>
@@ -384,7 +384,7 @@ Vue.use(JsonEditorVue, {
   <script src="https://unpkg.com/@vue/composition-api"></script>
   <script src="https://unpkg.com/vue-demi"></script>
   <!-- TODO --> <script src="./vanilla-jsoneditor.umd.js"></script>
-  <script src="https://unpkg.com/json-editor-vue"></script>
+  <script src="https://unpkg.com/json-editor-vue@0.10"></script>
   <script>
     const { createApp, ref } = VueCompositionAPI
 
