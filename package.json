@@ -69,6 +69,7 @@
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "@types/lodash-es": "latest",
+    "@types/node": "latest",
     "@vitejs/plugin-vue": "latest",
     "@vitest/coverage-c8": "latest",
     "@vitest/ui": "latest",
