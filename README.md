@@ -251,7 +251,7 @@ Vue.use(JsonEditorVue, {
   <script src="https://unpkg.com/json-editor-vue@0.10"></script>
   <script>
     new Vue({
-      components: { 'json-editor-vue': JsonEditorVue },
+      components: { JsonEditorVue },
       data() {
         return {
           value: undefined,
