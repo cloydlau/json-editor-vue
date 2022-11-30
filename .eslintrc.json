@@ -1,5 +1,5 @@
 /**
- * 搭建 eslint：
+ * Setup eslint：
  *   1. pnpm add husky lint-staged eslint @antfu/eslint-config -D
  *   2. npx husky install
  */
@@ -22,6 +22,17 @@
     "vue/attribute-hyphenation": 0,
     "curly": 0,
     "brace-style": 0,
-    "@typescript-eslint/brace-style": 0
-  }
+    "@typescript-eslint/brace-style": 0,
+    "vue/no-deprecated-dollar-listeners-api": 0,
+    "vue/component-options-name-casing": 0,
+    "vue/custom-event-name-casing": [
+      "error",
+      "kebab-case"
+    ],
+    "no-console": 0
+  },
+  "ignorePatterns": [
+    "**/*.css",
+    "**/*.scss"
+  ]
 }
