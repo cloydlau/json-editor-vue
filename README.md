@@ -1,24 +1,28 @@
 English | [简体中文](./docs/README.zh-CN.md)
 
-# JSON Editor Vue <sup>[![Version Badge][npm-version-svg]][package-url]</sup>
+<h1 align="center">
+  <a href="https://npmjs.com/package/json-editor-vue" target="_blank" rel="noopener noreferrer">
+    JSON Editor Vue <sup><img alt="version" src="https://versionbadg.es/cloydlau/json-editor-vue.svg"></sup>
+  </a>
+</h1>
 
-[npm-version-svg]: https://versionbadg.es/cloydlau/json-editor-vue.svg
-[package-url]: https://npmjs.com/package/json-editor-vue
+<p align="center">
+  JSON editor & viewer for Vue 2.6 / 2.7 / 3 & Nuxt 2 / 3
+  <br>
+  <a href="https://cloydlau.github.io/demo/json-editor-vue.html">🕹 Playground</a>
+</p>
 
-<p align="left">
+<p align="center">
   <a href="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml"><img alt="build status" src="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml/badge.svg?branch=main"></a>
   <a href="https://bundlephobia.com/package/json-editor-vue"><img alt="minzipped size" src="https://img.shields.io/bundlephobia/minzip/json-editor-vue"></a>
   <a href="https://npmcharts.com/compare/json-editor-vue"><img alt="downloads" src="https://img.shields.io/npm/dm/json-editor-vue"></a>
+  <br>
   <a href="https://eslint.org"><img alt="code style" src="https://img.shields.io/badge/code_style-ESLint-4B32C3.svg?logo=eslint"></a>
   <a href="https://conventionalcommits.org"><img alt="conventional commits" src="https://img.shields.io/badge/commits-Conventional-FE5196.svg?logo=conventionalcommits&logoColor=white"></a>
   <a href="https://github.com/cloydlau/json-editor-vue#develop"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
 </p>
 
-> JSON editor & viewer for Vue 2.6 / 2.7 / 3 & Nuxt 2 / 3, powered by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) (successor to [jsoneditor](https://github.com/josdejong/jsoneditor)).
-
 <img width="49.738%" src="./docs/light-theme.png" alt="light-theme">&nbsp;<img width="49.738%" src="./docs/dark-theme.png" alt="dark-theme">
-
-🕹 [Online Playground](https://cloydlau.github.io/demo/json-editor-vue.html)
 
 <br>
 
