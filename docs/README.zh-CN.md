@@ -42,7 +42,7 @@
 
 ### Vue 3
 
-```sh
+```shell
 npm add json-editor-vue vanilla-jsoneditor
 ```
 
@@ -154,7 +154,7 @@ createApp()
 
 ### Vue 2.7
 
-```sh
+```shell
 npm add json-editor-vue vanilla-jsoneditor
 ```
 
@@ -266,7 +266,7 @@ Vue.use(JsonEditorVue, {
 
 ### Vue 2.6 或更早版本
 
-```sh
+```shell
 npm add json-editor-vue vanilla-jsoneditor @vue/composition-api
 ```
 
@@ -400,7 +400,7 @@ Vue.use(JsonEditorVue, {
 
 ### Nuxt 3
 
-```sh
+```shell
 npm add json-editor-vue vanilla-jsoneditor
 ```
 
@@ -462,7 +462,7 @@ const value = ref()
 
 ### Nuxt 2 + Vue 2.7
 
-```sh
+```shell
 npm add json-editor-vue vanilla-jsoneditor
 ```
 
@@ -550,7 +550,7 @@ const value = ref()
 
 ### Nuxt 2 + Vue 2.6 或更早版本
 
-```sh
+```shell
 npm add json-editor-vue vanilla-jsoneditor @vue/composition-api
 ```
 
