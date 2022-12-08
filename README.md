@@ -696,7 +696,7 @@ Including the boolean properties of `svelte-jsoneditor` like `readOnly` with no 
 
 ## Expose
 
-| name       | description         | type   |
+| Name       | Description         | Type   |
 | ---------- | ------------------- | ------ |
 | jsonEditor | JSONEditor instance | object |
 
