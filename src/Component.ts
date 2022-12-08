@@ -16,7 +16,7 @@ import { debounce } from 'lodash-es'
 import { pascalCasedName as name } from '../package.json'
 import { globalAttrs, globalProps } from './install'
 
-export type Mode = 'tree' | 'text'
+export type Mode = 'tree' | 'text' | 'table'
 
 const modelValueProp = isVue3 ? 'modelValue' : 'value'
 const updateModelValue = isVue3 ? 'update:modelValue' : 'input'

@@ -22,7 +22,7 @@ English | [简体中文](./docs/README.zh-CN.md)
   <a href="https://github.com/cloydlau/json-editor-vue#develop"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
 </p>
 
-<img width="49.738%" src="./docs/light-theme.png" alt="light-theme">&nbsp;<img width="49.738%" src="./docs/dark-theme.png" alt="dark-theme">
+<img width="49.738%" src="./docs/dark-theme.png" alt="dark theme">&nbsp;<img width="49.738%" src="https://raw.githubusercontent.com/josdejong/svelte-jsoneditor/main/misc/jsoneditor_table_mode_screenshot.png" alt="table mode">
 
 <br>
 
@@ -707,7 +707,7 @@ Including the boolean properties of `svelte-jsoneditor` like `readOnly` with no 
 <a name="Mode"></a>
 
 ```ts
-type Mode = 'tree' | 'text'
+type Mode = 'tree' | 'text' | 'table'
 ```
 
 <br>

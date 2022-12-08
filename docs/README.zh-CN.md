@@ -20,7 +20,7 @@
   <a href="https://github.com/cloydlau/json-editor-vue#develop"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
 </p>
 
-<img width="49.738%" src="./light-theme.png" alt="light-theme">&nbsp;<img width="49.738%" src="./dark-theme.png" alt="dark-theme">
+<img width="49.738%" src="./dark-theme.png" alt="dark theme">&nbsp;<img width="49.738%" src="https://raw.githubusercontent.com/josdejong/svelte-jsoneditor/main/misc/jsoneditor_table_mode_screenshot.png" alt="table mode">
 
 <br>
 
@@ -703,7 +703,7 @@ export default {
 ## 类型
 
 ```ts
-type Mode = 'tree' | 'text'
+type Mode = 'tree' | 'text' | 'table'
 ```
 
 <br>
