@@ -35,7 +35,7 @@ export default defineComponent({
   name,
   inheritAttrs: true,
   props: {
-    [modelValueProp as any]: {},
+    [modelValueProp]: {},
     mode: {
       type: String as PropType<Mode>,
     },
