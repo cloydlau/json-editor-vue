@@ -18,11 +18,8 @@ import { globalAttrs, globalProps } from './install'
 
 export type Mode = 'tree' | 'text' | 'table'
 
-type ModalValueProp = typeof isVue3 extends true ? 'modelValue' : 'value'
-type UpdateModalValue = typeof isVue3 extends true ? 'update:modelValue' : 'input'
-
-const modelValueProp: ModalValueProp = (isVue3 ? 'modelValue' : 'value') as any
-const updateModelValue: UpdateModalValue = (isVue3 ? 'update:modelValue' : 'input') as any
+const modelValueProp: any = isVue3 ? 'modelValue' : 'value'
+const updateModelValue: any = isVue3 ? 'update:modelValue' : 'input'
 
 const boolAttributes = [
   'mainMenuBar',
@@ -38,7 +35,7 @@ export default defineComponent({
   name,
   inheritAttrs: true,
   props: {
-    [modelValueProp]: {},
+    [modelValueProp as any]: {},
     mode: {
       type: String as PropType<Mode>,
     },
