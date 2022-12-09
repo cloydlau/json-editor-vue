@@ -9,7 +9,7 @@ import {
   unref,
   watch,
 } from 'vue-demi'
-import type { PropType } from 'vue-demi'
+import type { HTMLAttributes, PropType } from 'vue-demi'
 import { JSONEditor } from 'vanilla-jsoneditor'
 import { conclude } from 'vue-global-config'
 import { debounce } from 'lodash-es'
@@ -18,9 +18,13 @@ import { globalAttrs, globalProps } from './install'
 
 export type Mode = 'tree' | 'text' | 'table'
 
-const modelValueProp = isVue3 ? 'modelValue' : 'value'
-const updateModelValue = isVue3 ? 'update:modelValue' : 'input'
-const boolAttrs = [
+type ModalValue = typeof isVue3 extends true ? 'modelValue' : 'value'
+type UpdateModalValue = typeof isVue3 extends true ? 'update:modelValue' : 'input'
+
+const modelValueProp: ModalValue = (isVue3 ? 'modelValue' : 'value') as any
+const updateModelValue: UpdateModalValue = (isVue3 ? 'update:modelValue' : 'input') as any
+
+const boolAttributes = [
   'mainMenuBar',
   'navigationBar',
   'statusBar',
@@ -28,21 +32,18 @@ const boolAttrs = [
   'escapeControlCharacters',
   'escapeUnicodeCharacters',
   'flattenColumns',
-]
+] as const
 
-export default defineComponent({
+type Attributes = ModalValue | UpdateModalValue
+type BoolAttributes = {
+  [K in typeof boolAttributes[number]]: {
+    type: Boolean
+    default: undefined
+  }
+}
+
+export default defineComponent<HTMLAttributes & { mode: PropType<Mode> } & { [K in Attributes]: any } & BoolAttributes, {}, {}, {}, {}, {}, {}, { 'update:mode': (mode: Mode) => void; 'update:modalValue': (value: unknown) => void; 'input': (value: unknown) => void }>({
   name,
-  props: {
-    [modelValueProp]: {},
-    mode: {
-      type: String as PropType<Mode>,
-    },
-    ...Object.fromEntries(Array.from(boolAttrs, boolAttr => [boolAttr, {
-      type: Boolean,
-      default: undefined,
-    }])),
-  },
-  emits: [updateModelValue, 'update:mode'],
   setup(props, { attrs, emit, expose }) {
     const currentInstance = getCurrentInstance()?.proxy
     const jsonEditor = ref()
@@ -54,7 +55,7 @@ export default defineComponent({
       type: String as PropType<Mode>,
     })
     const initialValue = conclude([props[modelValueProp], globalProps[modelValueProp]])
-    const initialBoolAttrs = Object.fromEntries(Array.from(boolAttrs, boolAttr =>
+    const initialBoolAttrs = Object.fromEntries(Array.from(boolAttributes, boolAttr =>
       [boolAttr, conclude([props[boolAttr], globalProps[boolAttr]])])
       .filter(([, v]) => v !== undefined))
 
@@ -64,7 +65,7 @@ export default defineComponent({
         return
       }
       preventUpdate.value = true
-      emit(updateModelValue, updatedContent.text === undefined
+      emit(updateModelValue as any, updatedContent.text === undefined
         ? updatedContent.json
         : updatedContent.text)
     }, 100)
@@ -117,9 +118,9 @@ export default defineComponent({
       })
     })
 
-    watch(() => Array.from(boolAttrs, boolAttr => props[boolAttr]), (values) => {
+    watch(() => Array.from(boolAttributes, boolAttr => props[boolAttr]), (values) => {
       jsonEditor.value.updateProps(Object.fromEntries(Array.from(values, (v, i) =>
-        [boolAttrs[i], v]).filter(([, v]) => v !== undefined)))
+        [boolAttributes[i], v]).filter(([, v]) => v !== undefined)))
     })
 
     watch(() => attrs, (newAttrs) => {
