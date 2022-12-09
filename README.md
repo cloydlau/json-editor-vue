@@ -41,7 +41,7 @@ English | [简体中文](./docs/README.zh-CN.md)
 ### Peer Dependencies
 
 - `vue`
-- `vanilla-jsoneditor`: standalone bundle provided by `svelte-jsoneditor`
+- `vanilla-jsoneditor`: standalone bundle provided by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) (successor to [jsoneditor](https://github.com/josdejong/jsoneditor))
 - `@vue/composition-api`: only for Vue 2.6 or earlier
 
 <br>

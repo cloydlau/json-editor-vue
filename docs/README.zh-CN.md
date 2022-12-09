@@ -39,7 +39,7 @@
 ### 外置依赖
 
 - `vue`
-- `vanilla-jsoneditor`: `svelte-jsoneditor` 提供的原生包
+- `vanilla-jsoneditor`: [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)（[jsoneditor](https://github.com/josdejong/jsoneditor) 的继任者）提供的原生 JS 版本
 - `@vue/composition-api`: 仅 Vue 2.6 或更早版本需要
 
 <br>
