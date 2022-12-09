@@ -41,6 +41,17 @@ type BoolAttributes = {
 
 export default defineComponent<HTMLAttributes & { mode: PropType<Mode> } & { [K in Attributes]: any } & BoolAttributes, {}, {}, {}, {}, {}, {}, { 'update:mode': (mode: Mode) => void; 'update:modalValue': (value: unknown) => void; 'input': (value: unknown) => void }>({
   name,
+  props: {
+    [modelValueProp]: {},
+    mode: {
+      type: String as PropType<Mode>,
+    },
+    ...Object.fromEntries(Array.from(boolAttributes, boolAttr => [boolAttr, {
+      type: Boolean,
+      default: undefined,
+    }])),
+  } as any,
+  emits: [updateModelValue, 'update:mode'],
   setup(props, { attrs, emit, expose }) {
     const currentInstance = getCurrentInstance()?.proxy
     const jsonEditor = ref()
