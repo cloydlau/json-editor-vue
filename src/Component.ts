@@ -43,9 +43,9 @@ export default defineComponent({
       type: String as PropType<Mode>,
     },
     ...(Object.fromEntries(Array.from(boolAttributes, boolAttr => [boolAttr, {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: undefined,
-    }])) as { [key in typeof boolAttributes[number]]: { type: BooleanConstructor; default: undefined } }),
+    }])) as { [key in typeof boolAttributes[number]]: { type: PropType<boolean>; default: undefined } }),
   },
   emits: [updateModelValue, 'update:mode'],
   setup(props, { attrs, emit, expose }) {
