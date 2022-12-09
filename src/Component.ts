@@ -49,10 +49,10 @@ export default defineComponent({
     const preventUpdate = ref(false)
     const preventOnChange = ref(false)
 
-    const initialMode = conclude([props.mode, globalProps.mode])
-    const initialValue = conclude([props[modelValueProp], globalProps[modelValueProp]], {
-      camelCase: false,
+    const initialMode = conclude([props.mode, globalProps.mode], {
+      type: String as PropType<Mode>,
     })
+    const initialValue = conclude([props[modelValueProp], globalProps[modelValueProp]])
     const initialBoolAttrs = Object.fromEntries(Array.from(boolAttrs, boolAttr =>
       [boolAttr, conclude([props[boolAttr], globalProps[boolAttr]])])
       .filter(([, v]) => v !== undefined))
@@ -89,7 +89,7 @@ export default defineComponent({
         },
       },
     }], {
-      camelCase: false,
+      type: Object,
       mergeFunction,
     })
 
@@ -132,7 +132,7 @@ export default defineComponent({
       }
       jsonEditor.value.updateProps(Object.getOwnPropertyNames(defaultFunctionAttrs).length > 0
         ? conclude([newAttrs, defaultFunctionAttrs], {
-          camelCase: false,
+          type: Object,
           mergeFunction,
         })
         : newAttrs)
