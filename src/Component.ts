@@ -36,10 +36,7 @@ const boolAttributes = [
 
 type Attributes = ModalValue | UpdateModalValue
 type BoolAttributes = {
-  [K in typeof boolAttributes[number]]: {
-    type: Boolean
-    default: undefined
-  }
+  [K in typeof boolAttributes[number]]: boolean
 }
 
 export default defineComponent<HTMLAttributes & { mode: PropType<Mode> } & { [K in Attributes]: any } & BoolAttributes, {}, {}, {}, {}, {}, {}, { 'update:mode': (mode: Mode) => void; 'update:modalValue': (value: unknown) => void; 'input': (value: unknown) => void }>({
