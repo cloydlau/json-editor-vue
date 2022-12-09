@@ -69,7 +69,7 @@ export default defineComponent({
         return
       }
       preventUpdate.value = true
-      emit(updateModelValue as any, updatedContent.text === undefined
+      emit(updateModelValue, updatedContent.text === undefined
         ? updatedContent.json
         : updatedContent.text)
     }, 100)
