@@ -9,7 +9,7 @@ import {
   unref,
   watch,
 } from 'vue-demi'
-import type { HTMLAttributes, PropType } from 'vue-demi'
+import type { PropType } from 'vue-demi'
 import { JSONEditor } from 'vanilla-jsoneditor'
 import { conclude } from 'vue-global-config'
 import { debounce } from 'lodash-es'
@@ -18,10 +18,10 @@ import { globalAttrs, globalProps } from './install'
 
 export type Mode = 'tree' | 'text' | 'table'
 
-type ModalValue = typeof isVue3 extends true ? 'modelValue' : 'value'
+type ModalValueProp = typeof isVue3 extends true ? 'modelValue' : 'value'
 type UpdateModalValue = typeof isVue3 extends true ? 'update:modelValue' : 'input'
 
-const modelValueProp: ModalValue = (isVue3 ? 'modelValue' : 'value') as any
+const modelValueProp: ModalValueProp = (isVue3 ? 'modelValue' : 'value') as any
 const updateModelValue: UpdateModalValue = (isVue3 ? 'update:modelValue' : 'input') as any
 
 const boolAttributes = [
@@ -34,23 +34,19 @@ const boolAttributes = [
   'flattenColumns',
 ] as const
 
-type Attributes = ModalValue | UpdateModalValue
-type BoolAttributes = {
-  [K in typeof boolAttributes[number]]: boolean
-}
-
-export default defineComponent<HTMLAttributes & { mode: PropType<Mode> } & { [K in Attributes]: any } & BoolAttributes, {}, {}, {}, {}, {}, {}, { 'update:mode': (mode: Mode) => void; 'update:modalValue': (value: unknown) => void; 'input': (value: unknown) => void }>({
+export default defineComponent({
   name,
+  inheritAttrs: true,
   props: {
     [modelValueProp]: {},
     mode: {
       type: String as PropType<Mode>,
     },
-    ...Object.fromEntries(Array.from(boolAttributes, boolAttr => [boolAttr, {
+    ...(Object.fromEntries(Array.from(boolAttributes, boolAttr => [boolAttr, {
       type: Boolean,
       default: undefined,
-    }])),
-  } as any,
+    }])) as { [key in typeof boolAttributes[number]]: { type: BooleanConstructor; default: undefined } }),
+  },
   emits: [updateModelValue, 'update:mode'],
   setup(props, { attrs, emit, expose }) {
     const currentInstance = getCurrentInstance()?.proxy
