@@ -27,6 +27,7 @@ const boolAttrs = [
   'readOnly',
   'escapeControlCharacters',
   'escapeUnicodeCharacters',
+  'flattenColumns',
 ]
 
 export default defineComponent({
