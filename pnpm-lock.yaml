@@ -50,7 +50,7 @@ devDependencies:
   eslint: 8.29.0
   happy-dom: 8.1.0
   husky: 8.0.2
-  json-editor-vue: 0.10.1_nkjgdub26lwb65ofqmrbma3in4
+  json-editor-vue: 0.10.2_nkjgdub26lwb65ofqmrbma3in4
   lint-staged: 13.1.0
   lossless-json: 2.0.3
   typescript: 4.9.4
@@ -656,7 +656,7 @@ packages:
     dev: true
 
   /@nodelib/fs.scandir/2.1.5:
-    resolution: {integrity: sha1-dhnC6yGyVIP20WdUi0z9WnSIw9U=, tarball: '@nodelib/fs.scandir/download/@nodelib/fs.scandir-2.1.5.tgz'}
+    resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -1577,7 +1577,7 @@ packages:
     dev: true
 
   /concat-map/0.0.1:
-    resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=, tarball: concat-map/download/concat-map-0.0.1.tgz}
+    resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: true
 
   /constant-case/3.0.4:
@@ -3127,8 +3127,8 @@ packages:
     hasBin: true
     dev: true
 
-  /json-editor-vue/0.10.1_nkjgdub26lwb65ofqmrbma3in4:
-    resolution: {integrity: sha512-XzHl6wtJG63pxyXIKZhicNjofA8xup/hQlwH/Q1bN+/+ODprQK4th6eqA9lz/as7h8gG5nI6ZT7gSNNl5IgQXg==}
+  /json-editor-vue/0.10.2_nkjgdub26lwb65ofqmrbma3in4:
+    resolution: {integrity: sha512-fd0b9vBgUfKFIkgNSPYSiwMRS+NydhgqiF+dCRI+cyy2MGhqcKLOenyrbshI3peAoXSvMiMG8aAmoxLiXcxCRQ==}
     peerDependencies:
       '@vue/composition-api': '>=1'
       vanilla-jsoneditor: '>=0'
