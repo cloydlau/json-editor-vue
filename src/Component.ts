@@ -20,8 +20,7 @@ export type Mode = 'tree' | 'text' | 'table'
 
 const modelValueProp: any = isVue3 ? 'modelValue' : 'value'
 const updateModelValue: any = isVue3 ? 'update:modelValue' : 'input'
-
-const boolAttributes = [
+const boolAttrs = [
   'mainMenuBar',
   'navigationBar',
   'statusBar',
@@ -39,10 +38,10 @@ export default defineComponent({
     mode: {
       type: String as PropType<Mode>,
     },
-    ...(Object.fromEntries(boolAttributes.map(boolAttr => [boolAttr, {
+    ...(Object.fromEntries(boolAttrs.map(boolAttr => [boolAttr, {
       type: Boolean as PropType<boolean>,
-      default: false,
-    }])) as { [key in typeof boolAttributes[number]]: { type: PropType<boolean>; default: boolean } }),
+      default: undefined,
+    }])) as { [key in typeof boolAttrs[number]]: { type: PropType<boolean>; default: undefined } }),
   },
   emits: [updateModelValue, 'update:mode'],
   setup(props, { attrs, emit, expose }) {
@@ -56,7 +55,7 @@ export default defineComponent({
       type: String as PropType<Mode>,
     })
     const initialValue = conclude([props[modelValueProp], globalProps[modelValueProp]])
-    const initialBoolAttrs = Object.fromEntries(Array.from(boolAttributes, boolAttr =>
+    const initialBoolAttrs = Object.fromEntries(Array.from(boolAttrs, boolAttr =>
       [boolAttr, conclude([props[boolAttr], globalProps[boolAttr]])])
       .filter(([, v]) => v !== undefined))
 
@@ -119,9 +118,9 @@ export default defineComponent({
       })
     })
 
-    watch(() => Array.from(boolAttributes, boolAttr => props[boolAttr]), (values) => {
+    watch(() => Array.from(boolAttrs, boolAttr => props[boolAttr]), (values) => {
       jsonEditor.value.updateProps(Object.fromEntries(Array.from(values, (v, i) =>
-        [boolAttributes[i], v]).filter(([, v]) => v !== undefined)))
+        [boolAttrs[i], v]).filter(([, v]) => v !== undefined)))
     })
 
     watch(() => attrs, (newAttrs) => {
