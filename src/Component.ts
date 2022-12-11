@@ -18,8 +18,8 @@ import { globalAttrs, globalProps } from './install'
 
 export type Mode = 'tree' | 'text' | 'table'
 
-const modelValueProp = isVue3 ? 'modelValue' : 'value'
-const updateModelValue = isVue3 ? 'update:modelValue' : 'input'
+const modelValueProp: any = isVue3 ? 'modelValue' : 'value'
+const updateModelValue: any = isVue3 ? 'update:modelValue' : 'input'
 const boolAttrs = [
   'mainMenuBar',
   'navigationBar',
@@ -28,19 +28,20 @@ const boolAttrs = [
   'escapeControlCharacters',
   'escapeUnicodeCharacters',
   'flattenColumns',
-]
+] as const
 
 export default defineComponent({
   name,
+  inheritAttrs: true,
   props: {
     [modelValueProp]: {},
     mode: {
       type: String as PropType<Mode>,
     },
-    ...Object.fromEntries(Array.from(boolAttrs, boolAttr => [boolAttr, {
-      type: Boolean,
+    ...(Object.fromEntries(boolAttrs.map(boolAttr => [boolAttr, {
+      type: Boolean as PropType<boolean>,
       default: undefined,
-    }])),
+    }])) as { [key in typeof boolAttrs[number]]: { type: PropType<boolean>; default: undefined } }),
   },
   emits: [updateModelValue, 'update:mode'],
   setup(props, { attrs, emit, expose }) {
