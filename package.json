@@ -1,6 +1,6 @@
 {
   "name": "json-editor-vue",
-  "pascalCasedName": "JsonEditorVue",
+  "PascalCasedName": "JsonEditorVue",
   "version": "0.10.2",
   "private": false,
   "packageManager": "pnpm@7.18.1",

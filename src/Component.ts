@@ -13,7 +13,7 @@ import type { PropType } from 'vue-demi'
 import { JSONEditor } from 'vanilla-jsoneditor'
 import { conclude } from 'vue-global-config'
 import { debounce } from 'lodash-es'
-import { pascalCasedName as name } from '../package.json'
+import { PascalCasedName as name } from '../package.json'
 import { globalAttrs, globalProps } from './install'
 
 export type Mode = 'tree' | 'text' | 'table'
