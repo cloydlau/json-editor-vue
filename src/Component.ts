@@ -47,7 +47,14 @@ export default defineComponent({
     { [key in ModelValueProp]: {} }
     & { mode: { type: PropType<Mode> } }
     & { [key in typeof boolAttrs[number]]: { type: PropType<boolean>; default: undefined } },
-  emits: [updateModelValue, 'update:mode'],
+  emits: {
+    [updateModelValue](_payload: any) {
+      return true
+    },
+    'update:mode': function (_payload: Mode) {
+      return true
+    },
+  },
   setup(props, { attrs, emit, expose }) {
     const currentInstance = getCurrentInstance()?.proxy
     const jsonEditor = ref()
