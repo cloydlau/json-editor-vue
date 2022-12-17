@@ -9,7 +9,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "json-editor-vue": "^0.10.2",
+    "json-editor-vue": "^0.10.4",
     "vanilla-jsoneditor": "^0.11.4"
   },
   "devDependencies": {

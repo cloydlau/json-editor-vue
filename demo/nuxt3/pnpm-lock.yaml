@@ -3,14 +3,14 @@ lockfileVersion: 5.4
 specifiers:
   '@vue/runtime-core': ^3.2.45
   '@vue/server-renderer': ^3.2.45
-  json-editor-vue: ^0.10.2
+  json-editor-vue: ^0.10.4
   nuxt: ^3.0.0
   vanilla-jsoneditor: ^0.11.4
   vue: ^3.2.45
   vue-bundle-renderer: ^1.0.0
 
 dependencies:
-  json-editor-vue: 0.10.2_pbi7bslezat4zmrzo5wzqdo5zi
+  json-editor-vue: 0.10.4_pbi7bslezat4zmrzo5wzqdo5zi
   vanilla-jsoneditor: 0.11.4
 
 devDependencies:
@@ -2617,8 +2617,8 @@ packages:
     hasBin: true
     dev: true
 
-  /json-editor-vue/0.10.2_pbi7bslezat4zmrzo5wzqdo5zi:
-    resolution: {integrity: sha512-fd0b9vBgUfKFIkgNSPYSiwMRS+NydhgqiF+dCRI+cyy2MGhqcKLOenyrbshI3peAoXSvMiMG8aAmoxLiXcxCRQ==}
+  /json-editor-vue/0.10.4_pbi7bslezat4zmrzo5wzqdo5zi:
+    resolution: {integrity: sha512-L4101AShiyHcyRCTPXOXHI+G57SqWdko4jixO2JqI1HoMJklm6fmeTUjTY3i1Vl8Rg2ANt2dFbDw92/q3/kkUA==}
     peerDependencies:
       '@vue/composition-api': '>=1'
       vanilla-jsoneditor: '>=0'
