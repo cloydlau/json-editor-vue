@@ -438,7 +438,29 @@ const value = ref()
 </script>
 ```
 
-#### Global Registration
+#### Global Registration as a Module
+
+```ts
+// nuxt.config.ts
+
+export default defineNuxtConfig({
+  modules: ['json-editor-vue/nuxt'],
+})
+```
+
+```vue
+<template>
+  <client-only>
+    <JsonEditorVue v-model="value" />
+  </client-only>
+</template>
+
+<script setup>
+const value = ref()
+</script>
+```
+
+#### Global Registration as a Plugin
 
 ```ts
 // ~/plugins/JsonEditorVue.client.ts

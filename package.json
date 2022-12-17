@@ -70,11 +70,11 @@
     "@commitlint/config-conventional": "^17.3.0",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^18.11.16",
-    "@vitejs/plugin-vue": "latest",
+    "@vitejs/plugin-vue": "^4.0.0",
     "@vitest/coverage-c8": "^0.25.8",
     "@vitest/ui": "^0.25.8",
-    "@vue/compiler-sfc": "latest",
-    "@vue/test-utils": "latest",
+    "@vue/compiler-sfc": "^3.2.45",
+    "@vue/test-utils": "^2.2.6",
     "case-police": "^0.5.10",
     "eslint": "^8.30.0",
     "happy-dom": "^8.1.0",
@@ -87,9 +87,9 @@
     "vanilla-jsoneditor": "^0.11.4",
     "vite": "3.2.5",
     "vite-plugin-dts": "^1.7.1",
-    "vitepress": "^1.0.0-alpha.32",
+    "vitepress": "1.0.0-alpha.32",
     "vitest": "^0.25.8",
-    "vue": "latest"
+    "vue": "^3.2.45"
   },
   "lint-staged": {
     "{src,__tests__}/**.*": [

@@ -9,3 +9,4 @@ TODOs.md
 .idea
 .eslintcache
 .env.*
+.vitepress/cache

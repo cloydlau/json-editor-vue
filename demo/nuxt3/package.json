@@ -9,10 +9,14 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "json-editor-vue": "latest",
-    "vanilla-jsoneditor": "latest"
+    "json-editor-vue": "^0.10.2",
+    "vanilla-jsoneditor": "^0.11.4"
   },
   "devDependencies": {
-    "nuxt": "rc"
+    "@vue/runtime-core": "^3.2.45",
+    "@vue/server-renderer": "^3.2.45",
+    "nuxt": "^3.0.0",
+    "vue": "^3.2.45",
+    "vue-bundle-renderer": "^1.0.0"
   }
 }
