@@ -3,4 +3,3 @@ import type { Mode } from './install'
 
 export default ComponentWithInstall
 export { Mode }
-
