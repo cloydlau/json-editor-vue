@@ -35,7 +35,8 @@
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
-    "docs"
+    "docs",
+    "nuxt.ts"
   ],
   "scripts": {
     "dev3": "cl switchVue 3 && vite --config ./demo/vue3/vite.config.ts --open",
