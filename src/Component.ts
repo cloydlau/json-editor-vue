@@ -17,9 +17,10 @@ import { PascalCasedName as name } from '../package.json'
 import { globalAttrs, globalProps } from './install'
 
 export type Mode = 'tree' | 'text' | 'table'
+type ModelValueProp = 'modelValue' | 'value'
 
-const modelValueProp: any = isVue3 ? 'modelValue' : 'value'
-const updateModelValue: any = isVue3 ? 'update:modelValue' : 'input'
+const modelValueProp: ModelValueProp = isVue3 ? 'modelValue' : 'value'
+const updateModelValue = isVue3 ? 'update:modelValue' : 'input'
 const boolAttrs = [
   'mainMenuBar',
   'navigationBar',
@@ -38,18 +39,21 @@ export default defineComponent({
     mode: {
       type: String as PropType<Mode>,
     },
-    ...(Object.fromEntries(boolAttrs.map(boolAttr => [boolAttr, {
+    ...Object.fromEntries(boolAttrs.map(boolAttr => [boolAttr, {
       type: Boolean as PropType<boolean>,
       default: undefined,
-    }])) as { [key in typeof boolAttrs[number]]: { type: PropType<boolean>; default: undefined } }),
-  },
+    }])),
+  } as
+    { [key in ModelValueProp]: {} }
+    & { mode: { type: PropType<Mode> } }
+    & { [key in typeof boolAttrs[number]]: { type: PropType<boolean>; default: undefined } },
   emits: [updateModelValue, 'update:mode'],
   setup(props, { attrs, emit, expose }) {
     const currentInstance = getCurrentInstance()?.proxy
     const jsonEditor = ref()
 
-    const preventUpdate = ref(false)
-    const preventOnChange = ref(false)
+    const preventUpdatingContent = ref(false)
+    const preventUpdatingModelValue = ref(false)
 
     const initialMode = conclude([props.mode, globalProps.mode], {
       type: String as PropType<Mode>,
@@ -60,11 +64,11 @@ export default defineComponent({
       .filter(([, v]) => v !== undefined))
 
     const onChange = debounce((updatedContent: { text: string; json: any }) => {
-      if (preventOnChange.value) {
-        preventOnChange.value = false
+      if (preventUpdatingModelValue.value) {
+        preventUpdatingModelValue.value = false
         return
       }
-      preventUpdate.value = true
+      preventUpdatingContent.value = true
       emit(updateModelValue, updatedContent.text === undefined
         ? updatedContent.json
         : updatedContent.text)
@@ -95,19 +99,19 @@ export default defineComponent({
       mergeFunction,
     })
 
-    watch(() => props[modelValueProp], (n: any) => {
-      if (preventUpdate.value) {
-        preventUpdate.value = false
+    watch(() => props[modelValueProp], (newModelValue: any) => {
+      if (preventUpdatingContent.value) {
+        preventUpdatingContent.value = false
         return
       }
-      preventOnChange.value = true
+      preventUpdatingModelValue.value = true
       // `jsonEditor.value` could be `undefined` in Vue 2.6 (dev environment)
-      jsonEditor.value?.update([undefined, ''].includes(n)
+      jsonEditor.value?.update([undefined, ''].includes(newModelValue)
         // `undefined` is not accepted by vanilla-jsoneditor
         // The default value is `{ text: '' }`
         // Only default value can clear the editor
         ? { text: '' }
-        : { json: n })
+        : { json: newModelValue })
     }, {
       deep: true,
     })
