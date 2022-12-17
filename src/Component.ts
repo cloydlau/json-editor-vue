@@ -33,7 +33,6 @@ const boolAttrs = [
 
 export default defineComponent({
   name,
-  inheritAttrs: true,
   props: {
     [modelValueProp]: {},
     mode: {
