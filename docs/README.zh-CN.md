@@ -28,9 +28,9 @@
 
 - Vue 2.6 / 2.7 / 3 通用
 - 支持 SSR，Nuxt 2 / 3 通用
-- 支持微前端（比如 [wujie](https://github.com/Tencent/wujie)）
+- 支持微前端 (比如 [wujie](https://github.com/Tencent/wujie))
 - 编辑模式双向绑定
-- 局部注册 + 局部传参，也可以全局注册 + 全局传参（[vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持）
+- 局部注册 + 局部传参，也可以全局注册 + 全局传参 ([vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持)
 
 <br>
 
@@ -39,8 +39,8 @@
 ### 外置依赖
 
 - `vue`
-- `vanilla-jsoneditor`: [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)（[jsoneditor](https://github.com/josdejong/jsoneditor) 的继任者）提供的原生 JS 版本
-- `@vue/composition-api`: 仅 Vue 2.6 或更早版本需要
+- `vanilla-jsoneditor`：[svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) ([jsoneditor](https://github.com/josdejong/jsoneditor) 的继任者) 提供的原生 JS 版本
+- `@vue/composition-api`：仅 Vue 2.6 或更早版本需要
 
 <br>
 
@@ -120,7 +120,7 @@ createApp()
 
 #### CDN + UMD
 
-> ⚠ 暂不支持（`vanilla-jsoneditor` 不提供 UMD 导出），如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+> ⚠ 暂不支持 (`vanilla-jsoneditor` 不提供 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
 
 ```html
 <!DOCTYPE html>
@@ -232,7 +232,7 @@ Vue.use(JsonEditorVue, {
 
 #### CDN + UMD
 
-> ⚠ 暂不支持（`vanilla-jsoneditor` 不提供 UMD 导出），如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+> ⚠ 暂不支持 (`vanilla-jsoneditor` 不提供 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
 
 ```html
 <!DOCTYPE html>
@@ -362,7 +362,7 @@ Vue.use(JsonEditorVue, {
 
 #### CDN + UMD
 
-> ⚠ 暂不支持（`vanilla-jsoneditor` 不提供 UMD 导出），如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+> ⚠ 暂不支持 (`vanilla-jsoneditor` 不提供 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
 
 ```html
 <!DOCTYPE html>
@@ -687,8 +687,8 @@ export default {
 
 ### `svelte-jsoneditor` 与 `json-editor-vue` 中绑定值的差异
 
-- `svelte-jsoneditor`: 一个包含「stringified JSON」或「parsed JSON」的对象，当作为「stringified JSON」传入时，会经过 `JSON.parse` 解析。
-- `json-editor-vue`: JSON 本身，所见即所得。
+- `svelte-jsoneditor`：一个包含 “stringified JSON” 或 “parsed JSON” 的对象，当作为 “stringified JSON” 传入时，会经过 `JSON.parse` 解析。
+- `json-editor-vue`：JSON 本身，所见即所得。
 
 如果你更倾向于 `svelte-jsoneditor` 的行为：
 
@@ -700,7 +700,7 @@ export default {
 />
 ```
 
-> 详情见 https://github.com/josdejong/svelte-jsoneditor/pull/166 。
+> 详情见 https://github.com/josdejong/svelte-jsoneditor/pull/166。
 
 ### 布尔类型参数
 
@@ -749,7 +749,7 @@ import JsonEditorVue from 'json-editor-vue'
 
 ## 更新日志
 
-各版本详细改动请参考 [release notes](https://github.com/cloydlau/json-editor-vue/releases) 。
+各版本详细改动请参考 [release notes](https://github.com/cloydlau/json-editor-vue/releases)。
 
 <br>
 
