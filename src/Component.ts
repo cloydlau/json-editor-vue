@@ -11,6 +11,7 @@ import {
 } from 'vue-demi'
 import type { PropType } from 'vue-demi'
 import { JSONEditor } from 'vanilla-jsoneditor'
+import type { Content, JSONContent, TextContent } from 'vanilla-jsoneditor'
 import { conclude } from 'vue-global-config'
 import { debounce } from 'lodash-es'
 import { PascalCasedName as name } from '../package.json'
@@ -69,15 +70,15 @@ export default defineComponent({
       [boolAttr, conclude([props[boolAttr], globalProps[boolAttr]])])
       .filter(([, v]) => v !== undefined))
 
-    const onChange = debounce((updatedContent: { text: string; json: any }) => {
+    const onChange = debounce((updatedContent: Content) => {
       if (preventUpdatingModelValue.value) {
         preventUpdatingModelValue.value = false
         return
       }
       preventUpdatingContent.value = true
-      emit(updateModelValue, updatedContent.text === undefined
-        ? updatedContent.json
-        : updatedContent.text)
+      emit(updateModelValue, (updatedContent as TextContent).text === undefined
+        ? (updatedContent as JSONContent).json
+        : (updatedContent as TextContent).text)
     }, 100)
 
     const onChangeMode = (mode: Mode) => {
