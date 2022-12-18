@@ -16,7 +16,7 @@ import { debounce } from 'lodash-es'
 import { PascalCasedName as name } from '../package.json'
 import { globalAttrs, globalProps } from './install'
 
-export type Mode = 'tree' | 'text' | 'table'
+export type Mode = 'text' | 'tree' | 'table'
 type ModelValueProp = 'modelValue' | 'value'
 
 const modelValueProp: ModelValueProp = isVue3 ? 'modelValue' : 'value'
