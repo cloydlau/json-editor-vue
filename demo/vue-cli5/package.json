@@ -1,0 +1,17 @@
+{
+  "name": "vue-cli5",
+  "scripts": {
+    "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "core-js": "^3.26.1",
+    "json-editor-vue": "^0.10.5",
+    "vanilla-jsoneditor": "^0.11.5",
+    "vue": "^3.2.45"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-service": "^5.0.8"
+  }
+}

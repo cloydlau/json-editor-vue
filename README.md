@@ -679,6 +679,30 @@ export default {
 
 <br>
 
+### Vite
+
+Ready to use right out of the box.
+
+<br>
+
+### Vue CLI 5 / webpack 5
+
+Ready to use right out of the box.
+
+<br>
+
+### Vue CLI 4 / webpack 4
+
+Vite 4 (Rollup 3) uses ES2020 as compiler target by default, therefore Vite-4-built outputs should be transpiled in webpack 4:
+
+```js
+module.exports = {
+  transpileDependencies: ['json-editor-vue'],
+}
+```
+
+<br>
+
 ## Props
 
 | Name    | Description                                                                                   | Type          | Default  |
@@ -689,12 +713,12 @@ export default {
 
 > ⚠ kebab-case is required for tag & prop name when using from CDN
 
-### Binding value difference between `svelte-jsoneditor` and `json-editor-vue`
+### Binding value difference between 'svelte-jsoneditor' and 'json-editor-vue'
 
-- `svelte-jsoneditor`: An object contains a stringified JSON or a parsed JSON, will do `JSON.parse` when passing as a stringified JSON.
-- `json-editor-vue`: JSON itself. What users see is what users get.
+- 'svelte-jsoneditor': An object contains a stringified JSON or a parsed JSON, will do `JSON.parse` when passing as a stringified JSON.
+- 'json-editor-vue': JSON itself. What users see is what users get.
 
-If you prefer the behavior of `svelte-jsoneditor`:
+If you prefer the behavior of 'svelte-jsoneditor':
 
 ```html
 <JsonEditorVue
@@ -708,7 +732,7 @@ If you prefer the behavior of `svelte-jsoneditor`:
 
 ### Boolean properties
 
-Including the boolean properties of `svelte-jsoneditor` like `readOnly` with no value will imply `true`:
+Including the boolean properties of 'svelte-jsoneditor' like `readOnly` with no value will imply `true`:
 
 - ✔️ `<JsonEditorVue readOnly />`
 

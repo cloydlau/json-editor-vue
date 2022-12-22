@@ -677,6 +677,30 @@ export default {
 
 <br>
 
+### Vite
+
+开箱即用。
+
+<br>
+
+### Vue CLI 5 / webpack 5
+
+开箱即用。
+
+<br>
+
+### Vue CLI 4 / webpack 4
+
+Vite 4 (Rollup 3) 默认的编译目标为 ES2020，所以在 webpack 4 中需要对 Vite 4 打包的依赖进行转译
+
+```js
+module.exports = {
+  transpileDependencies: ['json-editor-vue'],
+}
+```
+
+<br>
+
 ## Props
 
 | 名称    | 说明                                                                                                 | 类型               | 默认值   |
@@ -685,12 +709,12 @@ export default {
 | mode    | 编辑模式，<br>在 Vue 3 中使用 `v-model:mode`，<br>在 Vue 2 中使用 `:mode.sync`                       | `'tree'`, `'text'` | `'tree'` |
 | ...     | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的参数（通过 attrs） |                    |          |
 
-### `svelte-jsoneditor` 与 `json-editor-vue` 中绑定值的差异
+### 'svelte-jsoneditor' 与 'json-editor-vue' 中绑定值的差异
 
-- `svelte-jsoneditor`：一个包含 “stringified JSON” 或 “parsed JSON” 的对象，当作为 “stringified JSON” 传入时，会经过 `JSON.parse` 解析。
-- `json-editor-vue`：JSON 本身，所见即所得。
+- 'svelte-jsoneditor'：一个包含 “stringified JSON” 或 “parsed JSON” 的对象，当作为 “stringified JSON” 传入时，会经过 `JSON.parse` 解析。
+- 'json-editor-vue'：JSON 本身，所见即所得。
 
-如果你更倾向于 `svelte-jsoneditor` 的行为：
+如果你更倾向于 'svelte-jsoneditor' 的行为：
 
 ```html
 <JsonEditorVue
@@ -704,7 +728,7 @@ export default {
 
 ### 布尔类型参数
 
-仅写上 `svelte-jsoneditor` 的布尔类型参数如 `readOnly` 但不传值，会隐式转换为 `true`：
+仅写上 'svelte-jsoneditor' 的布尔类型参数如 `readOnly` 但不传值，会隐式转换为 `true`：
 
 - ✔️ `<JsonEditorVue readOnly />`
 
