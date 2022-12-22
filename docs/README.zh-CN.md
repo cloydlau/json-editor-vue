@@ -736,8 +736,8 @@ module.exports = {
     // 让 webpack 识别 `.mjs` 文件
     config.module
       .rule('mjs')
-      .type('javascript/auto')
       .include.add(/node_modules/)
+      .type('javascript/auto')
       .end()
   },
 }

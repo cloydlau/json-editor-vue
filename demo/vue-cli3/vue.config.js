@@ -4,8 +4,8 @@ module.exports = {
         rules: [
           {
             test: /\.mjs$/,
-            type: 'javascript/auto',
             include: /node_modules/,
+            type: 'javascript/auto',
           },
         ],
       },
@@ -15,8 +15,8 @@ module.exports = {
     config.module
       .rule('mjs')
       // .test(/\.mjs$/)
-      .type('javascript/auto')
       .include.add(/node_modules/)
+      .type('javascript/auto')
       .end()
   },
   transpileDependencies: ['json-editor-vue'],

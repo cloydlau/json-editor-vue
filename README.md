@@ -738,8 +738,8 @@ module.exports = {
     // Getting webpack to recognize the `.mjs` file
     config.module
       .rule('mjs')
-      .type('javascript/auto')
       .include.add(/node_modules/)
+      .type('javascript/auto')
       .end()
   },
 }
