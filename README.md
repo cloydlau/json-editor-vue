@@ -30,6 +30,7 @@ English | [简体中文](./docs/README.zh-CN.md)
 
 - Support Vue 2.6 / 2.7 / 3
 - Support SSR (Nuxt 2 / 3)
+- Support Vite, Vue CLI 3 / 4 / 5 ...
 - Support microfrontends (like [wujie](https://github.com/Tencent/wujie))
 - Edit mode two-way binding
 - Local registration + local configuration, or global registration + global configuration (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
@@ -502,6 +503,7 @@ npm add json-editor-vue vanilla-jsoneditor
 export default {
   build: {
     extend(config) {
+      // Getting webpack to recognize the `.mjs` file
       config.module.rules.push({
         test: /\.mjs$/,
         include: /node_modules/,
@@ -539,6 +541,7 @@ export default {
   plugins: ['~/plugins/JsonEditorVue.client'],
   build: {
     extend(config) {
+      // Getting webpack to recognize the `.mjs` file
       config.module.rules.push({
         test: /\.mjs$/,
         include: /node_modules/,
@@ -590,6 +593,7 @@ npm add json-editor-vue vanilla-jsoneditor @vue/composition-api
 export default {
   build: {
     extend(config) {
+      // Getting webpack to recognize the `.mjs` file
       config.module.rules.push({
         test: /\.mjs$/,
         include: /node_modules/,
@@ -636,6 +640,7 @@ export default {
   plugins: ['~/plugins/JsonEditorVue.client'],
   build: {
     extend(config) {
+      // Getting webpack to recognize the `.mjs` file
       config.module.rules.push({
         test: /\.mjs$/,
         include: /node_modules/,
@@ -685,19 +690,58 @@ Ready to use right out of the box.
 
 <br>
 
-### Vue CLI 5 / webpack 5
+### Vue CLI 5 (webpack 5)
 
 Ready to use right out of the box.
 
 <br>
 
-### Vue CLI 4 / webpack 4
+### Vue CLI 4 (webpack 4)
 
-Vite 4 (Rollup 3) uses ES2020 as compiler target by default, therefore Vite-4-built outputs should be transpiled in webpack 4:
+Vite 4 (Rollup 3) uses ES2020 as compiler target by default, therefore Vite-4-built outputs should be transpiled in webpack 4.
 
 ```js
+// vue.config.js
+
 module.exports = {
   transpileDependencies: ['json-editor-vue'],
+}
+```
+
+<br>
+
+### Vue CLI 3 (webpack 4)
+
+Vite 4 (Rollup 3) uses ES2020 as compiler target by default, therefore Vite-4-built outputs should be transpiled in webpack 4.
+
+```shell
+npm add @babel/plugin-proposal-nullish-coalescing-operator @babel/plugin-proposal-optional-chaining -D
+```
+
+```js
+// babel.config.js
+
+module.exports = {
+  plugins: [
+    '@babel/plugin-proposal-nullish-coalescing-operator',
+    '@babel/plugin-proposal-optional-chaining',
+  ],
+}
+```
+
+```js
+// vue.config.js
+
+module.exports = {
+  transpileDependencies: ['json-editor-vue'],
+  chainWebpack(config) {
+    // Getting webpack to recognize the `.mjs` file
+    config.module
+      .rule('mjs')
+      .type('javascript/auto')
+      .include.add(/node_modules/)
+      .end()
+  },
 }
 ```
 
@@ -708,7 +752,7 @@ module.exports = {
 | Name    | Description                                                                                   | Type          | Default  |
 | ------- | --------------------------------------------------------------------------------------------- | ------------- | -------- |
 | v-model | binding value                                                                                 | `any`         |          |
-| mode    | edit mode, <br>use `v-model:mode` in Vue 3 <br>or `:mode.sync` in Vue 2                       | [Mode](#Mode) | `'tree'` |
+| mode    | edit mode, <br>use `[v-model]:mode` in Vue 3 <br>or `:mode[.sync]` in Vue 2                   | [Mode](#Mode) | `'tree'` |
 | ...     | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |               |          |
 
 > ⚠ kebab-case is required for tag & prop name when using from CDN

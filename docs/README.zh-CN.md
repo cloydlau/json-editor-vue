@@ -28,6 +28,7 @@
 
 - Vue 2.6 / 2.7 / 3 通用
 - 支持 SSR，Nuxt 2 / 3 通用
+- 支持 Vite，Vue CLI 3 / 4 / 5 ...
 - 支持微前端 (比如 [wujie](https://github.com/Tencent/wujie))
 - 编辑模式双向绑定
 - 局部注册 + 局部传参，也可以全局注册 + 全局传参 ([vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持)
@@ -500,6 +501,7 @@ npm add json-editor-vue vanilla-jsoneditor
 export default {
   build: {
     extend(config) {
+      // 让 webpack 识别 `.mjs` 文件
       config.module.rules.push({
         test: /\.mjs$/,
         include: /node_modules/,
@@ -537,6 +539,7 @@ export default {
   plugins: ['~/plugins/JsonEditorVue.client'],
   build: {
     extend(config) {
+      // 让 webpack 识别 `.mjs` 文件
       config.module.rules.push({
         test: /\.mjs$/,
         include: /node_modules/,
@@ -588,6 +591,7 @@ npm add json-editor-vue vanilla-jsoneditor @vue/composition-api
 export default {
   build: {
     extend(config) {
+      // 让 webpack 识别 `.mjs` 文件
       config.module.rules.push({
         test: /\.mjs$/,
         include: /node_modules/,
@@ -634,6 +638,7 @@ export default {
   plugins: ['~/plugins/JsonEditorVue.client'],
   build: {
     extend(config) {
+      // 让 webpack 识别 `.mjs` 文件
       config.module.rules.push({
         test: /\.mjs$/,
         include: /node_modules/,
@@ -683,17 +688,19 @@ export default {
 
 <br>
 
-### Vue CLI 5 / webpack 5
+### Vue CLI 5 (webpack 5)
 
 开箱即用。
 
 <br>
 
-### Vue CLI 4 / webpack 4
+### Vue CLI 4 (webpack 4)
 
-Vite 4 (Rollup 3) 默认的编译目标为 ES2020，所以在 webpack 4 中需要对 Vite 4 打包的依赖进行转译
+Vite 4 (Rollup 3) 默认的编译目标为 ES2020，所以在 webpack 4 中需要对 Vite 4 打包的依赖进行转译。
 
 ```js
+// vue.config.js
+
 module.exports = {
   transpileDependencies: ['json-editor-vue'],
 }
@@ -701,13 +708,50 @@ module.exports = {
 
 <br>
 
+### Vue CLI 3 (webpack 4)
+
+Vite 4 (Rollup 3) 默认的编译目标为 ES2020，所以在 webpack 4 中需要对 Vite 4 打包的依赖进行转译。
+
+```shell
+npm add @babel/plugin-proposal-nullish-coalescing-operator @babel/plugin-proposal-optional-chaining -D
+```
+
+```js
+// babel.config.js
+
+module.exports = {
+  plugins: [
+    '@babel/plugin-proposal-nullish-coalescing-operator',
+    '@babel/plugin-proposal-optional-chaining',
+  ],
+}
+```
+
+```js
+// vue.config.js
+
+module.exports = {
+  transpileDependencies: ['json-editor-vue'],
+  chainWebpack(config) {
+    // 让 webpack 识别 `.mjs` 文件
+    config.module
+      .rule('mjs')
+      .type('javascript/auto')
+      .include.add(/node_modules/)
+      .end()
+  },
+}
+```
+
+<br>
+
 ## Props
 
-| 名称    | 说明                                                                                                 | 类型               | 默认值   |
-| ------- | ---------------------------------------------------------------------------------------------------- | ------------------ | -------- |
-| v-model | 绑定值                                                                                               | `any`              |          |
-| mode    | 编辑模式，<br>在 Vue 3 中使用 `v-model:mode`，<br>在 Vue 2 中使用 `:mode.sync`                       | `'tree'`, `'text'` | `'tree'` |
-| ...     | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的参数（通过 attrs） |                    |          |
+| 名称    | 说明                                                                                                 | 类型          | 默认值   |
+| ------- | ---------------------------------------------------------------------------------------------------- | ------------- | -------- |
+| v-model | 绑定值                                                                                               | `any`         |          |
+| mode    | 编辑模式，<br>在 Vue 3 中使用 `[v-model]:mode`，<br>在 Vue 2 中使用 `:mode[.sync]`                   | [Mode](#Mode) | `'tree'` |
+| ...     | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的参数（通过 attrs） |               |          |
 
 ### 'svelte-jsoneditor' 与 'json-editor-vue' 中绑定值的差异
 
@@ -747,6 +791,8 @@ module.exports = {
 <br>
 
 ## 类型
+
+<a name="Mode"></a>
 
 ```ts
 type Mode = 'tree' | 'text' | 'table'
