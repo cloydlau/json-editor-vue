@@ -41,9 +41,9 @@ English | [简体中文](./docs/README.zh-CN.md)
 
 ### Peer Dependencies
 
-- `vue`
-- `vanilla-jsoneditor`: standalone bundle provided by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) (successor to [jsoneditor](https://github.com/josdejong/jsoneditor))
-- `@vue/composition-api`: only for Vue 2.6 or earlier
+- vue
+- vanilla-jsoneditor: Standalone bundle provided by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) (successor to [jsoneditor](https://github.com/josdejong/jsoneditor))
+- ~~@vue/composition-api~~: Only for Vue 2.6 or earlier
 
 <br>
 
@@ -123,7 +123,7 @@ createApp()
 
 #### CDN + UMD
 
-> ⚠ Not yet supported because `vanilla-jsoneditor` does not export UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
+> ⚠ Not yet supported because vanilla-jsoneditor does not export UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
 
 ```html
 <!DOCTYPE html>
@@ -235,7 +235,7 @@ Vue.use(JsonEditorVue, {
 
 #### CDN + UMD
 
-> ⚠ Not yet supported because `vanilla-jsoneditor` does not export UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
+> ⚠ Not yet supported because vanilla-jsoneditor does not export UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
 
 ```html
 <!DOCTYPE html>
@@ -365,7 +365,7 @@ Vue.use(JsonEditorVue, {
 
 #### CDN + UMD
 
-> ⚠ Not yet supported because `vanilla-jsoneditor` does not export UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
+> ⚠ Not yet supported because vanilla-jsoneditor does not export UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
 
 ```html
 <!DOCTYPE html>
@@ -757,12 +757,12 @@ module.exports = {
 
 > ⚠ kebab-case is required for tag & prop name when using from CDN
 
-### Binding value difference between 'svelte-jsoneditor' and 'json-editor-vue'
+### Binding value difference between svelte-jsoneditor and json-editor-vue
 
-- 'svelte-jsoneditor': An object contains a stringified JSON or a parsed JSON, will do `JSON.parse` when passing as a stringified JSON.
-- 'json-editor-vue': JSON itself. What users see is what users get.
+- svelte-jsoneditor: An object contains a stringified JSON or a parsed JSON, will do `JSON.parse` when passing as a stringified JSON.
+- json-editor-vue: JSON itself. What users see is what users get.
 
-If you prefer the behavior of 'svelte-jsoneditor':
+If you prefer the behavior of svelte-jsoneditor:
 
 ```html
 <JsonEditorVue
@@ -776,7 +776,7 @@ If you prefer the behavior of 'svelte-jsoneditor':
 
 ### Boolean properties
 
-Including the boolean properties of 'svelte-jsoneditor' like `readOnly` with no value will imply `true`:
+Including the boolean properties of svelte-jsoneditor like `readOnly` with no value will imply `true`:
 
 - ✔️ `<JsonEditorVue readOnly />`
 

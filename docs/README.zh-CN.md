@@ -39,9 +39,9 @@
 
 ### 外置依赖
 
-- `vue`
-- `vanilla-jsoneditor`：[svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) ([jsoneditor](https://github.com/josdejong/jsoneditor) 的继任者) 提供的原生 JS 版本
-- `@vue/composition-api`：仅 Vue 2.6 或更早版本需要
+- vue
+- vanilla-jsoneditor：[svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) ([jsoneditor](https://github.com/josdejong/jsoneditor) 的继任者) 提供的原生 JS 版本
+- ~~@vue/composition-api~~：仅 Vue 2.6 或更早版本需要
 
 <br>
 
@@ -121,7 +121,7 @@ createApp()
 
 #### CDN + UMD
 
-> ⚠ 暂不支持 (`vanilla-jsoneditor` 不提供 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+> ⚠ 暂不支持 (vanilla-jsoneditor 不提供 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
 
 ```html
 <!DOCTYPE html>
@@ -233,7 +233,7 @@ Vue.use(JsonEditorVue, {
 
 #### CDN + UMD
 
-> ⚠ 暂不支持 (`vanilla-jsoneditor` 不提供 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+> ⚠ 暂不支持 (vanilla-jsoneditor 不提供 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
 
 ```html
 <!DOCTYPE html>
@@ -363,7 +363,7 @@ Vue.use(JsonEditorVue, {
 
 #### CDN + UMD
 
-> ⚠ 暂不支持 (`vanilla-jsoneditor` 不提供 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+> ⚠ 暂不支持 (vanilla-jsoneditor 不提供 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
 
 ```html
 <!DOCTYPE html>
@@ -753,12 +753,12 @@ module.exports = {
 | mode    | 编辑模式，<br>在 Vue 3 中使用 `[v-model]:mode`，<br>在 Vue 2 中使用 `:mode[.sync]`                   | [Mode](#Mode) | `'tree'` |
 | ...     | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的参数（通过 attrs） |               |          |
 
-### 'svelte-jsoneditor' 与 'json-editor-vue' 中绑定值的差异
+### svelte-jsoneditor 与 json-editor-vue 中绑定值的差异
 
-- 'svelte-jsoneditor'：一个包含 “stringified JSON” 或 “parsed JSON” 的对象，当作为 “stringified JSON” 传入时，会经过 `JSON.parse` 解析。
-- 'json-editor-vue'：JSON 本身，所见即所得。
+- svelte-jsoneditor：一个包含 “stringified JSON” 或 “parsed JSON” 的对象，当作为 “stringified JSON” 传入时，会经过 `JSON.parse` 解析。
+- json-editor-vue：JSON 本身，所见即所得。
 
-如果你更倾向于 'svelte-jsoneditor' 的行为：
+如果你更倾向于 svelte-jsoneditor 的行为：
 
 ```html
 <JsonEditorVue
@@ -772,7 +772,7 @@ module.exports = {
 
 ### 布尔类型参数
 
-仅写上 'svelte-jsoneditor' 的布尔类型参数如 `readOnly` 但不传值，会隐式转换为 `true`：
+仅写上 svelte-jsoneditor 的布尔类型参数如 `readOnly` 但不传值，会隐式转换为 `true`：
 
 - ✔️ `<JsonEditorVue readOnly />`
 
