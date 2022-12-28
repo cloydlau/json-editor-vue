@@ -706,12 +706,13 @@ module.exports = {
 }
 ```
 
-⚠ 仅 ≤ 4.5.14 版本需要：
+⚠ 仅 ≤ 4.5.14 版本：
 
 ```js
 // vue.config.js
 
 module.exports = {
+  transpileDependencies: ['json-editor-vue'],
   configureWebpack: {
     module: {
       rules: [

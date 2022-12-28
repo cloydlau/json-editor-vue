@@ -714,6 +714,7 @@ module.exports = {
 // vue.config.js
 
 module.exports = {
+  transpileDependencies: ['json-editor-vue'],
   configureWebpack: {
     module: {
       rules: [
