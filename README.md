@@ -784,7 +784,7 @@ module.exports = {
 ### Binding value difference between svelte-jsoneditor and json-editor-vue
 
 - svelte-jsoneditor: An object contains a stringified JSON or a parsed JSON, will do `JSON.parse` when passing as a stringified JSON.
-- json-editor-vue: JSON itself. What user see is what user get.
+- json-editor-vue: JSON itself. What you see is what you get.
 
 If you prefer the behavior of svelte-jsoneditor:
 
