@@ -7,7 +7,7 @@ English | [简体中文](./docs/README.zh-CN.md)
 </h1>
 
 <p align="center">
-  JSON editor & viewer for Vue 2.6 / 2.7 / 3 & Nuxt 2 / 3.
+  JSON editor & viewer for Vue 2.6/2.7/3 & Nuxt 2/3.
   <br>
   <a href="https://cloydlau.github.io/demo/json-editor-vue.html">🕹 Playground</a>
 </p>
@@ -28,8 +28,8 @@ English | [简体中文](./docs/README.zh-CN.md)
 
 ## Features
 
-- Support Vue 2.6 / 2.7 / 3
-- Support SSR (Nuxt 2 / 3)
+- Support Vue 2.6/2.7/3
+- Support SSR (Nuxt 2/3)
 - Support Vite, Vue CLI, webpack, CDN...
 - Support microfrontends ([wujie](https://github.com/Tencent/wujie), [qiankun](https://github.com/umijs/qiankun), [single-spa](https://github.com/single-spa/single-spa)...)
 - Edit mode two-way binding

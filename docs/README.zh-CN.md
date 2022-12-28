@@ -5,7 +5,7 @@
 </h1>
 
 <p align="center">
-  JSON 编辑 & 预览工具，支持 Vue 2.6 / 2.7 / 3，支持 Nuxt 2 / 3。
+  JSON 编辑 & 预览工具，支持 Vue 2.6/2.7/3，支持 Nuxt 2/3。
   <br>
   <a href="https://cloydlau.github.io/demo/json-editor-vue.html">🕹 试玩</a>
 </p>
@@ -26,8 +26,8 @@
 
 ## 特性
 
-- Vue 2.6 / 2.7 / 3 通用
-- 支持 SSR，Nuxt 2 / 3 通用
+- Vue 2.6/2.7/3 通用
+- 支持 SSR，Nuxt 2/3 通用
 - 支持 Vite，Vue CLI，webpack，CDN……
 - 支持微前端 ([wujie](https://github.com/Tencent/wujie)，[qiankun](https://github.com/umijs/qiankun)，[single-spa](https://github.com/single-spa/single-spa)……)
 - 编辑模式双向绑定
