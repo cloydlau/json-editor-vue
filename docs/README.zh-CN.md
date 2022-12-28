@@ -28,8 +28,8 @@
 
 - Vue 2.6 / 2.7 / 3 通用
 - 支持 SSR，Nuxt 2 / 3 通用
+- 支持微前端 ([wujie](https://github.com/Tencent/wujie), [qiankun](https://github.com/umijs/qiankun), [single-spa](https://github.com/single-spa/single-spa) ...)
 - 支持 Vite，Vue CLI 3 / 4 / 5, CDN ...
-- 支持微前端 (比如 [wujie](https://github.com/Tencent/wujie))
 - 编辑模式双向绑定
 - 局部注册 + 局部传参，也可以全局注册 + 全局传参 ([vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持)
 
@@ -291,7 +291,7 @@ Vue.use(VCA)
 
 export default {
   components: { JsonEditorVue },
-  date() {
+  data() {
     return {
       value: undefined,
     }
@@ -703,6 +703,27 @@ Vite 4 (Rollup 3) 默认的编译目标为 ES2020，所以在 webpack 4 中需�
 
 module.exports = {
   transpileDependencies: ['json-editor-vue'],
+}
+```
+
+⚠ 仅 ≤ 4.5.14 版本需要：
+
+```js
+// vue.config.js
+
+module.exports = {
+  configureWebpack: {
+    module: {
+      rules: [
+        // 让 webpack 识别 `.mjs` 文件
+        {
+          test: /\.mjs$/,
+          include: /node_modules/,
+          type: 'javascript/auto',
+        },
+      ],
+    },
+  },
 }
 ```
 

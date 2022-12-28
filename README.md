@@ -30,8 +30,8 @@ English | [简体中文](./docs/README.zh-CN.md)
 
 - Support Vue 2.6 / 2.7 / 3
 - Support SSR (Nuxt 2 / 3)
+- Support microfrontends ([wujie](https://github.com/Tencent/wujie), [qiankun](https://github.com/umijs/qiankun), [single-spa](https://github.com/single-spa/single-spa) ...)
 - Support Vite, Vue CLI 3 / 4 / 5, CDN ...
-- Support microfrontends (like [wujie](https://github.com/Tencent/wujie))
 - Edit mode two-way binding
 - Local registration + local configuration, or global registration + global configuration (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
 
@@ -293,7 +293,7 @@ Vue.use(VCA)
 
 export default {
   components: { JsonEditorVue },
-  date() {
+  data() {
     return {
       value: undefined,
     }
@@ -708,6 +708,27 @@ module.exports = {
 }
 ```
 
+⚠ Only for version ≤ 4.5.14:
+
+```js
+// vue.config.js
+
+module.exports = {
+  configureWebpack: {
+    module: {
+      rules: [
+        // Getting webpack to recognize the `.mjs` file
+        {
+          test: /\.mjs$/,
+          include: /node_modules/,
+          type: 'javascript/auto',
+        },
+      ],
+    },
+  },
+}
+```
+
 <br>
 
 ### Vue CLI 3 (webpack 4)
@@ -760,7 +781,7 @@ module.exports = {
 ### Binding value difference between svelte-jsoneditor and json-editor-vue
 
 - svelte-jsoneditor: An object contains a stringified JSON or a parsed JSON, will do `JSON.parse` when passing as a stringified JSON.
-- json-editor-vue: JSON itself. What users see is what users get.
+- json-editor-vue: JSON itself. What user see is what user get.
 
 If you prefer the behavior of svelte-jsoneditor:
 
