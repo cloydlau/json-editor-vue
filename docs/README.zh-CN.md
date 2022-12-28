@@ -28,8 +28,8 @@
 
 - Vue 2.6 / 2.7 / 3 通用
 - 支持 SSR，Nuxt 2 / 3 通用
-- 支持 Vite，Vue CLI 3 / 4 / 5, CDN……
-- 支持微前端 ([wujie](https://github.com/Tencent/wujie), [qiankun](https://github.com/umijs/qiankun), [single-spa](https://github.com/single-spa/single-spa)……)
+- 支持 Vite，Vue CLI，webpack，CDN……
+- 支持微前端 ([wujie](https://github.com/Tencent/wujie)，[qiankun](https://github.com/umijs/qiankun)，[single-spa](https://github.com/single-spa/single-spa)……)
 - 编辑模式双向绑定
 - 局部注册 + 局部传参，也可以全局注册 + 全局传参 ([vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持)
 
@@ -48,7 +48,7 @@
 ### Vue 3
 
 ```shell
-npm add json-editor-vue vanilla-jsoneditor
+npm i json-editor-vue vanilla-jsoneditor
 ```
 
 #### 局部注册
@@ -160,7 +160,7 @@ createApp()
 ### Vue 2.7
 
 ```shell
-npm add json-editor-vue vanilla-jsoneditor
+npm i json-editor-vue vanilla-jsoneditor
 ```
 
 #### 局部注册
@@ -272,7 +272,7 @@ Vue.use(JsonEditorVue, {
 ### Vue 2.6 或更早版本
 
 ```shell
-npm add json-editor-vue vanilla-jsoneditor @vue/composition-api
+npm i json-editor-vue vanilla-jsoneditor @vue/composition-api
 ```
 
 #### 局部注册
@@ -406,7 +406,7 @@ Vue.use(JsonEditorVue, {
 ### Nuxt 3
 
 ```shell
-npm add json-editor-vue vanilla-jsoneditor
+npm i json-editor-vue vanilla-jsoneditor
 ```
 
 #### 局部注册
@@ -490,7 +490,7 @@ const value = ref()
 ### Nuxt 2 + Vue 2.7
 
 ```shell
-npm add json-editor-vue vanilla-jsoneditor
+npm i json-editor-vue vanilla-jsoneditor
 ```
 
 #### 局部注册
@@ -580,7 +580,7 @@ const value = ref()
 ### Nuxt 2 + Vue 2.6 或更早版本
 
 ```shell
-npm add json-editor-vue vanilla-jsoneditor @vue/composition-api
+npm i json-editor-vue vanilla-jsoneditor @vue/composition-api
 ```
 
 #### 局部注册
@@ -737,7 +737,7 @@ module.exports = {
 Vite 4 (Rollup 3) 默认的编译目标为 ES2020，所以在 webpack 4 中需要对 Vite 4 打包的依赖进行转译。
 
 ```shell
-npm add @babel/plugin-proposal-nullish-coalescing-operator @babel/plugin-proposal-optional-chaining -D
+npm i @babel/plugin-proposal-nullish-coalescing-operator @babel/plugin-proposal-optional-chaining -D
 ```
 
 ```js
@@ -763,6 +763,43 @@ module.exports = {
       .include.add(/node_modules/)
       .type('javascript/auto')
       .end()
+  },
+}
+```
+
+<br>
+
+### Vue CLI 2 & 1 (webpack 3)
+
+Vue CLI 2 & 1 从 [vuejs-templates/webpack](https://github.com/vuejs-templates/webpack) 拉取模板。
+
+```shell
+npm i @babel/core@latest @babel/preset-env@latest babel-loader@latest -D
+```
+
+```js
+// babel.config.js
+
+module.exports = {
+  presets: [
+    '@babel/preset-env',
+  ],
+}
+```
+
+```js
+// webpack.base.conf.js
+
+module.exports = {
+  module: {
+    rules: [
+      // 让 webpack 识别 `.mjs` 文件
+      {
+        test: /\.mjs$/,
+        loader: 'babel-loader',
+        include: [resolve('src'), resolve('test'), resolve('node_modules/json-editor-vue')],
+      },
+    ],
   },
 }
 ```
@@ -851,7 +888,7 @@ import JsonEditorVue from 'json-editor-vue'
 
 1. [安装 Deno](https://x.deno.js.cn/#%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88)
 
-2. `npm add pnpm @cloydlau/scripts -g; pnpm i`
+2. `npm i pnpm @cloydlau/scripts -g; pnpm i`
 
 3. 启动
 

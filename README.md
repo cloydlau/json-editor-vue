@@ -30,7 +30,7 @@ English | [简体中文](./docs/README.zh-CN.md)
 
 - Support Vue 2.6 / 2.7 / 3
 - Support SSR (Nuxt 2 / 3)
-- Support Vite, Vue CLI 3 / 4 / 5, CDN...
+- Support Vite, Vue CLI, webpack, CDN...
 - Support microfrontends ([wujie](https://github.com/Tencent/wujie), [qiankun](https://github.com/umijs/qiankun), [single-spa](https://github.com/single-spa/single-spa)...)
 - Edit mode two-way binding
 - Local registration + local configuration, or global registration + global configuration (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
@@ -50,7 +50,7 @@ English | [简体中文](./docs/README.zh-CN.md)
 ### Vue 3
 
 ```shell
-npm add json-editor-vue vanilla-jsoneditor
+npm i json-editor-vue vanilla-jsoneditor
 ```
 
 #### Local Registration
@@ -162,7 +162,7 @@ createApp()
 ### Vue 2.7
 
 ```shell
-npm add json-editor-vue vanilla-jsoneditor
+npm i json-editor-vue vanilla-jsoneditor
 ```
 
 #### Local Registration
@@ -274,7 +274,7 @@ Vue.use(JsonEditorVue, {
 ### Vue 2.6 or Earlier
 
 ```shell
-npm add json-editor-vue vanilla-jsoneditor @vue/composition-api
+npm i json-editor-vue vanilla-jsoneditor @vue/composition-api
 ```
 
 #### Local Registration
@@ -408,7 +408,7 @@ Vue.use(JsonEditorVue, {
 ### Nuxt 3
 
 ```shell
-npm add json-editor-vue vanilla-jsoneditor
+npm i json-editor-vue vanilla-jsoneditor
 ```
 
 #### Local Registration
@@ -492,7 +492,7 @@ const value = ref()
 ### Nuxt 2 + Vue 2.7
 
 ```shell
-npm add json-editor-vue vanilla-jsoneditor
+npm i json-editor-vue vanilla-jsoneditor
 ```
 
 #### Local Registration
@@ -582,7 +582,7 @@ const value = ref()
 ### Nuxt 2 + Vue 2.6 or Earlier
 
 ```shell
-npm add json-editor-vue vanilla-jsoneditor @vue/composition-api
+npm i json-editor-vue vanilla-jsoneditor @vue/composition-api
 ```
 
 #### Local Registration
@@ -739,7 +739,7 @@ module.exports = {
 Vite 4 (Rollup 3) uses ES2020 as compiler target by default, therefore Vite-4-built outputs should be transpiled in webpack 4.
 
 ```shell
-npm add @babel/plugin-proposal-nullish-coalescing-operator @babel/plugin-proposal-optional-chaining -D
+npm i @babel/plugin-proposal-nullish-coalescing-operator @babel/plugin-proposal-optional-chaining -D
 ```
 
 ```js
@@ -765,6 +765,43 @@ module.exports = {
       .include.add(/node_modules/)
       .type('javascript/auto')
       .end()
+  },
+}
+```
+
+<br>
+
+### Vue CLI 2 & 1 (webpack 3)
+
+Vue CLI 2 & 1 pull the template from [vuejs-templates/webpack](https://github.com/vuejs-templates/webpack).
+
+```shell
+npm i @babel/core@latest @babel/preset-env@latest babel-loader@latest -D
+```
+
+```js
+// babel.config.js
+
+module.exports = {
+  presets: [
+    '@babel/preset-env',
+  ],
+}
+```
+
+```js
+// webpack.base.conf.js
+
+module.exports = {
+  module: {
+    rules: [
+      // Getting webpack to recognize the `.mjs` file
+      {
+        test: /\.mjs$/,
+        loader: 'babel-loader',
+        include: [resolve('src'), resolve('test'), resolve('node_modules/json-editor-vue')],
+      },
+    ],
   },
 }
 ```
@@ -853,7 +890,7 @@ Detailed changes for each release are documented in the [release notes](https://
 
 1. [Install Deno](https://deno.land/#installation)
 
-2. `npm add pnpm @cloydlau/scripts -g; pnpm i`
+2. `npm i pnpm @cloydlau/scripts -g; pnpm i`
 
 3. Start
 
