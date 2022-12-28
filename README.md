@@ -30,8 +30,8 @@ English | [简体中文](./docs/README.zh-CN.md)
 
 - Support Vue 2.6 / 2.7 / 3
 - Support SSR (Nuxt 2 / 3)
-- Support microfrontends ([wujie](https://github.com/Tencent/wujie), [qiankun](https://github.com/umijs/qiankun), [single-spa](https://github.com/single-spa/single-spa) ...)
 - Support Vite, Vue CLI 3 / 4 / 5, CDN ...
+- Support microfrontends ([wujie](https://github.com/Tencent/wujie), [qiankun](https://github.com/umijs/qiankun), [single-spa](https://github.com/single-spa/single-spa) ...)
 - Edit mode two-way binding
 - Local registration + local configuration, or global registration + global configuration (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
 
