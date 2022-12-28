@@ -700,6 +700,8 @@ Ready to use right out of the box.
 
 Vite 4 (Rollup 3) uses ES2020 as compiler target by default, therefore Vite-4-built outputs should be transpiled in webpack 4.
 
+≥ v4.5.15
+
 ```js
 // vue.config.js
 
@@ -708,7 +710,7 @@ module.exports = {
 }
 ```
 
-⚠ Only for version ≤ 4.5.14:
+＜ v4.5.15
 
 ```js
 // vue.config.js

@@ -698,6 +698,8 @@ export default {
 
 Vite 4 (Rollup 3) 默认的编译目标为 ES2020，所以在 webpack 4 中需要对 Vite 4 打包的依赖进行转译。
 
+≥ v4.5.15
+
 ```js
 // vue.config.js
 
@@ -706,7 +708,7 @@ module.exports = {
 }
 ```
 
-⚠ 仅 ≤ 4.5.14 版本：
+＜ v4.5.15
 
 ```js
 // vue.config.js
