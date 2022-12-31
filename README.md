@@ -33,7 +33,7 @@ English | [简体中文](./docs/README.zh-CN.md)
 - Support Vite, Vue CLI, webpack, CDN...
 - Support microfrontends ([wujie](https://github.com/Tencent/wujie), [qiankun](https://github.com/umijs/qiankun), [single-spa](https://github.com/single-spa/single-spa)...)
 - Edit mode two-way binding
-- Local registration + local configuration, or global registration + global configuration (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
+- Local registration & configuration, or global registration & configuration (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
 
 <br>
 

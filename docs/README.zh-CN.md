@@ -27,11 +27,11 @@
 ## 特性
 
 - Vue 2.6/2.7/3 通用
-- 支持 SSR，Nuxt 2/3 通用
+- 支持 SSR (Nuxt 2/3 通用)
 - 支持 Vite，Vue CLI，webpack，CDN……
 - 支持微前端 ([wujie](https://github.com/Tencent/wujie)，[qiankun](https://github.com/umijs/qiankun)，[single-spa](https://github.com/single-spa/single-spa)……)
 - 编辑模式双向绑定
-- 局部注册 + 局部传参，也可以全局注册 + 全局传参 ([vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持)
+- 局部注册并传参，或全局注册并传参 ([vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持)
 
 <br>
 
