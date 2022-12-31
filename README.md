@@ -889,13 +889,8 @@ Detailed changes for each release are documented in the [release notes](https://
 ## Develop
 
 1. [Install Deno](https://deno.land/#installation)
-
-2. `npm i pnpm @cloydlau/scripts -g; pnpm i`
-
-3. Start
-
-    - `pnpm dev3`
-    - `pnpm dev2.7`
-    - `pnpm dev2.6`
+2. Run `npm i -g @cloydlau/scripts`
+3. Run `cl i` and choose pnpm
+4. Run `cl dev3`/`cl dev2.7`/`cl dev2.6`
 
 <br>
