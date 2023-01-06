@@ -806,13 +806,13 @@ module.exports = {
 
 <br>
 
-## Props
+## 属性
 
 | 名称    | 说明                                                                                                 | 类型          | 默认值   |
 | ------- | ---------------------------------------------------------------------------------------------------- | ------------- | -------- |
 | v-model | 绑定值                                                                                               | `any`         |          |
 | mode    | 编辑模式，<br>在 Vue 3 中使用 `[v-model]:mode`，<br>在 Vue 2 中使用 `:mode[.sync]`                   | [Mode](#Mode) | `'tree'` |
-| ...     | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的参数（通过 attrs） |               |          |
+| ...     | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的参数 (通过 attrs) |               |          |
 
 ### svelte-jsoneditor 与 json-editor-vue 中绑定值的差异
 

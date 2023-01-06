@@ -51,7 +51,7 @@
   "peerDependencies": {
     "@vue/composition-api": ">=1",
     "vanilla-jsoneditor": ">=0",
-    "vue": "2 || 3"
+    "vue": "2||3"
   },
   "peerDependenciesMeta": {
     "@vue/composition-api": {
