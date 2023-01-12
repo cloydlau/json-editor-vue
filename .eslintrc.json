@@ -26,6 +26,7 @@
     "vue/no-deprecated-dollar-listeners-api": 0,
     "vue/component-options-name-casing": 0,
     "vue/no-deprecated-v-on-native-modifier": 0,
+    "vue/no-deprecated-dollar-scopedslots-api": 0,
     "vue/custom-event-name-casing": [
       "error",
       "kebab-case"
