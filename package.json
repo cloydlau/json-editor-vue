@@ -61,7 +61,7 @@
   "dependencies": {
     "lodash-es": "^4.17.21",
     "vue-demi": "^0.13.11",
-    "vue-global-config": "^0.3.1"
+    "vue-global-config": "^0.4.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.34.1",

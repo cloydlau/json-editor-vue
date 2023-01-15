@@ -1,4 +1,4 @@
-import { useGlobalConfig } from 'vue-global-config'
+import { resolveConfig } from 'vue-global-config'
 import type { Plugin, install } from 'vue-demi'
 import Component from './Component'
 import type { Mode } from './Component'
@@ -25,22 +25,15 @@ const withInstall = <T, E extends Record<string, any>>(
 
 const globalProps: Record<string, any> = {}
 const globalAttrs: Record<string, any> = {}
-const globalListeners: Record<string, any> = {}
-const globalHooks: Record<string, any> = {}
 
 const ComponentWithInstall = withInstall(Component)
 
 ComponentWithInstall.install = (app: any, options = {}) => {
-  const { props, attrs, listeners, hooks } = useGlobalConfig(options, Component.props)
+  const { props, attrs } = resolveConfig(options, Component.props)
   Object.assign(globalProps, props)
   Object.assign(globalAttrs, attrs)
-  Object.assign(globalListeners, listeners)
-  Object.assign(globalHooks, hooks)
   app.component(ComponentWithInstall.name, ComponentWithInstall)
 }
 
+export { globalProps, globalAttrs, Mode }
 export default ComponentWithInstall
-export {
-  globalProps, globalAttrs, globalListeners, globalHooks,
-  Mode,
-}
