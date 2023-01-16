@@ -28,13 +28,13 @@ specifiers:
   vitest: ^0.25.8
   vue: ^3.2.45
   vue-demi: ^0.13.11
-  vue-global-config: ^0.3.1
+  vue-global-config: ^0.4.0
   zhlint: ^0.7.1
 
 dependencies:
   lodash-es: 4.17.21
   vue-demi: 0.13.11_vue@3.2.45
-  vue-global-config: 0.3.1_vue@3.2.45
+  vue-global-config: 0.4.0_vue@3.2.45
 
 devDependencies:
   '@antfu/eslint-config': 0.34.1_7uibuqfxkfaozanbtbziikiqje
@@ -860,7 +860,7 @@ packages:
     dev: true
 
   /@nodelib/fs.scandir/2.1.5:
-    resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
+    resolution: {integrity: sha1-dhnC6yGyVIP20WdUi0z9WnSIw9U=, tarball: '@nodelib/fs.scandir/download/@nodelib/fs.scandir-2.1.5.tgz'}
     engines: {node: '>= 8'}
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -1907,7 +1907,7 @@ packages:
     dev: true
 
   /concat-map/0.0.1:
-    resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
+    resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=, tarball: concat-map/download/concat-map-0.0.1.tgz}
     dev: true
 
   /console-browserify/1.2.0:
@@ -5341,7 +5341,7 @@ packages:
     dev: true
 
   /tty-browserify/0.0.1:
-    resolution: {integrity: sha512-C3TaO7K81YvjCgQH9Q1S3R3P3BtN3RIM8n+OvX4il1K1zgE8ZhI0op7kClgkxtutIE8hQrcrHBXvIheqKUUCxw==}
+    resolution: {integrity: sha1-PwUlHuF5BN/QZ3VGZw25ZRaCuBE=, tarball: tty-browserify/download/tty-browserify-0.0.1.tgz}
     dev: true
 
   /type-check/0.4.0:
@@ -5866,6 +5866,22 @@ packages:
       lodash-es: 4.17.21
       vue: 3.2.45
       vue-demi: 0.13.11_vue@3.2.45
+    dev: true
+
+  /vue-global-config/0.4.0_vue@3.2.45:
+    resolution: {integrity: sha512-UoFouTLUYGuHEEJFRgl29dzD0dDYtAEPRMDe8S0e08aB8vgfuD0ybW5WdPRTfTRChceHCn4eMQH2jFFVyi3Djw==}
+    peerDependencies:
+      '@vue/composition-api': '>=1'
+      vue: 2||3
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      change-case: 4.1.2
+      lodash-es: 4.17.21
+      vue: 3.2.45
+      vue-demi: 0.13.11_vue@3.2.45
+    dev: false
 
   /vue/3.2.45:
     resolution: {integrity: sha512-9Nx/Mg2b2xWlXykmCwiTUCWHbWIj53bnkizBxKai1g61f2Xit700A1ljowpTIM11e3uipOeiPcSqnmBg6gyiaA==}
