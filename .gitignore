@@ -10,3 +10,4 @@ TODOs.md
 .eslintcache
 .env.*
 .vitepress/cache
+.npmrc
