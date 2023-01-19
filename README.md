@@ -1,5 +1,3 @@
-English | [简体中文](./docs/README.zh-CN.md)
-
 <h1 align="center">
   <a href="https://npmjs.com/package/json-editor-vue" target="_blank" rel="noopener noreferrer">
     JSON Editor Vue <sup><img alt="version" src="https://versionbadg.es/cloydlau/json-editor-vue.svg"></sup>
@@ -8,6 +6,8 @@ English | [简体中文](./docs/README.zh-CN.md)
 
 <p align="center">
   JSON editor & viewer for Vue 2.6/2.7/3 & Nuxt 2/3.
+  <br>
+  English | <a href="./docs/README.zh-CN.md">简体中文</a>
   <br>
   <a href="https://cloydlau.github.io/demo/json-editor-vue.html">🕹 Playground</a>
 </p>

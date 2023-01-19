@@ -7,6 +7,8 @@
 <p align="center">
   JSON 编辑 & 预览工具，支持 Vue 2.6/2.7/3，支持 Nuxt 2/3。
   <br>
+  <a href="../README.md">English</a> | 简体中文
+  <br>
   <a href="https://cloydlau.github.io/demo/json-editor-vue.html">🕹 试玩</a>
 </p>
 
