@@ -57,7 +57,10 @@ npm i json-editor-vue vanilla-jsoneditor
 
 ```vue
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* 局部 props & attrs */}" />
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* 局部 props & attrs */}"
+  />
 </template>
 
 <script setup>
@@ -169,7 +172,10 @@ npm i json-editor-vue vanilla-jsoneditor
 
 ```vue
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* 局部 props & attrs */}" />
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* 局部 props & attrs */}"
+  />
 </template>
 
 <script setup>
@@ -281,7 +287,10 @@ npm i json-editor-vue vanilla-jsoneditor @vue/composition-api
 
 ```vue
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* 局部 props & attrs */}" />
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* 局部 props & attrs */}"
+  />
 </template>
 
 <script>
@@ -430,7 +439,10 @@ const attrs = useAttrs()
 ```vue
 <template>
   <client-only>
-    <JsonEditorVue v-model="value" v-bind="{/* 局部 props & attrs */}" />
+    <JsonEditorVue
+      v-model="value"
+      v-bind="{/* 局部 props & attrs */}"
+    />
   </client-only>
 </template>
 
@@ -517,7 +529,10 @@ export default {
 ```vue
 <template>
   <client-only>
-    <JsonEditorVue v-model="value" v-bind="{/* 局部 props & attrs */}" />
+    <JsonEditorVue
+      v-model="value"
+      v-bind="{/* 局部 props & attrs */}"
+    />
   </client-only>
 </template>
 
@@ -607,7 +622,10 @@ export default {
 ```vue
 <template>
   <client-only>
-    <JsonEditorVue v-model="value" v-bind="{/* 局部 props & attrs */}" />
+    <JsonEditorVue
+      v-model="value"
+      v-bind="{/* 局部 props & attrs */}"
+    />
   </client-only>
 </template>
 
@@ -810,11 +828,11 @@ module.exports = {
 
 ## 属性
 
-| 名称    | 说明                                                                                                 | 类型          | 默认值   |
-| ------- | ---------------------------------------------------------------------------------------------------- | ------------- | -------- |
-| v-model | 绑定值                                                                                               | `any`         |          |
-| mode    | 编辑模式，<br>在 Vue 3 中使用 `[v-model]:mode`，<br>在 Vue 2 中使用 `:mode[.sync]`                   | [Mode](#Mode) | `'tree'` |
-| ...     | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的参数 (通过 attrs) |               |          |
+| 名称    | 说明                                                                                   | 类型          | 默认值   |
+| ------- | -------------------------------------------------------------------------------------- | ------------- | -------- |
+| v-model | 绑定值                                                                                 | `any`         |          |
+| mode    | 编辑模式，<br>在 Vue 3 中使用 `[v-model]:mode`，<br>在 Vue 2 中使用 `:mode[.sync]`     | [Mode](#Mode) | `'tree'` |
+| ...     | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的参数 |               |          |
 
 ### svelte-jsoneditor 与 json-editor-vue 中绑定值的差异
 
@@ -825,7 +843,8 @@ module.exports = {
 
 ```html
 <JsonEditorVue
-  :content="content" :onChange="updatedContent => {
+  :content="content"
+  :onChange="updatedContent => {
     content = updatedContent
   }"
 />

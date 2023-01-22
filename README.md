@@ -57,7 +57,10 @@ npm i json-editor-vue vanilla-jsoneditor
 
 ```vue
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* local props & attrs */}" />
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* local props & attrs */}"
+  />
 </template>
 
 <script setup>
@@ -169,7 +172,10 @@ npm i json-editor-vue vanilla-jsoneditor
 
 ```vue
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* local props & attrs */}" />
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* local props & attrs */}"
+  />
 </template>
 
 <script setup>
@@ -281,7 +287,10 @@ npm i json-editor-vue vanilla-jsoneditor @vue/composition-api
 
 ```vue
 <template>
-  <JsonEditorVue v-model="value" v-bind="{/* local props & attrs */}" />
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* local props & attrs */}"
+  />
 </template>
 
 <script>
@@ -430,7 +439,10 @@ const attrs = useAttrs()
 ```vue
 <template>
   <client-only>
-    <JsonEditorVue v-model="value" v-bind="{/* local props & attrs */}" />
+    <JsonEditorVue
+      v-model="value"
+      v-bind="{/* local props & attrs */}"
+    />
   </client-only>
 </template>
 
@@ -517,7 +529,10 @@ export default {
 ```vue
 <template>
   <client-only>
-    <JsonEditorVue v-model="value" v-bind="{/* local props & attrs */}" />
+    <JsonEditorVue
+      v-model="value"
+      v-bind="{/* local props & attrs */}"
+    />
   </client-only>
 </template>
 
@@ -607,7 +622,10 @@ export default {
 ```vue
 <template>
   <client-only>
-    <JsonEditorVue v-model="value" v-bind="{/* local props & attrs */}" />
+    <JsonEditorVue
+      v-model="value"
+      v-bind="{/* local props & attrs */}"
+    />
   </client-only>
 </template>
 
@@ -827,7 +845,8 @@ If you prefer the behavior of svelte-jsoneditor:
 
 ```html
 <JsonEditorVue
-  :content="content" :onChange="updatedContent => {
+  :content="content"
+  :onChange="updatedContent => {
     content = updatedContent
   }"
 />
