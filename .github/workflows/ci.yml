@@ -32,13 +32,7 @@ jobs:
 
       - run: PUPPETEER_SKIP_DOWNLOAD=1 pnpm install
 
-      - name: Run CasePolice
-        run: npx case-police --fix
-
-      - name: Run zhlint
-        run: npx zhlint docs/README.zh-CN.md --fix
-
-      - name: Run ESLint
+      - name: Lint
         run: npx lint-staged
 
   unit-test:

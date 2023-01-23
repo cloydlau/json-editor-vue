@@ -46,7 +46,7 @@
     "build": "vite build",
     "test-unit": "vitest run",
     "coverage": "vitest run --coverage",
-    "release": "npx case-police --fix && npx zhlint docs/README.zh-CN.md --fix && npx lint-staged && pnpm test-unit && pnpm build && cl release"
+    "release": "npx lint-staged && pnpm test-unit && pnpm build && cl release"
   },
   "peerDependencies": {
     "@vue/composition-api": ">=1",
@@ -64,7 +64,6 @@
     "vue-global-config": "^0.4.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.34.1",
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
     "@types/lodash-es": "^4.17.6",
@@ -75,12 +74,12 @@
     "@vue/compiler-sfc": "^3.2.45",
     "@vue/test-utils": "^2.2.7",
     "case-police": "^0.5.10",
-    "eslint": "^8.32.0",
     "happy-dom": "^8.1.4",
     "husky": "^8.0.3",
     "json-editor-vue": "^0.10.5",
     "lint-staged": "^13.1.0",
     "lossless-json": "^2.0.5",
+    "rome": "^11.0.0",
     "typescript": "^4.9.4",
     "unplugin-auto-import": "^0.12.1",
     "vanilla-jsoneditor": "^0.11.8",
@@ -92,8 +91,10 @@
     "zhlint": "^0.7.1"
   },
   "lint-staged": {
-    "{src,__tests__}/**.*": [
-      "eslint --fix"
+    "{src,__tests__}/**.*": "rome check",
+    "*.md": [
+      "case-police --fix",
+      "zhlint --fix"
     ]
   },
   "publishConfig": {
