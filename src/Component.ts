@@ -3,17 +3,7 @@ import { globalAttrs, globalProps } from './install'
 import { debounce } from 'lodash-es'
 import { JSONEditor } from 'vanilla-jsoneditor'
 import type { Content, JSONContent, TextContent } from 'vanilla-jsoneditor'
-import {
-	defineComponent,
-	getCurrentInstance,
-	h,
-	isVue3,
-	onMounted,
-	onUnmounted,
-	ref,
-	unref,
-	watch,
-} from 'vue-demi'
+import { defineComponent, getCurrentInstance, h, isVue3, onMounted, onUnmounted, ref, unref, watch } from 'vue-demi'
 import type { PropType } from 'vue-demi'
 import { conclude } from 'vue-global-config'
 
@@ -74,15 +64,11 @@ export default defineComponent({
 		const initialMode = conclude([props.mode, globalProps.mode], {
 			type: String as PropType<Mode>,
 		})
-		const initialValue = conclude([
-			props[modelValueProp],
-			globalProps[modelValueProp],
-		])
+		const initialValue = conclude([props[modelValueProp], globalProps[modelValueProp]])
 		const initialBoolAttrs = Object.fromEntries(
-			Array.from(boolAttrs, (boolAttr) => [
-				boolAttr,
-				conclude([props[boolAttr], globalProps[boolAttr]]),
-			]).filter(([, v]) => v !== undefined),
+			Array.from(boolAttrs, (boolAttr) => [boolAttr, conclude([props[boolAttr], globalProps[boolAttr]])]).filter(
+				([, v]) => v !== undefined,
+			),
 		)
 
 		const onChange = debounce((updatedContent: Content) => {
@@ -103,11 +89,10 @@ export default defineComponent({
 			emit('update:mode', mode)
 		}
 
-		const mergeFunction =
-			(previousValue: Function, currentValue: Function) => (...args: any) => {
-				previousValue(...args)
-				currentValue(...args)
-			}
+		const mergeFunction = (previousValue: Function, currentValue: Function) => (...args: any) => {
+			previousValue(...args)
+			currentValue(...args)
+		}
 
 		const initialAttrs = conclude(
 			[
@@ -168,11 +153,7 @@ export default defineComponent({
 			() => Array.from(boolAttrs, (boolAttr) => props[boolAttr]),
 			(values) => {
 				jsonEditor.value.updateProps(
-					Object.fromEntries(
-						Array.from(values, (v, i) => [boolAttrs[i], v]).filter(
-							([, v]) => v !== undefined,
-						),
-					),
+					Object.fromEntries(Array.from(values, (v, i) => [boolAttrs[i], v]).filter(([, v]) => v !== undefined)),
 				)
 			},
 		)
