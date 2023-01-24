@@ -541,7 +541,7 @@ import { ref } from 'vue'
 
 const JsonEditorVue = () => process.client
   ? import('json-editor-vue')
-  : Promise.resolve({ render: h => h('div') })
+  : Promise.resolve({ render: (h) => h('div') })
 
 const value = ref()
 </script>
@@ -638,7 +638,7 @@ export default {
   components: {
     JsonEditorVue: () => process.client
       ? import('json-editor-vue')
-      : Promise.resolve({ render: h => h('div') }),
+      : Promise.resolve({ render: (h) => h('div') }),
   },
   data() {
     return {
@@ -828,13 +828,13 @@ module.exports = {
 
 ## Props
 
-| Name    | Description                                                                                   | Type          | Default  |
-| ------- | --------------------------------------------------------------------------------------------- | ------------- | -------- |
-| v-model | binding value                                                                                 | `any`         |          |
-| mode    | edit mode, <br>use `[v-model]:mode` in Vue 3 <br>or `:mode[.sync]` in Vue 2                   | [Mode](#Mode) | `'tree'` |
-| ...     | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |               |          |
+| Name                                                   | Description                                                                                   | Type          | Default  |
+| ------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ------------- | -------- |
+| v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | binding value                                                                                 | any           |          |
+| mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | edit mode                                                                                     | [Mode](#Mode) | `'tree'` |
+| ...                                                    | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |               |          |
 
-> ⚠ kebab-case is required for tag & prop name when using from CDN
+> ⚠ kebab-case is required for tag & prop name when using from CDN.
 
 ### Binding value difference between svelte-jsoneditor and json-editor-vue
 
@@ -846,7 +846,7 @@ If you prefer the behavior of svelte-jsoneditor:
 ```html
 <JsonEditorVue
   :content="content"
-  :onChange="updatedContent => {
+  :onChange="(updatedContent) => {
     content = updatedContent
   }"
 />

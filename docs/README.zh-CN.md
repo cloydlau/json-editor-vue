@@ -541,7 +541,7 @@ import { ref } from 'vue'
 
 const JsonEditorVue = () => process.client
   ? import('json-editor-vue')
-  : Promise.resolve({ render: h => h('div') })
+  : Promise.resolve({ render: (h) => h('div') })
 
 const value = ref()
 </script>
@@ -638,7 +638,7 @@ export default {
   components: {
     JsonEditorVue: () => process.client
       ? import('json-editor-vue')
-      : Promise.resolve({ render: h => h('div') }),
+      : Promise.resolve({ render: (h) => h('div') }),
   },
   data() {
     return {
@@ -828,11 +828,11 @@ module.exports = {
 
 ## 属性
 
-| 名称    | 说明                                                                                   | 类型          | 默认值   |
-| ------- | -------------------------------------------------------------------------------------- | ------------- | -------- |
-| v-model | 绑定值                                                                                 | `any`         |          |
-| mode    | 编辑模式，<br>在 Vue 3 中使用 `[v-model]:mode`，<br>在 Vue 2 中使用 `:mode[.sync]`     | [Mode](#Mode) | `'tree'` |
-| ...     | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的参数 |               |          |
+| 名称                                                   | 说明                                                                                   | 类型          | 默认值   |
+| ------------------------------------------------------ | -------------------------------------------------------------------------------------- | ------------- | -------- |
+| v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | 绑定值                                                                                 | any           |          |
+| mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | 编辑模式                                                                               | [Mode](#Mode) | `'tree'` |
+| ...                                                    | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的属性 |               |          |
 
 ### svelte-jsoneditor 与 json-editor-vue 中绑定值的差异
 
@@ -844,7 +844,7 @@ module.exports = {
 ```html
 <JsonEditorVue
   :content="content"
-  :onChange="updatedContent => {
+  :onChange="(updatedContent) => {
     content = updatedContent
   }"
 />
@@ -852,15 +852,15 @@ module.exports = {
 
 > 详情见 https://github.com/josdejong/svelte-jsoneditor/pull/166。
 
-### 布尔类型参数
+### 布尔类型属性
 
-仅写上 svelte-jsoneditor 的布尔类型参数如 `readOnly` 但不传值，会隐式转换为 `true`：
+仅写上 svelte-jsoneditor 的布尔类型属性如 `readOnly` 但不传值，会隐式转换为 `true`：
 
 - ✔️ `<JsonEditorVue readOnly />`
 
 - ✔️ `<JsonEditorVue :readOnly="true" />`
 
-> 通过 CDN 使用时，标签、prop 名称都必须使用短横线命名
+> 通过 CDN 使用时，标签、属性名称都必须使用短横线命名。
 
 <br>
 
