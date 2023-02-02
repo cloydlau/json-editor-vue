@@ -514,6 +514,9 @@ npm i json-editor-vue vanilla-jsoneditor
 
 export default {
   build: {
+    // Vite 4 (Rollup 3) uses ES2020 as compiler target by default
+    // Therefore Vite-4-built outputs should be transpiled in webpack 4
+    transpile: ['json-editor-vue'],
     extend(config) {
       // Getting webpack to recognize the `.mjs` file
       config.module.rules.push({
@@ -555,6 +558,9 @@ const value = ref()
 export default {
   plugins: ['~/plugins/JsonEditorVue.client'],
   build: {
+    // Vite 4 (Rollup 3) uses ES2020 as compiler target by default
+    // Therefore Vite-4-built outputs should be transpiled in webpack 4
+    transpile: ['json-editor-vue'],
     extend(config) {
       // Getting webpack to recognize the `.mjs` file
       config.module.rules.push({
@@ -607,6 +613,9 @@ npm i json-editor-vue vanilla-jsoneditor @vue/composition-api
 
 export default {
   build: {
+    // Vite 4 (Rollup 3) uses ES2020 as compiler target by default
+    // Therefore Vite-4-built outputs should be transpiled in webpack 4
+    transpile: ['json-editor-vue'],
     extend(config) {
       // Getting webpack to recognize the `.mjs` file
       config.module.rules.push({
@@ -657,6 +666,9 @@ export default {
 export default {
   plugins: ['~/plugins/JsonEditorVue.client'],
   build: {
+    // Vite 4 (Rollup 3) uses ES2020 as compiler target by default
+    // Therefore Vite-4-built outputs should be transpiled in webpack 4
+    transpile: ['json-editor-vue'],
     extend(config) {
       // Getting webpack to recognize the `.mjs` file
       config.module.rules.push({
@@ -716,14 +728,14 @@ Ready to use right out of the box.
 
 ### Vue CLI 4 (webpack 4)
 
-Vite 4 (Rollup 3) uses ES2020 as compiler target by default, therefore Vite-4-built outputs should be transpiled in webpack 4.
-
 ≥ v4.5.15
 
 ```js
 // vue.config.js
 
 module.exports = {
+  // Vite 4 (Rollup 3) uses ES2020 as compiler target by default
+  // Therefore Vite-4-built outputs should be transpiled in webpack 4
   transpileDependencies: ['json-editor-vue'],
 }
 ```
@@ -734,6 +746,8 @@ module.exports = {
 // vue.config.js
 
 module.exports = {
+  // Vite 4 (Rollup 3) uses ES2020 as compiler target by default
+  // Therefore Vite-4-built outputs should be transpiled in webpack 4
   transpileDependencies: ['json-editor-vue'],
   configureWebpack: {
     module: {
@@ -754,8 +768,6 @@ module.exports = {
 
 ### Vue CLI 3 (webpack 4)
 
-Vite 4 (Rollup 3) uses ES2020 as compiler target by default, therefore Vite-4-built outputs should be transpiled in webpack 4.
-
 ```shell
 npm i @babel/plugin-proposal-nullish-coalescing-operator @babel/plugin-proposal-optional-chaining -D
 ```
@@ -775,6 +787,8 @@ module.exports = {
 // vue.config.js
 
 module.exports = {
+  // Vite 4 (Rollup 3) uses ES2020 as compiler target by default
+  // Therefore Vite-4-built outputs should be transpiled in webpack 4
   transpileDependencies: ['json-editor-vue'],
   chainWebpack(config) {
     // Getting webpack to recognize the `.mjs` file
