@@ -124,9 +124,9 @@ createApp()
 </html>
 ```
 
-#### CDN + UMD
+#### CDN + IIFE
 
-> ⚠ 暂不支持 (vanilla-jsoneditor 不提供 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+> ⚠ 暂不支持 (vanilla-jsoneditor 不提供 IIFE 或 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
 
 ```html
 <!DOCTYPE html>
@@ -239,9 +239,9 @@ Vue.use(JsonEditorVue, {
 </html>
 ```
 
-#### CDN + UMD
+#### CDN + IIFE
 
-> ⚠ 暂不支持 (vanilla-jsoneditor 不提供 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+> ⚠ 暂不支持 (vanilla-jsoneditor 不提供 IIFE 或 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
 
 ```html
 <!DOCTYPE html>
@@ -372,9 +372,9 @@ Vue.use(JsonEditorVue, {
 </html>
 ```
 
-#### CDN + UMD
+#### CDN + IIFE
 
-> ⚠ 暂不支持 (vanilla-jsoneditor 不提供 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+> ⚠ 暂不支持 (vanilla-jsoneditor 不提供 IIFE 或 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
 
 ```html
 <!DOCTYPE html>

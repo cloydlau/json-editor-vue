@@ -124,9 +124,9 @@ createApp()
 </html>
 ```
 
-#### CDN + UMD
+#### CDN + IIFE
 
-> ⚠ Not yet supported because vanilla-jsoneditor does not export UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
+> ⚠ Not yet supported because vanilla-jsoneditor does not export IIFE or UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
 
 ```html
 <!DOCTYPE html>
@@ -239,9 +239,9 @@ Vue.use(JsonEditorVue, {
 </html>
 ```
 
-#### CDN + UMD
+#### CDN + IIFE
 
-> ⚠ Not yet supported because vanilla-jsoneditor does not export UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
+> ⚠ Not yet supported because vanilla-jsoneditor does not export IIFE or UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
 
 ```html
 <!DOCTYPE html>
@@ -372,9 +372,9 @@ Vue.use(JsonEditorVue, {
 </html>
 ```
 
-#### CDN + UMD
+#### CDN + IIFE
 
-> ⚠ Not yet supported because vanilla-jsoneditor does not export UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
+> ⚠ Not yet supported because vanilla-jsoneditor does not export IIFE or UMD, please leave a message [here](https://github.com/josdejong/svelte-jsoneditor/discussions/196) if you need it.
 
 ```html
 <!DOCTYPE html>
