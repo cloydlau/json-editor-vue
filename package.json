@@ -5,7 +5,7 @@
   "private": false,
   "packageManager": "pnpm@7.26.3",
   "description": "JSON editor & viewer for Vue 2.6/2.7/3 & Nuxt 2/3.",
-  "author": "cloydlau",
+  "author": "Cloyd Lau",
   "license": "MIT",
   "repository": "https://github.com/cloydlau/json-editor-vue",
   "keywords": [
