@@ -15,7 +15,7 @@
     "@babel/plugin-proposal-nullish-coalescing-operator": "latest",
     "@babel/plugin-proposal-optional-chaining": "latest",
     "@vue/cli-plugin-babel": "3",
-    "@vue/cli-service": "3",
+    "@vue/cli-service": "5",
     "vue-template-compiler": "2"
   }
 }
