@@ -3,7 +3,7 @@
   "PascalCasedName": "JsonEditorVue",
   "version": "0.10.5",
   "private": false,
-  "packageManager": "pnpm@7.26.3",
+  "packageManager": "pnpm@7.28.0",
   "description": "JSON editor & viewer for Vue 2.6/2.7/3 & Nuxt 2/3.",
   "author": "Cloyd Lau",
   "license": "MIT",
@@ -68,10 +68,8 @@
     "@commitlint/config-conventional": "latest",
     "@types/lodash-es": "latest",
     "@types/node": "latest",
-    "@vitejs/plugin-vue": "latest",
     "@vitest/coverage-c8": "latest",
     "@vitest/ui": "latest",
-    "@vue/compiler-sfc": "latest",
     "@vue/test-utils": "latest",
     "case-police": "latest",
     "happy-dom": "latest",
@@ -88,7 +86,9 @@
     "vitepress": "latest",
     "vitest": "latest",
     "vue": "latest",
-    "zhlint": "latest"
+    "zhlint": "latest",
+    "@vitejs/plugin-vue": "latest",
+    "@vue/compiler-sfc": "latest"
   },
   "lint-staged": {
     "{src,__tests__}/**.*": "rome check",
