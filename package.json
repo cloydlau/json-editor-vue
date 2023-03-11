@@ -91,7 +91,7 @@
     "@vue/compiler-sfc": "latest"
   },
   "lint-staged": {
-    "{src,__tests__}/**.*": "rome check",
+    "{src,__tests__}/**.{js,ts}": "rome check",
     "*.md": [
       "case-police --fix",
       "zhlint --fix"
