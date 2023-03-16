@@ -103,10 +103,10 @@ createApp()
   <script type="importmap">
     {
       "imports": {
-        "vue": "https://unpkg.com/vue/dist/vue.esm-browser.prod.js",
-        "vue-demi": "https://unpkg.com/vue-demi/lib/v3/index.mjs",
-        "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
-        "json-editor-vue": "https://unpkg.com/json-editor-vue@0.10/dist/json-editor-vue.mjs"
+        "vue": "https://cdn.jsdelivr.net/npm/vue/dist/vue.esm-browser.prod.js",
+        "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v3/index.mjs",
+        "vanilla-jsoneditor": "https://cdn.jsdelivr.net/npm/vanilla-jsoneditor",
+        "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.10/dist/json-editor-vue.mjs"
       }
     }
   </script>
@@ -143,10 +143,10 @@ createApp()
     <json-editor-vue v-model="value"></json-editor-vue>
   </div>
 
-  <script src="https://unpkg.com/vue"></script>
-  <script src="https://unpkg.com/vue-demi"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
   <!-- TODO --> <script src="./vanilla-jsoneditor.umd.js"></script>
-  <script src="https://unpkg.com/json-editor-vue@0.10"></script>
+  <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.10"></script>
   <script>
     const { createApp, ref } = Vue
 
@@ -216,10 +216,10 @@ Vue.use(JsonEditorVue, {
   <script type="importmap">
     {
       "imports": {
-        "vue": "https://unpkg.com/vue@2/dist/vue.esm.browser.min.js",
-        "vue-demi": "https://unpkg.com/vue-demi/lib/v2.7/index.mjs",
-        "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
-        "json-editor-vue": "https://unpkg.com/json-editor-vue@0.10/dist/json-editor-vue.mjs"
+        "vue": "https://cdn.jsdelivr.net/npm/vue@2/dist/vue.esm.browser.min.js",
+        "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v2.7/index.mjs",
+        "vanilla-jsoneditor": "https://cdn.jsdelivr.net/npm/vanilla-jsoneditor",
+        "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.10/dist/json-editor-vue.mjs"
       }
     }
   </script>
@@ -258,10 +258,10 @@ Vue.use(JsonEditorVue, {
     <json-editor-vue v-model="value"></json-editor-vue>
   </div>
 
-  <script src="https://unpkg.com/vue@2"></script>
-  <script src="https://unpkg.com/vue-demi"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
   <!-- TODO --> <script src="./vanilla-jsoneditor.umd.js"></script>
-  <script src="https://unpkg.com/json-editor-vue@0.10"></script>
+  <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.10"></script>
   <script>
     new Vue({
       components: { JsonEditorVue },
@@ -347,12 +347,12 @@ Vue.use(JsonEditorVue, {
   <script type="importmap">
     {
       "imports": {
-        "vue": "https://unpkg.com/vue@2.6/dist/vue.esm.browser.min.js",
-        "@vue/composition-api": "https://unpkg.com/@vue/composition-api/dist/vue-composition-api.mjs",
-        "@vue/composition-api/dist/vue-composition-api.mjs": "https://unpkg.com/@vue/composition-api/dist/vue-composition-api.mjs",
-        "vue-demi": "https://unpkg.com/vue-demi/lib/v2/index.mjs",
-        "vanilla-jsoneditor": "https://unpkg.com/vanilla-jsoneditor",
-        "json-editor-vue": "https://unpkg.com/json-editor-vue@0.10/dist/json-editor-vue.mjs"
+        "vue": "https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.esm.browser.min.js",
+        "@vue/composition-api": "https://cdn.jsdelivr.net/npm/@vue/composition-api/dist/vue-composition-api.mjs",
+        "@vue/composition-api/dist/vue-composition-api.mjs": "https://cdn.jsdelivr.net/npm/@vue/composition-api/dist/vue-composition-api.mjs",
+        "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v2/index.mjs",
+        "vanilla-jsoneditor": "https://cdn.jsdelivr.net/npm/vanilla-jsoneditor",
+        "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.10/dist/json-editor-vue.mjs"
       }
     }
   </script>
@@ -391,11 +391,11 @@ Vue.use(JsonEditorVue, {
     <json-editor-vue v-model="value"></json-editor-vue>
   </div>
 
-  <script src="https://unpkg.com/vue@2.6"></script>
-  <script src="https://unpkg.com/@vue/composition-api"></script>
-  <script src="https://unpkg.com/vue-demi"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@vue/composition-api"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
   <!-- TODO --> <script src="./vanilla-jsoneditor.umd.js"></script>
-  <script src="https://unpkg.com/json-editor-vue@0.10"></script>
+  <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.10"></script>
   <script>
     const { createApp, ref } = VueCompositionAPI
 
