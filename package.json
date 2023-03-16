@@ -3,7 +3,7 @@
   "PascalCasedName": "JsonEditorVue",
   "version": "0.10.5",
   "private": false,
-  "packageManager": "pnpm@7.28.0",
+  "packageManager": "pnpm@7.29.3",
   "description": "JSON editor & viewer for Vue 2.6/2.7/3 & Nuxt 2/3.",
   "author": "Cloyd Lau",
   "license": "MIT",
