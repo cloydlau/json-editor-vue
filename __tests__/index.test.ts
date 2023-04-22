@@ -1,6 +1,6 @@
-import JsonEditorVue from '../src/index'
 import { mount } from '@vue/test-utils'
 import { expect, test } from 'vitest'
+import JsonEditorVue from '../src/index'
 
 test('string value in text mode', async () => {
   const wrapper = mount(JsonEditorVue, {

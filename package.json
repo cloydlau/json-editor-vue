@@ -3,7 +3,6 @@
   "PascalCasedName": "JsonEditorVue",
   "version": "0.10.5",
   "private": false,
-  "packageManager": "pnpm@7.29.3",
   "description": "JSON editor & viewer for Vue 2.6/2.7/3 & Nuxt 2/3.",
   "author": "Cloyd Lau",
   "license": "MIT",
@@ -64,20 +63,23 @@
     "vue-global-config": "latest"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "latest",
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "@types/lodash-es": "latest",
     "@types/node": "latest",
+    "@vitejs/plugin-vue": "latest",
     "@vitest/coverage-c8": "latest",
     "@vitest/ui": "latest",
+    "@vue/compiler-sfc": "latest",
     "@vue/test-utils": "latest",
     "case-police": "latest",
+    "eslint": "latest",
     "happy-dom": "latest",
     "husky": "latest",
     "json-editor-vue": "latest",
     "lint-staged": "latest",
     "lossless-json": "latest",
-    "rome": "latest",
     "typescript": "latest",
     "unplugin-auto-import": "latest",
     "vanilla-jsoneditor": "latest",
@@ -86,16 +88,12 @@
     "vitepress": "latest",
     "vitest": "latest",
     "vue": "latest",
-    "zhlint": "latest",
-    "@vitejs/plugin-vue": "latest",
-    "@vue/compiler-sfc": "latest"
+    "zhlint": "latest"
   },
   "lint-staged": {
-    "{src,__tests__}/**.{js,ts}": "rome check",
-    "*.md": [
-      "case-police --fix",
-      "zhlint --fix"
-    ]
+    "*.md": "case-police --fix",
+    "docs/README.zh-CN.md": "zhlint --fix",
+    "*": "eslint --ignore-pattern 'demo/' --fix"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

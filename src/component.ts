@@ -1,11 +1,11 @@
-import { PascalCasedName as name } from '../package.json'
-import { globalAttrs, globalProps } from './install'
 import { debounce } from 'lodash-es'
 import { JSONEditor } from 'vanilla-jsoneditor'
 import type { Content, JSONContent, TextContent } from 'vanilla-jsoneditor'
 import { defineComponent, getCurrentInstance, h, isVue3, onMounted, onUnmounted, ref, unref, watch } from 'vue-demi'
 import type { PropType } from 'vue-demi'
 import { conclude } from 'vue-global-config'
+import { PascalCasedName as name } from '../package.json'
+import { globalAttrs, globalProps } from './install'
 
 export type Mode = 'text' | 'tree' | 'table'
 type ModelValueProp = 'modelValue' | 'value'
@@ -30,7 +30,7 @@ export default defineComponent({
       type: String as PropType<Mode>,
     },
     ...Object.fromEntries(
-      boolAttrs.map((boolAttr) => [
+      boolAttrs.map(boolAttr => [
         boolAttr,
         {
           type: Boolean as PropType<boolean>,
@@ -66,7 +66,7 @@ export default defineComponent({
     })
     const initialValue = conclude([props[modelValueProp], globalProps[modelValueProp]])
     const initialBoolAttrs = Object.fromEntries(
-      Array.from(boolAttrs, (boolAttr) => [boolAttr, conclude([props[boolAttr], globalProps[boolAttr]])]).filter(
+      Array.from(boolAttrs, boolAttr => [boolAttr, conclude([props[boolAttr], globalProps[boolAttr]])]).filter(
         ([, v]) => v !== undefined,
       ),
     )
@@ -128,10 +128,10 @@ export default defineComponent({
         // `jsonEditor.value` could be `undefined` in Vue 2.6 (dev environment)
         jsonEditor.value?.update(
           [undefined, ''].includes(newModelValue)
-            ? // `undefined` is not accepted by vanilla-jsoneditor
-              // The default value is `{ text: '' }`
-              // Only default value can clear the editor
-              { text: '' }
+            // `undefined` is not accepted by vanilla-jsoneditor
+            // The default value is `{ text: '' }`
+            // Only default value can clear the editor
+            ? { text: '' }
             : { json: newModelValue },
         )
       },
@@ -150,7 +150,7 @@ export default defineComponent({
     )
 
     watch(
-      () => Array.from(boolAttrs, (boolAttr) => props[boolAttr]),
+      () => Array.from(boolAttrs, boolAttr => props[boolAttr]),
       (values) => {
         jsonEditor.value.updateProps(
           Object.fromEntries(Array.from(values, (v, i) => [boolAttrs[i], v]).filter(([, v]) => v !== undefined)),
@@ -175,9 +175,9 @@ export default defineComponent({
         jsonEditor.value.updateProps(
           Object.getOwnPropertyNames(defaultFunctionAttrs).length > 0
             ? conclude([newAttrs, defaultFunctionAttrs], {
-                type: Object,
-                mergeFunction,
-              })
+              type: Object,
+              mergeFunction,
+            })
             : newAttrs,
         )
       },
@@ -202,7 +202,7 @@ export default defineComponent({
       if (!expose) {
         expose = (exposed: Record<string, any> | undefined): void => {
           for (const k in exposed) {
-            ;(currentInstance as any)[k] = unref(exposed[k])
+            (currentInstance as any)[k] = unref(exposed[k])
           }
         }
         expose({ jsonEditor })
