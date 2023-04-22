@@ -16,6 +16,7 @@ const boolAttrs = [
   'mainMenuBar',
   'navigationBar',
   'statusBar',
+  'askToFormat',
   'readOnly',
   'escapeControlCharacters',
   'escapeUnicodeCharacters',
