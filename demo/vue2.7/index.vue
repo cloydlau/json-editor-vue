@@ -19,8 +19,12 @@
     </p>
 
     <br>
-    <JsonEditorVue ref="jsonEditorVueRef" v-model="data.value" :mode.sync="data.mode"
-      :readOnly="data.readOnly" />
+    <JsonEditorVue
+      ref="jsonEditorVueRef"
+      v-model="data.value"
+      :mode.sync="data.mode"
+      :readOnly="data.readOnly"
+    />
 
     <br>
     <p>Mode</p>

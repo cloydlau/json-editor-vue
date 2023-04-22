@@ -1,9 +1,6 @@
 lockfileVersion: '6.0'
 
 dependencies:
-  '@vue/composition-api':
-    specifier: '>=1'
-    version: 1.7.1(vue@3.2.47)
   lodash-es:
     specifier: latest
     version: 4.17.21
@@ -42,6 +39,9 @@ devDependencies:
   '@vue/compiler-sfc':
     specifier: latest
     version: 3.2.47
+  '@vue/composition-api':
+    specifier: latest
+    version: 1.7.1(vue@3.2.47)
   '@vue/test-utils':
     specifier: latest
     version: 2.3.2(vue@3.2.47)

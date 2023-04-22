@@ -20,8 +20,11 @@
 
     <br>
     <JsonEditorVue
-      ref="jsonEditorVueRef" v-model="data.value" v-model:mode="data.mode"
-      :readOnly="data.readOnly" :parser="data.parser"
+      ref="jsonEditorVueRef"
+      v-model="data.value"
+      v-model:mode="data.mode"
+      :readOnly="data.readOnly"
+      :parser="data.parser"
     />
 
     <br>

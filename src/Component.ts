@@ -144,7 +144,8 @@ export default defineComponent({
     watch(
       () => props.mode,
       (mode) => {
-        jsonEditor.value.updateProps({
+        // `jsonEditor.value` could be `undefined` in Vue 2.6 (dev environment)
+        jsonEditor.value?.updateProps({
           mode,
         })
       },
