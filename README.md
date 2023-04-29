@@ -24,7 +24,7 @@
   <a href="https://github.com/cloydlau/json-editor-vue#develop"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
 </p>
 
-<img width="49.402%" src="./docs/dark-theme.png" alt="dark theme">&nbsp;<img width="49.402%" src="https://raw.githubusercontent.com/josdejong/svelte-jsoneditor/main/misc/jsoneditor_table_mode_screenshot.png" alt="table mode">
+<img width="48.5%" src="./docs/dark-theme.png" alt="dark theme">&nbsp;<img width="48.5%" src="https://raw.githubusercontent.com/josdejong/svelte-jsoneditor/main/misc/jsoneditor_table_mode_screenshot.png" alt="table mode">
 
 <br>
 
@@ -921,14 +921,5 @@ import JsonEditorVue from 'json-editor-vue'
 ## Changelog
 
 Detailed changes for each release are documented in the [release notes](https://github.com/cloydlau/json-editor-vue/releases).
-
-<br>
-
-## Develop
-
-1. [Install Deno](https://deno.land/manual/getting_started/installation)
-2. Run `npm i -g @cloydlau/scripts`
-3. Run `cl i` and choose pnpm
-4. Run `cl dev3` / `cl dev2.7` / `cl dev2.6`
 
 <br>
