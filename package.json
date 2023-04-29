@@ -55,11 +55,6 @@
       "optional": true
     }
   },
-  "dependencies": {
-    "lodash-es": "latest",
-    "vue-demi": "latest",
-    "vue-global-config": "latest"
-  },
   "devDependencies": {
     "@antfu/eslint-config": "latest",
     "@commitlint/cli": "latest",
@@ -79,6 +74,7 @@
     "husky": "latest",
     "json-editor-vue": "latest",
     "lint-staged": "latest",
+    "lodash-es": "latest",
     "lossless-json": "latest",
     "magicast": "latest",
     "prompts": "latest",
@@ -90,6 +86,8 @@
     "vitepress": "latest",
     "vitest": "latest",
     "vue": "latest",
+    "vue-demi": "latest",
+    "vue-global-config": "latest",
     "zhlint": "latest"
   },
   "lint-staged": {
