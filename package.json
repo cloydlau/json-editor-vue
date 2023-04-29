@@ -55,6 +55,9 @@
       "optional": true
     }
   },
+  "dependencies": {
+    "vue-demi": "latest"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "latest",
     "@commitlint/cli": "latest",
@@ -86,7 +89,6 @@
     "vitepress": "latest",
     "vitest": "latest",
     "vue": "latest",
-    "vue-demi": "latest",
     "vue-global-config": "latest",
     "zhlint": "latest"
   },
