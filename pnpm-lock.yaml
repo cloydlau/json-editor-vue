@@ -57,6 +57,9 @@ devDependencies:
   json-editor-vue:
     specifier: latest
     version: 0.10.6(@vue/composition-api@1.7.1)(vanilla-jsoneditor@0.17.1)(vue@3.2.47)
+  kolorist:
+    specifier: latest
+    version: 1.8.0
   lint-staged:
     specifier: latest
     version: 13.2.2
@@ -2347,8 +2350,8 @@ packages:
       domelementtype: 2.3.0
     dev: true
 
-  /domutils@3.0.1:
-    resolution: {integrity: sha512-z08c1l761iKhDFtfXO04C7kTdPBLi41zwOZl00WS8b5eiaebNpY00HKbztwBq+e3vyqWNwWF3mP9YLUeqIrF+Q==}
+  /domutils@3.1.0:
+    resolution: {integrity: sha512-H78uMmQtI2AhgDJjWeQmHwJJ2bLPD3GMmO7Zja/ZZh84wkm+4ut+IUnUdRa8uCGX88DiVx1j6FRe1XfxEgjEZA==}
     dependencies:
       dom-serializer: 2.0.0
       domelementtype: 2.3.0
@@ -3593,7 +3596,7 @@ packages:
     dependencies:
       domelementtype: 2.3.0
       domhandler: 5.0.3
-      domutils: 3.0.1
+      domutils: 3.1.0
       entities: 4.5.0
     dev: true
 
