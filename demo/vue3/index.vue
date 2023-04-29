@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>vue@{{ version }}</h1>
     <p>
       <button @click="data.value = '123'">
         设值为 string
@@ -38,6 +39,7 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, reactive, ref, version } from 'vue'
 import { parse, stringify } from 'lossless-json'
 import JsonEditorVue from '../../src'
 import type { Mode } from '../../src'

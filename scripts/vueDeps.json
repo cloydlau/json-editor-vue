@@ -1,0 +1,21 @@
+{
+  "3": {
+    "@vitejs/plugin-vue": "latest",
+    "@vue/compiler-sfc": "latest",
+    "@vue/test-utils": "latest",
+    "vue": "latest"
+  },
+  "2.7": {
+    "@vitejs/plugin-vue2": "latest",
+    "@vue/test-utils": "legacy",
+    "vue": "~2.7.14",
+    "vue-template-compiler": "~2.7.14"
+  },
+  "2.6": {
+    "@vue/composition-api": "latest",
+    "@vue/test-utils": "legacy",
+    "vite-plugin-vue2": "latest",
+    "vue": "~2.6.14",
+    "vue-template-compiler": "~2.6.14"
+  }
+}

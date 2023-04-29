@@ -1,19 +1,20 @@
 <template>
   <div>
+    <h1>vue@{{ version }}</h1>
     <p>
-      <button @click="data.value = '123'">
+      <button @click="value = '123'">
         设值为 string
       </button>
-      <button @click="data.value = { abc: '123' }">
+      <button @click="value = { abc: '123' }">
         设值为 JSON
       </button>
-      <button @click="data.value = undefined">
+      <button @click="value = undefined">
         清空
       </button>
-      <button @click="data.mode = data.mode === 'text' ? 'tree' : 'text'">
+      <button @click="mode = mode === 'text' ? 'tree' : 'text'">
         切换模式
       </button>
-      <button @click="data.readOnly = !data.readOnly">
+      <button @click="readOnly = !readOnly">
         切换只读状态
       </button>
     </p>
@@ -21,57 +22,36 @@
     <br>
     <JsonEditorVue
       ref="jsonEditorVueRef"
-      v-model="data.value"
-      :mode.sync="data.mode"
-      :readOnly="data.readOnly"
+      v-model="value"
+      :mode.sync="mode"
+      :readOnly="readOnly"
     />
 
     <br>
     <p>Mode</p>
-    {{ data.mode }}
+    {{ mode }}
     <p>Value</p>
-    {{ data.value }}
+    {{ value }}
     <p>Type</p>
-    {{ typeof data.value }}
+    {{ typeof value }}
   </div>
 </template>
 
-<script lang="ts">
+<script>
+import Vue from 'vue'
 import VueCompositionAPI from '@vue/composition-api'
 import JsonEditorVue from '../../src'
-import type { Mode } from '../../src'
 
 Vue.use(VueCompositionAPI)
 
-let hasSetup = false
-
 export default {
   components: { JsonEditorVue },
-  setup: () => {
-    if (hasSetup) {
-      return
-    } else {
-      hasSetup = true
-    }
-
-    const data = reactive<{
-      value: any
-      mode?: Mode
-      readOnly: boolean
-    }>({
+  data() {
+    return {
+      version: Vue.version,
       value: undefined,
       mode: undefined,
       readOnly: false,
-    })
-
-    /* const jsonEditorVueRef = ref()
-    onMounted(() => {
-      console.log(jsonEditorVueRef.value)
-    }) */
-
-    return {
-      // jsonEditorVueRef,
-      data,
     }
   },
   mounted() {
