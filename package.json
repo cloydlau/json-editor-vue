@@ -39,12 +39,12 @@
   ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "dev": "node ./scripts/dev.mjs",
+    "dev": "ts-node ./scripts/dev.mts",
     "doc": "vitepress dev --open /README",
     "build": "vite build",
     "test-unit": "vitest run",
     "coverage": "vitest run --coverage",
-    "release": " node ./scripts/release.mjs"
+    "release": "ts-node ./scripts/release.mts"
   },
   "peerDependencies": {
     "@vue/composition-api": ">=1",
@@ -63,8 +63,11 @@
     "@antfu/eslint-config": "latest",
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
+    "@types/cross-spawn": "latest",
     "@types/lodash-es": "latest",
     "@types/node": "latest",
+    "@types/prompts": "latest",
+    "@types/semver": "latest",
     "@vitejs/plugin-vue": "latest",
     "@vitest/coverage-c8": "latest",
     "@vitest/ui": "latest",
@@ -84,6 +87,7 @@
     "magicast": "latest",
     "prompts": "latest",
     "semver": "latest",
+    "ts-node": "latest",
     "typescript": "latest",
     "vanilla-jsoneditor": "latest",
     "vite": "latest",
