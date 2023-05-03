@@ -21,9 +21,6 @@
     "types": ["node"],
     "rootDir": "."
   },
-  "ts-node": {
-    "esm": true
-  },
   "include": [
     "src",
     "__tests__"

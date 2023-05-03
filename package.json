@@ -40,12 +40,12 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "simple-git-hooks",
-    "dev": "ts-node ./scripts/dev.mts",
+    "dev": "esno ./scripts/dev.mts",
     "doc": "vitepress dev --open /README",
     "build": "vite build",
     "test-unit": "vitest run",
     "coverage": "vitest run --coverage",
-    "release": "ts-node ./scripts/release.mts"
+    "release": "esno ./scripts/release.mts"
   },
   "peerDependencies": {
     "@vue/composition-api": ">=1",
@@ -78,6 +78,7 @@
     "case-police": "latest",
     "cross-spawn": "latest",
     "eslint": "latest",
+    "esno": "latest",
     "happy-dom": "latest",
     "json-editor-vue": "latest",
     "kolorist": "latest",
@@ -88,7 +89,6 @@
     "prompts": "latest",
     "semver": "latest",
     "simple-git-hooks": "latest",
-    "ts-node": "latest",
     "typescript": "latest",
     "vanilla-jsoneditor": "latest",
     "vite": "latest",

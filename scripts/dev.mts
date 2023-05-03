@@ -45,6 +45,10 @@ async function dev() {
     choices: Array.from(vueVersion, value => ({ title: value, value })),
   })
 
+  if (!targetVersion) {
+    return
+  }
+
   const { shouldUpgradeDependencies } = await prompts({
     type: 'confirm',
     name: 'shouldUpgradeDependencies',
