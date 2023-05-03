@@ -39,6 +39,7 @@
   ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
+    "postinstall": "simple-git-hooks",
     "dev": "ts-node ./scripts/dev.mts",
     "doc": "vitepress dev --open /README",
     "build": "vite build",
@@ -78,7 +79,6 @@
     "cross-spawn": "latest",
     "eslint": "latest",
     "happy-dom": "latest",
-    "husky": "latest",
     "json-editor-vue": "latest",
     "kolorist": "latest",
     "lint-staged": "latest",
@@ -87,6 +87,7 @@
     "magicast": "latest",
     "prompts": "latest",
     "semver": "latest",
+    "simple-git-hooks": "latest",
     "ts-node": "latest",
     "typescript": "latest",
     "vanilla-jsoneditor": "latest",
@@ -98,10 +99,14 @@
     "vue-global-config": "latest",
     "zhlint": "latest"
   },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged --concurrent false",
+    "commit-msg": "npx --no -- commitlint --edit ${1}"
+  },
   "lint-staged": {
     "*.md": "case-police --fix",
     "docs/README.zh-CN.md": "zhlint --fix",
-    "*": "eslint --ignore-pattern 'demo/' --fix"
+    "*": "eslint --cache --ignore-pattern 'demo/' --fix"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
