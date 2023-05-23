@@ -16,7 +16,7 @@
   <a href="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml"><img alt="build status" src="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml/badge.svg?branch=main"></a>
   <a href="https://bundlephobia.com/package/json-editor-vue"><img alt="minzipped size" src="https://img.shields.io/bundlephobia/minzip/json-editor-vue"></a>
   <br>
-  <a href="https://cdn.jsdelivr.net/npm/json-editor-vue"><img alt="jsdelivr downloads" src="https://data.jsdelivr.com/v1/package/npm/json-editor-vue/badge?style=rounded"></a>
+  <a href="https://www.jsdelivr.com/package/npm/json-editor-vue"><img alt="jsdelivr downloads" src="https://data.jsdelivr.com/v1/package/npm/json-editor-vue/badge?style=rounded"></a>
   <a href="https://npmcharts.com/compare/json-editor-vue"><img alt="npm downloads" src="https://img.shields.io/npm/dm/json-editor-vue?logo=npm&color=rgba(203,0,0,0.9)"></a>
   <br>
   <a href="https://standardjs.com"><img alt="code style" src="https://img.shields.io/badge/code_style-Standard-F3DF49.svg?logo=standardjs"></a>
