@@ -79,7 +79,7 @@ async function release() {
   fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2))
 
   console.log(cyan('Publishing...'))
-  const { status } = await spawn.sync('npm publish', undefined, { stdio: 'inherit' })
+  const { status } = await spawn.sync('npm publish --registry=https://registry.npmjs.org', undefined, { stdio: 'inherit' })
   if (status === 1) {
     // 恢复版本号
     pkg.version = currentVersion

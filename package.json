@@ -107,8 +107,5 @@
     "*.md": "case-police --fix",
     "docs/README.zh-CN.md": "zhlint --fix",
     "*": "eslint --cache --ignore-pattern 'demo/' --fix"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
   }
 }
