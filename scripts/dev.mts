@@ -56,7 +56,7 @@ async function dev() {
   })
 
   console.log(cyan('Fetching origin...'))
-  await spawn.sync('git pull', undefined, { stdio: 'inherit' })
+  spawn.sync('git', ['pull'], { stdio: 'inherit' })
 
   console.log(cyan(`Switching to Vue ${targetVersion}...`))
 
@@ -85,7 +85,7 @@ async function dev() {
 
   if (isViteConfigChanged) {
     await writeFile(mod as unknown as ASTNode, './vite.config.ts')
-    await spawn.sync('npx eslint ./vite.config.ts --fix', undefined, { stdio: 'inherit' })
+    spawn.sync('npx', ['eslint', './vite.config.ts', '--fix'], { stdio: 'inherit' })
   }
 
   let isDepsChanged = false
@@ -116,20 +116,20 @@ async function dev() {
   if (isDepsChanged) {
     fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2))
     console.log(cyan('Linting package.json...'))
-    await spawn.sync('npx eslint ./package.json --fix', undefined, { stdio: 'inherit' })
+    spawn.sync('npx', ['eslint', './package.json', '--fix'], { stdio: 'inherit' })
     if (!shouldUpgradeDependencies) {
-      await spawn.sync('pnpm i', undefined, { stdio: 'inherit' })
-      await spawn.sync(`npx vue-demi-switch ${targetVersion === '2.6' ? '2' : targetVersion}`, undefined, { stdio: 'inherit' })
+      spawn.sync('pnpm', ['i'], { stdio: 'inherit' })
+      spawn.sync('npx', ['vue-demi-switch', targetVersion === '2.6' ? '2' : targetVersion], { stdio: 'inherit' })
     }
   }
 
   if (shouldUpgradeDependencies) {
     console.log(cyan('Upgrading dependencies...'))
-    await spawn.sync('pnpm up', undefined, { stdio: 'inherit' })
-    await spawn.sync(`npx vue-demi-switch ${targetVersion === '2.6' ? '2' : targetVersion}`, undefined, { stdio: 'inherit' })
+    spawn.sync('pnpm', ['up'], { stdio: 'inherit' })
+    spawn.sync('npx', ['vue-demi-switch', targetVersion === '2.6' ? '2' : targetVersion], { stdio: 'inherit' })
   }
 
-  await spawn.sync('npx vite --open', undefined, { stdio: 'inherit' })
+  spawn.sync('npx', ['vite', '--open'], { stdio: 'inherit' })
 }
 
 try {
