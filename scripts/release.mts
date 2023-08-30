@@ -25,7 +25,7 @@ async function release() {
 
   const choices = Array.from(['patch', 'minor', 'major'], title => ({
     title,
-    value: semver.inc(currentVersion, name),
+    value: semver.inc(currentVersion, title as semver.ReleaseType),
   }))
     .concat(Array.from(['prerelease'], title => ({
       title,
@@ -50,7 +50,7 @@ async function release() {
         message: 'Select prerelease type',
         choices: Array.from(['alpha', 'beta', 'rc'], title => ({
           title,
-          value: semver.inc(currentVersion, 'prerelease', name),
+          value: semver.inc(currentVersion, 'prerelease'),
         })),
       })).value
     : t === 'custom'
