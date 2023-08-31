@@ -21,7 +21,7 @@ async function release() {
   spawn.sync('pnpm', ['build'], { stdio: 'inherit' })
 
   const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
-  const { version: currentVersion, name } = pkg
+  const { version: currentVersion } = pkg
 
   const choices = Array.from(['patch', 'minor', 'major'], title => ({
     title,
@@ -89,7 +89,7 @@ async function release() {
 
   console.log(cyan('Committing...'))
   spawn.sync('git', ['add', '-A'], { stdio: 'inherit' })
-  spawn.sync('git', ['commit', '-m', `release: v${targetVersion}}`], { stdio: 'inherit' })
+  spawn.sync('git', ['commit', '-m', `release: v${targetVersion}`], { stdio: 'inherit' })
 
   console.log(cyan('Pushing...'))
   spawn.sync('git', ['push'], { stdio: 'inherit' })
