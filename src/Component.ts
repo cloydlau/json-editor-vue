@@ -191,7 +191,7 @@ export default defineComponent({
     expose?.({ jsonEditor })
 
     onUnmounted(() => {
-      jsonEditor.value.destroy()
+      jsonEditor.value?.destroy()
     })
 
     onMounted(() => {
