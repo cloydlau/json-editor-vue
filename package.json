@@ -1,7 +1,7 @@
 {
   "name": "json-editor-vue",
   "PascalCasedName": "JsonEditorVue",
-  "version": "0.10.6",
+  "version": "0.10.7",
   "private": false,
   "description": "JSON editor & viewer for Vue 2.6/2.7/3 & Nuxt 2/3.",
   "author": "Cloyd Lau",
@@ -22,8 +22,8 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/json-editor-vue.umd.js",
-      "import": "./dist/json-editor-vue.mjs"
+      "import": "./dist/json-editor-vue.mjs",
+      "require": "./dist/json-editor-vue.umd.js"
     },
     "./*": "./*"
   },
