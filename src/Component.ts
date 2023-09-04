@@ -144,7 +144,7 @@ export default defineComponent({
     watch(
       () => props.mode,
       (mode) => {
-        // `jsonEditor.value` could be `undefined` in Vue 2.6 (dev environment)
+        // `jsonEditor.value` could be `undefined` in Vue 2.6
         jsonEditor.value?.updateProps({
           mode,
         })
@@ -154,7 +154,7 @@ export default defineComponent({
     watch(
       () => Array.from(boolAttrs, boolAttr => props[boolAttr]),
       (values) => {
-        jsonEditor.value.updateProps(
+        jsonEditor.value?.updateProps(
           Object.fromEntries(Array.from(values, (v, i) => [boolAttrs[i], v]).filter(([, v]) => v !== undefined)),
         )
       },
@@ -174,7 +174,7 @@ export default defineComponent({
         if (newAttrs.onChangeMode) {
           defaultFunctionAttrs.onChangeMode = onChangeMode
         }
-        jsonEditor.value.updateProps(
+        jsonEditor.value?.updateProps(
           Object.getOwnPropertyNames(defaultFunctionAttrs).length > 0
             ? conclude([newAttrs, defaultFunctionAttrs], {
               type: Object,
