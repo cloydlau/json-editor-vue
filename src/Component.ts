@@ -40,7 +40,7 @@ export default defineComponent({
       ]),
     ),
   } as {
-    [key in ModelValueProp]: {}
+    [key in ModelValueProp]: object
   } & { mode: { type: PropType<Mode> } } & {
     [key in typeof boolAttrs[number]]: {
       type: PropType<boolean>
@@ -90,7 +90,7 @@ export default defineComponent({
       emit('update:mode', mode)
     }
 
-    const mergeFunction = (previousValue: Function, currentValue: Function) => (...args: any) => {
+    const mergeFunction = (previousValue: (...args: any) => unknown, currentValue: (...args: any) => unknown) => (...args: any) => {
       previousValue(...args)
       currentValue(...args)
     }
@@ -165,8 +165,8 @@ export default defineComponent({
       (newAttrs) => {
         // Functions need to be merged again
         const defaultFunctionAttrs: {
-          onChange?: Function
-          onChangeMode?: Function
+          onChange?: (...args: any) => unknown
+          onChangeMode?: (...args: any) => unknown
         } = {}
         if (newAttrs.onChange) {
           defaultFunctionAttrs.onChange = onChange
