@@ -39,7 +39,7 @@
   ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "postinstall": "simple-git-hooks",
+    "postinstall": "npx simple-git-hooks",
     "dev": "esno ./scripts/dev.mts",
     "doc": "vitepress dev --open /README",
     "build": "vite build",
