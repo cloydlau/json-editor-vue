@@ -4,120 +4,122 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-dependencies:
-  vue-demi:
-    specifier: latest
-    version: 0.14.6(@vue/composition-api@1.7.2)(vue@3.3.4)
+importers:
 
-devDependencies:
-  '@antfu/eslint-config':
-    specifier: latest
-    version: 0.41.0(eslint@8.48.0)(typescript@5.2.2)
-  '@commitlint/cli':
-    specifier: latest
-    version: 17.7.1
-  '@commitlint/config-conventional':
-    specifier: latest
-    version: 17.7.0
-  '@types/cross-spawn':
-    specifier: latest
-    version: 6.0.3
-  '@types/lodash-es':
-    specifier: latest
-    version: 4.17.9
-  '@types/node':
-    specifier: latest
-    version: 20.5.9
-  '@types/prompts':
-    specifier: latest
-    version: 2.4.4
-  '@types/semver':
-    specifier: latest
-    version: 7.5.1
-  '@vitejs/plugin-vue':
-    specifier: latest
-    version: 4.3.4(vite@4.4.9)(vue@3.3.4)
-  '@vitest/ui':
-    specifier: latest
-    version: 0.34.3(vitest@0.34.3)
-  '@vue/compiler-sfc':
-    specifier: latest
-    version: 3.3.4
-  '@vue/composition-api':
-    specifier: latest
-    version: 1.7.2(vue@3.3.4)
-  '@vue/test-utils':
-    specifier: latest
-    version: 2.4.1(vue@3.3.4)
-  case-police:
-    specifier: latest
-    version: 0.6.1
-  cross-spawn:
-    specifier: latest
-    version: 7.0.3
-  eslint:
-    specifier: latest
-    version: 8.48.0
-  esno:
-    specifier: latest
-    version: 0.17.0
-  happy-dom:
-    specifier: latest
-    version: 10.11.2
-  json-editor-vue:
-    specifier: latest
-    version: 0.10.8(@vue/composition-api@1.7.2)(vanilla-jsoneditor@0.18.3)(vue@3.3.4)
-  kolorist:
-    specifier: latest
-    version: 1.8.0
-  lint-staged:
-    specifier: latest
-    version: 14.0.1
-  lodash-es:
-    specifier: latest
-    version: 4.17.21
-  lossless-json:
-    specifier: latest
-    version: 2.0.11
-  magicast:
-    specifier: latest
-    version: 0.2.10
-  prompts:
-    specifier: latest
-    version: 2.4.2
-  semver:
-    specifier: latest
-    version: 7.5.4
-  simple-git-hooks:
-    specifier: 2.8.1
-    version: 2.8.1
-  typescript:
-    specifier: latest
-    version: 5.2.2
-  vanilla-jsoneditor:
-    specifier: latest
-    version: 0.18.3
-  vite:
-    specifier: latest
-    version: 4.4.9(@types/node@20.5.9)
-  vite-plugin-dts:
-    specifier: latest
-    version: 3.5.3(@types/node@20.5.9)(typescript@5.2.2)(vite@4.4.9)
-  vitepress:
-    specifier: latest
-    version: 1.0.0-rc.10(@algolia/client-search@4.19.1)(@types/node@20.5.9)(@vue/composition-api@1.7.2)(search-insights@2.8.2)
-  vitest:
-    specifier: latest
-    version: 0.34.3(@vitest/ui@0.34.3)(happy-dom@10.11.2)
-  vue:
-    specifier: latest
-    version: 3.3.4
-  vue-global-config:
-    specifier: latest
-    version: 0.4.0(@vue/composition-api@1.7.2)(vue@3.3.4)
-  zhlint:
-    specifier: latest
-    version: 0.7.1(@vitest/ui@0.34.3)(happy-dom@10.11.2)
+  .:
+    dependencies:
+      simple-git-hooks:
+        specifier: latest
+        version: 2.9.0
+      vue-demi:
+        specifier: latest
+        version: 0.14.6(@vue/composition-api@1.7.2)(vue@3.3.4)
+    devDependencies:
+      '@antfu/eslint-config':
+        specifier: latest
+        version: 0.41.0(eslint@8.48.0)(typescript@5.2.2)
+      '@commitlint/cli':
+        specifier: latest
+        version: 17.7.1
+      '@commitlint/config-conventional':
+        specifier: latest
+        version: 17.7.0
+      '@types/cross-spawn':
+        specifier: latest
+        version: 6.0.3
+      '@types/lodash-es':
+        specifier: latest
+        version: 4.17.9
+      '@types/node':
+        specifier: latest
+        version: 20.5.9
+      '@types/prompts':
+        specifier: latest
+        version: 2.4.4
+      '@types/semver':
+        specifier: latest
+        version: 7.5.1
+      '@vitejs/plugin-vue':
+        specifier: latest
+        version: 4.3.4(vite@4.4.9)(vue@3.3.4)
+      '@vitest/ui':
+        specifier: latest
+        version: 0.34.3(vitest@0.34.3)
+      '@vue/compiler-sfc':
+        specifier: latest
+        version: 3.3.4
+      '@vue/composition-api':
+        specifier: latest
+        version: 1.7.2(vue@3.3.4)
+      '@vue/test-utils':
+        specifier: latest
+        version: 2.4.1(vue@3.3.4)
+      case-police:
+        specifier: latest
+        version: 0.6.1
+      cross-spawn:
+        specifier: latest
+        version: 7.0.3
+      eslint:
+        specifier: latest
+        version: 8.48.0
+      esno:
+        specifier: latest
+        version: 0.17.0
+      happy-dom:
+        specifier: latest
+        version: 10.11.2
+      json-editor-vue:
+        specifier: workspace:*
+        version: 'link:'
+      kolorist:
+        specifier: latest
+        version: 1.8.0
+      lint-staged:
+        specifier: latest
+        version: 14.0.1
+      lodash-es:
+        specifier: latest
+        version: 4.17.21
+      lossless-json:
+        specifier: latest
+        version: 2.0.11
+      magicast:
+        specifier: latest
+        version: 0.2.10
+      prompts:
+        specifier: latest
+        version: 2.4.2
+      semver:
+        specifier: latest
+        version: 7.5.4
+      typescript:
+        specifier: latest
+        version: 5.2.2
+      vanilla-jsoneditor:
+        specifier: latest
+        version: 0.18.3
+      vite:
+        specifier: latest
+        version: 4.4.9(@types/node@20.5.9)
+      vite-plugin-dts:
+        specifier: latest
+        version: 3.5.3(@types/node@20.5.9)(typescript@5.2.2)(vite@4.4.9)
+      vitepress:
+        specifier: latest
+        version: 1.0.0-rc.10(@algolia/client-search@4.19.1)(@types/node@20.5.9)(@vue/composition-api@1.7.2)(search-insights@2.8.2)
+      vitest:
+        specifier: latest
+        version: 0.34.3(@vitest/ui@0.34.3)(happy-dom@10.11.2)
+      vue:
+        specifier: latest
+        version: 3.3.4
+      vue-global-config:
+        specifier: latest
+        version: 0.4.0(@vue/composition-api@1.7.2)(vue@3.3.4)
+      zhlint:
+        specifier: latest
+        version: 0.7.1(@vitest/ui@0.34.3)(happy-dom@10.11.2)
 
 packages:
 
@@ -3919,23 +3921,6 @@ packages:
     resolution: {integrity: sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ==}
     dev: true
 
-  /json-editor-vue@0.10.8(@vue/composition-api@1.7.2)(vanilla-jsoneditor@0.18.3)(vue@3.3.4):
-    resolution: {integrity: sha512-iJQMUbdKIfMGQ+xTMe8xtZ0DplPUZ7lhEpgN4zFeuOYeYGdK9w9nDuy2KqDzsG6/+M+8it89egZpA9bj65Rmnw==}
-    requiresBuild: true
-    peerDependencies:
-      '@vue/composition-api': '>=1'
-      vanilla-jsoneditor: '>=0'
-      vue: 2||3
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
-    dependencies:
-      '@vue/composition-api': 1.7.2(vue@3.3.4)
-      vanilla-jsoneditor: 0.18.3
-      vue: 3.3.4
-      vue-demi: 0.14.6(@vue/composition-api@1.7.2)(vue@3.3.4)
-    dev: true
-
   /json-parse-even-better-errors@2.3.1:
     resolution: {integrity: sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w==}
     dev: true
@@ -5119,11 +5104,11 @@ packages:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
     dev: true
 
-  /simple-git-hooks@2.8.1:
-    resolution: {integrity: sha512-DYpcVR1AGtSfFUNzlBdHrQGPsOhuuEJ/FkmPOOlFysP60AHd3nsEpkGq/QEOdtUyT1Qhk7w9oLmFoMG+75BDog==}
+  /simple-git-hooks@2.9.0:
+    resolution: {integrity: sha512-waSQ5paUQtyGC0ZxlHmcMmD9I1rRXauikBwX31bX58l5vTOhCEcBC5Bi+ZDkPXTjDnZAF8TbCqKBY+9+sVPScw==}
     hasBin: true
     requiresBuild: true
-    dev: true
+    dev: false
 
   /sirv@2.0.3:
     resolution: {integrity: sha512-O9jm9BsID1P+0HOi81VpXPoDxYP374pkOLzACAoyUQ/3OUVndNpsz6wMnY2z+yOxzbllCKZrM+9QrWsv4THnyA==}

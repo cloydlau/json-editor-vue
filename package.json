@@ -58,6 +58,7 @@
     }
   },
   "dependencies": {
+    "simple-git-hooks": "latest",
     "vue-demi": "latest"
   },
   "devDependencies": {
@@ -79,7 +80,7 @@
     "eslint": "latest",
     "esno": "latest",
     "happy-dom": "latest",
-    "json-editor-vue": "latest",
+    "json-editor-vue": "workspace:*",
     "kolorist": "latest",
     "lint-staged": "latest",
     "lodash-es": "latest",
@@ -87,7 +88,6 @@
     "magicast": "latest",
     "prompts": "latest",
     "semver": "latest",
-    "simple-git-hooks": "2.8.1",
     "typescript": "latest",
     "vanilla-jsoneditor": "latest",
     "vite": "latest",
