@@ -1,7 +1,7 @@
 {
   "name": "json-editor-vue",
   "PascalCasedName": "JsonEditorVue",
-  "version": "0.10.13",
+  "version": "0.10.14",
   "private": false,
   "description": "JSON editor & viewer for Vue 2.6/2.7/3 & Nuxt 2/3.",
   "author": "Cloyd Lau",
@@ -35,7 +35,6 @@
   "files": [
     "dist",
     "docs",
-    "scripts",
     "nuxt.ts"
   ],
   "scripts": {
@@ -46,7 +45,7 @@
     "coverage": "vitest run --coverage",
     "release": "esno ./scripts/release.mts",
     "preinstall": "npx only-allow pnpm",
-    "postinstall": "esno ./scripts/postinstall.mts"
+    "postinstall": "node -e \"if (process.env.INIT_CWD === process.cwd()) { process.exit(1) }\" || npx simple-git-hooks"
   },
   "peerDependencies": {
     "@vue/composition-api": ">=1",
