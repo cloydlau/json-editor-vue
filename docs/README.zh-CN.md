@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://npmjs.com/package/json-editor-vue" target="_blank" rel="noopener noreferrer">
-    JSON Editor Vue <sup><img alt="version" src="https://versionbadg.es/cloydlau/json-editor-vue.svg"></sup>
+    JSON Editor Vue <sup><img alt="version" src="https://img.shields.io/npm/v/json-editor-vue.svg?style=flat-square&color=white&label="></sup>
   </a>
 </h1>
 
@@ -848,7 +848,7 @@ module.exports = {
 ## 属性
 
 | 名称                                                   | 说明                                                                                   | 类型          | 默认值   |
-| ------------------------------------------------------ | -------------------------------------------------------------------------------------- | ------------- | -------- |
+|--------------------------------------------------------|--------------------------------------------------------------------------------------|---------------|----------|
 | v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | 绑定值                                                                                 | any           |          |
 | mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | 编辑模式                                                                               | [Mode](#Mode) | `'tree'` |
 | ...                                                    | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的属性 |               |          |
@@ -886,7 +886,7 @@ module.exports = {
 ## Expose
 
 | 名称       | 说明            | 类型   |
-| ---------- | --------------- | ------ |
+|------------|---------------|--------|
 | jsonEditor | JSONEditor 实例 | object |
 
 <br>

@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://npmjs.com/package/json-editor-vue" target="_blank" rel="noopener noreferrer">
-    JSON Editor Vue <sup><img alt="version" src="https://versionbadg.es/cloydlau/json-editor-vue.svg"></sup>
+    JSON Editor Vue <sup><img alt="version" src="https://img.shields.io/npm/v/json-editor-vue.svg?style=flat-square&color=white&label="></sup>
   </a>
 </h1>
 
@@ -848,7 +848,7 @@ module.exports = {
 ## Props
 
 | Name                                                   | Description                                                                                   | Type          | Default  |
-| ------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ------------- | -------- |
+|--------------------------------------------------------|-----------------------------------------------------------------------------------------------|---------------|----------|
 | v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | binding value                                                                                 | any           |          |
 | mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | edit mode                                                                                     | [Mode](#Mode) | `'tree'` |
 | ...                                                    | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |               |          |
@@ -886,7 +886,7 @@ Including the boolean properties of svelte-jsoneditor like `readOnly` with no va
 ## Expose
 
 | Name       | Description         | Type   |
-| ---------- | ------------------- | ------ |
+|------------|---------------------|--------|
 | jsonEditor | JSONEditor instance | object |
 
 <br>
