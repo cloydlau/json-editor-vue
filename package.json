@@ -38,14 +38,14 @@
     "nuxt.ts"
   ],
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
-    "postinstall": "npx simple-git-hooks",
     "dev": "esno ./scripts/dev.mts",
     "doc": "vitepress dev --open /README",
     "build": "vite build",
     "test-unit": "vitest run",
     "coverage": "vitest run --coverage",
-    "release": "esno ./scripts/release.mts"
+    "release": "esno ./scripts/release.mts",
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "esno ./scripts/postinstall.mts"
   },
   "peerDependencies": {
     "@vue/composition-api": ">=1",
@@ -58,7 +58,6 @@
     }
   },
   "dependencies": {
-    "simple-git-hooks": "latest",
     "vue-demi": "latest"
   },
   "devDependencies": {
@@ -88,6 +87,7 @@
     "magicast": "latest",
     "prompts": "latest",
     "semver": "latest",
+    "simple-git-hooks": "latest",
     "typescript": "latest",
     "vanilla-jsoneditor": "latest",
     "vite": "latest",
