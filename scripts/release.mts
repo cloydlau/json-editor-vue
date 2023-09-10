@@ -65,6 +65,9 @@ async function release() {
     throw new Error(`invalid target version: ${targetVersion}`)
   }
 
+  console.log(cyan('Packing...'))
+  spawn.sync('npm', ['pack'], { stdio: 'inherit' })
+
   const { yes } = await prompts({
     type: 'confirm',
     name: 'yes',
