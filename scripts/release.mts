@@ -20,6 +20,9 @@ async function release() {
   console.log(cyan('Building...'))
   spawn.sync('pnpm', ['build'], { stdio: 'inherit' })
 
+  console.log(cyan('Packing...'))
+  spawn.sync('npm', ['pack'], { stdio: 'inherit' })
+
   const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
   const { version: currentVersion } = pkg
 
@@ -64,9 +67,6 @@ async function release() {
   if (!semver.valid(targetVersion)) {
     throw new Error(`invalid target version: ${targetVersion}`)
   }
-
-  console.log(cyan('Packing...'))
-  spawn.sync('npm', ['pack'], { stdio: 'inherit' })
 
   const { yes } = await prompts({
     type: 'confirm',
