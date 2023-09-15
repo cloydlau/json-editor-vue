@@ -12,13 +12,19 @@ async function release() {
   spawn.sync('pnpm', ['up'], { stdio: 'inherit' })
 
   console.log(cyan('Linting staged...'))
-  spawn.sync('npx', ['lint-staged'], { stdio: 'inherit' })
+  if (spawn.sync('npx', ['lint-staged'], { stdio: 'inherit' }).status === 1) {
+    return
+  }
 
   console.log(cyan('Unit testing...'))
-  spawn.sync('pnpm', ['test-unit'], { stdio: 'inherit' })
+  if (spawn.sync('pnpm', ['test-unit'], { stdio: 'inherit' }).status === 1) {
+    return
+  }
 
   console.log(cyan('Building...'))
-  spawn.sync('pnpm', ['build'], { stdio: 'inherit' })
+  if (spawn.sync('pnpm', ['build'], { stdio: 'inherit' }).status === 1) {
+    return
+  }
 
   console.log(cyan('Packing...'))
   spawn.sync('npm', ['pack'], { stdio: 'inherit' })
@@ -82,8 +88,7 @@ async function release() {
   fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2))
 
   console.log(cyan('Publishing...'))
-  const { status } = spawn.sync('npm', ['publish', '--registry=https://registry.npmjs.org'], { stdio: 'inherit' })
-  if (status === 1) {
+  if (spawn.sync('npm', ['publish', '--registry=https://registry.npmjs.org'], { stdio: 'inherit' }).status === 1) {
     // 恢复版本号
     pkg.version = currentVersion
     fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2))
