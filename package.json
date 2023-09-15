@@ -1,7 +1,7 @@
 {
   "name": "json-editor-vue",
   "PascalCasedName": "JsonEditorVue",
-  "version": "0.10.15",
+  "version": "0.10.16",
   "private": false,
   "description": "JSON editor & viewer for Vue 2.6/2.7/3 & Nuxt 2/3.",
   "author": "Cloyd Lau",
@@ -78,7 +78,7 @@
     "cross-spawn": "latest",
     "eslint": "latest",
     "esno": "latest",
-    "happy-dom": "latest",
+    "happy-dom": "^11.2.0",
     "json-editor-vue": "workspace:*",
     "kolorist": "latest",
     "lint-staged": "latest",
