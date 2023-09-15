@@ -21,7 +21,7 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./dist/json-editor-vue.d.ts",
       "import": "./dist/json-editor-vue.mjs",
       "require": "./dist/json-editor-vue.umd.js"
     },
@@ -31,7 +31,7 @@
   "module": "./dist/json-editor-vue.mjs",
   "unpkg": "./dist/json-editor-vue.umd.js",
   "jsdelivr": "./dist/json-editor-vue.umd.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/json-editor-vue.d.ts",
   "files": [
     "dist",
     "docs",

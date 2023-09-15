@@ -40,6 +40,6 @@ export default {
       },
     },
     vue(),
-    dts(),
+    dts({ rollupTypes: true }),
   ],
 }
