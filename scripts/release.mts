@@ -1,8 +1,11 @@
 import fs from 'node:fs'
 import prompts from 'prompts'
 import * as semver from 'semver'
+import type { SemVer } from 'semver'
 import spawn from 'cross-spawn'
 import { cyan } from 'kolorist'
+
+const docsPath = ['./README.md', './docs/README.zh-CN.md']
 
 async function release() {
   console.log(cyan('Fetching origin...'))
@@ -30,7 +33,7 @@ async function release() {
   spawn.sync('npm', ['pack'], { stdio: 'inherit' })
 
   const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
-  const { version: currentVersion } = pkg
+  const { name, version: currentVersion } = pkg
 
   const choices = Array.from(['patch', 'minor', 'major'], title => ({
     title,
@@ -82,6 +85,16 @@ async function release() {
 
   if (!yes) {
     return
+  }
+
+  if (!['patch', 'prerelease'].includes(t)) {
+    const parsedCurrentVersion = semver.parse(currentVersion) as SemVer
+    const parsedTargetVersion = semver.parse(targetVersion) as SemVer
+    const pattern = new RegExp(`${name}@${parsedCurrentVersion.major}.${parsedCurrentVersion.minor}`, 'g')
+    const replacement = `${name}@${parsedTargetVersion.major}.${parsedTargetVersion.minor}`
+    docsPath.forEach((docPath) => {
+      fs.writeFileSync(docPath, fs.readFileSync(docPath, 'utf-8').replace(pattern, replacement))
+    })
   }
 
   pkg.version = targetVersion
