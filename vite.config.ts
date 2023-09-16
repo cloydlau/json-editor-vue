@@ -2,9 +2,10 @@ import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
 import { version } from 'vue'
 import { parse } from 'semver'
+import type { SemVer } from 'semver'
 import { PascalCasedName, name } from './package.json'
 
-const { major, minor } = parse(version)
+const { major, minor } = parse(version) as SemVer
 
 export default {
   optimizeDeps: {
