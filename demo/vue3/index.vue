@@ -1,3 +1,39 @@
+<script setup lang="ts">
+import { onMounted, reactive, ref, version } from 'vue'
+import { parse, stringify } from 'lossless-json'
+import JsonEditorVue from '../../src'
+import type { Mode } from '../../src'
+
+const console = window.console
+
+const LosslessJSONParser = {
+  parse, /* : (json) => {    return JSON.parse(json, (k, v, { source }) =>
+      (typeof source === 'number' && source > Number.MAX_SAFE_INTEGER)
+        ? BigInt(source)
+        : val,
+    )
+  } */
+  stringify,
+}
+
+const data = reactive<{
+  value: any
+  mode?: Mode
+  readOnly?: boolean
+  parser?: { parse: (...args: any) => unknown; stringify: (...args: any) => unknown }
+}>({
+      value: undefined,
+      mode: undefined,
+      readOnly: false,
+      parser: LosslessJSONParser,
+    })
+
+const jsonEditorVueRef = ref()
+onMounted(() => {
+  console.log('expand: ', jsonEditorVueRef.value.jsonEditor.expand)
+})
+</script>
+
 <template>
   <div>
     <h1>vue@{{ version }}</h1>
@@ -37,39 +73,3 @@
     {{ typeof data.value }}
   </div>
 </template>
-
-<script setup lang="ts">
-import { onMounted, reactive, ref, version } from 'vue'
-import { parse, stringify } from 'lossless-json'
-import JsonEditorVue from '../../src'
-import type { Mode } from '../../src'
-
-const console = window.console
-
-const LosslessJSONParser = {
-  parse, /* : (json) => {    return JSON.parse(json, (k, v, { source }) =>
-      (typeof source === 'number' && source > Number.MAX_SAFE_INTEGER)
-        ? BigInt(source)
-        : val,
-    )
-  } */
-  stringify,
-}
-
-const data = reactive<{
-  value: any
-  mode?: Mode
-  readOnly?: boolean
-  parser?: { parse: Function; stringify: Function }
-}>({
-  value: undefined,
-  mode: undefined,
-  readOnly: false,
-  parser: LosslessJSONParser,
-})
-
-const jsonEditorVueRef = ref()
-onMounted(() => {
-  console.log('expand: ', jsonEditorVueRef.value.jsonEditor.expand)
-})
-</script>
