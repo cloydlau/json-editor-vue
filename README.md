@@ -30,11 +30,13 @@
 
 ## Features
 
+- View, edit, format, compact, sort, query, filter, transform, repair, validate, highlight JSON
+- 3 edit modes: text mode & tree mode & table mode, support two-way binding
+- Handle large JSON documents up to 512 MB
 - Support Vue 2.6/2.7/3
 - Support SSR (Nuxt 2/3)
 - Support Vite, Vue CLI, webpack, CDN...
 - Support microfrontends ([wujie](https://github.com/Tencent/wujie), [qiankun](https://github.com/umijs/qiankun), [single-spa](https://github.com/single-spa/single-spa)...)
-- Edit mode two-way binding
 - Local registration & configuration, or global registration & configuration (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
 
 <br>
@@ -58,18 +60,18 @@ npm i json-editor-vue vanilla-jsoneditor
 #### Local Registration
 
 ```vue
+<script setup>
+import JsonEditorVue from 'json-editor-vue'
+
+const value = ref()
+</script>
+
 <template>
   <JsonEditorVue
     v-model="value"
     v-bind="{/* local props & attrs */}"
   />
 </template>
-
-<script setup>
-import JsonEditorVue from 'json-editor-vue'
-
-const value = ref()
-</script>
 ```
 
 #### Global Registration
@@ -173,18 +175,18 @@ npm i json-editor-vue vanilla-jsoneditor
 #### Local Registration
 
 ```vue
+<script setup>
+import JsonEditorVue from 'json-editor-vue'
+
+const value = ref()
+</script>
+
 <template>
   <JsonEditorVue
     v-model="value"
     v-bind="{/* local props & attrs */}"
   />
 </template>
-
-<script setup>
-import JsonEditorVue from 'json-editor-vue'
-
-const value = ref()
-</script>
 ```
 
 #### Global Registration
@@ -288,13 +290,6 @@ npm i json-editor-vue vanilla-jsoneditor @vue/composition-api
 #### Local Registration
 
 ```vue
-<template>
-  <JsonEditorVue
-    v-model="value"
-    v-bind="{/* local props & attrs */}"
-  />
-</template>
-
 <script>
 import Vue from 'vue'
 import VCA from '@vue/composition-api'
@@ -311,6 +306,13 @@ export default {
   },
 }
 </script>
+
+<template>
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* local props & attrs */}"
+  />
+</template>
 ```
 
 #### Global Registration
@@ -427,18 +429,22 @@ npm i json-editor-vue vanilla-jsoneditor
 ```vue
 <!-- ~/components/JsonEditorVue.client.vue -->
 
-<template>
-  <JsonEditorVue v-bind="attrs" />
-</template>
-
 <script setup>
 import JsonEditorVue from 'json-editor-vue'
 
 const attrs = useAttrs()
 </script>
+
+<template>
+  <JsonEditorVue v-bind="attrs" />
+</template>
 ```
 
 ```vue
+<script setup>
+const value = ref()
+</script>
+
 <template>
   <client-only>
     <JsonEditorVue
@@ -447,10 +453,6 @@ const attrs = useAttrs()
     />
   </client-only>
 </template>
-
-<script setup>
-const value = ref()
-</script>
 ```
 
 #### Global Registration as a Module
@@ -464,15 +466,15 @@ export default defineNuxtConfig({
 ```
 
 ```vue
+<script setup>
+const value = ref()
+</script>
+
 <template>
   <client-only>
     <JsonEditorVue v-model="value" />
   </client-only>
 </template>
-
-<script setup>
-const value = ref()
-</script>
 ```
 
 #### Global Registration as a Plugin
@@ -490,15 +492,15 @@ export default defineNuxtPlugin((nuxtApp) => {
 ```
 
 ```vue
+<script setup>
+const value = ref()
+</script>
+
 <template>
   <client-only>
     <JsonEditorVue v-model="value" />
   </client-only>
 </template>
-
-<script setup>
-const value = ref()
-</script>
 ```
 
 <br>
@@ -532,15 +534,6 @@ export default {
 ```
 
 ```vue
-<template>
-  <client-only>
-    <JsonEditorVue
-      v-model="value"
-      v-bind="{/* local props & attrs */}"
-    />
-  </client-only>
-</template>
-
 <script setup>
 import { ref } from 'vue'
 
@@ -552,6 +545,15 @@ function JsonEditorVue() {
 
 const value = ref()
 </script>
+
+<template>
+  <client-only>
+    <JsonEditorVue
+      v-model="value"
+      v-bind="{/* local props & attrs */}"
+    />
+  </client-only>
+</template>
 ```
 
 #### Global Registration
@@ -589,17 +591,17 @@ Vue.use(JsonEditorVue, {
 ```
 
 ```vue
-<template>
-  <client-only>
-    <JsonEditorVue v-model="value" />
-  </client-only>
-</template>
-
 <script setup>
 import { ref } from 'vue'
 
 const value = ref()
 </script>
+
+<template>
+  <client-only>
+    <JsonEditorVue v-model="value" />
+  </client-only>
+</template>
 ```
 
 <br>
@@ -633,15 +635,6 @@ export default {
 ```
 
 ```vue
-<template>
-  <client-only>
-    <JsonEditorVue
-      v-model="value"
-      v-bind="{/* local props & attrs */}"
-    />
-  </client-only>
-</template>
-
 <script>
 import Vue from 'vue'
 import VCA from '@vue/composition-api'
@@ -661,6 +654,15 @@ export default {
   },
 }
 </script>
+
+<template>
+  <client-only>
+    <JsonEditorVue
+      v-model="value"
+      v-bind="{/* local props & attrs */}"
+    />
+  </client-only>
+</template>
 ```
 
 #### Global Registration
@@ -700,12 +702,6 @@ Vue.use(JsonEditorVue, {
 ```
 
 ```vue
-<template>
-  <client-only>
-    <JsonEditorVue v-model="value" />
-  </client-only>
-</template>
-
 <script>
 export default {
   data() {
@@ -715,6 +711,12 @@ export default {
   },
 }
 </script>
+
+<template>
+  <client-only>
+    <JsonEditorVue v-model="value" />
+  </client-only>
+</template>
 ```
 
 <br>
@@ -906,14 +908,14 @@ type Mode = 'tree' | 'text' | 'table'
 ## Dark Theme
 
 ```vue
-<template>
-  <JsonEditorVue class="jse-theme-dark" />
-</template>
-
 <script setup>
 import 'vanilla-jsoneditor/themes/jse-theme-dark.css'
 import JsonEditorVue from 'json-editor-vue'
 </script>
+
+<template>
+  <JsonEditorVue class="jse-theme-dark" />
+</template>
 ```
 
 <br>

@@ -30,11 +30,13 @@
 
 ## 特性
 
+- 预览、编辑、格式化、压缩、排序、查询、过滤、转换、修复、校验、高亮 JSON
+- 三种编辑模式：文本模式 & 树形模式 & 表格模式，支持双向绑定
+- 支持高达 512 MB 的大型 JSON 文档
 - Vue 2.6/2.7/3 通用
 - 支持 SSR (Nuxt 2/3 通用)
 - 支持 Vite，Vue CLI，webpack，CDN……
 - 支持微前端 ([wujie](https://github.com/Tencent/wujie)，[qiankun](https://github.com/umijs/qiankun)，[single-spa](https://github.com/single-spa/single-spa)……)
-- 编辑模式双向绑定
 - 局部注册并传参，或全局注册并传参 ([vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持)
 
 <br>
@@ -58,18 +60,18 @@ npm i json-editor-vue vanilla-jsoneditor
 #### 局部注册
 
 ```vue
+<script setup>
+import JsonEditorVue from 'json-editor-vue'
+
+const value = ref()
+</script>
+
 <template>
   <JsonEditorVue
     v-model="value"
     v-bind="{/* 局部 props & attrs */}"
   />
 </template>
-
-<script setup>
-import JsonEditorVue from 'json-editor-vue'
-
-const value = ref()
-</script>
 ```
 
 #### 全局注册
@@ -173,18 +175,18 @@ npm i json-editor-vue vanilla-jsoneditor
 #### 局部注册
 
 ```vue
+<script setup>
+import JsonEditorVue from 'json-editor-vue'
+
+const value = ref()
+</script>
+
 <template>
   <JsonEditorVue
     v-model="value"
     v-bind="{/* 局部 props & attrs */}"
   />
 </template>
-
-<script setup>
-import JsonEditorVue from 'json-editor-vue'
-
-const value = ref()
-</script>
 ```
 
 #### 全局注册
@@ -288,13 +290,6 @@ npm i json-editor-vue vanilla-jsoneditor @vue/composition-api
 #### 局部注册
 
 ```vue
-<template>
-  <JsonEditorVue
-    v-model="value"
-    v-bind="{/* 局部 props & attrs */}"
-  />
-</template>
-
 <script>
 import Vue from 'vue'
 import VCA from '@vue/composition-api'
@@ -311,6 +306,13 @@ export default {
   },
 }
 </script>
+
+<template>
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* 局部 props & attrs */}"
+  />
+</template>
 ```
 
 #### 全局注册
@@ -427,18 +429,22 @@ npm i json-editor-vue vanilla-jsoneditor
 ```vue
 <!-- ~/components/JsonEditorVue.client.vue -->
 
-<template>
-  <JsonEditorVue v-bind="attrs" />
-</template>
-
 <script setup>
 import JsonEditorVue from 'json-editor-vue'
 
 const attrs = useAttrs()
 </script>
+
+<template>
+  <JsonEditorVue v-bind="attrs" />
+</template>
 ```
 
 ```vue
+<script setup>
+const value = ref()
+</script>
+
 <template>
   <client-only>
     <JsonEditorVue
@@ -447,10 +453,6 @@ const attrs = useAttrs()
     />
   </client-only>
 </template>
-
-<script setup>
-const value = ref()
-</script>
 ```
 
 #### 全局注册为 Module
@@ -464,15 +466,15 @@ export default defineNuxtConfig({
 ```
 
 ```vue
+<script setup>
+const value = ref()
+</script>
+
 <template>
   <client-only>
     <JsonEditorVue v-model="value" />
   </client-only>
 </template>
-
-<script setup>
-const value = ref()
-</script>
 ```
 
 #### 全局注册为 Plugin
@@ -490,15 +492,15 @@ export default defineNuxtPlugin((nuxtApp) => {
 ```
 
 ```vue
+<script setup>
+const value = ref()
+</script>
+
 <template>
   <client-only>
     <JsonEditorVue v-model="value" />
   </client-only>
 </template>
-
-<script setup>
-const value = ref()
-</script>
 ```
 
 <br>
@@ -532,15 +534,6 @@ export default {
 ```
 
 ```vue
-<template>
-  <client-only>
-    <JsonEditorVue
-      v-model="value"
-      v-bind="{/* 局部 props & attrs */}"
-    />
-  </client-only>
-</template>
-
 <script setup>
 import { ref } from 'vue'
 
@@ -552,6 +545,15 @@ function JsonEditorVue() {
 
 const value = ref()
 </script>
+
+<template>
+  <client-only>
+    <JsonEditorVue
+      v-model="value"
+      v-bind="{/* 局部 props & attrs */}"
+    />
+  </client-only>
+</template>
 ```
 
 #### 全局注册
@@ -589,17 +591,17 @@ Vue.use(JsonEditorVue, {
 ```
 
 ```vue
-<template>
-  <client-only>
-    <JsonEditorVue v-model="value" />
-  </client-only>
-</template>
-
 <script setup>
 import { ref } from 'vue'
 
 const value = ref()
 </script>
+
+<template>
+  <client-only>
+    <JsonEditorVue v-model="value" />
+  </client-only>
+</template>
 ```
 
 <br>
@@ -633,15 +635,6 @@ export default {
 ```
 
 ```vue
-<template>
-  <client-only>
-    <JsonEditorVue
-      v-model="value"
-      v-bind="{/* 局部 props & attrs */}"
-    />
-  </client-only>
-</template>
-
 <script>
 import Vue from 'vue'
 import VCA from '@vue/composition-api'
@@ -661,6 +654,15 @@ export default {
   },
 }
 </script>
+
+<template>
+  <client-only>
+    <JsonEditorVue
+      v-model="value"
+      v-bind="{/* 局部 props & attrs */}"
+    />
+  </client-only>
+</template>
 ```
 
 #### 全局注册
@@ -700,12 +702,6 @@ Vue.use(JsonEditorVue, {
 ```
 
 ```vue
-<template>
-  <client-only>
-    <JsonEditorVue v-model="value" />
-  </client-only>
-</template>
-
 <script>
 export default {
   data() {
@@ -715,6 +711,12 @@ export default {
   },
 }
 </script>
+
+<template>
+  <client-only>
+    <JsonEditorVue v-model="value" />
+  </client-only>
+</template>
 ```
 
 <br>
@@ -906,14 +908,14 @@ type Mode = 'tree' | 'text' | 'table'
 ## 暗色主题
 
 ```vue
-<template>
-  <JsonEditorVue class="jse-theme-dark" />
-</template>
-
 <script setup>
 import 'vanilla-jsoneditor/themes/jse-theme-dark.css'
 import JsonEditorVue from 'json-editor-vue'
 </script>
+
+<template>
+  <JsonEditorVue class="jse-theme-dark" />
+</template>
 ```
 
 <br>

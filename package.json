@@ -8,16 +8,17 @@
   "license": "MIT",
   "repository": "https://github.com/cloydlau/json-editor-vue",
   "keywords": [
-    "jsoneditor",
-    "svelte-jsoneditor",
     "json",
+    "jsoneditor",
     "json-editor",
-    "vue",
-    "vue-demi",
-    "vue-json-viewer",
     "nuxt",
     "nuxtjs",
-    "ssr"
+    "ssr",
+    "svelte-jsoneditor",
+    "vue",
+    "vue-demi",
+    "vue-json-pretty",
+    "vue-json-viewer"
   ],
   "exports": {
     ".": {
