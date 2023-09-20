@@ -90,6 +90,8 @@
     "semver": "latest",
     "simple-git-hooks": "latest",
     "typescript": "latest",
+    "unplugin-auto-import": "latest",
+    "unplugin-vue-components": "latest",
     "vanilla-jsoneditor": "latest",
     "vite": "latest",
     "vite-plugin-dts": "latest",
