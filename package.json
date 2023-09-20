@@ -62,7 +62,7 @@
     "vue-demi": "latest"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "latest",
+    "@antfu/eslint-config": "0.42.1",
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "@types/cross-spawn": "latest",
