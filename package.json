@@ -8,9 +8,9 @@
   "license": "MIT",
   "repository": "https://github.com/cloydlau/json-editor-vue",
   "keywords": [
+    "editor",
     "json",
     "jsoneditor",
-    "json-editor",
     "nuxt",
     "nuxtjs",
     "ssr",
@@ -62,7 +62,7 @@
     "vue-demi": "latest"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "0.42.1",
+    "@antfu/eslint-config": "latest",
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "@types/cross-spawn": "latest",
@@ -79,7 +79,7 @@
     "cross-spawn": "latest",
     "eslint": "latest",
     "esno": "latest",
-    "happy-dom": "^11.2.0",
+    "happy-dom": "latest",
     "json-editor-vue": "workspace:*",
     "kolorist": "latest",
     "lint-staged": "latest",
