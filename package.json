@@ -9,6 +9,7 @@
   "repository": "https://github.com/cloydlau/json-editor-vue",
   "keywords": [
     "editor",
+    "formatter",
     "json",
     "jsoneditor",
     "nuxt",
