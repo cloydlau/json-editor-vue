@@ -13,7 +13,7 @@ export default antfu(
   // you can have multiple configs
   {
     rules: {
-      '@typescript-eslint/brace-style': ['error', '1tbs', { allowSingleLine: true }],
+      'ts/brace-style': ['error', '1tbs', { allowSingleLine: true }],
       'brace-style': ['error', '1tbs', { allowSingleLine: true }],
       'curly': ['error', 'multi-line'],
       'no-console': 'off',
