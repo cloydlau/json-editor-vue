@@ -5,7 +5,7 @@
 </h1>
 
 <p align="center">
-  Vue 2.6/2.7/3 & Nuxt 2/3 all-in-one JSON editor & viewer & formatter & validator.
+  Vue 2.6/2.7/3 & Nuxt 2/3 all-in-one JSON editor, viewer, formatter and validator.
   <br>
   English | <a href="./docs/README.zh-CN.md">简体中文</a>
   <br>
