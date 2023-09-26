@@ -10,7 +10,7 @@
   "keywords": [
     "ajv",
     "bigint",
-    "editor",
+    "edit",
     "format",
     "formatter",
     "json",
@@ -23,6 +23,7 @@
     "validate",
     "validation",
     "validator",
+    "view",
     "vue",
     "vue-demi",
     "vue-json-pretty",
