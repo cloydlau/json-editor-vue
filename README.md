@@ -5,7 +5,7 @@
 </h1>
 
 <p align="center">
-  JSON editor & viewer for Vue 2.6/2.7/3 & Nuxt 2/3.
+  Vue 2.6/2.7/3 & Nuxt 2/3 all-in-one JSON editor & viewer & formatter & validator.
   <br>
   English | <a href="./docs/README.zh-CN.md">简体中文</a>
   <br>
@@ -30,8 +30,8 @@
 
 ## Features
 
-- View, edit, format, compact, sort, query, filter, transform, repair, validate, highlight JSON
-- 3 edit modes: text mode & tree mode & table mode, support two-way binding
+- View, edit, format, validate, compact, sort, query, filter, transform, repair, highlight JSON
+- 3 edit modes: text mode & tree mode & table mode, 2-way binding
 - Handle large JSON documents up to 512 MB
 - Support Vue 2.6/2.7/3
 - Support SSR (Nuxt 2/3)
