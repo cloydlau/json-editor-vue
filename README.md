@@ -33,7 +33,7 @@
 - View, edit, format, validate, compact, sort, query, filter, transform, repair, highlight JSON
 - 3 edit modes: text mode & tree mode & table mode, 2-way binding
 - Handle large JSON documents up to 512 MB
-- Support `BigInt`
+- Support all 7 primitive data types including `BigInt` and `Symbol`
 - Vue 2.6/2.7/3 all-in-one
 - Support SSR (Nuxt 2/3)
 - Support Vite, Vue CLI, webpack, CDN...
