@@ -86,6 +86,7 @@
     "@vue/test-utils": "latest",
     "case-police": "latest",
     "cross-spawn": "latest",
+    "del": "latest",
     "eslint": "latest",
     "esno": "latest",
     "happy-dom": "latest",

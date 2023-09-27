@@ -11,4 +11,3 @@ TODOs.md
 .env.*
 .vitepress/cache
 .npmrc
-*.tgz
