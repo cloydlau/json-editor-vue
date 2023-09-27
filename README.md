@@ -32,6 +32,7 @@
 
 - View, edit, format, validate, compact, sort, query, filter, transform, repair, highlight JSON
 - 3 edit modes: text mode & tree mode & table mode, 2-way binding
+- 2 themes: light theme & dark theme
 - Handle large JSON documents up to 512 MB
 - Support all 7 primitive data types including `BigInt` and `Symbol`
 - Vue 2.6/2.7/3 all-in-one
