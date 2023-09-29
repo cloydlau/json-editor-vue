@@ -9,6 +9,8 @@ import type { ASTNode } from 'magicast'
 import { cyan } from 'kolorist'
 import { addVitePlugin } from 'magicast/helpers'
 
+declare const process: NodeJS.Process
+
 type VueVersion = '3' | '2.7' | '2.6'
 
 const vueVersion: VueVersion[] = ['3', '2.7', '2.6']
@@ -53,12 +55,6 @@ async function dev() {
   if (!targetVersion) {
     return
   }
-
-  /* const { shouldUpgradeDependencies } = await prompts({
-    type: 'confirm',
-    name: 'shouldUpgradeDependencies',
-    message: 'Upgrade dependencies',
-  }) */
 
   console.log(cyan('Fetching origin...'))
   spawn.sync('git', ['pull'], { stdio: 'inherit' })
@@ -139,14 +135,8 @@ async function dev() {
     fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2))
     console.log(cyan('Linting package.json...'))
     spawn.sync('npx', ['eslint', './package.json', '--fix'], { stdio: 'inherit' })
-    // if (!shouldUpgradeDependencies) {
     await installDependencies()
-    // }
   }
-
-  /* if (shouldUpgradeDependencies) {
-    installDependencies()
-  } */
 
   spawn.sync('npx', ['vite', '--open'], { stdio: 'inherit' })
 
@@ -154,37 +144,42 @@ async function dev() {
     console.log(cyan('Checking pnpm version...'))
     const latestPNPMVersion = spawn.sync('npm', ['view', 'pnpm', 'version']).stdout.toString().trim()
     const currentPNPMVersion = spawn.sync('pnpm', ['-v']).stdout.toString().trim()
-    if (latestPNPMVersion !== currentPNPMVersion) {
+    // Mac 自带 curl，Linux 不一定，Windows 不支持指定 pnpm 版本
+    if (latestPNPMVersion !== currentPNPMVersion && ['darwin', 'linux'].includes(process.platform)) {
       console.log(cyan('Upgrading pnpm...'))
-      console.log(execSync(`curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=${latestPNPMVersion} sh -`).toString())
-      /* const curlProcess = spawn.sync('curl', ['-fsSL', 'https://get.pnpm.io/install.sh'], {
-        env: { PNPM_VERSION: latestPNPMVersion },
-        stdio: ['pipe', 'pipe', 'pipe'], // Redirect stdin, stdout, and stderr
-      })
-      if (curlProcess.status === 0) {
-        // If curl was successful, execute the shell command
-        const shCommand = 'sh'
-        const shArgs = ['-']
-
-        const shProcess = spawn.sync(shCommand, shArgs, {
-          input: curlProcess.stdout, // Pass the stdout of curl as input to sh
-          stdio: ['pipe', 'inherit', 'inherit'], // Redirect stdin, inherit stdout and stderr
+      try {
+        console.log(execSync(`curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=${latestPNPMVersion} sh -`).toString())
+        /* const curlProcess = spawn.sync('curl', ['-fsSL', 'https://get.pnpm.io/install.sh'], {
+          env: { PNPM_VERSION: latestPNPMVersion },
+          stdio: ['pipe', 'pipe', 'pipe'], // Redirect stdin, stdout, and stderr
         })
+        if (curlProcess.status === 0) {
+          // If curl was successful, execute the shell command
+          const shCommand = 'sh'
+          const shArgs = ['-']
 
-        if (shProcess.status === 0) {
-          console.log('pnpm installation successful.')
+          const shProcess = spawn.sync(shCommand, shArgs, {
+            input: curlProcess.stdout, // Pass the stdout of curl as input to sh
+            stdio: ['pipe', 'inherit', 'inherit'], // Redirect stdin, inherit stdout and stderr
+          })
+
+          if (shProcess.status === 0) {
+            console.log('pnpm installation successful.')
+          } else {
+            console.error('pnpm installation failed.')
+          }
         } else {
-          console.error('pnpm installation failed.')
-        }
-      } else {
-        console.error('curl command failed.')
-      } */
-      console.log(cyan('Setting registry...'))
-      spawn.sync('pnpm', ['config', 'set', 'registry', 'https://registry.npmmirror.com'], { stdio: 'inherit' })
-      console.log(cyan('Installing node lts...'))
-      spawn.sync('pnpm', ['env', 'use', '-g', 'lts'], { stdio: 'inherit' })
-      console.log(cyan('Installing global packages...'))
-      spawn.sync('pnpm', ['add', 'cnpm', '@antfu/ni', 'only-allow', '-g'], { stdio: 'inherit' })
+          console.error('curl command failed.')
+        } */
+        console.log(cyan('Setting registry...'))
+        spawn.sync('pnpm', ['config', 'set', 'registry', 'https://registry.npmmirror.com'], { stdio: 'inherit' })
+        console.log(cyan('Installing node lts...'))
+        spawn.sync('pnpm', ['env', 'use', '-g', 'lts'], { stdio: 'inherit' })
+        console.log(cyan('Installing global packages...'))
+        spawn.sync('pnpm', ['add', 'cnpm', '@antfu/ni', 'only-allow', '-g'], { stdio: 'inherit' })
+      } catch (e) {
+
+      }
     }
     console.log(cyan('Upgrading dependencies...'))
     spawn.sync('pnpm', ['up'], { stdio: 'inherit' })
