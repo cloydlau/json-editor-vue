@@ -1,4 +1,4 @@
-// pnpm add prompts cross-spawn kolorist magicast -D -w
+// pnpm add esno prompts cross-spawn kolorist magicast -D -w
 
 import fs from 'node:fs'
 import { execSync } from 'node:child_process'
