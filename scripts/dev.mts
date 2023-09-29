@@ -56,9 +56,6 @@ async function dev() {
     return
   }
 
-  console.log(cyan('Fetching origin...'))
-  spawn.sync('git', ['pull'], { stdio: 'inherit' })
-
   console.log(cyan(`Switching to Vue ${targetVersion}...`))
   const mod = await loadFile('./vite.config.ts')
 
