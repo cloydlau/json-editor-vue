@@ -7,6 +7,7 @@ import type { SemVer } from 'semver'
 import spawn from 'cross-spawn'
 import { cyan } from 'kolorist'
 import { deleteAsync } from 'del'
+import open from 'open'
 
 const docsPath = ['./README.md', './docs/README.zh-CN.md']
 
@@ -161,7 +162,9 @@ async function release() {
     return
   }
 
-  spawn.sync('cnpm', ['sync'], { stdio: 'inherit' })
+  console.log(cyan('Updating npmmirror...'))
+  spawn('cnpm', ['sync'], { stdio: 'inherit' })
+  open(`https://npmmirror.com/sync/${name}`)
 }
 
 try {

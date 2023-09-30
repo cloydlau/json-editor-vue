@@ -96,6 +96,7 @@
     "lodash-es": "latest",
     "lossless-json": "latest",
     "magicast": "latest",
+    "open": "latest",
     "prompts": "latest",
     "semver": "latest",
     "simple-git-hooks": "latest",
