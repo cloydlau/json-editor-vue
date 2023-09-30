@@ -1,10 +1,10 @@
 <script setup>
 import { onMounted, reactive, ref, version } from 'vue'
-import JsonEditorVue from '../../src'
+import JsonEditorVue from 'json-editor-vue'
 
 const data = reactive({
   value: {
-    bigint: 124124124124124124124n,
+    // bigint: 124124124124124124124n,
     boolean: true,
     string: 'Hello World',
     number: 123.456,

@@ -1,7 +1,7 @@
 <script>
 import Vue from 'vue'
 import VueCompositionAPI from '@vue/composition-api'
-import JsonEditorVue from '../../src'
+import JsonEditorVue from 'json-editor-vue'
 
 Vue.use(VueCompositionAPI)
 
@@ -10,18 +10,20 @@ export default {
   data() {
     return {
       version: Vue.version,
-      value: {
-        bigint: 124124124124124124124n,
-        boolean: true,
-        string: 'Hello World',
-        number: 123.456,
-        color: '#b0a4e3',
-        null: null,
-        time: 1575599819000,
-        array: [1, 2],
-        object: {
-          a: 'b',
-          c: 'd',
+      data: {
+        value: {
+        // bigint: 124124124124124124124n,
+          boolean: true,
+          string: 'Hello World',
+          number: 123.456,
+          color: '#b0a4e3',
+          null: null,
+          time: 1575599819000,
+          array: [1, 2],
+          object: {
+            a: 'b',
+            c: 'd',
+          },
         },
       },
       mode: undefined,

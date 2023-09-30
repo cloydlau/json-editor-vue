@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref, version } from 'vue'
 import { parse, stringify } from 'lossless-json'
-import JsonEditorVue from '../../src'
-import type { Mode } from '../../src'
+import JsonEditorVue from 'json-editor-vue'
+import type { Mode } from 'json-editor-vue'
 
 const console = window.console
 

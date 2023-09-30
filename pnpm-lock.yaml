@@ -68,7 +68,7 @@ importers:
         version: 0.17.0
       happy-dom:
         specifier: latest
-        version: 12.2.1
+        version: 12.2.2
       json-editor-vue:
         specifier: workspace:*
         version: 'link:'
@@ -119,7 +119,7 @@ importers:
         version: 1.0.0-rc.20(@algolia/client-search@4.20.0)(@types/node@20.8.0)(@vue/composition-api@1.7.2)(search-insights@2.8.3)
       vitest:
         specifier: latest
-        version: 0.34.6(@vitest/ui@0.34.6)(happy-dom@12.2.1)
+        version: 0.34.6(@vitest/ui@0.34.6)(happy-dom@12.2.2)
       vue:
         specifier: latest
         version: 3.3.4
@@ -128,7 +128,7 @@ importers:
         version: 0.4.1(@vue/composition-api@1.7.2)(vue@3.3.4)
       zhlint:
         specifier: latest
-        version: 0.7.1(@vitest/ui@0.34.6)(happy-dom@12.2.1)
+        version: 0.7.1(@vitest/ui@0.34.6)(happy-dom@12.2.2)
 
 packages:
 
@@ -1457,7 +1457,7 @@ packages:
       pathe: 1.1.1
       picocolors: 1.0.0
       sirv: 2.0.3
-      vitest: 0.34.6(@vitest/ui@0.34.6)(happy-dom@12.2.1)
+      vitest: 0.34.6(@vitest/ui@0.34.6)(happy-dom@12.2.2)
     dev: true
 
   /@vitest/utils@0.34.6:
@@ -3603,8 +3603,8 @@ packages:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
     dev: true
 
-  /happy-dom@12.2.1:
-    resolution: {integrity: sha512-yIubME+FcwUuKjmiDlJdhEIax3UnZIweqn/E6AE2bJTIXJv4DP2/ULh0ZnhkCxP05SJsyG6CRFxM/r2HAuWesA==}
+  /happy-dom@12.2.2:
+    resolution: {integrity: sha512-9ADD0d99BgRX/mZEu2yYD44ecfq2wZpPCfK+bUIvnbjJoLjxhYD962GvSMda5nIXNG4wMBoINLbhTPvWr5rKdg==}
     dependencies:
       css.escape: 1.5.1
       entities: 4.5.0
@@ -5981,7 +5981,7 @@ packages:
       - universal-cookie
     dev: true
 
-  /vitest@0.21.1(@vitest/ui@0.34.6)(happy-dom@12.2.1):
+  /vitest@0.21.1(@vitest/ui@0.34.6)(happy-dom@12.2.2):
     resolution: {integrity: sha512-WBIxuFmIDPuK47GO6Lu9eNeRMqHj/FWL3dk73OHH3eyPPWPiu+UB3QHLkLK2PEggCqJW4FaWoWg8R68S7p9+9Q==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -6012,7 +6012,7 @@ packages:
       '@vitest/ui': 0.34.6(vitest@0.34.6)
       chai: 4.3.10
       debug: 4.3.4
-      happy-dom: 12.2.1
+      happy-dom: 12.2.2
       local-pkg: 0.4.3
       tinypool: 0.2.4
       tinyspy: 1.1.1
@@ -6026,7 +6026,7 @@ packages:
       - terser
     dev: true
 
-  /vitest@0.34.6(@vitest/ui@0.34.6)(happy-dom@12.2.1):
+  /vitest@0.34.6(@vitest/ui@0.34.6)(happy-dom@12.2.2):
     resolution: {integrity: sha512-+5CALsOvbNKnS+ZHMXtuUC7nL8/7F1F2DnHGjSsszX8zCjWSSviphCb/NuS9Nzf4Q03KyyDRBAXhF/8lffME4Q==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -6071,7 +6071,7 @@ packages:
       cac: 6.7.14
       chai: 4.3.10
       debug: 4.3.4
-      happy-dom: 12.2.1
+      happy-dom: 12.2.2
       local-pkg: 0.4.3
       magic-string: 0.30.4
       pathe: 1.1.1
@@ -6349,7 +6349,7 @@ packages:
       commander: 9.5.0
     dev: true
 
-  /zhlint@0.7.1(@vitest/ui@0.34.6)(happy-dom@12.2.1):
+  /zhlint@0.7.1(@vitest/ui@0.34.6)(happy-dom@12.2.2):
     resolution: {integrity: sha512-FwwBm1JKyvIBm16exTqyG5gfnvp1fCKn9hIkjXj3cmbCn3aWE6FQaPTkmJfrLR0JNP1CIZjBDdD5Wkbts2r8PA==}
     hasBin: true
     dependencies:
@@ -6360,7 +6360,7 @@ packages:
       remark-frontmatter: 1.3.3
       remark-parse: 7.0.2
       unified: 8.4.2
-      vitest: 0.21.1(@vitest/ui@0.34.6)(happy-dom@12.2.1)
+      vitest: 0.21.1(@vitest/ui@0.34.6)(happy-dom@12.2.2)
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
