@@ -5,7 +5,7 @@
 </h1>
 
 <p align="center">
-  Vue 2.6/2.7/3 & Nuxt 2/3 一体式 JSON 编辑 & 预览 & 格式化 & 校验工具。
+  Vue 2.6/2.7/3 & Nuxt 2/3 一体通用 JSON 编辑 & 预览 & 格式化 & 校验工具。
   <br>
   <a href="../README.md">English</a> | 简体中文
   <br>
@@ -35,8 +35,8 @@
 - 2 种主题：浅色主题 & 深色主题
 - 支持高达 512 MB 的大型 JSON 文档
 - 支持全部 7 种原始数据类型包括 `BigInt` and `Symbol`
-- Vue 2.6/2.7/3 通用
-- 支持 SSR (Nuxt 2/3 通用)
+- Vue 2.6/2.7/3 一体通用
+- 支持 SSR (Nuxt 2/3 一体通用)
 - 支持 Vite，Vue CLI，webpack，CDN……
 - 支持微前端 ([wujie](https://github.com/Tencent/wujie)，[qiankun](https://github.com/umijs/qiankun)，[single-spa](https://github.com/single-spa/single-spa)……)
 - 局部注册并传参，或全局注册并传参 ([vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持)

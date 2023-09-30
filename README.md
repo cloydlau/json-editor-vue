@@ -5,7 +5,7 @@
 </h1>
 
 <p align="center">
-  Vue 2.6/2.7/3 & Nuxt 2/3 all-in-one JSON editor, viewer, formatter and validator.
+  Vue 2.6/2.7/3 & Nuxt 2/3 all-in-one universal JSON editor, viewer, formatter and validator.
   <br>
   English | <a href="./docs/README.zh-CN.md">简体中文</a>
   <br>
@@ -36,7 +36,7 @@
 - Handle large JSON documents up to 512 MB
 - Support all 7 primitive data types including `BigInt` and `Symbol`
 - Vue 2.6/2.7/3 all-in-one
-- Support SSR (Nuxt 2/3)
+- Support SSR (Nuxt 2/3 all-in-one)
 - Support Vite, Vue CLI, webpack, CDN...
 - Support microfrontends ([wujie](https://github.com/Tencent/wujie), [qiankun](https://github.com/umijs/qiankun), [single-spa](https://github.com/single-spa/single-spa)...)
 - Local registration & configuration, or global registration & configuration (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
