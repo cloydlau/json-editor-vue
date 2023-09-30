@@ -118,77 +118,6 @@ export default defineComponent({
       },
     )
 
-    watch(
-      () => props[modelValueProp],
-      (newModelValue: any) => {
-        if (preventUpdatingContent.value) {
-          preventUpdatingContent.value = false
-          return
-        }
-        if (jsonEditor.value) {
-          preventUpdatingModelValue.value = true
-          jsonEditor.value.set(
-            [undefined, ''].includes(newModelValue)
-              // `undefined` is not accepted by vanilla-jsoneditor
-              // The default value is `{ text: '' }`
-              // Only default value can clear the editor
-              ? { text: '' }
-              : { json: newModelValue },
-          )
-        }
-      },
-      {
-        deep: true,
-      },
-    )
-
-    watch(
-      () => props.mode,
-      (mode) => {
-        // `jsonEditor.value` could be `undefined` in Vue 2.6
-        jsonEditor.value?.updateProps({
-          mode,
-        })
-      },
-    )
-
-    watch(
-      () => Array.from(boolAttrs, boolAttr => props[boolAttr]),
-      (values) => {
-        jsonEditor.value?.updateProps(
-          Object.fromEntries(Array.from(values, (v, i) => [boolAttrs[i], v]).filter(([, v]) => v !== undefined)),
-        )
-      },
-    )
-
-    watch(
-      () => attrs,
-      (newAttrs) => {
-        // Functions need to be merged again
-        const defaultFunctionAttrs: {
-          onChange?: (...args: any) => unknown
-          onChangeMode?: (...args: any) => unknown
-        } = {}
-        if (newAttrs.onChange) {
-          defaultFunctionAttrs.onChange = onChange
-        }
-        if (newAttrs.onChangeMode) {
-          defaultFunctionAttrs.onChangeMode = onChangeMode
-        }
-        jsonEditor.value?.updateProps(
-          Object.getOwnPropertyNames(defaultFunctionAttrs).length > 0
-            ? conclude([newAttrs, defaultFunctionAttrs], {
-              type: Object,
-              mergeFunction,
-            })
-            : newAttrs,
-        )
-      },
-      {
-        deep: true,
-      },
-    )
-
     expose?.({ jsonEditor })
 
     onUnmounted(() => {
@@ -200,6 +129,77 @@ export default defineComponent({
         target: currentInstance?.$refs.jsonEditorRef as Element,
         props: initialAttrs,
       })
+
+      watch(
+        () => props[modelValueProp],
+        (newModelValue: any) => {
+          if (preventUpdatingContent.value) {
+            preventUpdatingContent.value = false
+            return
+          }
+          if (jsonEditor.value) {
+            preventUpdatingModelValue.value = true
+            jsonEditor.value.set(
+              [undefined, ''].includes(newModelValue)
+                // `undefined` is not accepted by vanilla-jsoneditor
+                // The default value is `{ text: '' }`
+                // Only default value can clear the editor
+                ? { text: '' }
+                : { json: newModelValue },
+            )
+          }
+        },
+        {
+          deep: true,
+        },
+      )
+
+      watch(
+        () => props.mode,
+        (mode) => {
+          // `jsonEditor.value` could be `undefined` in Vue 2.6
+          jsonEditor.value?.updateProps({
+            mode,
+          })
+        },
+      )
+
+      watch(
+        () => Array.from(boolAttrs, boolAttr => props[boolAttr]),
+        (values) => {
+          jsonEditor.value?.updateProps(
+            Object.fromEntries(Array.from(values, (v, i) => [boolAttrs[i], v]).filter(([, v]) => v !== undefined)),
+          )
+        },
+      )
+
+      watch(
+        () => attrs,
+        (newAttrs) => {
+          // Functions need to be merged again
+          const defaultFunctionAttrs: {
+            onChange?: (...args: any) => unknown
+            onChangeMode?: (...args: any) => unknown
+          } = {}
+          if (newAttrs.onChange) {
+            defaultFunctionAttrs.onChange = onChange
+          }
+          if (newAttrs.onChangeMode) {
+            defaultFunctionAttrs.onChangeMode = onChangeMode
+          }
+          jsonEditor.value?.updateProps(
+            Object.getOwnPropertyNames(defaultFunctionAttrs).length > 0
+              ? conclude([newAttrs, defaultFunctionAttrs], {
+                type: Object,
+                mergeFunction,
+              })
+              : newAttrs,
+          )
+        },
+        {
+          deep: true,
+        },
+      )
 
       // There's no `expose` in @vue/composition-api
       if (!expose) {
