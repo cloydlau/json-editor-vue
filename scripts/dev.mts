@@ -56,6 +56,9 @@ async function dev() {
     return
   }
 
+  console.log(cyan('Fetching origin...'))
+  spawn('git', ['pull'], { stdio: 'inherit' })
+
   console.log(cyan(`Switching to Vue ${targetVersion}...`))
   const mod = await loadFile('./vite.config.ts')
 
@@ -101,7 +104,7 @@ async function dev() {
   }
 
   await writeFile(mod as unknown as ASTNode, './vite.config.ts')
-  spawn.sync('npx', ['eslint', './vite.config.ts', '--fix'], { stdio: 'inherit' })
+  spawn('npx', ['eslint', './vite.config.ts', '--fix'], { stdio: 'inherit' })
 
   let isDepsChanged = false
 
@@ -131,7 +134,7 @@ async function dev() {
   if (isDepsChanged) {
     fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2))
     console.log(cyan('Linting package.json...'))
-    spawn.sync('npx', ['eslint', './package.json', '--fix'], { stdio: 'inherit' })
+    spawn('npx', ['eslint', './package.json', '--fix'], { stdio: 'inherit' })
     await installDependencies()
   }
 
@@ -174,14 +177,14 @@ async function dev() {
           console.log(cyan('Installing node lts...'))
           spawn.sync('pnpm', ['env', 'use', '-g', 'lts'], { stdio: 'inherit' })
           console.log(cyan('Installing global packages...'))
-          spawn.sync('pnpm', ['add', 'cnpm', '@antfu/ni', 'only-allow', '-g'], { stdio: 'inherit' })
+          spawn('pnpm', ['add', 'cnpm', '@antfu/ni', 'only-allow', '-g'], { stdio: 'inherit' })
         } catch (e) {
 
         }
       }
     }
-    console.log(cyan('Upgrading dependencies...'))
-    spawn.sync('pnpm', ['up'], { stdio: 'inherit' })
+    console.log(cyan('Installing dependencies...'))
+    spawn.sync('pnpm', ['i'], { stdio: 'inherit' })
     spawn.sync('npx', ['vue-demi-switch', targetVersion === '2.6' ? '2' : targetVersion], { stdio: 'inherit' })
   }
 }
