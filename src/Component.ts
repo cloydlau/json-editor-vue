@@ -127,7 +127,7 @@ export default defineComponent({
         }
         preventUpdatingModelValue.value = true
         // `jsonEditor.value` could be `undefined` in Vue 2.6 (dev environment)
-        jsonEditor.value?.update(
+        jsonEditor.value?.set(
           [undefined, ''].includes(newModelValue)
             // `undefined` is not accepted by vanilla-jsoneditor
             // The default value is `{ text: '' }`

@@ -1,12 +1,45 @@
+<script setup>
+import { onMounted, reactive, ref, version } from 'vue'
+import JsonEditorVue from '../../src'
+
+const data = reactive({
+  value: {
+    bigint: 124124124124124124124n,
+    boolean: true,
+    string: 'Hello World',
+    number: 123.456,
+    color: '#b0a4e3',
+    null: null,
+    time: 1575599819000,
+    array: [1, 2],
+    object: {
+      a: 'b',
+      c: 'd',
+    },
+  },
+  mode: undefined,
+  readOnly: false,
+})
+
+const jsonEditorVueRef = ref()
+
+onMounted(() => {
+  console.log('expand: ', jsonEditorVueRef.value.jsonEditor.expand)
+})
+</script>
+
 <template>
   <div>
     <h1>vue@{{ version }}</h1>
     <p>
-      <button @click="data.value = '123'">
+      <button @click="data.value = Math.random()">
         设值为 string
       </button>
-      <button @click="data.value = { abc: '123' }">
+      <button @click="data.value = { abc: Math.random() }">
         设值为 JSON
+      </button>
+      <button @click="data.value.number = Math.random()">
+        改变属性
       </button>
       <button @click="data.value = undefined">
         清空
@@ -36,20 +69,3 @@
     {{ typeof data.value }}
   </div>
 </template>
-
-<script setup>
-import { onMounted, reactive, ref, version } from 'vue'
-import JsonEditorVue from '../../src'
-
-const data = reactive({
-  value: undefined,
-  mode: undefined,
-  readOnly: false,
-})
-
-const jsonEditorVueRef = ref()
-
-onMounted(() => {
-  console.log('expand: ', jsonEditorVueRef.value.jsonEditor.expand)
-})
-</script>

@@ -42,7 +42,6 @@ export default {
         return html.replace(/\{\{NAME\}\}/, name).replace(/\{\{VUE_VERSION\}\}/g, String(major === 3 ? major : `${major}.${minor}`))
       },
     },
-    vue(),
     dts({ rollupTypes: true }),
     AutoImport({
       // targets to transform
@@ -58,5 +57,6 @@ export default {
       ],
     }),
     Components(),
+    vue(),
   ],
 }
