@@ -92,15 +92,18 @@ async function release() {
       }
     }
 
-    targetVersion = (await prompts({
-      type: 'select',
-      name: 'value',
-      message: 'Select prerelease type',
-      choices: Array.from(prereleaseTypes, title => ({
-        title,
-        value: semver.inc(currentVersion, t, title),
-      })),
-    })).value
+    targetVersion = prereleaseTypes.length === 1
+      // 已经是 rc 阶段就不用选了
+      ? semver.inc(currentVersion, t, prereleaseTypes[0])
+      : (await prompts({
+          type: 'select',
+          name: 'value',
+          message: 'Select prerelease type',
+          choices: Array.from(prereleaseTypes, title => ({
+            title,
+            value: semver.inc(currentVersion, t, title),
+          })),
+        })).value
   } else if (t === 'custom') {
     targetVersion = (await prompts({
       type: 'text',
