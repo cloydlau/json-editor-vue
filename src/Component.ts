@@ -62,16 +62,6 @@ export default defineComponent({
     const preventUpdatingContent = ref(false)
     const preventUpdatingModelValue = ref(false)
 
-    const initialMode = conclude([props.mode, globalProps.mode], {
-      type: String as PropType<Mode>,
-    })
-    const initialValue = conclude([props[modelValueProp], globalProps[modelValueProp]])
-    const initialBoolAttrs = Object.fromEntries(
-      Array.from(boolAttrs, boolAttr => [boolAttr, conclude([props[boolAttr], globalProps[boolAttr]])]).filter(
-        ([, v]) => v !== undefined,
-      ),
-    )
-
     const onChange = debounce((updatedContent: Content) => {
       if (preventUpdatingModelValue.value) {
         preventUpdatingModelValue.value = false
@@ -95,29 +85,6 @@ export default defineComponent({
       currentValue(...args)
     }
 
-    const initialAttrs = conclude(
-      [
-        attrs,
-        globalAttrs,
-        {
-          // Both user input & setting value programmatically will trigger onChange
-          onChange,
-          onChangeMode,
-          mode: initialMode,
-          ...initialBoolAttrs,
-          ...(initialValue !== undefined && {
-            content: {
-              json: initialValue,
-            },
-          }),
-        },
-      ],
-      {
-        type: Object,
-        mergeFunction,
-      },
-    )
-
     expose?.({ jsonEditor })
 
     onUnmounted(() => {
@@ -125,6 +92,38 @@ export default defineComponent({
     })
 
     onMounted(() => {
+      const initialMode = conclude([props.mode, globalProps.mode], {
+        type: String as PropType<Mode>,
+      })
+      const initialValue = conclude([props[modelValueProp], globalProps[modelValueProp]])
+      const initialBoolAttrs = Object.fromEntries(
+        Array.from(boolAttrs, boolAttr => [boolAttr, conclude([props[boolAttr], globalProps[boolAttr]])]).filter(
+          ([, v]) => v !== undefined,
+        ),
+      )
+      const initialAttrs = conclude(
+        [
+          attrs,
+          globalAttrs,
+          {
+            // Both user input & setting value programmatically will trigger onChange
+            onChange,
+            onChangeMode,
+            mode: initialMode,
+            ...initialBoolAttrs,
+            ...(initialValue !== undefined && {
+              content: {
+                json: initialValue,
+              },
+            }),
+          },
+        ],
+        {
+          type: Object,
+          mergeFunction,
+        },
+      )
+
       jsonEditor.value = new JSONEditor({
         target: currentInstance?.$refs.jsonEditorRef as Element,
         props: initialAttrs,
