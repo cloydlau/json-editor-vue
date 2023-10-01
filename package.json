@@ -3,7 +3,7 @@
   "PascalCasedName": "JsonEditorVue",
   "version": "0.10.18",
   "private": false,
-  "description": "Vue 2.6/2.7/3 & Nuxt 2/3 all-in-one universal JSON editor, viewer, formatter and validator.",
+  "description": "Vue 2.6/2.7/3 & Nuxt 2/3 isomorphic JSON editor, viewer, formatter and validator.",
   "author": "Cloyd Lau",
   "license": "MIT",
   "repository": "https://github.com/cloydlau/json-editor-vue",
