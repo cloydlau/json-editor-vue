@@ -147,7 +147,7 @@ async function release() {
   }
 
   console.log(cyan('Updating npmmirror...'))
-  spawn('cnpm', ['sync'], { stdio: 'inherit' })
+  spawn.sync('cnpm', ['sync'], { stdio: 'inherit' })
   open(`https://npmmirror.com/sync/${name}`)
 }
 
