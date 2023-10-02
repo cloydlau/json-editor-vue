@@ -67,7 +67,7 @@ async function release() {
     // 只升 prerelease 版本时，已经是 beta 阶段就不可能再回到 alpha 阶段
     let prereleaseTypes = ['alpha', 'beta', 'rc']
     if (releaseType === 'prerelease') {
-      const i = prereleaseTypes.indexOf(parsedCurrentVersion.prerelease[0])
+      const i = prereleaseTypes.indexOf(String(parsedCurrentVersion.prerelease[0]))
       if (i !== -1) {
         prereleaseTypes = prereleaseTypes.slice(i)
       }
