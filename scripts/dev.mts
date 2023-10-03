@@ -1,4 +1,4 @@
-// pnpm add esno prompts cross-spawn kolorist magicast -D -w
+// pnpm i only-allow esno prompts cross-spawn kolorist magicast -D -w
 
 import fs from 'node:fs'
 import { execSync } from 'node:child_process'
@@ -177,7 +177,7 @@ async function dev() {
           console.log(cyan('Installing node lts...'))
           spawn.sync('pnpm', ['env', 'use', '-g', 'lts'], { stdio: 'inherit' })
           console.log(cyan('Installing global packages...'))
-          spawn('pnpm', ['add', 'cnpm', '@antfu/ni', 'only-allow', '-g'], { stdio: 'inherit' })
+          spawn('pnpm', ['add', 'cnpm', '@antfu/ni', '-g'], { stdio: 'inherit' })
         } catch (e) {
 
         }

@@ -1,4 +1,4 @@
-// pnpm add esno prompts semver cross-spawn kolorist del open -D -w
+// pnpm i esno prompts semver cross-spawn kolorist del open -D -w
 
 import fs from 'node:fs'
 import prompts from 'prompts'

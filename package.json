@@ -54,7 +54,8 @@
     "test-unit": "vitest run",
     "coverage": "vitest run --coverage",
     "release": "esno ./scripts/release.mts",
-    "preinstall": "node -e \"if (process.env.INIT_CWD === process.cwd()) { process.exit(1) }\" || esno ./scripts/preinstall.mts",
+    "pnpm:devPreinstall": "esno ./scripts/devPreinstall.mts",
+    "preinstall": "node -e \"if (process.env.INIT_CWD === process.cwd()) { process.exit(1) }\" || npx only-allow pnpm",
     "postinstall": "node -e \"if (process.env.INIT_CWD === process.cwd()) { process.exit(1) }\" || npx simple-git-hooks"
   },
   "peerDependencies": {
@@ -96,6 +97,7 @@
     "lodash-es": "latest",
     "lossless-json": "latest",
     "magicast": "latest",
+    "only-allow": "latest",
     "open": "latest",
     "prompts": "latest",
     "semver": "latest",
