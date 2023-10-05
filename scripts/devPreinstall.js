@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+const fs = require('node:fs')
 
 function convertVersion(dependencies) {
   let isConverted = false
