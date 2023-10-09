@@ -4,7 +4,10 @@
   "version": "0.10.19",
   "private": false,
   "description": "Vue 2.6/2.7/3 & Nuxt 2/3 isomorphic JSON editor, viewer, formatter and validator.",
-  "author": "Cloyd Lau (https://github.com/cloydlau)",
+  "author": {
+    "name": "Cloyd Lau",
+    "url": "https://github.com/cloydlau"
+  },
   "license": "MIT",
   "repository": "https://github.com/cloydlau/json-editor-vue",
   "keywords": [
