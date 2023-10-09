@@ -38,25 +38,33 @@
 - Vue 2.6/2.7/3 一体通用
 - 支持 SSR (Nuxt 2/3 一体通用)
 - 支持 Vite，Vue CLI，webpack，CDN...
-- 支持微前端 ([wujie](https://github.com/Tencent/wujie)，[qiankun](https://github.com/umijs/qiankun)，[single-spa](https://github.com/single-spa/single-spa)……)
+- 支持微前端 ([wujie](https://github.com/Tencent/wujie)，[qiankun](https://github.com/umijs/qiankun)，[single-spa](https://github.com/single-spa/single-spa)...)
 - 局部注册并传参，或全局注册并传参 ([vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持)
 
 <br>
 
 ## 安装
 
-### 外置依赖
+### 依赖
 
-- vue
-- vanilla-jsoneditor：[svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) ([jsoneditor](https://github.com/josdejong/jsoneditor) 的继任者) 提供的原生 JS 版本
-- ~~@vue/composition-api~~：仅 Vue 2.6 或更早版本需要
+从 v0.11 开始，不再需要显式安装 [vanilla-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)，
 
-<br>
+如果需要指定依赖的版本：
+
+```json
+// package.json
+{
+  "overrides": {
+    "vanilla-jsoneditor": "x.x.x",
+    "vue-demi": "x.x.x"
+  }
+}
+```
 
 ### Vue 3
 
 ```shell
-npm i json-editor-vue vanilla-jsoneditor
+npm i json-editor-vue
 ```
 
 #### 局部注册
@@ -171,7 +179,7 @@ createApp()
 ### Vue 2.7
 
 ```shell
-npm i json-editor-vue vanilla-jsoneditor
+npm i json-editor-vue
 ```
 
 #### 局部注册
@@ -286,7 +294,7 @@ Vue.use(JsonEditorVue, {
 ### Vue 2.6 或更早版本
 
 ```shell
-npm i json-editor-vue vanilla-jsoneditor @vue/composition-api
+npm i json-editor-vue @vue/composition-api
 ```
 
 #### 局部注册
@@ -423,7 +431,7 @@ Vue.use(JsonEditorVue, {
 ### Nuxt 3
 
 ```shell
-npm i json-editor-vue vanilla-jsoneditor
+npm i json-editor-vue
 ```
 
 #### 局部注册
@@ -510,7 +518,7 @@ const value = ref()
 ### Nuxt 2 + Vue 2.7
 
 ```shell
-npm i json-editor-vue vanilla-jsoneditor
+npm i json-editor-vue
 ```
 
 #### 局部注册
@@ -611,7 +619,7 @@ const value = ref()
 ### Nuxt 2 + Vue 2.6 或更早版本
 
 ```shell
-npm i json-editor-vue vanilla-jsoneditor @vue/composition-api
+npm i json-editor-vue @vue/composition-api
 ```
 
 #### 局部注册

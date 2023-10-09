@@ -47,6 +47,7 @@
     "docs",
     "nuxt.ts"
   ],
+  "engines": { "npm": ">=8.3.0" },
   "scripts": {
     "dev": "esno ./scripts/dev.mts",
     "doc": "vitepress dev --open /README",
@@ -60,7 +61,6 @@
   },
   "peerDependencies": {
     "@vue/composition-api": ">=1",
-    "vanilla-jsoneditor": ">=0",
     "vue": "2||3"
   },
   "peerDependenciesMeta": {
@@ -69,7 +69,8 @@
     }
   },
   "dependencies": {
-    "vue-demi": "latest"
+    "vanilla-jsoneditor": "^0.18.8",
+    "vue-demi": "^0.14.6"
   },
   "devDependencies": {
     "@antfu/eslint-config": "~0.42.1",
@@ -105,7 +106,6 @@
     "typescript": "latest",
     "unplugin-auto-import": "latest",
     "unplugin-vue-components": "latest",
-    "vanilla-jsoneditor": "latest",
     "vite": "latest",
     "vite-plugin-dts": "latest",
     "vitepress": "latest",

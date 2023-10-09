@@ -45,18 +45,28 @@
 
 ## Install
 
-### Peer Dependencies
+### Dependencies
 
-- vue
-- vanilla-jsoneditor: Standalone bundle provided by [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) (successor to [jsoneditor](https://github.com/josdejong/jsoneditor))
-- ~~@vue/composition-api~~: Only for Vue 2.6 or earlier
+As of v0.11, it's no longer necessary to explicitly install [vanilla-jsoneditor](https://github.com/josdejong/svelte-jsoneditor).
+
+If you want to specify dependency versions:
+
+```json
+// package.json
+{
+  "overrides": {
+    "vanilla-jsoneditor": "x.x.x",
+    "vue-demi": "x.x.x"
+  }
+}
+```
 
 <br>
 
 ### Vue 3
 
 ```shell
-npm i json-editor-vue vanilla-jsoneditor
+npm i json-editor-vue
 ```
 
 #### Local Registration
@@ -171,7 +181,7 @@ createApp()
 ### Vue 2.7
 
 ```shell
-npm i json-editor-vue vanilla-jsoneditor
+npm i json-editor-vue
 ```
 
 #### Local Registration
@@ -286,7 +296,7 @@ Vue.use(JsonEditorVue, {
 ### Vue 2.6 or Earlier
 
 ```shell
-npm i json-editor-vue vanilla-jsoneditor @vue/composition-api
+npm i json-editor-vue @vue/composition-api
 ```
 
 #### Local Registration
@@ -423,7 +433,7 @@ Vue.use(JsonEditorVue, {
 ### Nuxt 3
 
 ```shell
-npm i json-editor-vue vanilla-jsoneditor
+npm i json-editor-vue
 ```
 
 #### Local Registration
@@ -510,7 +520,7 @@ const value = ref()
 ### Nuxt 2 + Vue 2.7
 
 ```shell
-npm i json-editor-vue vanilla-jsoneditor
+npm i json-editor-vue
 ```
 
 #### Local Registration
@@ -611,7 +621,7 @@ const value = ref()
 ### Nuxt 2 + Vue 2.6 or Earlier
 
 ```shell
-npm i json-editor-vue vanilla-jsoneditor @vue/composition-api
+npm i json-editor-vue @vue/composition-api
 ```
 
 #### Local Registration
