@@ -934,6 +934,6 @@ import JsonEditorVue from 'json-editor-vue'
 
 ## Changelog
 
-Detailed changes for each release are documented in the [release notes](https://github.com/cloydlau/json-editor-vue/releases).
+Detailed changes for each release are documented in the [release notes](https://github.com/cloydlau/json-editor-vue/releases)
 
 <br>
