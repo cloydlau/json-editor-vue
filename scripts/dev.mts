@@ -1,4 +1,4 @@
-// pnpm i only-allow esno prompts cross-spawn kolorist magicast -D -w
+// pnpm i only-allow esno prompts cross-spawn kolorist magicast del -D -w
 
 import fs from 'node:fs'
 import { execSync } from 'node:child_process'
@@ -8,6 +8,7 @@ import { loadFile, writeFile } from 'magicast'
 import type { ASTNode } from 'magicast'
 import { cyan } from 'kolorist'
 import { addVitePlugin } from 'magicast/helpers'
+import { deleteAsync } from 'del'
 
 declare const process: NodeJS.Process
 
@@ -178,6 +179,8 @@ async function dev() {
           spawn.sync('pnpm', ['env', 'use', '-g', 'lts'], { stdio: 'inherit' })
           console.log(cyan('Installing global packages...'))
           spawn('pnpm', ['add', 'cnpm', '@antfu/ni', '-g'], { stdio: 'inherit' })
+          console.log(cyan('Deleting ./node_modules...'))
+          await deleteAsync(['./node_modules'])
         } catch (e) {
 
         }
