@@ -18,7 +18,7 @@ async function release() {
   }
 
   console.log(cyan('Upgrading dependencies...'))
-  if (spawn.sync('pnpm', ['up'], { stdio: 'inherit' }).status === 1) {
+  if (spawn.sync('pnpm', ['up', '--latest'], { stdio: 'inherit' }).status === 1) {
     return
   }
 
