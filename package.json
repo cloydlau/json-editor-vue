@@ -1,7 +1,7 @@
 {
   "name": "json-editor-vue",
   "PascalCasedName": "JsonEditorVue",
-  "version": "0.10.19",
+  "version": "0.11.0",
   "private": false,
   "description": "Vue 2.6/2.7/3 & Nuxt 2/3 isomorphic JSON editor, viewer, formatter and validator.",
   "author": {
@@ -50,7 +50,9 @@
     "docs",
     "nuxt.ts"
   ],
-  "engines": { "npm": ">=8.3.0" },
+  "engines": {
+    "npm": ">=8.3.0"
+  },
   "scripts": {
     "dev": "esno ./scripts/dev.mts",
     "doc": "vitepress dev --open /README",
@@ -72,7 +74,7 @@
     }
   },
   "dependencies": {
-    "vanilla-jsoneditor": "^0.18.8",
+    "vanilla-jsoneditor": "^0.18.10",
     "vue-demi": "^0.14.6"
   },
   "devDependencies": {
@@ -87,7 +89,6 @@
     "@vitejs/plugin-vue": "latest",
     "@vitest/ui": "latest",
     "@vue/compiler-sfc": "latest",
-    "@vue/composition-api": "latest",
     "@vue/test-utils": "latest",
     "case-police": "latest",
     "cross-spawn": "latest",
@@ -111,7 +112,7 @@
     "unplugin-vue-components": "latest",
     "vite": "latest",
     "vite-plugin-dts": "latest",
-    "vitepress": "latest",
+    "vitepress": "1.0.0-rc.24",
     "vitest": "latest",
     "vue": "latest",
     "vue-global-config": "latest",
