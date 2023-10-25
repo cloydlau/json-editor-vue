@@ -16,32 +16,38 @@ type VueVersion = '3' | '2.7' | '2.6'
 
 const vueVersion: VueVersion[] = ['3', '2.7', '2.6']
 
-const vueVersionToVitePlugin: Record<VueVersion, string> = {
+const toVitePlugin: Record<VueVersion, string> = {
   3: '@vitejs/plugin-vue',
   2.7: '@vitejs/plugin-vue2',
   2.6: 'vite-plugin-vue2',
 }
 
-const vueVersionToDeps: Record<VueVersion, Record<string, string>> = {
+const toPackageOptions: Record<VueVersion, Record<string, Record<string, any>>> = {
   3: {
-    '@vitejs/plugin-vue': 'latest',
-    '@vue/compiler-sfc': 'latest',
-    '@vue/test-utils': 'latest',
-    'vue': 'latest',
+    devDependencies: {
+      '@vitejs/plugin-vue': 'latest',
+      '@vue/compiler-sfc': 'latest',
+      '@vue/test-utils': 'latest',
+      'vue': 'latest',
+    },
   },
   2.7: {
-    '@vitejs/plugin-vue2': 'latest',
-    '@vue/test-utils': 'legacy',
-    'vue': '~2.7.14',
-    'vue-template-compiler': '~2.7.14',
+    devDependencies: {
+      '@vitejs/plugin-vue2': 'latest',
+      '@vue/test-utils': 'legacy',
+      'vue': '~2.7.14',
+      'vue-template-compiler': '~2.7.14',
+    },
   },
   2.6: {
-    '@vue/composition-api': 'latest',
-    '@vue/test-utils': 'legacy',
-    'vite-plugin-vue2': 'latest',
-    'unplugin-vue2-script-setup': 'latest',
-    'vue': '~2.6.14',
-    'vue-template-compiler': '~2.6.14',
+    devDependencies: {
+      '@vue/composition-api': 'latest',
+      '@vue/test-utils': 'legacy',
+      'vite-plugin-vue2': 'latest',
+      'unplugin-vue2-script-setup': 'latest',
+      'vue': '~2.6.14',
+      'vue-template-compiler': '~2.6.14',
+    },
   },
 }
 
@@ -69,8 +75,8 @@ async function dev() {
   // 删掉 vue 相关引入
   const existedVuePlugins: Record<string, boolean> = {}
   for (const k in mod.imports) {
-    for (const vueVersion in vueVersionToVitePlugin) {
-      if (mod.imports[k] && [vueVersionToVitePlugin[vueVersion as VueVersion], 'unplugin-vue2-script-setup/vite'].includes(mod.imports[k].from)) {
+    for (const vueVersion in toVitePlugin) {
+      if (mod.imports[k] && [toVitePlugin[vueVersion as VueVersion], 'unplugin-vue2-script-setup/vite'].includes(mod.imports[k].from)) {
         delete mod.imports[k]
         existedVuePlugins[k] = true
       }
@@ -92,7 +98,7 @@ async function dev() {
 
   // 添加 vue 相关插件
   addVitePlugin(mod, {
-    from: vueVersionToVitePlugin[targetVersion],
+    from: toVitePlugin[targetVersion],
     imported: targetVersion === '2.6' ? 'createVuePlugin' : 'default',
     constructor: 'vue',
   })
@@ -111,24 +117,28 @@ async function dev() {
 
   const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
 
-  for (const ver in vueVersionToDeps) {
+  // 删除非目标版本的依赖
+  for (const ver of vueVersion) {
     if (ver !== targetVersion) {
-      for (const deps in vueVersionToDeps[ver as VueVersion]) {
-        // 删除非目标版本的依赖
-        // peerDependencies 中的依赖会被 pnpm 自动添加，不删除
-        if (pkg.devDependencies[deps] && !vueVersionToDeps[targetVersion][deps] && !pkg.peerDependencies[deps]) {
-          delete pkg.devDependencies[deps]
-          isDepsChanged = true
+      for (const option in toPackageOptions[ver]) {
+        for (const dep in toPackageOptions[ver][option]) {
+          if (pkg[option][dep] && !toPackageOptions[targetVersion][option][dep]) {
+            delete pkg[option][dep]
+            isDepsChanged = true
+          }
         }
       }
     }
   }
 
-  for (const targetDeps in vueVersionToDeps[targetVersion]) {
-    // 添加目标版本的依赖
-    if (pkg.devDependencies[targetDeps] !== vueVersionToDeps[targetVersion][targetDeps]) {
-      pkg.devDependencies[targetDeps] = vueVersionToDeps[targetVersion][targetDeps]
-      isDepsChanged = true
+  // 添加目标版本的依赖
+  for (const option in toPackageOptions[targetVersion]) {
+    for (const dep in toPackageOptions[targetVersion][option]) {
+      const depVer = toPackageOptions[targetVersion][option][dep]
+      if (pkg[option][dep] !== depVer) {
+        pkg[option][dep] = depVer
+        isDepsChanged = true
+      }
     }
   }
 
