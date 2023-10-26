@@ -54,9 +54,22 @@
 ```json
 // package.json
 {
+  // npm/cnpm/bun
   "overrides": {
-    "vanilla-jsoneditor": "x.x.x",
-    "vue-demi": "x.x.x"
+    "vanilla-jsoneditor": "xxx",
+    "vue-demi": "xxx"
+  },
+  // yarn/bun
+  "resolutions": {
+    "vanilla-jsoneditor": "xxx",
+    "vue-demi": "xxx"
+  },
+  // pnpm
+  "pnpm": {
+    "overrides": {
+      "vanilla-jsoneditor": "xxx",
+      "vue-demi": "xxx"
+    }
   }
 }
 ```
