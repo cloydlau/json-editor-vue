@@ -55,6 +55,7 @@
   },
   "scripts": {
     "dev": "esno ./scripts/dev.mts",
+    "up": "nu -L !@antfu/eslint-config && ni",
     "doc": "vitepress dev --open /README",
     "build": "vite build",
     "test-unit": "vitest run",
@@ -74,7 +75,7 @@
     }
   },
   "dependencies": {
-    "vanilla-jsoneditor": "^0.18.10",
+    "vanilla-jsoneditor": "^0.18.12",
     "vue-demi": "^0.14.6"
   },
   "devDependencies": {
@@ -105,6 +106,7 @@
     "only-allow": "latest",
     "open": "latest",
     "prompts": "latest",
+    "rollup-plugin-visualizer": "latest",
     "semver": "latest",
     "simple-git-hooks": "latest",
     "typescript": "latest",
@@ -112,7 +114,7 @@
     "unplugin-vue-components": "latest",
     "vite": "latest",
     "vite-plugin-dts": "latest",
-    "vitepress": "1.0.0-rc.24",
+    "vitepress": "1.0.0-rc.25",
     "vitest": "latest",
     "vue": "latest",
     "vue-global-config": "latest",

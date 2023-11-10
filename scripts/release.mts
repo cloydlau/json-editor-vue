@@ -37,6 +37,8 @@ async function release() {
     return
   }
 
+  open('./stats.html')
+
   console.log(cyan('Packing...'))
   if (spawn.sync('npm', ['pack'], { stdio: 'inherit' }).status === 1) {
     return

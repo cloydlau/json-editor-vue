@@ -5,6 +5,7 @@ import { parse } from 'semver'
 import type { SemVer } from 'semver'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import { visualizer } from 'rollup-plugin-visualizer'
 import { PascalCasedName, name } from './package.json'
 
 const { major, minor } = parse(version) as SemVer
@@ -55,6 +56,7 @@ export default {
       ],
     }),
     Components(),
+    { ...visualizer(), apply: 'build' },
     vue(),
   ],
 }
