@@ -11,3 +11,4 @@ TODOs.md
 .env.*
 .vitepress/cache
 .npmrc
+./stats.html
