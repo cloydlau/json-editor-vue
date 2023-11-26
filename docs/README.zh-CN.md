@@ -175,7 +175,7 @@ createApp()
       setup: () => ({
         value: ref(),
       }),
-    }).component('json-editor-vue', JsonEditorVue)
+    }).use(JsonEditorVue)
       .mount('#app')
   </script>
 </body>
@@ -419,7 +419,7 @@ Vue.use(JsonEditorVue, {
     })
 
     app.use(VueCompositionAPI)
-    app.component('json-editor-vue', JsonEditorVue)
+    app.use(JsonEditorVue)
     app.mount('#app')
   </script>
 </body>
