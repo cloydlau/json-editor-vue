@@ -103,6 +103,7 @@ export default defineComponent({
       )
       const initialAttrs = conclude(
         [
+          initialBoolAttrs,
           attrs,
           globalAttrs,
           {
@@ -110,7 +111,6 @@ export default defineComponent({
             onChange,
             onChangeMode,
             mode: initialMode,
-            ...initialBoolAttrs,
             ...(initialValue !== undefined && {
               content: {
                 json: initialValue,

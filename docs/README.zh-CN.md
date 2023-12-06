@@ -5,7 +5,7 @@
 </h1>
 
 <p align="center">
-  Vue 2.6/2.7/3 & Nuxt 2/3 一体通用 JSON 编辑 & 预览 & 格式化 & 校验工具。
+  Vue 2.6/2.7/3 & Nuxt 2/3 一体通用 JSON 编辑 & 预览 & 格式化 & 校验工具
   <br>
   <a href="../README.md">English</a> | 简体中文
   <br>
@@ -734,13 +734,13 @@ export default {
 
 ### Vite
 
-开箱即用。
+开箱即用
 
 <br>
 
 ### Vue CLI 5 (webpack 5)
 
-开箱即用。
+开箱即用
 
 <br>
 
@@ -823,7 +823,7 @@ module.exports = {
 
 ### Vue CLI 2 & 1 (webpack 3)
 
-Vue CLI 2 & 1 从 [vuejs-templates/webpack](https://github.com/vuejs-templates/webpack) 拉取模板。
+Vue CLI 2 & 1 从 [vuejs-templates/webpack](https://github.com/vuejs-templates/webpack) 拉取模板
 
 ```shell
 npm i @babel/core@latest @babel/preset-env@latest babel-loader@latest -D
@@ -866,10 +866,12 @@ module.exports = {
 | mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | 编辑模式                                                                               | [Mode](#Mode) | `'tree'` |
 | ...                                                    | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的属性 |               |          |
 
+> 通过 CDN 使用时，标签、属性名称都必须使用短横线命名
+
 ### svelte-jsoneditor 与 json-editor-vue 中绑定值的差异
 
-- svelte-jsoneditor：一个包含 “stringified JSON” 或 “parsed JSON” 的对象，当作为 “stringified JSON” 传入时，会经过 `JSON.parse` 解析。
-- json-editor-vue：JSON 本身，所见即所得。
+- svelte-jsoneditor：一个包含 “stringified JSON” 或 “parsed JSON” 的对象，当作为 “stringified JSON” 传入时，会经过 `JSON.parse` 解析
+- json-editor-vue：JSON 本身，所见即所得
 
 如果你更倾向于 svelte-jsoneditor 的行为：
 
@@ -882,7 +884,7 @@ module.exports = {
 />
 ```
 
-> 详情见 https://github.com/josdejong/svelte-jsoneditor/pull/166。
+> 详情见 https://github.com/josdejong/svelte-jsoneditor/pull/166
 
 ### 布尔类型属性
 
@@ -891,8 +893,6 @@ module.exports = {
 - ✔️ `<JsonEditorVue readOnly />`
 
 - ✔️ `<JsonEditorVue :readOnly="true" />`
-
-> 通过 CDN 使用时，标签、属性名称都必须使用短横线命名。
 
 <br>
 
