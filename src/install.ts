@@ -12,7 +12,7 @@ type SFCWithInstall = typeof Component & {
 
 function withInstall(sfc: typeof Component): SFCWithInstall {
   (sfc as SFCWithInstall).install = (app: App, options = {}): void => {
-    const { props, attrs } = resolveConfig(options, Component.props)
+    const { props, attrs } = resolveConfig(options, { props: Component.props })
     Object.assign(globalProps, props)
     Object.assign(globalAttrs, attrs)
     app.component(sfc.name as string, sfc as object)
