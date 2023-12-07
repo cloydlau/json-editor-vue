@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref, version } from 'vue'
 import { parse, stringify } from 'lossless-json'
-import JsonEditorVue from 'json-editor-vue'
-import type { Mode } from 'json-editor-vue'
+import type { Mode } from '../../src'
+import JsonEditorVue from '../../src'
 
 const console = window.console
 
@@ -36,7 +36,7 @@ const data = reactive<{
           c: 'd',
         },
       },
-      mode: undefined,
+      mode: 'text',
       readOnly: false,
       parser: LosslessJSONParser,
     })

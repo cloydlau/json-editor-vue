@@ -1,7 +1,7 @@
 <script>
 import Vue from 'vue'
 import VueCompositionAPI from '@vue/composition-api'
-import JsonEditorVue from 'json-editor-vue'
+import JsonEditorVue from '../../src'
 
 Vue.use(VueCompositionAPI)
 

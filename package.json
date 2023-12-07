@@ -1,7 +1,7 @@
 {
   "name": "json-editor-vue",
   "PascalCasedName": "JsonEditorVue",
-  "version": "0.11.1",
+  "version": "0.11.2",
   "private": false,
   "description": "Vue 2.6/2.7/3 & Nuxt 2/3 isomorphic JSON editor, viewer, formatter and validator.",
   "author": {
@@ -56,10 +56,10 @@
   "scripts": {
     "dev": "esno ./scripts/dev.mts",
     "up": "nu -L !@antfu/eslint-config && ni",
-    "doc": "vitepress dev --open /README",
-    "build": "vite build",
     "test-unit": "vitest run",
     "coverage": "vitest run --coverage",
+    "doc": "vitepress dev --open /README",
+    "build": "vite build",
     "release": "esno ./scripts/release.mts",
     "pnpm:devPreinstall": "node ./scripts/devPreinstall.js",
     "preinstall": "node -e \"if (process.env.INIT_CWD === process.cwd()) { process.exit(1) }\" || npx only-allow pnpm",
@@ -127,6 +127,6 @@
   "lint-staged": {
     "*.md": "case-police --fix",
     "docs/README.zh-CN.md": "zhlint --fix",
-    "*": "eslint --cache --ignore-pattern 'demo/' --fix"
+    "{scripts,src}": "eslint --cache --fix"
   }
 }

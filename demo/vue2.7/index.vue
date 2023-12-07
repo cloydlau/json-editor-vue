@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, reactive, ref, version } from 'vue'
-import JsonEditorVue from 'json-editor-vue'
+import JsonEditorVue from '../../src'
 
 const data = reactive({
   value: {
