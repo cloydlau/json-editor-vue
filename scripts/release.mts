@@ -119,6 +119,9 @@ async function release() {
     return
   }
   if (spawn.sync('git', ['commit', '-m', `release: v${targetVersion}`], { stdio: 'inherit' }).status === 1) {
+    // pre-commit 时如果 lint 失败，则恢复版本号
+    pkg.version = currentVersion
+    fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2))
     return
   }
 
@@ -135,9 +138,6 @@ async function release() {
 
   console.log(cyan('Publishing...'))
   if (spawn.sync('npm', ['publish', '--registry=https://registry.npmjs.org'], { stdio: 'inherit' }).status === 1) {
-    // 恢复版本号
-    // pkg.version = currentVersion
-    // fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2))
     return
   }
 
