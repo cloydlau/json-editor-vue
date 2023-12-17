@@ -1,4 +1,4 @@
-const fs = require('node:fs')
+import fs from 'node:fs'
 
 function devPreinstall() {
   // 安装依赖前，将 devDependencies 的版本号替换为 latest

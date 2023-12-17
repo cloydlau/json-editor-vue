@@ -32,8 +32,6 @@ async function release() {
     return
   }
 
-  open('./stats.html')
-
   console.log(cyan('Packing...'))
   if (spawn.sync('npm', ['pack'], { stdio: 'inherit' }).status === 1) {
     return
@@ -138,8 +136,8 @@ async function release() {
   console.log(cyan('Publishing...'))
   if (spawn.sync('npm', ['publish', '--registry=https://registry.npmjs.org'], { stdio: 'inherit' }).status === 1) {
     // 恢复版本号
-    pkg.version = currentVersion
-    fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2))
+    // pkg.version = currentVersion
+    // fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2))
     return
   }
 

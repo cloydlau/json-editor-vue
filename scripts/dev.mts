@@ -149,7 +149,7 @@ async function dev() {
     await installDependencies()
   }
 
-  spawn.sync('npx', ['vite', '--open'], { stdio: 'inherit' })
+  spawn.sync('npx', ['vite', '--open', '--force'], { stdio: 'inherit' })
 
   async function installDependencies() {
     if (['darwin', 'linux'].includes(process.platform)) {
@@ -185,8 +185,8 @@ async function dev() {
           } */
           console.log(cyan('Setting registry...'))
           spawn.sync('pnpm', ['config', 'set', 'registry', 'https://registry.npmmirror.com'], { stdio: 'inherit' })
-          console.log(cyan('Installing node lts...'))
-          spawn.sync('pnpm', ['env', 'use', '-g', 'lts'], { stdio: 'inherit' })
+          // console.log(cyan('Installing node lts...'))
+          // spawn.sync('pnpm', ['env', 'use', '-g', 'lts'], { stdio: 'inherit' })
           console.log(cyan('Installing global packages...'))
           spawn('pnpm', ['add', 'cnpm', '@antfu/ni', '-g'], { stdio: 'inherit' })
           console.log(cyan('Deleting ./node_modules...'))
