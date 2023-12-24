@@ -35,8 +35,8 @@ const toPackageOptions: Record<VueVersion, Record<string, Record<string, any>>> 
     devDependencies: {
       '@vitejs/plugin-vue2': 'latest',
       '@vue/test-utils': 'legacy',
-      'vue': '~2.7.14',
-      'vue-template-compiler': '~2.7.14',
+      'vue': '~2.7',
+      'vue-template-compiler': '~2.7',
     },
   },
   2.6: {
@@ -45,8 +45,8 @@ const toPackageOptions: Record<VueVersion, Record<string, Record<string, any>>> 
       '@vue/test-utils': 'legacy',
       'vite-plugin-vue2': 'latest',
       'unplugin-vue2-script-setup': 'latest',
-      'vue': '~2.6.14',
-      'vue-template-compiler': '~2.6.14',
+      'vue': '~2.6',
+      'vue-template-compiler': '~2.6',
     },
   },
 }
