@@ -56,19 +56,46 @@
 {
   // npm/cnpm/bun
   "overrides": {
-    "vanilla-jsoneditor": "xxx",
-    "vue-demi": "xxx"
+    "vanilla-jsoneditor": "***",
+    "vue-demi": "***"
   },
   // yarn/bun
   "resolutions": {
-    "vanilla-jsoneditor": "xxx",
-    "vue-demi": "xxx"
+    "vanilla-jsoneditor": "***",
+    "vue-demi": "***"
   },
   // pnpm
   "pnpm": {
     "overrides": {
-      "vanilla-jsoneditor": "xxx",
-      "vue-demi": "xxx"
+      "vanilla-jsoneditor": "***",
+      "vue-demi": "***"
+    }
+  }
+}
+```
+
+或缩小作用范围：
+
+```json
+// package.json
+{
+  // npm/cnpm/bun
+  "overrides": {
+    "json-editor-vue": {
+      "vanilla-jsoneditor": "***",
+      "vue-demi": "***"
+    }
+  },
+  // yarn/bun
+  "resolutions": {
+    "json-editor-vue/vanilla-jsoneditor": "***",
+    "json-editor-vue/vue-demi": "***"
+  },
+  // pnpm
+  "pnpm": {
+    "overrides": {
+      "json-editor-vue>vanilla-jsoneditor": "***",
+      "json-editor-vue>vue-demi": "***"
     }
   }
 }
