@@ -917,9 +917,9 @@ module.exports = {
 
 仅写上 svelte-jsoneditor 的布尔类型属性如 `readOnly` 但不传值，会隐式转换为 `true`：
 
-- ✔️ `<JsonEditorVue readOnly />`
+- ✓ `<JsonEditorVue readOnly />`
 
-- ✔️ `<JsonEditorVue :readOnly="true" />`
+- ✓ `<JsonEditorVue :readOnly="true" />`
 
 <br>
 

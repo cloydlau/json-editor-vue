@@ -919,9 +919,9 @@ If you prefer the behavior of svelte-jsoneditor:
 
 Including the boolean properties of svelte-jsoneditor like `readOnly` with no value will imply `true`:
 
-- ✔️ `<JsonEditorVue readOnly />`
+- ✓ `<JsonEditorVue readOnly />`
 
-- ✔️ `<JsonEditorVue :readOnly="true" />`
+- ✓ `<JsonEditorVue :readOnly="true" />`
 
 <br>
 
