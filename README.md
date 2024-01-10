@@ -486,12 +486,10 @@ const value = ref()
 </script>
 
 <template>
-  <client-only>
-    <JsonEditorVue
-      v-model="value"
-      v-bind="{/* local props & attrs */}"
-    />
-  </client-only>
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* local props & attrs */}"
+  />
 </template>
 ```
 
@@ -511,9 +509,10 @@ const value = ref()
 </script>
 
 <template>
-  <client-only>
-    <JsonEditorVue v-model="value" />
-  </client-only>
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* local props & attrs */}"
+  />
 </template>
 ```
 
@@ -537,9 +536,10 @@ const value = ref()
 </script>
 
 <template>
-  <client-only>
-    <JsonEditorVue v-model="value" />
-  </client-only>
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* local props & attrs */}"
+  />
 </template>
 ```
 
@@ -587,12 +587,10 @@ const value = ref()
 </script>
 
 <template>
-  <client-only>
-    <JsonEditorVue
-      v-model="value"
-      v-bind="{/* local props & attrs */}"
-    />
-  </client-only>
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* local props & attrs */}"
+  />
 </template>
 ```
 
@@ -638,9 +636,10 @@ const value = ref()
 </script>
 
 <template>
-  <client-only>
-    <JsonEditorVue v-model="value" />
-  </client-only>
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* local props & attrs */}"
+  />
 </template>
 ```
 
@@ -696,12 +695,10 @@ export default {
 </script>
 
 <template>
-  <client-only>
-    <JsonEditorVue
-      v-model="value"
-      v-bind="{/* local props & attrs */}"
-    />
-  </client-only>
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* local props & attrs */}"
+  />
 </template>
 ```
 
@@ -753,9 +750,10 @@ export default {
 </script>
 
 <template>
-  <client-only>
-    <JsonEditorVue v-model="value" />
-  </client-only>
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* local props & attrs */}"
+  />
 </template>
 ```
 

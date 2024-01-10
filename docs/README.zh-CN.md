@@ -484,12 +484,10 @@ const value = ref()
 </script>
 
 <template>
-  <client-only>
-    <JsonEditorVue
-      v-model="value"
-      v-bind="{/* 局部 props & attrs */}"
-    />
-  </client-only>
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* 局部 props & attrs */}"
+  />
 </template>
 ```
 
@@ -509,9 +507,10 @@ const value = ref()
 </script>
 
 <template>
-  <client-only>
-    <JsonEditorVue v-model="value" />
-  </client-only>
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* 局部 props & attrs */}"
+  />
 </template>
 ```
 
@@ -535,9 +534,10 @@ const value = ref()
 </script>
 
 <template>
-  <client-only>
-    <JsonEditorVue v-model="value" />
-  </client-only>
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* 局部 props & attrs */}"
+  />
 </template>
 ```
 
@@ -585,12 +585,10 @@ const value = ref()
 </script>
 
 <template>
-  <client-only>
-    <JsonEditorVue
-      v-model="value"
-      v-bind="{/* 局部 props & attrs */}"
-    />
-  </client-only>
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* 局部 props & attrs */}"
+  />
 </template>
 ```
 
@@ -636,9 +634,10 @@ const value = ref()
 </script>
 
 <template>
-  <client-only>
-    <JsonEditorVue v-model="value" />
-  </client-only>
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* 局部 props & attrs */}"
+  />
 </template>
 ```
 
@@ -694,12 +693,10 @@ export default {
 </script>
 
 <template>
-  <client-only>
-    <JsonEditorVue
-      v-model="value"
-      v-bind="{/* 局部 props & attrs */}"
-    />
-  </client-only>
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* 局部 props & attrs */}"
+  />
 </template>
 ```
 
@@ -751,9 +748,10 @@ export default {
 </script>
 
 <template>
-  <client-only>
-    <JsonEditorVue v-model="value" />
-  </client-only>
+  <JsonEditorVue
+    v-model="value"
+    v-bind="{/* 局部 props & attrs */}"
+  />
 </template>
 ```
 
