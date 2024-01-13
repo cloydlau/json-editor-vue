@@ -556,8 +556,8 @@ npm i json-editor-vue
 
 export default {
   build: {
-    // Vite 4 (Rollup 3) 默认的编译目标为 ES2020
-    // 所以在 webpack 4 中需要对 Vite 4 打包的依赖进行转译
+    // Vite ≥4 (Rollup ≥3) 默认的编译目标为 ES2020
+    // 所以在 webpack 4 中需要对 Vite ≥4 打包的依赖进行转译
     transpile: ['json-editor-vue'],
     extend(config) {
       // 让 webpack 识别 `.mjs` 文件
@@ -600,8 +600,8 @@ const value = ref()
 export default {
   plugins: ['~/plugins/JsonEditorVue.client'],
   build: {
-    // Vite 4 (Rollup 3) 默认的编译目标为 ES2020
-    // 所以在 webpack 4 中需要对 Vite 4 打包的依赖进行转译
+    // Vite ≥4 (Rollup ≥3) 默认的编译目标为 ES2020
+    // 所以在 webpack 4 中需要对 Vite ≥4 打包的依赖进行转译
     transpile: ['json-editor-vue'],
     extend(config) {
       // 让 webpack 识别 `.mjs` 文件
@@ -658,8 +658,8 @@ npm i json-editor-vue @vue/composition-api
 
 export default {
   build: {
-    // Vite 4 (Rollup 3) 默认的编译目标为 ES2020
-    // 所以在 webpack 4 中需要对 Vite 4 打包的依赖进行转译
+    // Vite ≥4 (Rollup ≥3) 默认的编译目标为 ES2020
+    // 所以在 webpack 4 中需要对 Vite ≥4 打包的依赖进行转译
     transpile: ['json-editor-vue'],
     extend(config) {
       // 让 webpack 识别 `.mjs` 文件
@@ -710,8 +710,8 @@ export default {
 export default {
   plugins: ['~/plugins/JsonEditorVue.client'],
   build: {
-    // Vite 4 (Rollup 3) 默认的编译目标为 ES2020
-    // 所以在 webpack 4 中需要对 Vite 4 打包的依赖进行转译
+    // Vite ≥4 (Rollup ≥3) 默认的编译目标为 ES2020
+    // 所以在 webpack 4 中需要对 Vite ≥4 打包的依赖进行转译
     transpile: ['json-editor-vue'],
     extend(config) {
       // 让 webpack 识别 `.mjs` 文件
@@ -781,8 +781,8 @@ export default {
 // vue.config.js
 
 module.exports = {
-  // Vite 4 (Rollup 3) 默认的编译目标为 ES2020
-  // 所以在 webpack 4 中需要对 Vite 4 打包的依赖进行转译
+  // Vite ≥4 (Rollup ≥3) 默认的编译目标为 ES2020
+  // 所以在 webpack 4 中需要对 Vite ≥4 打包的依赖进行转译
   transpileDependencies: ['json-editor-vue'],
 }
 ```
@@ -793,8 +793,8 @@ module.exports = {
 // vue.config.js
 
 module.exports = {
-  // Vite 4 (Rollup 3) 默认的编译目标为 ES2020
-  // 所以在 webpack 4 中需要对 Vite 4 打包的依赖进行转译
+  // Vite ≥4 (Rollup ≥3) 默认的编译目标为 ES2020
+  // 所以在 webpack 4 中需要对 Vite ≥4 打包的依赖进行转译
   transpileDependencies: ['json-editor-vue'],
   configureWebpack: {
     module: {
@@ -834,8 +834,8 @@ module.exports = {
 // vue.config.js
 
 module.exports = {
-  // Vite 4 (Rollup 3) 默认的编译目标为 ES2020
-  // 所以在 webpack 4 中需要对 Vite 4 打包的依赖进行转译
+  // Vite ≥4 (Rollup ≥3) 默认的编译目标为 ES2020
+  // 所以在 webpack 4 中需要对 Vite ≥4 打包的依赖进行转译
   transpileDependencies: ['json-editor-vue'],
   chainWebpack(config) {
     // 让 webpack 识别 `.mjs` 文件
