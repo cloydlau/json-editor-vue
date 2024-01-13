@@ -1,8 +1,5 @@
 {
-  "name": "nuxt2",
-  "version": "1.0.0",
-  "private": true,
-  "packageManager": "yarn@1.22.19",
+  "name": "nuxt2_vue2.7",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -13,7 +10,6 @@
     "core-js": "latest",
     "json-editor-vue": "latest",
     "nuxt": "2",
-    "vanilla-jsoneditor": "latest",
     "vue": "2.7",
     "vue-server-renderer": "2.7",
     "vue-template-compiler": "2.7"

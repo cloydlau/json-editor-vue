@@ -636,10 +636,12 @@ const value = ref()
 </script>
 
 <template>
-  <JsonEditorVue
-    v-model="value"
-    v-bind="{/* local props & attrs */}"
-  />
+  <ClientOnly>
+    <JsonEditorVue
+      v-model="value"
+      v-bind="{/* local props & attrs */}"
+    />
+  </ClientOnly>
 </template>
 ```
 
@@ -750,10 +752,12 @@ export default {
 </script>
 
 <template>
-  <JsonEditorVue
-    v-model="value"
-    v-bind="{/* local props & attrs */}"
-  />
+  <ClientOnly>
+    <JsonEditorVue
+      v-model="value"
+      v-bind="{/* local props & attrs */}"
+    />
+  </ClientOnly>
 </template>
 ```
 

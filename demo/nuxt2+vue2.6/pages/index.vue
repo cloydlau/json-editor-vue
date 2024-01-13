@@ -1,12 +1,7 @@
-<template>
-  <client-only>
-    <JsonEditorVue v-model="value" />
-  </client-only>
-</template>
-
 <script>
 import Vue from 'vue'
 import VueCompositionAPI from '@vue/composition-api'
+
 Vue.use(VueCompositionAPI)
 
 export default {
@@ -22,3 +17,10 @@ export default {
   },
 }
 </script>
+
+<template>
+  <!-- <ClientOnly>
+    <JsonEditorVue v-model="value" />
+  </ClientOnly> -->
+  <JsonEditorVue v-model="value" />
+</template>
