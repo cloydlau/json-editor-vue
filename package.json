@@ -121,12 +121,12 @@
     "zhlint": "latest"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm exec lint-staged --concurrent false",
+    "pre-commit": "pnpm lint-staged",
     "commit-msg": "npx --no -- commitlint --edit ${1}"
   },
   "lint-staged": {
     "*.md": "case-police --fix",
     "docs/README.zh-CN.md": "zhlint --fix",
-    "{scripts,src}": "eslint --cache --fix"
+    "*.{vue,js,ts,mjs,mts,jsx,tsx,md,json}": "eslint --cache --fix"
   }
 }
