@@ -1,24 +1,16 @@
 import antfu from '@antfu/eslint-config'
 
 export default antfu(
-  // Configures for antfu's config
   {
-    stylistic: true, // enable stylistic formatting rules
-    typescript: true,
-    vue: true,
-    jsonc: true,
-    yml: false,
+    formatters: true,
+    ignores: ['demo/'],
   },
-  // From the second arguments they are ESLint Flat Configs
-  // you can have multiple configs
   {
     rules: {
-      'ts/brace-style': ['error', '1tbs', { allowSingleLine: true }],
-      'brace-style': ['error', '1tbs', { allowSingleLine: true }],
       'curly': ['error', 'multi-line'],
       'no-console': 'off',
+      'style/brace-style': ['error', '1tbs', { allowSingleLine: true }],
       'vue/attribute-hyphenation': 'off',
-      'vue/component-tags-order': ['error', { order: [['script', 'template'], 'style'] }],
       'vue/custom-event-name-casing': 'off',
       'vue/max-attributes-per-line': ['error', { singleline: 1, multiline: 1 }],
       'vue/no-deprecated-v-bind-sync': 'off',

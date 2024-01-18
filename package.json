@@ -55,12 +55,13 @@
   },
   "scripts": {
     "dev": "esno ./scripts/dev.mts",
-    "up": "nu -L !@antfu/eslint-config && ni",
     "test-unit": "vitest run",
     "coverage": "vitest run --coverage",
     "doc": "vitepress dev --open /README",
     "build": "vite build",
     "release": "esno ./scripts/release.mts",
+    "lint": "eslint \"**/*.{vue,js,ts,mjs,mts,jsx,tsx,md,json}\"",
+    "lint:fix": "eslint \"**/*.{vue,js,ts,mjs,mts,jsx,tsx,md,json}\" --fix",
     "pnpm:devPreinstall": "node ./scripts/devPreinstall.mjs",
     "preinstall": "node -e \"if (process.env.INIT_CWD === process.cwd()) { process.exit(1) }\" || npx only-allow pnpm",
     "postinstall": "node -e \"if (process.env.INIT_CWD === process.cwd()) { process.exit(1) }\" || npx simple-git-hooks"
@@ -79,7 +80,7 @@
     "vue-demi": "^0.14.6"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "~0.42.1",
+    "@antfu/eslint-config": "latest",
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "@types/cross-spawn": "latest",
@@ -94,7 +95,9 @@
     "case-police": "latest",
     "cross-spawn": "latest",
     "del": "latest",
-    "eslint": "latest",
+    "eslint": "npm:eslint-ts-patch@latest",
+    "eslint-plugin-format": "latest",
+    "eslint-ts-patch": "latest",
     "esno": "latest",
     "happy-dom": "latest",
     "json-editor-vue": "workspace:*",

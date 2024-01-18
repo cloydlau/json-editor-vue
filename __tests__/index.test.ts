@@ -1,9 +1,9 @@
 import { nextTick } from 'vue'
 import { mount } from '@vue/test-utils'
-import { expect, test } from 'vitest'
+import { expect, it } from 'vitest'
 import JsonEditorVue from '../src/index'
 
-test('string value in text mode', async () => {
+it('string value in text mode', async () => {
   const wrapper = mount(JsonEditorVue, {
     props: {
       mode: 'text',
@@ -14,7 +14,7 @@ test('string value in text mode', async () => {
   expect(wrapper.vm.jsonEditor.get().json).toEqual('abc')
 })
 
-test('string value in tree mode', async () => {
+it('string value in tree mode', async () => {
   const wrapper = mount(JsonEditorVue, {
     props: {
       modelValue: null,

@@ -142,73 +142,71 @@ createApp()
 #### CDN + ESM
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-</head>
+  <body>
+    <div id="app">
+      <json-editor-vue v-model="value"></json-editor-vue>
+    </div>
 
-<body>
-  <div id="app">
-    <json-editor-vue v-model="value"></json-editor-vue>
-  </div>
-
-  <script type="importmap">
-    {
-      "imports": {
-        "vue": "https://cdn.jsdelivr.net/npm/vue/dist/vue.esm-browser.prod.js",
-        "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v3/index.mjs",
-        "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.11/dist/json-editor-vue.mjs"
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://cdn.jsdelivr.net/npm/vue/dist/vue.esm-browser.prod.js",
+          "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v3/index.mjs",
+          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.11/dist/json-editor-vue.mjs"
+        }
       }
-    }
-  </script>
-  <script type="module">
-    import { createApp, ref } from 'vue'
-    import JsonEditorVue from 'json-editor-vue'
+    </script>
+    <script type="module">
+      import { createApp, ref } from 'vue'
+      import JsonEditorVue from 'json-editor-vue'
 
-    createApp({
-      setup: () => ({
-        value: ref()
+      createApp({
+        setup: () => ({
+          value: ref(),
+        }),
       })
-    }).use(JsonEditorVue)
-      .mount('#app')
-  </script>
-</body>
-
+        .use(JsonEditorVue)
+        .mount('#app')
+    </script>
+  </body>
 </html>
 ```
 
 #### CDN + IIFE
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-</head>
+  <body>
+    <div id="app">
+      <json-editor-vue v-model="value"></json-editor-vue>
+    </div>
 
-<body>
-  <div id="app">
-    <json-editor-vue v-model="value"></json-editor-vue>
-  </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
+    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.11"></script>
+    <script>
+      const { createApp, ref } = Vue
 
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
-  <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.11"></script>
-  <script>
-    const { createApp, ref } = Vue
-
-    createApp({
-      setup: () => ({
-        value: ref(),
-      }),
-    }).use(JsonEditorVue)
-      .mount('#app')
-  </script>
-</body>
-
+      createApp({
+        setup: () => ({
+          value: ref(),
+        }),
+      })
+        .use(JsonEditorVue)
+        .mount('#app')
+    </script>
+  </body>
 </html>
 ```
 
@@ -251,75 +249,71 @@ Vue.use(JsonEditorVue, {
 #### CDN + ESM
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-</head>
+  <body>
+    <div id="app">
+      <json-editor-vue v-model="value"></json-editor-vue>
+    </div>
 
-<body>
-  <div id="app">
-    <json-editor-vue v-model="value"></json-editor-vue>
-  </div>
-
-  <script type="importmap">
-    {
-      "imports": {
-        "vue": "https://cdn.jsdelivr.net/npm/vue@2/dist/vue.esm.browser.min.js",
-        "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v2.7/index.mjs",
-        "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.11/dist/json-editor-vue.mjs"
-      }
-    }
-  </script>
-  <script type="module">
-    import Vue from 'vue'
-    import JsonEditorVue from 'json-editor-vue'
-
-    new Vue({
-      components: { JsonEditorVue },
-      data() {
-        return {
-          value: undefined,
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://cdn.jsdelivr.net/npm/vue@2/dist/vue.esm.browser.min.js",
+          "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v2.7/index.mjs",
+          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.11/dist/json-editor-vue.mjs"
         }
-      },
-    }).$mount('#app')
-  </script>
-</body>
+      }
+    </script>
+    <script type="module">
+      import Vue from 'vue'
+      import JsonEditorVue from 'json-editor-vue'
 
+      new Vue({
+        components: { JsonEditorVue },
+        data() {
+          return {
+            value: undefined,
+          }
+        },
+      }).$mount('#app')
+    </script>
+  </body>
 </html>
 ```
 
 #### CDN + IIFE
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-</head>
+  <body>
+    <div id="app">
+      <json-editor-vue v-model="value"></json-editor-vue>
+    </div>
 
-<body>
-  <div id="app">
-    <json-editor-vue v-model="value"></json-editor-vue>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
-  <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.11"></script>
-  <script>
-    new Vue({
-      components: { JsonEditorVue },
-      data() {
-        return {
-          value: undefined,
-        }
-      },
-    }).$mount('#app')
-  </script>
-</body>
-
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
+    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.11"></script>
+    <script>
+      new Vue({
+        components: { JsonEditorVue },
+        data() {
+          return {
+            value: undefined,
+          }
+        },
+      }).$mount('#app')
+    </script>
+  </body>
 </html>
 ```
 
@@ -375,84 +369,80 @@ Vue.use(JsonEditorVue, {
 #### CDN + ESM
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-</head>
+  <body>
+    <div id="app">
+      <json-editor-vue v-model="value"></json-editor-vue>
+    </div>
 
-<body>
-  <div id="app">
-    <json-editor-vue v-model="value"></json-editor-vue>
-  </div>
-
-  <script>
-    window.process = { env: { NODE_ENV: 'production' } }
-  </script>
-  <script type="importmap">
-    {
-      "imports": {
-        "vue": "https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.esm.browser.min.js",
-        "@vue/composition-api": "https://cdn.jsdelivr.net/npm/@vue/composition-api/dist/vue-composition-api.mjs",
-        "@vue/composition-api/dist/vue-composition-api.mjs": "https://cdn.jsdelivr.net/npm/@vue/composition-api/dist/vue-composition-api.mjs",
-        "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v2/index.mjs",
-        "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.11/dist/json-editor-vue.mjs"
+    <script>
+      window.process = { env: { NODE_ENV: 'production' } }
+    </script>
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.esm.browser.min.js",
+          "@vue/composition-api": "https://cdn.jsdelivr.net/npm/@vue/composition-api/dist/vue-composition-api.mjs",
+          "@vue/composition-api/dist/vue-composition-api.mjs": "https://cdn.jsdelivr.net/npm/@vue/composition-api/dist/vue-composition-api.mjs",
+          "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v2/index.mjs",
+          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.11/dist/json-editor-vue.mjs"
+        }
       }
-    }
-  </script>
-  <script type="module">
-    import { createApp, ref } from '@vue/composition-api'
-    import JsonEditorVue from 'json-editor-vue'
+    </script>
+    <script type="module">
+      import { createApp, ref } from '@vue/composition-api'
+      import JsonEditorVue from 'json-editor-vue'
 
-    const app = createApp({
-      setup: () => ({
-        value: ref(),
-      }),
-    })
+      const app = createApp({
+        setup: () => ({
+          value: ref(),
+        }),
+      })
 
-    app.use(JsonEditorVue)
-    app.mount('#app')
-  </script>
-</body>
-
+      app.use(JsonEditorVue)
+      app.mount('#app')
+    </script>
+  </body>
 </html>
 ```
 
 #### CDN + IIFE
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-</head>
+  <body>
+    <div id="app">
+      <json-editor-vue v-model="value"></json-editor-vue>
+    </div>
 
-<body>
-  <div id="app">
-    <json-editor-vue v-model="value"></json-editor-vue>
-  </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@vue/composition-api"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
+    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.11"></script>
+    <script>
+      const { createApp, ref } = VueCompositionAPI
 
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@vue/composition-api"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
-  <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.11"></script>
-  <script>
-    const { createApp, ref } = VueCompositionAPI
+      const app = createApp({
+        setup: () => ({
+          value: ref(),
+        }),
+      })
 
-    const app = createApp({
-      setup: () => ({
-        value: ref(),
-      }),
-    })
-
-    app.use(VueCompositionAPI)
-    app.use(JsonEditorVue)
-    app.mount('#app')
-  </script>
-</body>
-
+      app.use(VueCompositionAPI)
+      app.use(JsonEditorVue)
+      app.mount('#app')
+    </script>
+  </body>
 </html>
 ```
 
@@ -892,7 +882,7 @@ module.exports = {
 ## Props
 
 | Name                                                   | Description                                                                                   | Type          | Default  |
-|--------------------------------------------------------|-----------------------------------------------------------------------------------------------|---------------|----------|
+| ------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ------------- | -------- |
 | v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | binding value                                                                                 | any           |          |
 | mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | edit mode                                                                                     | [Mode](#Mode) | `'tree'` |
 | ...                                                    | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |               |          |
@@ -930,7 +920,7 @@ Including the boolean properties of svelte-jsoneditor like `readOnly` with no va
 ## Expose
 
 | Name       | Description         | Type   |
-|------------|---------------------|--------|
+| ---------- | ------------------- | ------ |
 | jsonEditor | JSONEditor instance | object |
 
 <br>
