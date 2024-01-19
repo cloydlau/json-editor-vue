@@ -22,14 +22,12 @@ export default {
     sourcemap: true,
     rollupOptions: {
       external: [
-        'vue',
+        'vanilla-jsoneditor',
         'vue-demi',
       ],
       output: {
         globals: {
           [name]: PascalCasedName,
-          'vue': 'Vue',
-          'vue-demi': 'VueDemi',
         },
       },
     },

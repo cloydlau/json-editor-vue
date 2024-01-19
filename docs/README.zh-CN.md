@@ -156,6 +156,7 @@ createApp()
         "imports": {
           "vue": "https://cdn.jsdelivr.net/npm/vue/dist/vue.esm-browser.prod.js",
           "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v3/index.mjs",
+          "vanilla-jsoneditor": "https://cdn.jsdelivr.net/npm/vanilla-jsoneditor",
           "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.11/dist/json-editor-vue.mjs"
         }
       }
@@ -178,6 +179,8 @@ createApp()
 
 #### CDN + IIFE
 
+> ⚠ 暂不支持 (vanilla-jsoneditor 不提供 IIFE 或 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+
 ```html
 <!doctype html>
 <html lang="en">
@@ -192,6 +195,8 @@ createApp()
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
+    <!-- TODO -->
+    <script src="./vanilla-jsoneditor.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.11"></script>
     <script>
       const { createApp, ref } = Vue
@@ -263,6 +268,7 @@ Vue.use(JsonEditorVue, {
         "imports": {
           "vue": "https://cdn.jsdelivr.net/npm/vue@2/dist/vue.esm.browser.min.js",
           "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v2.7/index.mjs",
+          "vanilla-jsoneditor": "https://cdn.jsdelivr.net/npm/vanilla-jsoneditor",
           "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.11/dist/json-editor-vue.mjs"
         }
       }
@@ -286,6 +292,8 @@ Vue.use(JsonEditorVue, {
 
 #### CDN + IIFE
 
+> ⚠ 暂不支持 (vanilla-jsoneditor 不提供 IIFE 或 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+
 ```html
 <!doctype html>
 <html lang="en">
@@ -300,6 +308,8 @@ Vue.use(JsonEditorVue, {
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
+    <!-- TODO -->
+    <script src="./vanilla-jsoneditor.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.11"></script>
     <script>
       new Vue({
@@ -388,6 +398,7 @@ Vue.use(JsonEditorVue, {
           "@vue/composition-api": "https://cdn.jsdelivr.net/npm/@vue/composition-api/dist/vue-composition-api.mjs",
           "@vue/composition-api/dist/vue-composition-api.mjs": "https://cdn.jsdelivr.net/npm/@vue/composition-api/dist/vue-composition-api.mjs",
           "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v2/index.mjs",
+          "vanilla-jsoneditor": "https://cdn.jsdelivr.net/npm/vanilla-jsoneditor",
           "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.11/dist/json-editor-vue.mjs"
         }
       }
@@ -411,6 +422,8 @@ Vue.use(JsonEditorVue, {
 
 #### CDN + IIFE
 
+> ⚠ 暂不支持 (vanilla-jsoneditor 不提供 IIFE 或 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+
 ```html
 <!doctype html>
 <html lang="en">
@@ -426,6 +439,8 @@ Vue.use(JsonEditorVue, {
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
     <script src="https://cdn.jsdelivr.net/npm/@vue/composition-api"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
+    <!-- TODO -->
+    <script src="./vanilla-jsoneditor.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.11"></script>
     <script>
       const { createApp, ref } = VueCompositionAPI

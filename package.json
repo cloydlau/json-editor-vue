@@ -50,9 +50,6 @@
     "docs",
     "nuxt.ts"
   ],
-  "engines": {
-    "npm": ">=8.3.0"
-  },
   "scripts": {
     "dev": "esno ./scripts/dev.mts",
     "test-unit": "vitest run",
@@ -76,7 +73,7 @@
     }
   },
   "dependencies": {
-    "vanilla-jsoneditor": "^0.20.0",
+    "vanilla-jsoneditor": "^0.21.2",
     "vue-demi": "^0.14.6"
   },
   "devDependencies": {
@@ -95,9 +92,9 @@
     "case-police": "latest",
     "cross-spawn": "latest",
     "del": "latest",
-    "eslint": "npm:eslint-ts-patch@latest",
+    "eslint": "npm:eslint-ts-patch@8.56.0-0",
     "eslint-plugin-format": "latest",
-    "eslint-ts-patch": "latest",
+    "eslint-ts-patch": "8.56.0-0",
     "esno": "latest",
     "happy-dom": "latest",
     "json-editor-vue": "workspace:*",
@@ -117,7 +114,7 @@
     "unplugin-vue-components": "latest",
     "vite": "latest",
     "vite-plugin-dts": "latest",
-    "vitepress": "1.0.0-rc.31",
+    "vitepress": "1.0.0-rc.39",
     "vitest": "latest",
     "vue": "latest",
     "vue-global-config": "latest",
