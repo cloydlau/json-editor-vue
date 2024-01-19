@@ -16,133 +16,133 @@ importers:
         version: 0.21.2(@lezer/common@1.2.1)
       vue-demi:
         specifier: ^0.14.6
-        version: 0.14.6(vue@3.4.15)
+        version: 0.14.6(@vue/composition-api@1.7.2)(vue@3.4.15)
     devDependencies:
       '@antfu/eslint-config':
-        specifier: ^2.6.3
+        specifier: latest
         version: 2.6.3(@vue/compiler-sfc@3.4.15)(eslint-plugin-format@0.1.0)(eslint-ts-patch@8.56.0-0)(typescript@5.3.3)(vitest@1.2.1)
       '@commitlint/cli':
-        specifier: ^18.4.4
+        specifier: latest
         version: 18.4.4(@types/node@20.11.5)(typescript@5.3.3)
       '@commitlint/config-conventional':
-        specifier: ^18.4.4
+        specifier: latest
         version: 18.4.4
       '@types/cross-spawn':
-        specifier: ^6.0.6
+        specifier: latest
         version: 6.0.6
       '@types/lodash-es':
-        specifier: ^4.17.12
+        specifier: latest
         version: 4.17.12
       '@types/node':
-        specifier: ^20.11.5
+        specifier: latest
         version: 20.11.5
       '@types/prompts':
-        specifier: ^2.4.9
+        specifier: latest
         version: 2.4.9
       '@types/semver':
-        specifier: ^7.5.6
+        specifier: latest
         version: 7.5.6
       '@vitejs/plugin-vue':
-        specifier: ^5.0.3
+        specifier: latest
         version: 5.0.3(vite@5.0.11)(vue@3.4.15)
       '@vitest/ui':
-        specifier: ^1.2.1
+        specifier: latest
         version: 1.2.1(vitest@1.2.1)
       '@vue/compiler-sfc':
-        specifier: ^3.4.15
+        specifier: latest
         version: 3.4.15
       '@vue/test-utils':
-        specifier: ^2.4.3
+        specifier: latest
         version: 2.4.3(vue@3.4.15)
       case-police:
-        specifier: ^0.6.1
+        specifier: latest
         version: 0.6.1
       cross-spawn:
-        specifier: ^7.0.3
+        specifier: latest
         version: 7.0.3
       del:
-        specifier: ^7.1.0
+        specifier: latest
         version: 7.1.0
       eslint:
         specifier: npm:eslint-ts-patch@8.56.0-0
         version: /eslint-ts-patch@8.56.0-0
       eslint-plugin-format:
-        specifier: ^0.1.0
+        specifier: latest
         version: 0.1.0(eslint-ts-patch@8.56.0-0)
       eslint-ts-patch:
         specifier: 8.56.0-0
         version: 8.56.0-0
       esno:
-        specifier: ^4.0.0
+        specifier: latest
         version: 4.0.0
       happy-dom:
-        specifier: ^13.2.0
+        specifier: latest
         version: 13.2.0
       json-editor-vue:
         specifier: workspace:*
         version: 'link:'
       kolorist:
-        specifier: ^1.8.0
+        specifier: latest
         version: 1.8.0
       lint-staged:
-        specifier: ^15.2.0
+        specifier: latest
         version: 15.2.0
       lodash-es:
-        specifier: ^4.17.21
+        specifier: latest
         version: 4.17.21
       lossless-json:
-        specifier: ^4.0.1
+        specifier: latest
         version: 4.0.1
       magicast:
-        specifier: ^0.3.3
+        specifier: latest
         version: 0.3.3
       only-allow:
-        specifier: ^1.2.1
+        specifier: latest
         version: 1.2.1
       open:
-        specifier: ^10.0.3
+        specifier: latest
         version: 10.0.3
       prompts:
-        specifier: ^2.4.2
+        specifier: latest
         version: 2.4.2
       rollup-plugin-visualizer:
-        specifier: ^5.12.0
+        specifier: latest
         version: 5.12.0
       semver:
-        specifier: ^7.5.4
+        specifier: latest
         version: 7.5.4
       simple-git-hooks:
-        specifier: ^2.9.0
+        specifier: latest
         version: 2.9.0
       typescript:
-        specifier: ^5.3.3
+        specifier: latest
         version: 5.3.3
       unplugin-auto-import:
-        specifier: ^0.17.3
+        specifier: latest
         version: 0.17.3
       unplugin-vue-components:
-        specifier: ^0.26.0
+        specifier: latest
         version: 0.26.0(vue@3.4.15)
       vite:
-        specifier: ^5.0.11
+        specifier: latest
         version: 5.0.11(@types/node@20.11.5)
       vite-plugin-dts:
-        specifier: ^3.7.1
+        specifier: latest
         version: 3.7.1(@types/node@20.11.5)(typescript@5.3.3)(vite@5.0.11)
       vitepress:
         specifier: 1.0.0-rc.39
-        version: 1.0.0-rc.39(@algolia/client-search@4.22.1)(@types/node@20.11.5)(search-insights@2.13.0)(typescript@5.3.3)
+        version: 1.0.0-rc.39(@algolia/client-search@4.22.1)(@types/node@20.11.5)(@vue/composition-api@1.7.2)(search-insights@2.13.0)(typescript@5.3.3)
       vitest:
-        specifier: ^1.2.1
+        specifier: latest
         version: 1.2.1(@types/node@20.11.5)(@vitest/ui@1.2.1)(happy-dom@13.2.0)
       vue:
-        specifier: ^3.4.15
+        specifier: latest
         version: 3.4.15(typescript@5.3.3)
       vue-global-config:
-        specifier: ^0.6.0
-        version: 0.6.0(vue@3.4.15)
+        specifier: latest
+        version: 0.6.0(@vue/composition-api@1.7.2)(vue@3.4.15)
       zhlint:
-        specifier: ^0.7.3
+        specifier: latest
         version: 0.7.3(@vitest/ui@1.2.1)(happy-dom@13.2.0)(typescript@5.3.3)
 
 packages:
@@ -1799,7 +1799,6 @@ packages:
       vue: '>= 2.5 < 2.7'
     dependencies:
       vue: 3.4.15(typescript@5.3.3)
-    dev: false
 
   /@vue/devtools-api@6.5.1:
     resolution: {integrity: sha512-+KpckaAQyfbvshdDW5xQylLni1asvNSGme1JFs8I1+/H5pHEhqUKMEQD/qn3Nx5+/nycBq11qAEi8lk+LXI2dA==}
@@ -1869,19 +1868,19 @@ packages:
       vue-component-type-helpers: 1.8.27
     dev: true
 
-  /@vueuse/core@10.7.2(vue@3.4.15):
+  /@vueuse/core@10.7.2(@vue/composition-api@1.7.2)(vue@3.4.15):
     resolution: {integrity: sha512-AOyAL2rK0By62Hm+iqQn6Rbu8bfmbgaIMXcE3TSr7BdQ42wnSFlwIdPjInO62onYsEMK/yDMU8C6oGfDAtZ2qQ==}
     dependencies:
       '@types/web-bluetooth': 0.0.20
       '@vueuse/metadata': 10.7.2
-      '@vueuse/shared': 10.7.2(vue@3.4.15)
-      vue-demi: 0.14.6(vue@3.4.15)
+      '@vueuse/shared': 10.7.2(@vue/composition-api@1.7.2)(vue@3.4.15)
+      vue-demi: 0.14.6(@vue/composition-api@1.7.2)(vue@3.4.15)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
     dev: true
 
-  /@vueuse/integrations@10.7.2(focus-trap@7.5.4)(vue@3.4.15):
+  /@vueuse/integrations@10.7.2(@vue/composition-api@1.7.2)(focus-trap@7.5.4)(vue@3.4.15):
     resolution: {integrity: sha512-+u3RLPFedjASs5EKPc69Ge49WNgqeMfSxFn+qrQTzblPXZg6+EFzhjarS5edj2qAf6xQ93f95TUxRwKStXj/sQ==}
     peerDependencies:
       async-validator: '*'
@@ -1922,10 +1921,10 @@ packages:
       universal-cookie:
         optional: true
     dependencies:
-      '@vueuse/core': 10.7.2(vue@3.4.15)
-      '@vueuse/shared': 10.7.2(vue@3.4.15)
+      '@vueuse/core': 10.7.2(@vue/composition-api@1.7.2)(vue@3.4.15)
+      '@vueuse/shared': 10.7.2(@vue/composition-api@1.7.2)(vue@3.4.15)
       focus-trap: 7.5.4
-      vue-demi: 0.14.6(vue@3.4.15)
+      vue-demi: 0.14.6(@vue/composition-api@1.7.2)(vue@3.4.15)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -1935,10 +1934,10 @@ packages:
     resolution: {integrity: sha512-kCWPb4J2KGrwLtn1eJwaJD742u1k5h6v/St5wFe8Quih90+k2a0JP8BS4Zp34XUuJqS2AxFYMb1wjUL8HfhWsQ==}
     dev: true
 
-  /@vueuse/shared@10.7.2(vue@3.4.15):
+  /@vueuse/shared@10.7.2(@vue/composition-api@1.7.2)(vue@3.4.15):
     resolution: {integrity: sha512-qFbXoxS44pi2FkgFjPvF4h7c9oMDutpyBdcJdMYIMg9XyXli2meFMuaKn+UMgsClo//Th6+beeCgqweT/79BVA==}
     dependencies:
-      vue-demi: 0.14.6(vue@3.4.15)
+      vue-demi: 0.14.6(@vue/composition-api@1.7.2)(vue@3.4.15)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -6528,7 +6527,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitepress@1.0.0-rc.39(@algolia/client-search@4.22.1)(@types/node@20.11.5)(search-insights@2.13.0)(typescript@5.3.3):
+  /vitepress@1.0.0-rc.39(@algolia/client-search@4.22.1)(@types/node@20.11.5)(@vue/composition-api@1.7.2)(search-insights@2.13.0)(typescript@5.3.3):
     resolution: {integrity: sha512-EcgoRlAAp37WOxUOYv45oxyhLrcy3Upey+mKpqW3ldsg6Ol4trPndRBk2GO0QiSvEKlb9BMerk49D/bFICN6kg==}
     hasBin: true
     peerDependencies:
@@ -6545,8 +6544,8 @@ packages:
       '@types/markdown-it': 13.0.7
       '@vitejs/plugin-vue': 5.0.3(vite@5.0.11)(vue@3.4.15)
       '@vue/devtools-api': 6.5.1
-      '@vueuse/core': 10.7.2(vue@3.4.15)
-      '@vueuse/integrations': 10.7.2(focus-trap@7.5.4)(vue@3.4.15)
+      '@vueuse/core': 10.7.2(@vue/composition-api@1.7.2)(vue@3.4.15)
+      '@vueuse/integrations': 10.7.2(@vue/composition-api@1.7.2)(focus-trap@7.5.4)(vue@3.4.15)
       focus-trap: 7.5.4
       mark.js: 8.11.1
       minisearch: 6.3.0
@@ -6695,7 +6694,7 @@ packages:
     resolution: {integrity: sha512-0vOfAtI67UjeO1G6UiX5Kd76CqaQ67wrRZiOe7UAb9Jm6GzlUr/fC7CV90XfwapJRjpCMaZFhv1V0ajWRmE9Dg==}
     dev: true
 
-  /vue-demi@0.14.6(vue@3.4.15):
+  /vue-demi@0.14.6(@vue/composition-api@1.7.2)(vue@3.4.15):
     resolution: {integrity: sha512-8QA7wrYSHKaYgUxDA5ZC24w+eHm3sYCbp0EzcDwKqN3p6HqtTCGR/GVsPyZW92unff4UlcSh++lmqDWN3ZIq4w==}
     engines: {node: '>=12'}
     hasBin: true
@@ -6707,6 +6706,7 @@ packages:
       '@vue/composition-api':
         optional: true
     dependencies:
+      '@vue/composition-api': 1.7.2(vue@3.4.15)
       vue: 3.4.15(typescript@5.3.3)
 
   /vue-eslint-parser@9.4.0(eslint-ts-patch@8.56.0-0):
@@ -6727,7 +6727,7 @@ packages:
       - supports-color
     dev: true
 
-  /vue-global-config@0.6.0(vue@3.4.15):
+  /vue-global-config@0.6.0(@vue/composition-api@1.7.2)(vue@3.4.15):
     resolution: {integrity: sha512-T9++CQPBWhZbRzD3NAWzcCpA0WFszLZHpTast6K5ME+yRa+d6MHkt7RpKgzGmuiTPo6cUCuc3hltjUqH81mUuw==}
     requiresBuild: true
     peerDependencies:
@@ -6740,8 +6740,9 @@ packages:
       element-plus:
         optional: true
     dependencies:
+      '@vue/composition-api': 1.7.2(vue@3.4.15)
       vue: 3.4.15(typescript@5.3.3)
-      vue-demi: 0.14.6(vue@3.4.15)
+      vue-demi: 0.14.6(@vue/composition-api@1.7.2)(vue@3.4.15)
     dev: true
 
   /vue-template-compiler@2.7.16:
