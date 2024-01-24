@@ -1,16 +1,12 @@
 // pnpm i only-allow esno prompts cross-spawn kolorist magicast del -D -w
 
 import fs from 'node:fs'
-import { execSync } from 'node:child_process'
 import prompts from 'prompts'
 import spawn from 'cross-spawn'
 import { loadFile, writeFile } from 'magicast'
 import type { ASTNode } from 'magicast'
 import { cyan } from 'kolorist'
 import { addVitePlugin } from 'magicast/helpers'
-import { deleteAsync } from 'del'
-
-declare const process: NodeJS.Process
 
 type VueVersion = '3' | '2.7' | '2.6'
 
@@ -152,7 +148,7 @@ async function dev() {
   spawn.sync('npx', ['vite', '--open', '--force'], { stdio: 'inherit' })
 
   async function installDependencies() {
-    if (['darwin', 'linux'].includes(process.platform)) {
+    /* if (['darwin', 'linux'].includes(process.platform)) {
       console.log(cyan('Checking pnpm version...'))
       const latestPNPMVersion = spawn.sync('npm', ['view', 'pnpm', 'version']).stdout.toString().trim()
       const currentPNPMVersion = spawn.sync('pnpm', ['-v']).stdout.toString().trim()
@@ -161,28 +157,28 @@ async function dev() {
         console.log(cyan('Upgrading pnpm...'))
         try {
           console.log(execSync(`curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=${latestPNPMVersion} sh -`).toString())
-          /* const curlProcess = spawn.sync('curl', ['-fsSL', 'https://get.pnpm.io/install.sh'], {
-            env: { PNPM_VERSION: latestPNPMVersion },
-            stdio: ['pipe', 'pipe', 'pipe'], // Redirect stdin, stdout, and stderr
-          })
-          if (curlProcess.status === 0) {
-            // If curl was successful, execute the shell command
-            const shCommand = 'sh'
-            const shArgs = ['-']
-
-            const shProcess = spawn.sync(shCommand, shArgs, {
-              input: curlProcess.stdout, // Pass the stdout of curl as input to sh
-              stdio: ['pipe', 'inherit', 'inherit'], // Redirect stdin, inherit stdout and stderr
-            })
-
-            if (shProcess.status === 0) {
-              console.log('pnpm installation successful.')
-            } else {
-              console.error('pnpm installation failed.')
-            }
-          } else {
-            console.error('curl command failed.')
-          } */
+          // const curlProcess = spawn.sync('curl', ['-fsSL', 'https://get.pnpm.io/install.sh'], {
+          //   env: { PNPM_VERSION: latestPNPMVersion },
+          //   stdio: ['pipe', 'pipe', 'pipe'], // Redirect stdin, stdout, and stderr
+          // })
+          // if (curlProcess.status === 0) {
+          //   // If curl was successful, execute the shell command
+          //   const shCommand = 'sh'
+          //   const shArgs = ['-']
+          //
+          //   const shProcess = spawn.sync(shCommand, shArgs, {
+          //     input: curlProcess.stdout, // Pass the stdout of curl as input to sh
+          //     stdio: ['pipe', 'inherit', 'inherit'], // Redirect stdin, inherit stdout and stderr
+          //   })
+          //
+          //   if (shProcess.status === 0) {
+          //     console.log('pnpm installation successful.')
+          //   } else {
+          //     console.error('pnpm installation failed.')
+          //   }
+          // } else {
+          //   console.error('curl command failed.')
+          // }
           console.log(cyan('Setting registry...'))
           spawn.sync('pnpm', ['config', 'set', 'registry', 'https://registry.npmmirror.com'], { stdio: 'inherit' })
           // console.log(cyan('Installing node lts...'))
@@ -195,7 +191,7 @@ async function dev() {
 
         }
       }
-    }
+    } */
     console.log(cyan('Installing dependencies...'))
     spawn.sync('pnpm', ['i'], { stdio: 'inherit' })
     spawn.sync('npx', ['vue-demi-switch', targetVersion === '2.6' ? '2' : targetVersion], { stdio: 'inherit' })
