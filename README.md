@@ -51,7 +51,7 @@ As of v0.11, it's no longer necessary to explicitly install [vanilla-jsoneditor]
 
 If you want to specify dependency versions:
 
-```json
+```json5
 // package.json
 {
   // npm/cnpm/bun
@@ -76,7 +76,7 @@ If you want to specify dependency versions:
 
 Or scoped:
 
-```json
+```json5
 // package.json
 {
   // npm/cnpm/bun

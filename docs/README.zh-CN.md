@@ -51,7 +51,7 @@
 
 如果需要指定依赖的版本：
 
-```json
+```json5
 // package.json
 {
   // npm/cnpm/bun
@@ -76,7 +76,7 @@
 
 或缩小作用范围：
 
-```json
+```json5
 // package.json
 {
   // npm/cnpm/bun
