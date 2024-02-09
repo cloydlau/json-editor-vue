@@ -36,7 +36,7 @@
 - 支持高达 512 MB 的大型 JSON 文档
 - 支持全部 7 种原始数据类型包括 `BigInt` and `Symbol`
 - Vue 2.6/2.7/3 一体通用
-- 支持 SSR (Nuxt 2/3 一体通用)
+- 支持 SSR，Nuxt 2/3 一体通用
 - 支持 Vite，Vue CLI，webpack，CDN...
 - 支持微前端 ([wujie](https://github.com/Tencent/wujie)，[qiankun](https://github.com/umijs/qiankun)，[single-spa](https://github.com/single-spa/single-spa)...)
 - 局部注册并传参，或全局注册并传参 ([vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持)
