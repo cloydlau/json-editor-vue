@@ -13,6 +13,9 @@
 </p>
 
 <p align="center">
+  <a href="https://npmjs.com/package/json-editor-vue"><img alt="npm" src="https://img.shields.io/npm/v/json-editor-vue.svg"></a>
+  <a href="https://jsr.io/@cloydlau/json-editor-vue"><img alt="jsr" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fjsr-api.sxzz.moe%2Fversion%2F%40cloydlau%2Fjson-editor-vue&query=version&prefix=v&label=jsr&color=%23f7df1e"></a>
+  <br>
   <a href="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml"><img alt="build status" src="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml/badge.svg?branch=main"></a>
   <a href="https://bundlephobia.com/package/json-editor-vue"><img alt="minzipped size" src="https://img.shields.io/bundlephobia/minzip/json-editor-vue"></a>
   <a href="https://github.com/cloydlau/json-editor-vue#develop"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
@@ -24,7 +27,7 @@
   <a><img src="https://img.shields.io/badge/A_world_of_difference_between-white?style=flat-square"></a> <a href="https://npmcharts.com/compare/json-editor-vue"><img alt="npm downloads" src="https://img.shields.io/npm/dt/json-editor-vue?logo=npm&color=rgba(203,0,0,0.9)"></a> <a><img src="https://img.shields.io/badge/and-white?style=flat-square"></a> <a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="github stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=eac54f&logo=github"></a> <a><img src="https://img.shields.io/badge/,_please_hit_the_Star_if_it_helps_🙏-white?style=flat-square"></a>
 </p>
 
-<img width="48.5%" src="./docs/text mode.png" alt="text mode">&nbsp;<img width="48.5%" src="./docs/tree mode.png" alt="table mode">
+<img width="48.5%" src="./docs/text-mode.png" alt="text mode">&nbsp;<img width="48.5%" src="./docs/tree-mode.png" alt="table mode">
 
 <br>
 
@@ -106,7 +109,11 @@ Or scoped:
 ### Vue 3
 
 ```shell
+# npm
 npm i json-editor-vue
+
+# jsr
+npx jsr add @cloydlau/json-editor-vue
 ```
 
 #### Local Registration
@@ -220,7 +227,11 @@ createApp()
 ### Vue 2.7
 
 ```shell
+# npm
 npm i json-editor-vue
+
+# jsr
+npx jsr add @cloydlau/json-editor-vue
 ```
 
 #### Local Registration
@@ -332,7 +343,12 @@ Vue.use(JsonEditorVue, {
 ### Vue 2.6 or Earlier
 
 ```shell
-npm i json-editor-vue @vue/composition-api
+# npm
+npm i @vue/composition-api json-editor-vue
+
+# jsr
+npm i @vue/composition-api
+npx jsr add @cloydlau/json-editor-vue
 ```
 
 #### Local Registration
@@ -466,7 +482,11 @@ Vue.use(JsonEditorVue, {
 ### Nuxt 3
 
 ```shell
+# npm
 npm i json-editor-vue
+
+# jsr
+npx jsr add @cloydlau/json-editor-vue
 ```
 
 #### Local Registration
@@ -553,7 +573,11 @@ const value = ref()
 ### Nuxt 2 + Vue 2.7
 
 ```shell
+# npm
 npm i json-editor-vue
+
+# jsr
+npx jsr add @cloydlau/json-editor-vue
 ```
 
 #### Local Registration
@@ -655,7 +679,12 @@ const value = ref()
 ### Nuxt 2 + Vue 2.6 or Earlier
 
 ```shell
-npm i json-editor-vue @vue/composition-api
+# npm
+npm i @vue/composition-api json-editor-vue
+
+# jsr
+npm i @vue/composition-api
+npx jsr add @cloydlau/json-editor-vue
 ```
 
 #### Local Registration

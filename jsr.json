@@ -1,0 +1,15 @@
+{
+  "name": "@cloydlau/json-editor-vue",
+  "version": "0.12.0",
+  "exports": "./dist/json-editor-vue.mjs",
+  "include": [
+    "LICENSE",
+    "README.md",
+    "package.json",
+    "jsr.json",
+    "dist/**",
+    "docs/**",
+    "nuxt.ts"
+  ],
+  "exclude": ["**"]
+}

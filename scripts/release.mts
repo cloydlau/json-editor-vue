@@ -37,8 +37,10 @@ async function release() {
   }
   await deleteAsync(['./*.tgz'])
 
-  const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
-  const { name, version: currentVersion } = pkg
+  const jsrConfig = JSON.parse(fs.readFileSync('./jsr.json', 'utf-8'))
+  const npmConfig = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
+  // 假定 jsr 版本号与 npm 一致
+  const { name, version: currentVersion } = npmConfig
 
   const choices = Array.from(['patch', 'minor', 'major', 'prerelease', 'prepatch', 'preminor', 'premajor', 'custom'], title => ({
     title,
@@ -112,8 +114,10 @@ async function release() {
     }
   }
 
-  pkg.version = targetVersion
-  fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2))
+  jsrConfig.version = targetVersion
+  npmConfig.version = targetVersion
+  fs.writeFileSync('./jsr.json', JSON.stringify(jsrConfig, null, 2))
+  fs.writeFileSync('./package.json', JSON.stringify(npmConfig, null, 2))
 
   console.log(cyan('Committing...'))
   if (spawn.sync('git', ['add', '-A'], { stdio: 'inherit' }).status === 1) {
@@ -121,8 +125,10 @@ async function release() {
   }
   if (spawn.sync('git', ['commit', '-m', `release: v${targetVersion}`], { stdio: 'inherit' }).status === 1) {
     // pre-commit 时如果 lint 失败，则恢复版本号
-    pkg.version = currentVersion
-    fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2))
+    jsrConfig.version = currentVersion
+    npmConfig.version = currentVersion
+    fs.writeFileSync('./jsr.json', JSON.stringify(jsrConfig, null, 2))
+    fs.writeFileSync('./package.json', JSON.stringify(npmConfig, null, 2))
     return
   }
 
@@ -137,7 +143,12 @@ async function release() {
     return
   }
 
-  console.log(cyan('Publishing...'))
+  console.log(cyan('Publishing to jsr...'))
+  if (spawn.sync('npx', ['jsr', 'publish'], { stdio: 'inherit' }).status === 1) {
+    return
+  }
+
+  console.log(cyan('Publishing to npm...'))
   if (spawn.sync('npm', ['publish', '--registry=https://registry.npmjs.org'], { stdio: 'inherit' }).status === 1) {
     return
   }
