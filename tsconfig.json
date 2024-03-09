@@ -1,28 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "jsx": "preserve",
-    "lib": ["esnext", "dom"],
-    "useDefineForClassFields": false,
-    "experimentalDecorators": true,
-    "baseUrl": ".",
-    "rootDir": ".",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "target": "ES2015",
+    "lib": ["es2022", "dom", "dom.iterable"],
+    "moduleDetection": "force",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
-    "types": ["node"],
-    "allowJs": false,
+    "allowJs": true,
     "strict": true,
-    "noUnusedLocals": true,
-    "newLine": "LF",
-    "outDir": "dist",
-    "removeComments": false,
-    "sourceMap": false,
+    "noUncheckedIndexedAccess": true,
+    "declaration": true,
+    "noEmit": true,
     "esModuleInterop": true,
+    "isolatedModules": true,
     "skipLibCheck": true
-  },
-  "include": [
-    "src",
-    "__tests__"
-  ]
+  }
 }
