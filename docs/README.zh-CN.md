@@ -13,8 +13,8 @@
 <p align="center">
   <a href="https://cloydlau.github.io/demo/json-editor-vue.html"><img alt="playground" src="https://img.shields.io/badge/Playground-blue?color=9BE4E0"></a>
   <br>
-  <a href="https://npmjs.com/package/json-editor-vue"><img alt="npm" src="https://img.shields.io/npm/v/json-editor-vue.svg"></a>
-  <a href="https://jsr.io/@cloydlau/json-editor-vue"><img alt="jsr" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fjsr-api.sxzz.moe%2Fversion%2F%40cloydlau%2Fjson-editor-vue&query=version&prefix=v&label=jsr&color=%23f7df1e"></a>
+  <a href="https://npmjs.com/package/json-editor-vue"><img alt="npm" src="https://img.shields.io/npm/v/json-editor-vue.svg?color=cb3837"></a>
+  <a href="https://jsr.io/@cloydlau/json-editor-vue"><img alt="jsr" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fjsr-api.sxzz.moe%2Fversion%2F%40cloydlau%2Fjson-editor-vue&query=version&prefix=v&label=jsr&color=F7DF1E"></a>
   <br>
   <a href="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml"><img alt="build status" src="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml/badge.svg?branch=main"></a>
   <a href="https://bundlephobia.com/package/json-editor-vue"><img alt="minzipped size" src="https://img.shields.io/bundlephobia/minzip/json-editor-vue"></a>
@@ -24,7 +24,7 @@
   <a href="https://github.com/antfu/eslint-config"><img alt="code style" src="https://antfu.me/badge-code-style.svg"></a>
   <a href="https://www.jsdelivr.com/package/npm/json-editor-vue"><img alt="jsdelivr downloads" src="https://data.jsdelivr.com/v1/package/npm/json-editor-vue/badge?style=rounded"></a>
   <br>
-  <a><img src="https://img.shields.io/badge/可能是整个开源世界-white?style=flat-square"></a> <a href="https://npmcharts.com/compare/json-editor-vue"><img alt="npm downloads" src="https://img.shields.io/npm/dt/json-editor-vue?logo=npm&color=rgba(203,0,0,0.9)"></a> <a><img src="https://img.shields.io/badge/与-white?style=flat-square"></a> <a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="github stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=eac54f&logo=github"></a> <a><img src="https://img.shields.io/badge/悬殊最大的仓库，如有帮助，点亮一下星星哦_🙏-white?style=flat-square"></a>
+  <a><img src="https://img.shields.io/badge/可能是整个开源世界-white?style=flat-square"></a> <a href="https://npmcharts.com/compare/json-editor-vue"><img alt="npm downloads" src="https://img.shields.io/npm/dt/json-editor-vue?logo=npm&color=cb3837"></a> <a><img src="https://img.shields.io/badge/与-white?style=flat-square"></a> <a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="github stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=eac54f&logo=github"></a> <a><img src="https://img.shields.io/badge/悬殊最大的仓库，如有帮助，点亮一下星星哦_🙏-white?style=flat-square"></a>
 </p>
 
 <img width="48.5%" src="./text-mode.png" alt="text mode">&nbsp;<img width="48.5%" src="./tree-mode.png" alt="table mode">
