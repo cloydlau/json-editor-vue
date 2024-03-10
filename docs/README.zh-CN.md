@@ -8,11 +8,11 @@
   Vue 2.6/2.7/3 & Nuxt 2/3 一体通用 JSON 编辑 & 预览 & 格式化 & 校验工具
   <br>
   <a href="../README.md">English</a> | 简体中文
-  <br>
-  <a href="https://cloydlau.github.io/demo/json-editor-vue.html">🕹 试玩</a>
 </p>
 
 <p align="center">
+  <a href="https://cloydlau.github.io/demo/json-editor-vue.html"><img alt="playground" src="https://img.shields.io/badge/Playground-blue?color=9BE4E0"></a>
+  <br>
   <a href="https://npmjs.com/package/json-editor-vue"><img alt="npm" src="https://img.shields.io/npm/v/json-editor-vue.svg"></a>
   <a href="https://jsr.io/@cloydlau/json-editor-vue"><img alt="jsr" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fjsr-api.sxzz.moe%2Fversion%2F%40cloydlau%2Fjson-editor-vue&query=version&prefix=v&label=jsr&color=%23f7df1e"></a>
   <br>
