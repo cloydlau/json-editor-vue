@@ -7,9 +7,8 @@ export default antfu(
   },
   {
     rules: {
-      'curly': ['error', 'multi-line'],
+      'curly': ['error', 'all'],
       'no-console': 'off',
-      'style/brace-style': ['error', '1tbs', { allowSingleLine: true }],
       'vue/attribute-hyphenation': 'off',
       'vue/custom-event-name-casing': 'off',
       'vue/max-attributes-per-line': 'error',
