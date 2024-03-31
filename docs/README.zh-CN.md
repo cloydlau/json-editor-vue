@@ -27,7 +27,7 @@
   <a><img src="https://img.shields.io/badge/可能是整个开源世界-white?style=flat-square"></a> <a href="https://npmcharts.com/compare/json-editor-vue"><img alt="npm downloads" src="https://img.shields.io/npm/dt/json-editor-vue?logo=npm&color=cb3837"></a> <a><img src="https://img.shields.io/badge/与-white?style=flat-square"></a> <a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="github stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=eac54f&logo=github"></a> <a><img src="https://img.shields.io/badge/悬殊最大的仓库，如有帮助，点亮一下星星哦_🙏-white?style=flat-square"></a>
 </p>
 
-<img width="48.5%" src="./text-mode.png" alt="text mode">&nbsp;<img width="48.5%" src="./tree-mode.png" alt="table mode">
+<img width="48.5%" src="./text mode.png" alt="text mode">&nbsp;<img width="48.5%" src="./tree mode.png" alt="table mode">
 
 <br>
 
@@ -47,6 +47,10 @@
 <br>
 
 ## 安装
+
+> [!Note]
+>
+> 由于 JSR 尚不稳定，暂未发布到 JSR。
 
 ### 依赖
 
@@ -186,7 +190,11 @@ createApp()
 
 #### CDN + IIFE
 
-> ⚠ 暂不支持 (vanilla-jsoneditor 不提供 IIFE 或 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+> [!Warning]
+>
+> 暂不支持 (vanilla-jsoneditor 不提供 IIFE 或 UMD 导出)，
+>
+> 如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
 
 ```html
 <!doctype html>
@@ -303,7 +311,11 @@ Vue.use(JsonEditorVue, {
 
 #### CDN + IIFE
 
-> ⚠ 暂不支持 (vanilla-jsoneditor 不提供 IIFE 或 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+> [!Warning]
+>
+> 暂不支持 (vanilla-jsoneditor 不提供 IIFE 或 UMD 导出)，
+>
+> 如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
 
 ```html
 <!doctype html>
@@ -438,7 +450,11 @@ Vue.use(JsonEditorVue, {
 
 #### CDN + IIFE
 
-> ⚠ 暂不支持 (vanilla-jsoneditor 不提供 IIFE 或 UMD 导出)，如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+> [!Warning]
+>
+> 暂不支持 (vanilla-jsoneditor 不提供 IIFE 或 UMD 导出)，
+>
+> 如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
 
 ```html
 <!doctype html>
