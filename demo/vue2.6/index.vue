@@ -12,7 +12,7 @@ export default {
       version: Vue.version,
       data: {
         value: {
-        // bigint: 124124124124124124124n,
+          // bigint: 124124124124124124124n,
           boolean: true,
           string: 'Hello World',
           number: 123.456,
@@ -33,6 +33,11 @@ export default {
   mounted() {
     console.log('expand: ', this.$refs.jsonEditorVueRef.jsonEditor.expand)
   },
+  methods: {
+    onInput(data) {
+      console.log('onInput: ', data)
+    }
+  },
 }
 </script>
 
@@ -49,7 +54,7 @@ export default {
       <button @click="data.value.number = Math.random()">
         改变属性
       </button>
-      <button @click="value = undefined">
+      <button @click="data.value = undefined">
         清空
       </button>
       <button @click="mode = mode === 'text' ? 'tree' : 'text'">
@@ -63,17 +68,18 @@ export default {
     <br>
     <JsonEditorVue
       ref="jsonEditorVueRef"
-      v-model="value"
+      v-model="data.value"
       :mode.sync="mode"
       :readOnly="readOnly"
+      @input="onInput"
     />
 
     <br>
     <p>Mode</p>
     {{ mode }}
     <p>Value</p>
-    {{ value }}
+    {{ data.value }}
     <p>Type</p>
-    {{ typeof value }}
+    {{ typeof data.value }}
   </div>
 </template>
