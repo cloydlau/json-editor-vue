@@ -133,7 +133,6 @@ export default defineComponent({
         () => props[modelValueProp],
         (newModelValue: any) => {
           if (preventUpdatingContent.value) {
-            preventUpdatingContent.value = false
             return
           }
           if (jsonEditor.value) {
@@ -145,7 +144,9 @@ export default defineComponent({
                 // Only default value can clear the editor
                 ? { text: '' }
                 : { json: newModelValue },
-            )
+            ).then(() => {
+              preventUpdatingModelValue.value = false
+            })
           }
         },
         {
