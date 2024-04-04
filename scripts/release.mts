@@ -59,7 +59,8 @@ async function release() {
 
   if (['patch', 'minor', 'major'].includes(releaseType)) {
     targetVersion = semver.inc(currentVersion, releaseType)
-  } else if (releaseType.startsWith('pre')) {
+  }
+  else if (releaseType.startsWith('pre')) {
     // 只升 prerelease 版本时，已经是 beta 阶段就不可能再回到 alpha 阶段
     let prereleaseTypes = ['alpha', 'beta', 'rc']
     if (releaseType === 'prerelease') {
@@ -81,7 +82,8 @@ async function release() {
             value: semver.inc(currentVersion, releaseType, title),
           })),
         })).value
-  } else {
+  }
+  else {
     targetVersion = (await prompts({
       type: 'text',
       name: 'value',
@@ -143,10 +145,10 @@ async function release() {
     return
   }
 
-  console.log(cyan('Publishing to jsr...'))
+  /* console.log(cyan('Publishing to jsr...'))
   if (spawn.sync('npx', ['jsr', 'publish'], { stdio: 'inherit' }).status === 1) {
     return
-  }
+  } */
 
   console.log(cyan('Publishing to npm...'))
   if (spawn.sync('npm', ['publish', '--registry=https://registry.npmjs.org'], { stdio: 'inherit' }).status === 1) {
@@ -160,6 +162,7 @@ async function release() {
 
 try {
   release()
-} catch (e) {
+}
+catch (e) {
   console.error(e)
 }
