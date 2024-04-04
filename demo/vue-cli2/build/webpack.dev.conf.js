@@ -1,5 +1,6 @@
+/* eslint-disable node/prefer-global/process */
 'use strict'
-const path = require('path')
+const path = require('node:path')
 const merge = require('webpack-merge')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -73,7 +74,8 @@ module.exports = new Promise((resolve, reject) => {
   portfinder.getPort((err, port) => {
     if (err) {
       reject(err)
-    } else {
+    }
+    else {
       // publish the new Port, necessary for e2e tests
       process.env.PORT = port
       // add port to devServer config

@@ -43,7 +43,7 @@ export default {
       <button @click="data.value = Math.random()">
         设值为 string
       </button>
-      <button @click="data.value = { abc: Math.random() }">
+      <button @click="data.value = { number: Math.random() }">
         设值为 JSON
       </button>
       <button @click="data.value.number = Math.random()">

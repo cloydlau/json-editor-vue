@@ -1,9 +1,10 @@
+/* eslint-disable node/prefer-global/process */
 'use strict'
 require('./check-versions')()
 
 process.env.NODE_ENV = 'production'
 
-const path = require('path')
+const path = require('node:path')
 const ora = require('ora')
 const rm = require('rimraf')
 const chalk = require('chalk')
@@ -15,12 +16,14 @@ const spinner = ora('building for production...')
 spinner.start()
 
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), (err) => {
-  if (err)
+  if (err) {
     throw err
+  }
   webpack(webpackConfig, (err, stats) => {
     spinner.stop()
-    if (err)
+    if (err) {
       throw err
+    }
     process.stdout.write(`${stats.toString({
       colors: true,
       modules: false,

@@ -1,5 +1,6 @@
+/* eslint-disable node/prefer-global/process */
 'use strict'
-const path = require('path')
+const path = require('node:path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const config = require('../config')
 const packageConfig = require('../package.json')
@@ -49,7 +50,8 @@ exports.cssLoaders = function (options) {
         use: loaders,
         fallback: 'vue-style-loader',
       })
-    } else {
+    }
+    else {
       return ['vue-style-loader'].concat(loaders)
     }
   }
@@ -86,8 +88,9 @@ exports.createNotifierCallback = () => {
   const notifier = require('node-notifier')
 
   return (severity, errors) => {
-    if (severity !== 'error')
+    if (severity !== 'error') {
       return
+    }
 
     const error = errors[0]
     const filename = error.file && error.file.split('!').pop()

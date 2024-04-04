@@ -1,6 +1,8 @@
+/* eslint-disable node/prefer-global/process */
 'use strict'
 const config = require('../config')
 const utils = require('./utils')
+
 const isProduction = process.env.NODE_ENV === 'production'
 const sourceMapEnabled = isProduction
   ? config.build.productionSourceMap

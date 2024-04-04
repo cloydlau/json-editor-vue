@@ -1,3 +1,4 @@
+/* eslint-disable node/prefer-global/process */
 'use strict'
 const chalk = require('chalk')
 const semver = require('semver')
@@ -5,7 +6,7 @@ const shell = require('shelljs')
 const packageConfig = require('../package.json')
 
 function exec(cmd) {
-  return require('child_process').execSync(cmd).toString().trim()
+  return require('node:child_process').execSync(cmd).toString().trim()
 }
 
 const versionRequirements = [

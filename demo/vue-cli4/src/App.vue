@@ -1,7 +1,3 @@
-<template>
-  <JsonEditorVue />
-</template>
-
 <script>
 import JsonEditorVue from 'json-editor-vue'
 
@@ -12,6 +8,10 @@ export default {
   },
 }
 </script>
+
+<template>
+  <JsonEditorVue />
+</template>
 
 <style>
 

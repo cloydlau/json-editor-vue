@@ -20,7 +20,7 @@ const data = reactive<{
   value: any
   mode?: Mode
   readOnly?: boolean
-  parser?: { parse: (...args: any) => unknown; stringify: (...args: any) => unknown }
+  parser?: { parse: (...args: any) => unknown, stringify: (...args: any) => unknown }
 }>({
       value: {
         bigint: 124124124124124124124n,

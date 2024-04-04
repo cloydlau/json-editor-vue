@@ -1,5 +1,6 @@
+/* eslint-disable node/prefer-global/process */
 'use strict'
-const path = require('path')
+const path = require('node:path')
 const config = require('../config')
 const utils = require('./utils')
 const vueLoaderConfig = require('./vue-loader.conf')
