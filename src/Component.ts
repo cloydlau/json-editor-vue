@@ -59,15 +59,7 @@ export default defineComponent({
     const currentInstance = getCurrentInstance()?.proxy
     const jsonEditor = ref()
 
-    const preventUpdatingContent = ref(false)
-    const preventUpdatingModelValue = ref(false)
-
     const onChange = debounce((updatedContent: Content) => {
-      if (preventUpdatingModelValue.value) {
-        preventUpdatingModelValue.value = false
-        return
-      }
-      preventUpdatingContent.value = true
       emit(
         updateModelValue,
         (updatedContent as TextContent).text === undefined
@@ -132,21 +124,14 @@ export default defineComponent({
       watch(
         () => props[modelValueProp],
         (newModelValue: any) => {
-          if (preventUpdatingContent.value) {
-            preventUpdatingContent.value = false
-            return
-          }
-          if (jsonEditor.value) {
-            preventUpdatingModelValue.value = true
-            jsonEditor.value.set(
-              [undefined, ''].includes(newModelValue)
-                // `undefined` is not accepted by vanilla-jsoneditor
-                // The default value is `{ text: '' }`
-                // Only default value can clear the editor
-                ? { text: '' }
-                : { json: newModelValue },
-            )
-          }
+          jsonEditor.value?.set(
+            [undefined, ''].includes(newModelValue)
+            // `undefined` is not accepted by vanilla-jsoneditor
+            // The default value is `{ text: '' }`
+            // Only default value can clear the editor
+              ? { text: '' }
+              : { json: newModelValue },
+          )
         },
         {
           deep: true,
