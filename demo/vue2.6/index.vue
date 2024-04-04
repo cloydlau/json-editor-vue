@@ -33,11 +33,6 @@ export default {
   mounted() {
     console.log('expand: ', this.$refs.jsonEditorVueRef.jsonEditor.expand)
   },
-  methods: {
-    onInput(data) {
-      console.log('onInput: ', data)
-    }
-  },
 }
 </script>
 
@@ -71,7 +66,6 @@ export default {
       v-model="data.value"
       :mode.sync="mode"
       :readOnly="readOnly"
-      @input="onInput"
     />
 
     <br>
