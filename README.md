@@ -941,11 +941,11 @@ module.exports = {
 
 ## Props
 
-| Name                                                   | Description                                                                                   | Type          | Default  |
-| ------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ------------- | -------- |
-| v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | binding value                                                                                 | any           |          |
-| mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | edit mode                                                                                     | [Mode](#Mode) | `'tree'` |
-| ...                                                    | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |               |          |
+| Name                                                   | Description                                                                                   | Type          |
+| ------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ------------- |
+| v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | binding value                                                                                 | any           |
+| mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | edit mode                                                                                     | [Mode](#Mode) |
+| ...                                                    | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |               |
 
 > [!Tip]
 >
