@@ -142,7 +142,7 @@ importers:
         specifier: ^0.6.0
         version: 0.6.0(vue@3.4.21)
       zhlint:
-        specifier: 0.8.1
+        specifier: ^0.8.1
         version: 0.8.1
 
 packages:
