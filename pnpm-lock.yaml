@@ -130,7 +130,7 @@ importers:
         specifier: ^3.8.1
         version: 3.8.1(@types/node@20.12.4)(typescript@5.4.4)(vite@5.2.8)
       vitepress:
-        specifier: 1.0.2
+        specifier: ^1.0.2
         version: 1.0.2(@algolia/client-search@4.23.2)(@types/node@20.12.4)(search-insights@2.13.0)(typescript@5.4.4)
       vitest:
         specifier: ^1.4.0
