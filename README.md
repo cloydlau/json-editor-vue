@@ -947,7 +947,9 @@ module.exports = {
 | mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | edit mode                                                                                     | [Mode](#Mode) | `'tree'` |
 | ...                                                    | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |               |          |
 
-> ⚠ kebab-case is required for tag & prop name when using from CDN.
+> [!Tip]
+>
+> kebab-case is required for tag & prop name when using from CDN.
 
 ### Binding value difference between svelte-jsoneditor and json-editor-vue
 

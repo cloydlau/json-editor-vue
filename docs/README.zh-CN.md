@@ -945,6 +945,8 @@ module.exports = {
 | mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | 编辑模式                                                                               | [Mode](#Mode) | `'tree'` |
 | ...                                                    | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的属性 |               |          |
 
+> [!Tip]
+>
 > 通过 CDN 使用时，标签、属性名称都必须使用短横线命名
 
 ### svelte-jsoneditor 与 json-editor-vue 中绑定值的差异
