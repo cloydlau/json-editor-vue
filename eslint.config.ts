@@ -19,6 +19,7 @@ export default antfu(
       'vue/no-deprecated-dollar-scopedslots-api': 'off',
       'vue/no-v-html': 'off',
       'vue/singleline-html-element-content-newline': 'off',
+      'vue/v-on-event-hyphenation': ['error', 'never'],
     },
   },
 )
