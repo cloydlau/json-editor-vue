@@ -2,16 +2,15 @@
   "name": "@cloydlau/json-editor-vue",
   "version": "0.13.0",
   "exports": "./dist/json-editor-vue.mjs",
-  "include": [
-    "LICENSE",
-    "README.md",
-    "package.json",
-    "jsr.json",
-    "dist/**",
-    "docs/**",
-    "nuxt.ts"
-  ],
-  "exclude": [
-    "**"
-  ]
+  "publish": {
+    "include": [
+      "LICENSE",
+      "README.md",
+      "package.json",
+      "jsr.json",
+      "dist/**",
+      "docs/**",
+      "nuxt.ts"
+    ]
+  }
 }
