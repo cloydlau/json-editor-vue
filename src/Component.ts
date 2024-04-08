@@ -113,8 +113,9 @@ export default defineComponent({
           },
         ],
         {
-          type: Object,
+          camelizeObjectKeys: true,
           mergeFunction,
+          type: Object,
         },
       )
 
@@ -174,17 +175,18 @@ export default defineComponent({
             onChange?: (...args: any) => unknown
             onChangeMode?: (...args: any) => unknown
           } = {}
-          if (newAttrs.onChange) {
+          if (newAttrs.onChange || newAttrs['on-change']) {
             defaultFunctionAttrs.onChange = onChange
           }
-          if (newAttrs.onChangeMode) {
+          if (newAttrs.onChangeMode || newAttrs['on-change-mode']) {
             defaultFunctionAttrs.onChangeMode = onChangeMode
           }
           jsonEditor.value?.updateProps(
             Object.getOwnPropertyNames(defaultFunctionAttrs).length > 0
               ? conclude([newAttrs, defaultFunctionAttrs], {
-                type: Object,
+                camelizeObjectKeys: true,
                 mergeFunction,
+                type: Object,
               })
               : newAttrs,
           )

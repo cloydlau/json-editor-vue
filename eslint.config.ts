@@ -9,7 +9,6 @@ export default antfu(
       'brace-style': ['error', 'stroustrup', { allowSingleLine: false }],
       'curly': ['error', 'all'],
       'no-console': 'off',
-      'vue/attribute-hyphenation': 'off',
       'vue/max-attributes-per-line': 'error',
       'vue/multi-word-component-names': 'off',
       'vue/no-deprecated-v-bind-sync': 'off',
