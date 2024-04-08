@@ -6,7 +6,7 @@ import JsonEditorVue from 'json-editor-vue'
   <div style="border: 1px solid lightgrey; padding: 1rem;">
     I am sub.
     <JsonEditorVue
-      :modelValue="123"
+      :model-value="123"
       style="width: 370px;"
     />
   </div>

@@ -65,7 +65,7 @@ export default {
       ref="jsonEditorVueRef"
       v-model="data.value"
       :mode.sync="mode"
-      :readOnly="readOnly"
+      :read-only="readOnly"
     />
 
     <br>

@@ -57,7 +57,7 @@ onMounted(() => {
       ref="jsonEditorVueRef"
       v-model="data.value"
       :mode.sync="data.mode"
-      :readOnly="data.readOnly"
+      :read-only="data.readOnly"
     />
 
     <br>
