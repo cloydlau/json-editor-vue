@@ -38,6 +38,8 @@
     "json",
     "jsonc",
     "yaml",
-    "toml"
+    "toml",
+    "gql",
+    "graphql"
   ]
 }
