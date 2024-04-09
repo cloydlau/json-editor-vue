@@ -58,8 +58,10 @@ export default defineComponent({
   setup(props, { attrs, emit, expose }) {
     const currentInstance = getCurrentInstance()?.proxy
     const jsonEditor = ref()
+    const preventUpdatingContent = ref(false)
 
     const onChange = debounce((updatedContent: Content) => {
+      preventUpdatingContent.value = true
       emit(
         updateModelValue,
         (updatedContent as TextContent).text === undefined
@@ -111,8 +113,9 @@ export default defineComponent({
           },
         ],
         {
-          type: Object,
+          camelizeObjectKeys: true,
           mergeFunction,
+          type: Object,
         },
       )
 
@@ -124,14 +127,21 @@ export default defineComponent({
       watch(
         () => props[modelValueProp],
         (newModelValue: any) => {
-          jsonEditor.value?.set(
-            [undefined, ''].includes(newModelValue)
-            // `undefined` is not accepted by vanilla-jsoneditor
-            // The default value is `{ text: '' }`
-            // Only default value can clear the editor
-              ? { text: '' }
-              : { json: newModelValue },
-          )
+          if (preventUpdatingContent.value) {
+            preventUpdatingContent.value = false
+            return
+          }
+          if (jsonEditor.value) {
+            // jsonEditor.value.update cannot render new props in json
+            jsonEditor.value.set(
+              [undefined, ''].includes(newModelValue)
+                // `undefined` is not accepted by vanilla-jsoneditor
+                // The default value is `{ text: '' }`
+                // Only default value can clear the editor
+                ? { text: '' }
+                : { json: newModelValue },
+            )
+          }
         },
         {
           deep: true,
@@ -165,17 +175,18 @@ export default defineComponent({
             onChange?: (...args: any) => unknown
             onChangeMode?: (...args: any) => unknown
           } = {}
-          if (newAttrs.onChange) {
+          if (newAttrs.onChange || newAttrs['on-change']) {
             defaultFunctionAttrs.onChange = onChange
           }
-          if (newAttrs.onChangeMode) {
+          if (newAttrs.onChangeMode || newAttrs['on-change-mode']) {
             defaultFunctionAttrs.onChangeMode = onChangeMode
           }
           jsonEditor.value?.updateProps(
             Object.getOwnPropertyNames(defaultFunctionAttrs).length > 0
               ? conclude([newAttrs, defaultFunctionAttrs], {
-                type: Object,
+                camelizeObjectKeys: true,
                 mergeFunction,
+                type: Object,
               })
               : newAttrs,
           )
