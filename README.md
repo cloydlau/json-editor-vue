@@ -14,7 +14,7 @@
   <a href="https://cloydlau.github.io/demo/json-editor-vue.html"><img alt="playground" src="https://img.shields.io/badge/Playground-blue?color=9BE4E0"></a>
   <br>
   <a href="https://npmjs.com/package/json-editor-vue"><img alt="npm" src="https://img.shields.io/npm/v/json-editor-vue.svg?color=cb3837"></a>
-  <a href="https://jsr.io/@cloydlau/json-editor-vue"><img alt="jsr" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fjsr-api.sxzz.moe%2Fversion%2F%40cloydlau%2Fjson-editor-vue&query=version&prefix=v&label=jsr&color=%23F7DF1E"></a>
+  <a href="https://jsr.io/@cloydlau/json-editor-vue"><img alt="jsr" src="https://jsr.io/badges/@cloydlau/json-editor-vue"></a>
   <br>
   <a href="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml"><img alt="build status" src="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml/badge.svg?branch=main"></a>
   <a href="https://bundlephobia.com/package/json-editor-vue"><img alt="minzipped size" src="https://img.shields.io/bundlephobia/minzip/json-editor-vue"></a>
