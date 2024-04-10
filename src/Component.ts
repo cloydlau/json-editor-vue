@@ -101,14 +101,13 @@ export default defineComponent({
           attrs,
           globalAttrs,
           {
-            // Both user input & setting value programmatically will trigger onChange
             onChange,
             onChangeMode,
             mode: initialMode,
             ...(initialValue !== undefined && {
-              content: {
-                json: initialValue,
-              },
+              content: typeof initialValue === 'string'
+                ? { text: initialValue }
+                : { json: initialValue },
             }),
           },
         ],
@@ -133,13 +132,15 @@ export default defineComponent({
           }
           if (jsonEditor.value) {
             // jsonEditor.value.update cannot render new props in json
+            // `undefined` is not accepted by vanilla-jsoneditor
+            // The default value is `{ text: '' }`
+            // Only default value can clear the editor
             jsonEditor.value.set(
               [undefined, ''].includes(newModelValue)
-                // `undefined` is not accepted by vanilla-jsoneditor
-                // The default value is `{ text: '' }`
-                // Only default value can clear the editor
                 ? { text: '' }
-                : { json: newModelValue },
+                : typeof newModelValue === 'string'
+                  ? { text: newModelValue }
+                  : { json: newModelValue },
             )
           }
         },
