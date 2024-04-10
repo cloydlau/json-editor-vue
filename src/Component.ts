@@ -105,9 +105,7 @@ export default defineComponent({
             onChangeMode,
             mode: initialMode,
             ...(initialValue !== undefined && {
-              content: typeof initialValue === 'string'
-                ? { text: initialValue }
-                : { json: initialValue },
+              content: { [typeof initialValue === 'string' ? 'text' : 'json']: initialValue },
             }),
           },
         ],
@@ -138,9 +136,7 @@ export default defineComponent({
             jsonEditor.value.set(
               [undefined, ''].includes(newModelValue)
                 ? { text: '' }
-                : typeof newModelValue === 'string'
-                  ? { text: newModelValue }
-                  : { json: newModelValue },
+                : { [typeof newModelValue === 'string' ? 'text' : 'json']: newModelValue },
             )
           }
         },
