@@ -48,10 +48,6 @@
 
 ## Install
 
-> [!Note]
->
-> Not yet published to JSR due to its instability.
-
 ### Dependencies
 
 As of v0.11, it's no longer necessary to explicitly install [vanilla-jsoneditor](https://github.com/josdejong/svelte-jsoneditor).

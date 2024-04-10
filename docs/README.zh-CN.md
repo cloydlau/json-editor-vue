@@ -48,10 +48,6 @@
 
 ## 安装
 
-> [!Note]
->
-> 由于 JSR 尚不稳定，暂未发布到 JSR。
-
 ### 依赖
 
 从 v0.11 开始，不再需要显式安装 [vanilla-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)，

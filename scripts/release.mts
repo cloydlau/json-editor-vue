@@ -145,10 +145,10 @@ async function release() {
     return
   }
 
-  /* console.log(cyan('Publishing to jsr...'))
+  console.log(cyan('Publishing to jsr...'))
   if (spawn.sync('npx', ['jsr', 'publish'], { stdio: 'inherit' }).status === 1) {
     return
-  } */
+  }
 
   console.log(cyan('Publishing to npm...'))
   if (spawn.sync('npm', ['publish', '--registry=https://registry.npmjs.org'], { stdio: 'inherit' }).status === 1) {

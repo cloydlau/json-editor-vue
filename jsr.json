@@ -4,13 +4,13 @@
   "exports": "./dist/json-editor-vue.mjs",
   "publish": {
     "include": [
-      "LICENSE",
-      "README.md",
-      "package.json",
+      "dist",
+      "docs",
       "jsr.json",
-      "dist/**",
-      "docs/**",
-      "nuxt.ts"
+      "LICENSE",
+      "nuxt.ts",
+      "package.json",
+      "README.md"
     ]
   }
 }
