@@ -77,7 +77,7 @@ If you want to specify dependency versions:
 }
 ```
 
-Or scoped:
+or scoped:
 
 ```json5
 // package.json
@@ -959,6 +959,48 @@ If you prefer the behavior of svelte-jsoneditor:
   :content="content"
   :onChange="(updatedContent) => {
     content = updatedContent
+  }"
+/>
+```
+
+If you want to ensure you always get parsed JSON in text mode:
+
+> [!Caution]
+>
+> Not performant for large JSON documents.
+
+```ts
+createApp(App)
+  .use(JsonEditorVue, {
+    mode: 'text',
+    mainMenuBar: false,
+    onChange(updatedContent) {
+      if (updatedContent.text) {
+        try {
+          updatedContent.json = JSON.parse(updatedContent.text)
+        }
+        catch {}
+        updatedContent.text = undefined
+      }
+    },
+  })
+  .mount('#app')
+```
+
+or without `try...catch`:
+
+```html
+<JsonEditorVue
+  ref="jsonEditorVueRef"
+  mode="text"
+  :main-menu-bar="false"
+  :on-change="(updatedContent) => {
+    if (updatedContent.text) {
+      if (!jsonEditorVueRef.jsonEditor.validate()) {
+        updatedContent.json = JSON.parse(updatedContent.text)
+      }
+      updatedContent.text = undefined
+    }
   }"
 />
 ```

@@ -961,6 +961,48 @@ module.exports = {
 />
 ```
 
+如果你想确保在 text 模式中总是得到 “parsed JSON”：
+
+> [!Caution]
+>
+> 对于大型 JSON 文档性能不佳
+
+```ts
+createApp(App)
+  .use(JsonEditorVue, {
+    mode: 'text',
+    mainMenuBar: false,
+    onChange(updatedContent) {
+      if (updatedContent.text) {
+        try {
+          updatedContent.json = JSON.parse(updatedContent.text)
+        }
+        catch {}
+        updatedContent.text = undefined
+      }
+    },
+  })
+  .mount('#app')
+```
+
+或不使用 `try...catch`:
+
+```html
+<JsonEditorVue
+  ref="jsonEditorVueRef"
+  mode="text"
+  :main-menu-bar="false"
+  :on-change="(updatedContent) => {
+    if (updatedContent.text) {
+      if (!jsonEditorVueRef.jsonEditor.validate()) {
+        updatedContent.json = JSON.parse(updatedContent.text)
+      }
+      updatedContent.text = undefined
+    }
+  }"
+/>
+```
+
 > 详情见 https://github.com/josdejong/svelte-jsoneditor/pull/166
 
 ### 布尔类型属性
