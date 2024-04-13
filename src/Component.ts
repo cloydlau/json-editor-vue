@@ -89,6 +89,10 @@ export default defineComponent({
       const initialMode = conclude([props.mode, globalProps.mode], {
         type: String as PropType<Mode>,
       })
+      if (globalProps.mode !== undefined && props.mode === undefined) {
+        // will trigger watch
+        onChangeMode(globalProps.mode)
+      }
       const initialValue = conclude([props[modelValueProp], globalProps[modelValueProp]])
       const initialBoolAttrs = Object.fromEntries(
         Array.from(boolAttrs, boolAttr => [boolAttr, conclude([props[boolAttr], globalProps[boolAttr]])]).filter(
