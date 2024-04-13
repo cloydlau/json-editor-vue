@@ -943,10 +943,6 @@ module.exports = {
 | mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | edit mode                                                                                     | [Mode](#Mode) |
 | ...                                                    | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |               |
 
-> [!Tip]
->
-> kebab-case is required for tag & prop name when using from CDN.
-
 ### Binding value difference between svelte-jsoneditor and json-editor-vue
 
 - svelte-jsoneditor: An object contains a stringified JSON or a parsed JSON, will do `JSON.parse` when passing as a stringified JSON.
@@ -963,7 +959,19 @@ If you prefer the behavior of svelte-jsoneditor:
 />
 ```
 
-If you want to ensure you always get parsed JSON in text mode:
+### The association between binding value and modes
+
+> [!Important]
+>
+> You can pass a stringified JSON or a parsed JSON to the editor independent of in what mode it is.
+>
+> The **output value** of text mode is a stringified JSON, the **output value** of tree mode is a parsed JSON.
+>
+> **But this correspondence can be disrupted by programmatic changes or mode switching.**
+>
+> See https://github.com/josdejong/svelte-jsoneditor/pull/166 for more details.
+
+FAQ: How to get parsed JSON in text mode:
 
 > [!Caution]
 >
@@ -1005,7 +1013,13 @@ or without `try...catch`:
 />
 ```
 
-> See https://github.com/josdejong/svelte-jsoneditor/pull/166 for more details.
+### Naming convention
+
+Support camelCase and kebab-case for tag & property name.
+
+> [!Tip]
+>
+> When using json-editor-vue or any Vue component via CDN (HTML), kebab-case must be used exclusively due to HTML's case insensitivity.
 
 ### Boolean properties
 

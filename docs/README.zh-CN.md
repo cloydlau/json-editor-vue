@@ -941,10 +941,6 @@ module.exports = {
 | mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | 编辑模式                                                                               | [Mode](#Mode) |
 | ...                                                    | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的属性 |               |
 
-> [!Tip]
->
-> 通过 CDN 使用时，标签、属性名称都必须使用短横线命名
-
 ### svelte-jsoneditor 与 json-editor-vue 中绑定值的差异
 
 - svelte-jsoneditor：一个包含 “stringified JSON” 或 “parsed JSON” 的对象，当作为 “stringified JSON” 传入时，会经过 `JSON.parse` 解析
@@ -961,7 +957,19 @@ module.exports = {
 />
 ```
 
-如果你想确保在 text 模式中总是得到 “parsed JSON”：
+### 绑定值与模式的关系
+
+> [!Important]
+>
+> 绑定值可以传 stringified JSON 或 parsed JSON，跟模式无关
+>
+> text 模式下的**输出值**是 stringified JSON，tree 模式下的**输出值**是 parsed JSON
+>
+> **但这个对应关系会被编程式输入或模式切换打破**
+>
+> 详情见 https://github.com/josdejong/svelte-jsoneditor/pull/166
+
+FAQ: 如何在 text 模式中获取 parsed JSON：
 
 > [!Caution]
 >
@@ -1003,7 +1011,13 @@ createApp(App)
 />
 ```
 
-> 详情见 https://github.com/josdejong/svelte-jsoneditor/pull/166
+### 命名惯例
+
+标签、属性名称支持驼峰命名和短横线命名
+
+> [!Tip]
+>
+> 通过 CDN (HTML) 使用 json-editor-vue 或任何 Vue 组件时，由于 HTML 大小写不敏感，仅能使用短横线命名
 
 ### 布尔类型属性
 
