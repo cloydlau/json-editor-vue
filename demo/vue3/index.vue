@@ -4,8 +4,6 @@ import { parse, stringify } from 'lossless-json'
 import type { Mode } from '../../src'
 import JsonEditorVue from '../../src'
 
-const console = window.console
-
 const LosslessJSONParser = {
   parse, /* : (json) => {    return JSON.parse(json, (k, v, { source }) =>
       (typeof source === 'number' && source > Number.MAX_SAFE_INTEGER)
@@ -43,7 +41,7 @@ const data = reactive<{
 
 const jsonEditorVueRef = ref()
 onMounted(() => {
-  console.log('expand: ', jsonEditorVueRef.value.jsonEditor.expand)
+  jsonEditorVueRef.value.jsonEditor.focus()
 })
 </script>
 

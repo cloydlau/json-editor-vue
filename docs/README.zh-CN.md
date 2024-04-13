@@ -1035,6 +1035,24 @@ createApp(App)
 | ---------- | --------------- | ------ |
 | jsonEditor | JSONEditor 实例 | object |
 
+### 调用 svelte-jsoneditor 的方法
+
+```vue
+<script setup>
+import { onMounted, ref } from 'vue'
+
+const jsonEditorVueRef = ref()
+
+onMounted(() => {
+  jsonEditorVueRef.value.jsonEditor.focus()
+})
+</script>
+
+<template>
+  <JsonEditorVue ref="jsonEditorVueRef" />
+</template>
+```
+
 <br>
 
 ## 类型
