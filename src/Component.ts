@@ -61,6 +61,16 @@ export default defineComponent({
     const preventUpdatingContent = ref(false)
 
     const onChange = debounce((updatedContent: Content) => {
+    const computedMode = computed(() => conclude([props.mode, globalProps.mode], {
+      type: String as PropType<Mode>,
+    }))
+    const onChangeMode = (mode: Mode) => {
+      emit('update:mode', mode)
+    }
+    // Synchronize the local `mode` with the global one
+    if (globalProps.mode !== undefined && props.mode === undefined) {
+      onChangeMode(globalProps.mode)
+    }
       preventUpdatingContent.value = true
       emit(
         updateModelValue,
@@ -70,9 +80,6 @@ export default defineComponent({
       )
     }, 100)
 
-    const onChangeMode = (mode: Mode) => {
-      emit('update:mode', mode)
-    }
 
     const mergeFunction = (previousValue: (...args: any) => unknown, currentValue: (...args: any) => unknown) => (...args: any) => {
       previousValue(...args)
@@ -86,13 +93,6 @@ export default defineComponent({
     })
 
     onMounted(() => {
-      const initialMode = conclude([props.mode, globalProps.mode], {
-        type: String as PropType<Mode>,
-      })
-      if (globalProps.mode !== undefined && props.mode === undefined) {
-        // will trigger watch
-        onChangeMode(globalProps.mode)
-      }
       const initialValue = conclude([props[modelValueProp], globalProps[modelValueProp]])
       const initialBoolAttrs = Object.fromEntries(
         Array.from(boolAttrs, boolAttr => [boolAttr, conclude([props[boolAttr], globalProps[boolAttr]])]).filter(
@@ -107,9 +107,9 @@ export default defineComponent({
           {
             onChange,
             onChangeMode,
-            mode: initialMode,
+            mode: computedMode.value,
             ...(initialValue !== undefined && {
-              content: { [typeof initialValue === 'string' ? 'text' : 'json']: initialValue },
+              content: { [(typeof initialValue === 'string' && computedMode.value === 'text') ? 'text' : 'json']: initialValue },
             }),
           },
         ],
@@ -140,7 +140,7 @@ export default defineComponent({
             jsonEditor.value.set(
               [undefined, ''].includes(newModelValue)
                 ? { text: '' }
-                : { [typeof newModelValue === 'string' ? 'text' : 'json']: newModelValue },
+                : { [(typeof newModelValue === 'string' && computedMode.value === 'text') ? 'text' : 'json']: newModelValue },
             )
           }
         },
