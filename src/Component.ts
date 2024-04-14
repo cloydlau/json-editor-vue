@@ -1,7 +1,6 @@
 import { debounce } from 'lodash-es'
 import { JSONEditor } from 'vanilla-jsoneditor'
-import type { Content, JSONContent, TextContent } from 'vanilla-jsoneditor'
-import { defineComponent, getCurrentInstance, h, isVue3, onMounted, onUnmounted, ref, unref, watch } from 'vue-demi'
+import { computed, defineComponent, getCurrentInstance, h, isVue3, onMounted, onUnmounted, ref, unref, watch, watchEffect } from 'vue-demi'
 import type { PropType } from 'vue-demi'
 import { conclude } from 'vue-global-config'
 import { PascalCasedName as name } from '../package.json'
@@ -30,6 +29,13 @@ export default defineComponent({
     mode: {
       type: String as PropType<Mode>,
     },
+    debounce: {
+      type: Number as PropType<number>,
+    },
+    stringified: {
+      type: Boolean as PropType<boolean>,
+      default: undefined,
+    },
     ...Object.fromEntries(
       boolAttrs.map(boolAttr => [
         boolAttr,
@@ -39,13 +45,6 @@ export default defineComponent({
         },
       ]),
     ),
-  } as {
-    [key in ModelValueProp]: object
-  } & { mode: { type: PropType<Mode> } } & {
-    [key in typeof boolAttrs[number]]: {
-      type: PropType<boolean>
-      default: undefined
-    }
   },
   emits: {
     [updateModelValue](_payload: any) {
@@ -60,10 +59,15 @@ export default defineComponent({
     const jsonEditor = ref()
     const preventUpdatingContent = ref(false)
 
-    const onChange = debounce((updatedContent: Content) => {
-    const computedMode = computed(() => conclude([props.mode, globalProps.mode], {
-      type: String as PropType<Mode>,
-    }))
+    const computedMode = ref()
+    watchEffect(() => {
+      computedMode.value = conclude([props.mode, globalProps.mode], {
+        type: String as PropType<Mode>,
+      })
+      jsonEditor.value?.updateProps({
+        mode: computedMode.value,
+      })
+    })
     const onChangeMode = (mode: Mode) => {
       emit('update:mode', mode)
     }
@@ -71,15 +75,30 @@ export default defineComponent({
     if (globalProps.mode !== undefined && props.mode === undefined) {
       onChangeMode(globalProps.mode)
     }
+
+    const computedDebounce = computed(() => {
+      return conclude([props.debounce, globalProps.debounce, 100], {
+        type: Number as PropType<number>,
+      })
+    })
+    const computedStringified = computed(() => conclude([props.stringified, globalProps.stringified, true], {
+      type: Boolean as PropType<boolean>,
+    }))
+    const onChange = debounce((updatedContent: { json?: any, text?: string }) => {
       preventUpdatingContent.value = true
+      if (!computedStringified.value && updatedContent.text) {
+        if (jsonEditor.value && !jsonEditor.value.validate()) {
+          updatedContent.json = JSON.parse(updatedContent.text)
+        }
+        updatedContent.text = undefined
+      }
       emit(
         updateModelValue,
-        (updatedContent as TextContent).text === undefined
-          ? (updatedContent as JSONContent).json
-          : (updatedContent as TextContent).text,
+        updatedContent.text === undefined
+          ? updatedContent.json
+          : updatedContent.text,
       )
-    }, 100)
-
+    }, computedDebounce.value)
 
     const mergeFunction = (previousValue: (...args: any) => unknown, currentValue: (...args: any) => unknown) => (...args: any) => {
       previousValue(...args)
@@ -109,7 +128,11 @@ export default defineComponent({
             onChangeMode,
             mode: computedMode.value,
             ...(initialValue !== undefined && {
-              content: { [(typeof initialValue === 'string' && computedMode.value === 'text') ? 'text' : 'json']: initialValue },
+              content: {
+                [(typeof initialValue === 'string' && computedMode.value === 'text' && computedStringified.value)
+                  ? 'text'
+                  : 'json']: initialValue,
+              },
             }),
           },
         ],
@@ -139,23 +162,19 @@ export default defineComponent({
             // Only default value can clear the editor
             jsonEditor.value.set(
               [undefined, ''].includes(newModelValue)
-                ? { text: '' }
-                : { [(typeof newModelValue === 'string' && computedMode.value === 'text') ? 'text' : 'json']: newModelValue },
+                ? {
+                    text: '',
+                  }
+                : {
+                    [(typeof newModelValue === 'string' && computedMode.value === 'text' && computedStringified.value)
+                      ? 'text'
+                      : 'json']: newModelValue,
+                  },
             )
           }
         },
         {
           deep: true,
-        },
-      )
-
-      watch(
-        () => props.mode,
-        (mode) => {
-          // `jsonEditor.value` could be `undefined` in Vue 2.6
-          jsonEditor.value?.updateProps({
-            mode,
-          })
         },
       )
 

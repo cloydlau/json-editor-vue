@@ -32,30 +32,23 @@ export default {
       },
     },
   },
-  plugins: [
-    {
-      name: 'html-transform',
-      transformIndexHtml(html: string) {
-        return html.replace(/\{\{ NAME \}\}/, name).replace(/\{\{ VUE_VERSION \}\}/g, String(major === 3 ? major : `${major}.${minor}`))
-      },
+  plugins: [{
+    name: 'html-transform',
+    transformIndexHtml(html: string) {
+      return html.replace(/\{\{ NAME \}\}/, name).replace(/\{\{ VUE_VERSION \}\}/g, String(major === 3 ? major : `${major}.${minor}`))
     },
-    dts({ rollupTypes: true }),
-    AutoImport({
-      // targets to transform
-      include: [
-        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
-        /\.vue$/,
-        /\.vue\?vue/, // .vue
-        /\.md$/, // .md
-      ],
-      // global imports to register
-      imports: [
-        // presets
-        (major === 3 || (major === 2 && minor >= 7)) ? 'vue' : '@vue/composition-api',
-      ],
-    }),
-    Components(),
-    { ...visualizer(), apply: 'build' },
-    vue(),
-  ],
+  }, dts({ rollupTypes: true }), AutoImport({
+    // targets to transform
+    include: [
+      /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+      /\.vue$/,
+      /\.vue\?vue/, // .vue
+      /\.md$/, // .md
+    ],
+    // global imports to register
+    imports: [
+      // presets
+      (major === 3 || (major === 2 && minor >= 7)) ? 'vue' : '@vue/composition-api',
+    ],
+  }), Components(), { ...visualizer(), apply: 'build' }, vue()],
 }

@@ -935,15 +935,22 @@ module.exports = {
 
 ## 属性
 
-| 名称                                                   | 说明                                                                                   | 类型          |
-| ------------------------------------------------------ | -------------------------------------------------------------------------------------- | ------------- |
-| v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | 绑定值                                                                                 | any           |
-| mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | 编辑模式                                                                               | [Mode](#Mode) |
-| ...                                                    | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的属性 |               |
+| 名称                                                   | 说明                                                                                   | 类型          | 默认值   |
+| ------------------------------------------------------ | -------------------------------------------------------------------------------------- | ------------- | -------- |
+| v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | 绑定值                                                                                 | any           |          |
+| mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | 编辑模式                                                                               | [Mode](#Mode) | `'tree'` |
+| debounce                                               | 输入时的去抖延迟 (毫秒)                                                                | number        | `100`    |
+| stringified                                            | 在 text 模式下保持绑定值是 stringified JSON                                            | boolean       | `true`   |
+| ...                                                    | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的属性 |               |          |
+
+### parsed JSON vs. stringified JSON
+
+- parsed JSON: 就是我们平常所说的 JSON，可以是任何数据类型
+- stringified JSON: 序列化后的 JSON，一定是 string 类型
 
 ### svelte-jsoneditor 与 json-editor-vue 中绑定值的差异
 
-- svelte-jsoneditor：一个包含 “stringified JSON” 或 “parsed JSON” 的对象，当作为 “stringified JSON” 传入时，会经过 `JSON.parse` 解析
+- svelte-jsoneditor：一个包含 parsed JSON 或 stringified JSON 的对象，当作为 stringified JSON 传入时，会经过 `JSON.parse` 解析
 - json-editor-vue：JSON 本身，所见即所得
 
 如果你更倾向于 svelte-jsoneditor 的行为：
@@ -961,54 +968,33 @@ module.exports = {
 
 > [!Important]
 >
-> 绑定值可以传 stringified JSON 或 parsed JSON，跟模式无关
+> 输入值与模式无关，**除了**：
 >
-> text 模式下的**输出值**是 stringified JSON，tree 模式下的**输出值**是 parsed JSON
+> string 类型的输入值在 tree 模式下会被视作普通字符串，在 text 模式下默认会被视作 stringified JSON
 >
-> **但这个对应关系会被编程式输入或模式切换打破**
+> tree 模式下的输出值是 parsed JSON，text 模式下的输出值是 stringified JSON
+>
+> 但这个对应关系会被编程式输入或模式切换打破
 >
 > 详情见 https://github.com/josdejong/svelte-jsoneditor/pull/166
 
-FAQ: 如何在 text 模式中获取 parsed JSON：
+FAQ: 如何在 text 模式下保持绑定值是 parsed JSON：
 
 > [!Caution]
 >
-> 对于大型 JSON 文档性能不佳
+> - 对于大型 JSON 文档性能不佳
+> - 请根据你的 JSON 大小来调整 `debounce` 的值
+> - 输入值无效时会输出空
 
-```ts
-createApp(App)
-  .use(JsonEditorVue, {
-    mode: 'text',
-    mainMenuBar: false,
-    onChange(updatedContent) {
-      if (updatedContent.text) {
-        try {
-          updatedContent.json = JSON.parse(updatedContent.text)
-        }
-        catch {}
-        updatedContent.text = undefined
-      }
-    },
-  })
-  .mount('#app')
-```
-
-或不使用 `try...catch`:
-
-```html
-<JsonEditorVue
-  ref="jsonEditorVueRef"
-  mode="text"
-  :main-menu-bar="false"
-  :on-change="(updatedContent) => {
-    if (updatedContent.text) {
-      if (!jsonEditorVueRef.jsonEditor.validate()) {
-        updatedContent.json = JSON.parse(updatedContent.text)
-      }
-      updatedContent.text = undefined
-    }
-  }"
-/>
+```vue
+<template>
+  <JsonEditorVue
+    mode="text"
+    :main-menu-bar="false"
+    :stringified="false"
+    :debounce="1000"
+  />
+</template>
 ```
 
 ### 命名惯例

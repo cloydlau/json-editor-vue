@@ -28,6 +28,7 @@ export default {
       },
       mode: undefined,
       readOnly: false,
+      stringified: true,
     }
   },
   mounted() {
@@ -58,6 +59,12 @@ export default {
       <button @click="readOnly = !readOnly">
         切换只读状态
       </button>
+      <input
+        id="enable-stringified"
+        v-model="stringified"
+        type="checkbox"
+      >
+      <label for="enable-stringified">enable stringified</label>
     </p>
 
     <br>
@@ -66,6 +73,7 @@ export default {
       v-model="data.value"
       :mode.sync="mode"
       :read-only="readOnly"
+      :stringified="stringified"
     />
 
     <br>

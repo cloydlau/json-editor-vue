@@ -26,6 +26,7 @@ const jsonEditorVueRef = ref()
 onMounted(() => {
   console.log('expand: ', jsonEditorVueRef.value.jsonEditor.expand)
 })
+const stringified = ref(true)
 </script>
 
 <template>
@@ -50,6 +51,12 @@ onMounted(() => {
       <button @click="data.readOnly = !data.readOnly">
         切换只读状态
       </button>
+      <input
+        id="enable-stringified"
+        v-model="stringified"
+        type="checkbox"
+      >
+      <label for="enable-stringified">enable stringified</label>
     </p>
 
     <br>
@@ -58,6 +65,7 @@ onMounted(() => {
       v-model="data.value"
       :mode.sync="data.mode"
       :read-only="data.readOnly"
+      :stringified="stringified"
     />
 
     <br>

@@ -937,15 +937,22 @@ module.exports = {
 
 ## Props
 
-| Name                                                   | Description                                                                                   | Type          |
-| ------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ------------- |
-| v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | binding value                                                                                 | any           |
-| mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | edit mode                                                                                     | [Mode](#Mode) |
-| ...                                                    | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |               |
+| Name                                                   | Description                                                                                   | Type          | Default  |
+| ------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ------------- | -------- |
+| v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | binding value                                                                                 | any           |          |
+| mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | edit mode                                                                                     | [Mode](#Mode) | `'tree'` |
+| debounce                                               | debounce delay when typing, in milliseconds                                                   | number        | `100`    |
+| stringified                                            | whether to keep the value as stringified JSON in text mode                                    | boolean       | `true`   |
+| ...                                                    | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |               |          |
+
+### parsed JSON vs. stringified JSON
+
+- parsed JSON: what we commonly refer to as JSON, which can be of any data type.
+- stringified JSON: serialized JSON, which is always a string type.
 
 ### Binding value difference between svelte-jsoneditor and json-editor-vue
 
-- svelte-jsoneditor: An object contains a stringified JSON or a parsed JSON, will do `JSON.parse` when passing as a stringified JSON.
+- svelte-jsoneditor: An object contains a parsed JSON or a stringified JSON, will do `JSON.parse` when passing as a stringified JSON.
 - json-editor-vue: JSON itself. What you see is what you get.
 
 If you prefer the behavior of svelte-jsoneditor:
@@ -963,54 +970,33 @@ If you prefer the behavior of svelte-jsoneditor:
 
 > [!Important]
 >
-> You can pass a stringified JSON or a parsed JSON to the editor independent of in what mode it is.
+> The input value is independent of modes, **except**:
 >
-> The **output value** of text mode is a stringified JSON, the **output value** of tree mode is a parsed JSON.
+> Input value of string type will be treated as a normal string under tree mode, as a stringified JSON under text mode by default.
 >
-> **But this correspondence can be disrupted by programmatic changes or mode switching.**
+> The output value of tree mode is a parsed JSON, the output value of text mode is a stringified JSON.
+>
+> But this correspondence can be disrupted by programmatic changes or mode switching.
 >
 > See https://github.com/josdejong/svelte-jsoneditor/pull/166 for more details.
 
-FAQ: How to get parsed JSON in text mode:
+FAQ: How to keep the value as parsed JSON in text mode:
 
 > [!Caution]
 >
-> Not performant for large JSON documents.
+> - Not performant for large JSON documents.
+> - Adjust the `debounce` value based on the size of your JSON.
+> - Will output empty value when the input value is invalid.
 
-```ts
-createApp(App)
-  .use(JsonEditorVue, {
-    mode: 'text',
-    mainMenuBar: false,
-    onChange(updatedContent) {
-      if (updatedContent.text) {
-        try {
-          updatedContent.json = JSON.parse(updatedContent.text)
-        }
-        catch {}
-        updatedContent.text = undefined
-      }
-    },
-  })
-  .mount('#app')
-```
-
-or without `try...catch`:
-
-```html
-<JsonEditorVue
-  ref="jsonEditorVueRef"
-  mode="text"
-  :main-menu-bar="false"
-  :on-change="(updatedContent) => {
-    if (updatedContent.text) {
-      if (!jsonEditorVueRef.jsonEditor.validate()) {
-        updatedContent.json = JSON.parse(updatedContent.text)
-      }
-      updatedContent.text = undefined
-    }
-  }"
-/>
+```vue
+<template>
+  <JsonEditorVue
+    mode="text"
+    :main-menu-bar="false"
+    :stringified="false"
+    :debounce="1000"
+  />
+</template>
 ```
 
 ### Naming convention

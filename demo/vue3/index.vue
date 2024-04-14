@@ -34,7 +34,7 @@ const data = reactive<{
           c: 'd',
         },
       },
-      mode: 'text',
+      mode: undefined,
       readOnly: false,
       parser: LosslessJSONParser,
     })
@@ -43,6 +43,7 @@ const jsonEditorVueRef = ref()
 onMounted(() => {
   jsonEditorVueRef.value.jsonEditor.focus()
 })
+const stringified = ref(true)
 </script>
 
 <template>
@@ -67,6 +68,12 @@ onMounted(() => {
       <button @click="data.readOnly = !data.readOnly">
         切换只读状态
       </button>
+      <input
+        id="enable-stringified"
+        v-model="stringified"
+        type="checkbox"
+      >
+      <label for="enable-stringified">enable stringified</label>
     </p>
 
     <br>
@@ -76,6 +83,7 @@ onMounted(() => {
       v-model:mode="data.mode"
       :read-only="data.readOnly"
       :parser="data.parser"
+      :stringified="stringified"
     />
 
     <br>
