@@ -33,15 +33,15 @@
 
 ## 特性
 
-- 高性能
+- 🚀 高性能
   - 支持高达 512 MB 的大型 JSON 文档
-- 强力
+- 💪 强力
   - 预览、编辑、格式化、校验、压缩、排序、查询、过滤、转换、修复、高亮 JSON
   - 7 种原始数据类型包括 `BigInt` and `Symbol` 全部支持
   - 3 种编辑模式：文本模式 & 树形模式 & 表格模式
   - 2 种主题：浅色主题 & 深色主题
   - 双向绑定：[parsed 或 stringified JSON](#parsed-json-vs-stringified-json)
-- 灵活
+- 🤸 灵活
   - Vue 2.6/2.7/3 一体通用
   - 支持 SSR，Nuxt 2/3 一体通用
   - 支持 Vite，Vue CLI，webpack，CDN...

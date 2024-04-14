@@ -33,15 +33,15 @@
 
 ## Features
 
-- Performant
+- 🚀 Performant
   - Handle large JSON documents up to 512 MB
-- Powerful
+- 💪 Powerful
   - View, edit, format, validate, compact, sort, query, filter, transform, repair, highlight JSON
   - 7 primitive data types including `BigInt` and `Symbol` are supported
   - 3 edit modes: text mode & tree mode & table mode
   - 2 themes: light theme & dark theme
   - 2-way binding: [parsed or stringified JSON](#parsed-json-vs-stringified-json)
-- Flexible
+- 🤸 Flexible
   - Vue 2.6/2.7/3 isomorphic
   - Support SSR, Nuxt 2/3 isomorphic
   - Support Vite, Vue CLI, webpack, CDN...
