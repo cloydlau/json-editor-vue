@@ -65,7 +65,7 @@ export default defineComponent({
         type: String as PropType<Mode>,
       })
       jsonEditor.value?.updateProps({
-        mode: computedMode.value,
+        mode: computedMode.value || 'tree',
       })
     })
     const onChangeMode = (mode: Mode) => {
