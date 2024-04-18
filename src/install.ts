@@ -1,7 +1,6 @@
 import { resolveConfig } from 'vue-global-config'
 import type { App } from 'vue-demi'
 import Component from './Component'
-import type { Mode } from './Component'
 
 const globalProps: Record<keyof any, any> = {}
 const globalAttrs: Record<keyof any, any> = {}
@@ -21,5 +20,5 @@ function withInstall(sfc: typeof Component): SFCWithInstall {
   return sfc as SFCWithInstall
 }
 
-export { globalProps, globalAttrs, Mode }
+export { globalProps, globalAttrs }
 export default withInstall(Component)
