@@ -1,4 +1,5 @@
 import { debounce } from 'lodash-es'
+import type { Mode } from 'vanilla-jsoneditor'
 import { JSONEditor } from 'vanilla-jsoneditor'
 import { computed, defineComponent, getCurrentInstance, h, isVue3, onMounted, onUnmounted, ref, unref, watch, watchEffect } from 'vue-demi'
 import type { PropType } from 'vue-demi'
@@ -6,7 +7,6 @@ import { conclude } from 'vue-global-config'
 import { PascalCasedName as name } from '../package.json'
 import { globalAttrs, globalProps } from './install'
 
-export type Mode = 'text' | 'tree' | 'table'
 type ModelValueProp = 'modelValue' | 'value'
 
 const modelValueProp: ModelValueProp = isVue3 ? 'modelValue' : 'value'
@@ -25,17 +25,37 @@ const boolAttrs = [
 export default defineComponent({
   name,
   props: {
+    /**
+     * binding value
+     * @type {any}
+     */
     [modelValueProp]: {},
+    /**
+     * edit mode
+     * @type {Mode}
+     */
     mode: {
       type: String as PropType<Mode>,
     },
+    /**
+     * debounce delay when typing, in milliseconds
+     * @type {number}
+     */
     debounce: {
       type: Number as PropType<number>,
     },
+    /**
+     * whether to keep the value as stringified JSON in text mode
+     * @type {boolean}
+     */
     stringified: {
       type: Boolean as PropType<boolean>,
       default: undefined,
     },
+    /**
+     * properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties)
+     * @type {boolean}
+     */
     ...Object.fromEntries(
       boolAttrs.map(boolAttr => [
         boolAttr,

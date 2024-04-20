@@ -993,12 +993,7 @@ FAQ: How to keep the value as parsed JSON in text mode:
 > - Will output empty value when the input value is invalid.
 
 ```html
-<JsonEditorVue
-  mode="text"
-  :main-menu-bar="false"
-  :stringified="false"
-  :debounce="1000"
-/>
+<JsonEditorVue mode="text" :stringified="false" :debounce="1000" />
 ```
 
 ### Naming convention
@@ -1044,18 +1039,6 @@ onMounted(() => {
 ```
 
 <br>
-
-## Types
-
-<a name="Mode"></a>
-
-```ts
-type Mode = 'tree' | 'text' | 'table'
-```
-
-<br>
-
-<a name="dark-theme"></a>
 
 ## Dark Theme
 

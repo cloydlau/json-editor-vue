@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref, version } from 'vue'
 import { parse, stringify } from 'lossless-json'
-import type { Mode } from '../../src'
 import JsonEditorVue from '../../src'
 
 const LosslessJSONParser = {
@@ -14,30 +13,25 @@ const LosslessJSONParser = {
   stringify,
 }
 
-const data = reactive<{
-  value: any
-  mode?: Mode
-  readOnly?: boolean
-  parser?: { parse: (...args: any) => unknown, stringify: (...args: any) => unknown }
-}>({
-      value: {
-        bigint: 124124124124124124124n,
-        boolean: true,
-        string: 'Hello World',
-        number: 123.456,
-        color: '#b0a4e3',
-        null: null,
-        time: 1575599819000,
-        array: [1, 2],
-        object: {
-          a: 'b',
-          c: 'd',
-        },
-      },
-      mode: undefined,
-      readOnly: false,
-      parser: LosslessJSONParser,
-    })
+const data = reactive({
+  value: {
+    bigint: 124124124124124124124n,
+    boolean: true,
+    string: 'Hello World',
+    number: 123.456,
+    color: '#b0a4e3',
+    null: null,
+    time: 1575599819000,
+    array: [1, 2],
+    object: {
+      a: 'b',
+      c: 'd',
+    },
+  },
+  mode: undefined,
+  readOnly: false,
+  parser: LosslessJSONParser,
+})
 
 const jsonEditorVueRef = ref()
 onMounted(() => {

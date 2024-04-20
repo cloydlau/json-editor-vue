@@ -991,12 +991,7 @@ FAQ: 如何在 text 模式下保持绑定值是 parsed JSON：
 > - 输入值无效时会输出空
 
 ```html
-<JsonEditorVue
-  mode="text"
-  :main-menu-bar="false"
-  :stringified="false"
-  :debounce="1000"
-/>
+<JsonEditorVue mode="text" :stringified="false" :debounce="1000" />
 ```
 
 ### 命名惯例
@@ -1042,18 +1037,6 @@ onMounted(() => {
 ```
 
 <br>
-
-## 类型
-
-<a name="Mode"></a>
-
-```ts
-type Mode = 'tree' | 'text' | 'table'
-```
-
-<br>
-
-<a name="dark-theme"></a>
 
 ## 暗色主题
 
