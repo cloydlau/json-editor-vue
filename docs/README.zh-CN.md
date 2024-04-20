@@ -943,8 +943,8 @@ module.exports = {
 | ------------------------------------------------------ | -------------------------------------------------------------------------------------- | ------------- | -------- |
 | v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | 绑定值                                                                                 | any           |          |
 | mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | 编辑模式                                                                               | [Mode](#Mode) | `'tree'` |
-| debounce                                               | 输入时的去抖延迟 (毫秒)                                                                | number        | `100`    |
-| stringified                                            | 在 text 模式下保持绑定值是 stringified JSON                                            | boolean       | `true`   |
+| debounce                                               | 输入时更新绑定值的去抖延迟 (毫秒)                                                      | number        | `100`    |
+| stringified                                            | 在 text 模式下保持绑定值为 stringified JSON                                            | boolean       | `true`   |
 | ...                                                    | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的属性 |               |          |
 
 ### parsed JSON vs. stringified JSON

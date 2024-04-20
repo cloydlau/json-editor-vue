@@ -945,8 +945,8 @@ module.exports = {
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ------------- | -------- |
 | v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | binding value                                                                                 | any           |          |
 | mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | edit mode                                                                                     | [Mode](#Mode) | `'tree'` |
-| debounce                                               | debounce delay when typing, in milliseconds                                                   | number        | `100`    |
-| stringified                                            | whether to keep the value as stringified JSON in text mode                                    | boolean       | `true`   |
+| debounce                                               | debounce delay when typing to update the binding value, in milliseconds                       | number        | `100`    |
+| stringified                                            | whether to keep the binding value as stringified JSON in text mode                            | boolean       | `true`   |
 | ...                                                    | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |               |          |
 
 ### parsed JSON vs. stringified JSON
