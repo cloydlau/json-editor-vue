@@ -23,11 +23,17 @@
   <a href="https://conventionalcommits.org"><img alt="conventional commits" src="https://img.shields.io/badge/commits-Conventional-FE5196.svg?logo=conventionalcommits"></a>
   <a href="https://github.com/antfu/eslint-config"><img alt="code style" src="https://antfu.me/badge-code-style.svg"></a>
   <a href="https://www.jsdelivr.com/package/npm/json-editor-vue"><img alt="jsdelivr downloads" src="https://data.jsdelivr.com/v1/package/npm/json-editor-vue/badge?style=rounded"></a>
-  <br>
-  <a><img src="https://img.shields.io/badge/A_world_of_difference_between-white?style=flat-square"></a> <a href="https://npmcharts.com/compare/json-editor-vue"><img alt="npm downloads" src="https://img.shields.io/npm/dt/json-editor-vue?logo=npm&color=cb3837"></a> <a><img src="https://img.shields.io/badge/and-white?style=flat-square"></a> <a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="github stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=eac54f&logo=github"></a> <a><img src="https://img.shields.io/badge/,_please_hit_the_Star_if_it_helps_🙏-white?style=flat-square"></a>
 </p>
 
 <img width="48.5%" src="./docs/text-mode.png" alt="text mode">&nbsp;<img width="48.5%" src="./docs/tree-mode.png" alt="table mode">
+
+> [!Important]
+>
+> json-editor-vue had surpassed 1 million downloads (not including CDN): <a href="https://npmcharts.com/compare/json-editor-vue"><img alt="npm downloads" src="https://img.shields.io/npm/dt/json-editor-vue?logo=npm&color=cb3837"></a>
+>
+> While having a extremely dismal number of Stars: <a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="github stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=eac54f&logo=github"></a>
+>
+> Please consider hitting the Star to show your support for the ongoing maintenance if you find it useful. 🙏
 
 <br>
 
