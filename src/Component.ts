@@ -9,6 +9,7 @@ import { globalAttrs, globalProps } from './install'
 
 type ModelValueProp = 'modelValue' | 'value'
 
+const defaultMode = 'tree'
 const modelValueProp: ModelValueProp = isVue3 ? 'modelValue' : 'value'
 const updateModelValue = isVue3 ? 'update:modelValue' : 'input'
 const boolAttrs = [
@@ -85,7 +86,7 @@ export default defineComponent({
         type: String as PropType<Mode>,
       })
       jsonEditor.value?.updateProps({
-        mode: computedMode.value || 'tree',
+        mode: computedMode.value || defaultMode,
       })
     })
     const onChangeMode = (mode: Mode) => {

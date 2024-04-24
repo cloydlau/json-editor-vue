@@ -174,7 +174,7 @@ createApp()
           "vue": "https://cdn.jsdelivr.net/npm/vue/dist/vue.esm-browser.prod.js",
           "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v3/index.mjs",
           "vanilla-jsoneditor": "https://cdn.jsdelivr.net/npm/vanilla-jsoneditor",
-          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.14/dist/json-editor-vue.mjs"
+          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.15/dist/json-editor-vue.mjs"
         }
       }
     </script>
@@ -218,7 +218,7 @@ createApp()
     <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
     <!-- TODO -->
     <script src="./vanilla-jsoneditor.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.14"></script>
+    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.15"></script>
     <script>
       const { createApp, ref } = Vue
 
@@ -294,7 +294,7 @@ Vue.use(JsonEditorVue, {
           "vue": "https://cdn.jsdelivr.net/npm/vue@2/dist/vue.esm.browser.min.js",
           "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v2.7/index.mjs",
           "vanilla-jsoneditor": "https://cdn.jsdelivr.net/npm/vanilla-jsoneditor",
-          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.14/dist/json-editor-vue.mjs"
+          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.15/dist/json-editor-vue.mjs"
         }
       }
     </script>
@@ -339,7 +339,7 @@ Vue.use(JsonEditorVue, {
     <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
     <!-- TODO -->
     <script src="./vanilla-jsoneditor.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.14"></script>
+    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.15"></script>
     <script>
       new Vue({
         components: { JsonEditorVue },
@@ -433,7 +433,7 @@ Vue.use(JsonEditorVue, {
           "@vue/composition-api/dist/vue-composition-api.mjs": "https://cdn.jsdelivr.net/npm/@vue/composition-api/dist/vue-composition-api.mjs",
           "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v2/index.mjs",
           "vanilla-jsoneditor": "https://cdn.jsdelivr.net/npm/vanilla-jsoneditor",
-          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.14/dist/json-editor-vue.mjs"
+          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.15/dist/json-editor-vue.mjs"
         }
       }
     </script>
@@ -479,7 +479,7 @@ Vue.use(JsonEditorVue, {
     <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
     <!-- TODO -->
     <script src="./vanilla-jsoneditor.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.14"></script>
+    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.15"></script>
     <script>
       const { createApp, ref } = VueCompositionAPI
 
