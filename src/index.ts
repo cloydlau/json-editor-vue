@@ -6,8 +6,10 @@ import type { App, PropType } from 'vue-demi'
 import { conclude, resolveConfig } from 'vue-global-config'
 import { PascalCasedName as name } from '../package.json'
 
-const propsGlobal: Record<keyof any, any> = {}
-const attrsGlobal: Record<keyof any, any> = {}
+export type EditorMode = `${Mode}`
+
+const propsGlobal: Record<string, any> = {}
+const attrsGlobal: Record<string, any> = {}
 const modeDefault = 'tree'
 const modelValueProp = isVue3 ? 'modelValue' : 'value'
 const updateModelValue = isVue3 ? 'update:modelValue' : 'input'
@@ -25,38 +27,61 @@ const boolAttrs = [
 export default defineComponent({
   name,
   install(app: App, options = {}): void {
-    const { props, attrs } = resolveConfig(options, { props: this.props as any })
+    const { props, attrs } = resolveConfig(options, { props: this.$props as any })
     Object.assign(propsGlobal, props)
     Object.assign(attrsGlobal, attrs)
     app.component(name, this)
   },
   props: {
-    [modelValueProp]: {},
+    [modelValueProp]: Object,
     mode: {
-      type: String as PropType<Mode>,
+      type: String as PropType<EditorMode>,
     },
     debounce: {
-      type: Number as PropType<number>,
+      type: Number,
     },
     stringified: {
-      type: Boolean as PropType<boolean>,
+      type: Boolean,
       default: undefined,
     },
-    ...Object.fromEntries(
-      boolAttrs.map(boolAttr => [
-        boolAttr,
-        {
-          type: Boolean as PropType<boolean>,
-          default: undefined,
-        },
-      ]),
-    ),
+    mainMenuBar: {
+      type: Boolean,
+      default: undefined,
+    },
+    navigationBar: {
+      type: Boolean,
+      default: undefined,
+    },
+    statusBar: {
+      type: Boolean,
+      default: undefined,
+    },
+    askToFormat: {
+      type: Boolean,
+      default: undefined,
+    },
+    readOnly: {
+      type: Boolean,
+      default: undefined,
+    },
+    escapeControlCharacters: {
+      type: Boolean,
+      default: undefined,
+    },
+    escapeUnicodeCharacters: {
+      type: Boolean,
+      default: undefined,
+    },
+    flattenColumns: {
+      type: Boolean,
+      default: undefined,
+    },
   },
   emits: {
     [updateModelValue](_payload: any) {
       return true
     },
-    'update:mode': function (_payload: Mode) {
+    'update:mode': function (_payload: EditorMode) {
       return true
     },
   },
@@ -68,13 +93,13 @@ export default defineComponent({
     const modeComputed = ref()
     watchEffect(() => {
       modeComputed.value = conclude([props.mode, propsGlobal.mode], {
-        type: String as PropType<Mode>,
+        type: String as PropType<EditorMode>,
       })
       jsonEditor.value?.updateProps({
         mode: modeComputed.value || modeDefault,
       })
     })
-    const onChangeMode = (mode: Mode) => {
+    const onChangeMode = (mode: EditorMode) => {
       emit('update:mode', mode)
     }
     // Synchronize the local `mode` with the global one
