@@ -43,7 +43,7 @@
   - 支持高达 512 MB 的大型 JSON 文档
 - 💪 强力
   - 预览、编辑、格式化、校验、压缩、排序、查询、过滤、转换、修复、高亮 JSON
-  - 7 种原始数据类型包括 `BigInt` and `Symbol` 全部支持
+  - 7 种原始数据类型包括 `BigInt` and `Symbol`
   - 3 种编辑模式：文本模式 & 树形模式 & 表格模式
   - 2 种主题：浅色主题 & 深色主题
   - 双向绑定：[parsed 或 stringified JSON](#parsed-json-vs-stringified-json)
@@ -52,6 +52,7 @@
   - 支持 SSR，Nuxt 2/3 一体通用
   - 支持 Vite，Vue CLI，webpack，CDN...
   - 支持微前端 ([wujie](https://github.com/Tencent/wujie)，[qiankun](https://github.com/umijs/qiankun)，[single-spa](https://github.com/single-spa/single-spa)...)
+  - 支持 PC 端 & 移动端
   - 局部注册并传参，或全局注册并传参 ([vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持)
 
 <br>
