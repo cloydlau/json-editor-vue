@@ -947,13 +947,13 @@ module.exports = {
 
 ## Props
 
-| Name                                                   | Description                                                                                   | Type          | Default  |
-| ------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ------------- | -------- |
-| v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | binding value                                                                                 | any           |          |
-| mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | edit mode                                                                                     | [Mode](#Mode) | `'tree'` |
-| debounce                                               | debounce delay to update the binding value when typing, in milliseconds                       | number        | `100`    |
-| stringified                                            | whether to keep the binding value as stringified JSON in text mode                            | boolean       | `true`   |
-| ...                                                    | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |               |          |
+| Name                                                   | Description                                                                                   | Type    | Default     |
+| ------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ------- | ----------- |
+| v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | binding value                                                                                 | any     |             |
+| mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | edit mode                                                                                     | `Mode`  | `Mode.tree` |
+| debounce                                               | debounce delay to update the binding value when typing, in milliseconds                       | number  | `100`       |
+| stringified                                            | whether to keep the binding value as stringified JSON in text mode                            | boolean | `true`      |
+| ...                                                    | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |         |             |
 
 ### parsed JSON vs. stringified JSON
 
@@ -998,8 +998,14 @@ FAQ: How to keep the value as parsed JSON in text mode:
 > - Adjust the `debounce` value based on the size of your JSON.
 > - Will output empty value when the input value is invalid.
 
-```html
-<JsonEditorVue mode="text" :stringified="false" :debounce="1000" />
+```vue
+<script setup>
+import { Mode } from 'vanilla-jsoneditor'
+</script>
+
+<template>
+  <JsonEditorVue :mode="Mode.text" :stringified="false" :debounce="1000" />
+</template>
 ```
 
 ### Naming convention

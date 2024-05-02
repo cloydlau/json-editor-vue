@@ -1,16 +1,27 @@
 import { debounce } from 'lodash-es'
-import type { Mode } from 'vanilla-jsoneditor'
-import { JSONEditor } from 'vanilla-jsoneditor'
+import { JSONEditor, Mode } from 'vanilla-jsoneditor'
 import { computed, defineComponent, getCurrentInstance, h, isVue3, onMounted, onUnmounted, ref, unref, watch, watchEffect } from 'vue-demi'
-import type { App, PropType } from 'vue-demi'
+import type { App, Plugin, PropType } from 'vue-demi'
 import { conclude, resolveConfig } from 'vue-global-config'
 import { PascalCasedName as name } from '../package.json'
 
+type SFCWithInstall<T> = T & Plugin
+
 const propsGlobal: Record<string, any> = {}
 const attrsGlobal: Record<string, any> = {}
-const modeDefault = 'tree'
-const modelValueProp = isVue3 ? 'modelValue' : 'value'
-const updateModelValue = isVue3 ? 'update:modelValue' : 'input'
+
+enum ModelValueProp {
+  vue3 = 'modelValue',
+  vue2 = 'value',
+}
+const modelValueProp: ModelValueProp = isVue3 ? ModelValueProp.vue3 : ModelValueProp.vue2
+
+enum UpdateModelValue {
+  vue3 = 'update:modelValue',
+  vue2 = 'input',
+}
+const updateModelValue = isVue3 ? UpdateModelValue.vue3 : UpdateModelValue.vue2
+
 const boolAttrs = [
   'mainMenuBar',
   'navigationBar',
@@ -22,36 +33,49 @@ const boolAttrs = [
   'flattenColumns',
 ] as const
 
-export default defineComponent({
+const props = {
+  [modelValueProp]: {},
+  mode: {
+    type: String as PropType<Mode>,
+  },
+  debounce: {
+    type: Number as PropType<number>,
+  },
+  stringified: {
+    type: Boolean as PropType<boolean>,
+    default: undefined,
+  },
+  ...Object.fromEntries(
+    boolAttrs.map(boolAttr => [
+      boolAttr,
+      {
+        type: Boolean as PropType<boolean>,
+        default: undefined,
+      },
+    ]),
+  ),
+} as {
+  [key in ModelValueProp]: object
+} & {
+  mode: { type: PropType<Mode> }
+  debounce: { type: PropType<number> }
+  stringified: { type: PropType<boolean>, default: undefined }
+} & {
+  [key in typeof boolAttrs[number]]: {
+    type: PropType<boolean>
+    default: undefined
+  }
+}
+
+const JsonEditorVue = defineComponent({
   name,
-  install(app: App, options = {}): void {
-    const { props, attrs } = resolveConfig(options, { props: this.props as any })
-    Object.assign(propsGlobal, props)
-    Object.assign(attrsGlobal, attrs)
+  install(app: App, options?: typeof props): void {
+    const optionsGlobal = resolveConfig(options || {}, { props })
+    Object.assign(propsGlobal, optionsGlobal.props)
+    Object.assign(attrsGlobal, optionsGlobal.attrs)
     app.component(name, this)
   },
-  props: {
-    [modelValueProp]: {},
-    mode: {
-      type: String as PropType<Mode>,
-    },
-    debounce: {
-      type: Number as PropType<number>,
-    },
-    stringified: {
-      type: Boolean as PropType<boolean>,
-      default: undefined,
-    },
-    ...Object.fromEntries(
-      boolAttrs.map(boolAttr => [
-        boolAttr,
-        {
-          type: Boolean as PropType<boolean>,
-          default: undefined,
-        },
-      ]),
-    ),
-  },
+  props,
   emits: {
     [updateModelValue](_payload: any) {
       return true
@@ -71,7 +95,7 @@ export default defineComponent({
         type: String as PropType<Mode>,
       })
       jsonEditor.value?.updateProps({
-        mode: modeComputed.value || modeDefault,
+        mode: modeComputed.value || Mode.tree,
       })
     })
     const onChangeMode = (mode: Mode) => {
@@ -236,3 +260,5 @@ export default defineComponent({
     return () => h('div', { ref: 'jsonEditorRef' })
   },
 })
+
+export default JsonEditorVue as SFCWithInstall<typeof JsonEditorVue>

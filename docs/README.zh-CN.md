@@ -945,13 +945,13 @@ module.exports = {
 
 ## 属性
 
-| 名称                                                   | 说明                                                                                   | 类型          | 默认值   |
-| ------------------------------------------------------ | -------------------------------------------------------------------------------------- | ------------- | -------- |
-| v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | 绑定值                                                                                 | any           |          |
-| mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | 编辑模式                                                                               | [Mode](#Mode) | `'tree'` |
-| debounce                                               | 输入时更新绑定值的去抖延迟 (毫秒)                                                      | number        | `100`    |
-| stringified                                            | 在 text 模式下保持绑定值为 stringified JSON                                            | boolean       | `true`   |
-| ...                                                    | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的属性 |               |          |
+| 名称                                                   | 说明                                                                                   | 类型    | 默认值      |
+| ------------------------------------------------------ | -------------------------------------------------------------------------------------- | ------- | ----------- |
+| v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | 绑定值                                                                                 | any     |             |
+| mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | 编辑模式                                                                               | `Mode`  | `Mode.tree` |
+| debounce                                               | 输入时更新绑定值的去抖延迟 (毫秒)                                                      | number  | `100`       |
+| stringified                                            | 在 text 模式下保持绑定值为 stringified JSON                                            | boolean | `true`      |
+| ...                                                    | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的属性 |         |             |
 
 ### parsed JSON vs. stringified JSON
 
@@ -996,8 +996,14 @@ FAQ: 如何在 text 模式下保持绑定值是 parsed JSON：
 > - 请根据你的 JSON 大小来调整 `debounce` 的值
 > - 输入值无效时会输出空
 
-```html
-<JsonEditorVue mode="text" :stringified="false" :debounce="1000" />
+```vue
+<script setup>
+import { Mode } from 'vanilla-jsoneditor'
+</script>
+
+<template>
+  <JsonEditorVue :mode="Mode.text" :stringified="false" :debounce="1000" />
+</template>
 ```
 
 ### 命名惯例
