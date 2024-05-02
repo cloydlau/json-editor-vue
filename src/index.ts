@@ -6,10 +6,8 @@ import type { App, PropType } from 'vue-demi'
 import { conclude, resolveConfig } from 'vue-global-config'
 import { PascalCasedName as name } from '../package.json'
 
-export type EditorMode = `${Mode}`
-
-const propsGlobal: Record<string, any> = {}
-const attrsGlobal: Record<string, any> = {}
+const propsGlobal: Record<string | number | symbol, any> = {}
+const attrsGlobal: Record<string | number | symbol, any> = {}
 const modeDefault = 'tree'
 const modelValueProp = isVue3 ? 'modelValue' : 'value'
 const updateModelValue = isVue3 ? 'update:modelValue' : 'input'
@@ -35,7 +33,7 @@ export default defineComponent({
   props: {
     [modelValueProp]: Object,
     mode: {
-      type: String as PropType<EditorMode>,
+      type: String as PropType<Mode>,
     },
     debounce: {
       type: Number,
@@ -56,32 +54,21 @@ export default defineComponent({
       type: Boolean,
       default: undefined,
     },
-    askToFormat: {
-      type: Boolean,
-      default: undefined,
-    },
-    readOnly: {
-      type: Boolean,
-      default: undefined,
-    },
-    escapeControlCharacters: {
-      type: Boolean,
-      default: undefined,
-    },
-    escapeUnicodeCharacters: {
-      type: Boolean,
-      default: undefined,
-    },
-    flattenColumns: {
-      type: Boolean,
-      default: undefined,
-    },
+    ...Object.fromEntries(
+      boolAttrs.map(boolAttr => [
+        boolAttr,
+        {
+          type: Boolean as PropType<boolean>,
+          default: undefined,
+        },
+      ]),
+    ),
   },
   emits: {
     [updateModelValue](_payload: any) {
       return true
     },
-    'update:mode': function (_payload: EditorMode) {
+    'update:mode': function (_payload: Mode) {
       return true
     },
   },
@@ -93,13 +80,13 @@ export default defineComponent({
     const modeComputed = ref()
     watchEffect(() => {
       modeComputed.value = conclude([props.mode, propsGlobal.mode], {
-        type: String as PropType<EditorMode>,
+        type: String as PropType<Mode>,
       })
       jsonEditor.value?.updateProps({
         mode: modeComputed.value || modeDefault,
       })
     })
-    const onChangeMode = (mode: EditorMode) => {
+    const onChangeMode = (mode: Mode) => {
       emit('update:mode', mode)
     }
     // Synchronize the local `mode` with the global one
