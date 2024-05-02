@@ -988,7 +988,7 @@ module.exports = {
 >
 > 详情见 https://github.com/josdejong/svelte-jsoneditor/pull/166
 
-FAQ: 如何在 text 模式下保持绑定值是 parsed JSON：
+FAQ: 如何在 text 模式下保持绑定值是 parsed JSON？
 
 > [!Caution]
 >

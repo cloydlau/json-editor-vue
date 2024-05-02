@@ -990,7 +990,7 @@ If you prefer the behavior of svelte-jsoneditor:
 >
 > See https://github.com/josdejong/svelte-jsoneditor/pull/166 for more details.
 
-FAQ: How to keep the value as parsed JSON in text mode:
+FAQ: How to keep the value as parsed JSON in text mode?
 
 > [!Caution]
 >
