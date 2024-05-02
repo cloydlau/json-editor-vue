@@ -6,8 +6,8 @@ import type { App, PropType } from 'vue-demi'
 import { conclude, resolveConfig } from 'vue-global-config'
 import { PascalCasedName as name } from '../package.json'
 
-const propsGlobal: Record<keyof any, any> = {}
-const attrsGlobal: Record<keyof any, any> = {}
+const propsGlobal: Record<string, any> = {}
+const attrsGlobal: Record<string, any> = {}
 const modeDefault = 'tree'
 const modelValueProp = isVue3 ? 'modelValue' : 'value'
 const updateModelValue = isVue3 ? 'update:modelValue' : 'input'
