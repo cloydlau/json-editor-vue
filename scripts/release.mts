@@ -155,9 +155,6 @@ async function release() {
     return
   }
 
-  console.log(cyan('Updating JSR version badge...'))
-  spawn.sync('curl', ['-X', 'PURGE', 'https://camo.githubusercontent.com/91e166dfe66fd00a4c307d2f3d47c87c1e2442f8964d3385642afab3c0e62b00/68747470733a2f2f6a73722e696f2f6261646765732f40636c6f79646c61752f6a736f6e2d656469746f722d767565'], { stdio: 'inherit' })
-
   console.log(cyan('Updating npmmirror...'))
   spawn.sync('cnpm', ['sync'], { stdio: 'inherit' })
   open(`https://npmmirror.com/sync/${name}`)
