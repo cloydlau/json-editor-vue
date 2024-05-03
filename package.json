@@ -55,7 +55,6 @@
     "test-unit": "vitest run",
     "coverage": "vitest run --coverage",
     "doc": "vitepress dev --open /README",
-    "downloads-count": "esno ./scripts/downloads-count.mts",
     "build": "vite build",
     "release": "esno ./scripts/release.mts",
     "lint": "eslint \"**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,json,md,html,css,scss,sass}\" --ignore-pattern stats.html",
