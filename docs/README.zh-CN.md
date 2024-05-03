@@ -31,7 +31,7 @@
 >
 > json-editor-vue 已过百万下载 (不含 CDN): <a href="https://npmcharts.com/compare/json-editor-vue"><img alt="npm downloads" src="https://img.shields.io/npm/dt/json-editor-vue?logo=npm&color=cb3837"></a>
 >
-> 与 Star 数量是天上地下的差别: <a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="github stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=eac54f&logo=github"></a>
+> 🆘 与 Star 数量是天上地下的差别: <a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="github stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=eac54f&logo=github"></a>
 >
 > 如有帮助，请考虑点亮一下 Star 以表达对其长期维护工作的支持。🙏
 
