@@ -29,11 +29,11 @@
 
 > [!Important]
 >
-> json-editor-vue had surpassed 1 million downloads: <a href="https://npmcharts.com/compare/json-editor-vue"><img alt="npm downloads" src="https://img.shields.io/npm/dt/json-editor-vue?logo=npm&color=cb3837"></a> <a href="https://www.jsdelivr.com/package/npm/json-editor-vue"><img alt="jsdelivr downloads" src="https://data.jsdelivr.com/v1/package/npm/json-editor-vue/badge?style=rounded"></a>
+> json-editor-vue had surpassed 1 million downloads: <a href="https://npmcharts.com/compare/json-editor-vue"><img alt="npm downloads" src="https://img.shields.io/npm/dt/json-editor-vue?logo=npm&color=cb3837"></a> <a href="https://www.jsdelivr.com/package/npm/json-editor-vue"><img alt="jsDelivr downloads" src="https://data.jsdelivr.com/v1/package/npm/json-editor-vue/badge?period=all&style=rounded"></a> <a href="https://github.com/mjackson/unpkg/issues/250"><img alt="unpkg downloads" src="https://img.shields.io/badge/unpkg-unknown-lightgrey.svg"></a>
 >
-> 🆘 While having a extremely dismal number of Stars: <a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="github stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=eac54f&logo=github"></a>
+> While having a extremely dismal number of Stars: <a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="github stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=eac54f&logo=github"></a>
 >
-> Please consider hitting the Star to show your support for the ongoing maintenance if you find it useful. 🙏
+> Please consider hitting the Star to show your support for the ongoing maintenance if you find it useful. 🆘 🙏
 
 <br>
 
