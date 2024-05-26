@@ -11,29 +11,30 @@
 </p>
 
 <p align="center">
-  <a href="https://cloydlau.github.io/playground/json-editor-vue/"><img alt="playground" src="https://img.shields.io/badge/Playground-blue?color=9BE4E0"></a>
+  <a href="https://cloydlau.github.io/playground/json-editor-vue/"><img alt="playground" src="https://img.shields.io/badge/Playground-blue?color=9BE4E0&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzNiNDAzZiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xMiA1aDMuNWE1IDUgMCAwIDEgMCAxMEgxMGwtNC4wMTUgNC4yMjdhMi4zIDIuMyAwIDAgMS0zLjkyMy0yLjAzNWwxLjYzNC04LjE3M0E1IDUgMCAwIDEgOC42IDV6Ii8+PHBhdGggZD0ibTE0IDE1bDQuMDcgNC4yODRhMi4zIDIuMyAwIDAgMCAzLjkyNS0yLjAyM2wtMS42LTguMjMyTTggOXYybS0xLTFoMm01IDBoMiIvPjwvZz48L3N2Zz4="></a>
   <br>
-  <a href="https://npmjs.com/package/json-editor-vue"><img alt="npm" src="https://img.shields.io/npm/v/json-editor-vue.svg?color=cb3837"></a>
+  <a href="https://npmjs.com/package/json-editor-vue"><img alt="npm" src="https://img.shields.io/npm/v/json-editor-vue.svg?labelColor=cb3837&color=1C404E"></a>
   <a href="https://jsr.io/@cloydlau/json-editor-vue"><img alt="jsr" src="https://jsr.io/badges/@cloydlau/json-editor-vue"></a>
   <br>
   <a href="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml"><img alt="build status" src="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml/badge.svg?branch=main"></a>
-  <a href="https://bundlephobia.com/package/json-editor-vue"><img alt="minzipped size" src="https://img.shields.io/bundlephobia/minzip/json-editor-vue"></a>
-  <a href="https://github.com/cloydlau/json-editor-vue#develop"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
+  <a href="https://bundlejs.com/?q=json-editor-vue"><img alt="minified gzip/brotli size" src="https://deno.bundlejs.com/?q=json-editor-vue&badge"></a>
+  <a href="https://pr.new"><img src="https://developer.stackblitz.com/img/start_pr_dark_small.svg" alt="Start new PR in StackBlitz Codeflow"></a>
   <br>
   <a href="https://conventionalcommits.org"><img alt="conventional commits" src="https://img.shields.io/badge/commits-Conventional-FE5196.svg?logo=conventionalcommits"></a>
+  <a href="https://www.npmjs.com/package/json-editor-vue?activeTab=versions"><img alt="created at" src="https://img.shields.io/github/created-at/cloydlau/json-editor-vue?&color=1C404E&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgNDggNDgiPjxnIGZpbGw9Im5vbmUiPjxwYXRoIGQ9Ik04IDQwaDMyVjI0SDh6Ii8+PHBhdGggc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iNCIgZD0iTTQwIDQwSDhtMzIgMEg0aDRtMzIgMGg0bS00IDBWMjRIOHYxNiIvPjxwYXRoIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjQiIGQ9Im00MCAzNGwtNC0ybC00IDJsLTQtMmwtNCAybC00LTJsLTQgMmwtNC0ybC00IDJtMjQtMTB2LTltLTggOXYtOW0tOCA5di05bTE2LTVWOG0tOCAyVjhtLTggMlY4TTggMjR2MTZtMzItMTZ2MTYiLz48L2c+PC9zdmc+"></a>
   <a href="https://github.com/antfu/eslint-config"><img alt="code style" src="https://antfu.me/badge-code-style.svg"></a>
-  <a href="https://www.npmjs.com/package/json-editor-vue?activeTab=versions"><img alt="created at" src="https://img.shields.io/github/created-at/cloydlau/json-editor-vue?&color=rgba(0,0,0,.6)"></a>
+  <a href="https://semantic-release.gitbook.io"><img alt="semantic release" src="https://img.shields.io/badge/release-semantic-e10079?logo=semantic-release"></a>
 </p>
 
-<img width="48.5%" src="./docs/text-mode.png" alt="text mode">&nbsp;<img width="48.5%" src="./docs/tree-mode.png" alt="table mode">
+<img width="48.5%" src="https://raw.githubusercontent.com/cloydlau/json-editor-vue/main/docs/text-mode.png" alt="text mode">&nbsp;<img width="48.5%" src="https://raw.githubusercontent.com/cloydlau/json-editor-vue/main/docs/tree-mode.png" alt="table mode">
 
 > [!Important]
 >
-> json-editor-vue had surpassed 1 million downloads: <a href="https://npmcharts.com/compare/json-editor-vue"><img alt="npm downloads" src="https://img.shields.io/npm/dt/json-editor-vue?logo=npm&color=cb3837"></a> <a href="https://www.jsdelivr.com/package/npm/json-editor-vue"><img alt="jsDelivr downloads" src="https://data.jsdelivr.com/v1/package/npm/json-editor-vue/badge?period=all&style=rounded"></a> <a href="https://github.com/mjackson/unpkg/issues/250"><img alt="unpkg downloads" src="https://img.shields.io/badge/unpkg-unknown-lightgrey.svg"></a>
+> json-editor-vue had surpassed 1 million downloads: <a href="https://npmcharts.com/compare/json-editor-vue"><img alt="npm downloads" src="https://img.shields.io/npm/dt/json-editor-vue?label=npm&color=cb3837"></a> <a href="https://www.jsdelivr.com/package/npm/json-editor-vue"><img alt="jsDelivr downloads" src="https://data.jsdelivr.com/v1/package/npm/json-editor-vue/badge?period=all&style=rounded"></a> <a href="https://github.com/mjackson/unpkg/issues/250"><img alt="unpkg downloads" src="https://img.shields.io/badge/unpkg-unknown-lightgrey.svg"></a>
 >
-> While having a extremely dismal number of Stars: <a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="github stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=eac54f&logo=github"></a>
+> While having a extremely dismal number of Stars: <a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="github stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=9f7be1&logo=github&style=flat"></a>
 >
-> Please consider hitting the Star to show your support for the ongoing maintenance if you find it useful. 🆘 🙏
+> Please consider starring ⭐ or [donating](#donate) to support our ongoing maintenance if you find it useful: <a href="https://github.com/cloydlau/json-editor-vue/issues"><img alt="github stars" src="https://img.shields.io/github/issues-raw/cloydlau/json-editor-vue"></a>
 
 <br>
 
@@ -1071,5 +1072,13 @@ import JsonEditorVue from 'json-editor-vue'
 ## Changelog
 
 Detailed changes for each release are documented in the [release notes](https://github.com/cloydlau/json-editor-vue/releases)
+
+<br>
+
+## Donate
+
+You can buy us a coffee via WeChat Pay 💗
+
+<img alt="WeChat Pay" src="https://raw.githubusercontent.com/cloydlau/json-editor-vue/main/docs/wechat-pay.jpg" width="150px">
 
 <br>
