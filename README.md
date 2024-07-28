@@ -62,9 +62,15 @@
 
 ### Dependencies
 
-As of v0.11, it's no longer necessary to explicitly install [vanilla-jsoneditor](https://github.com/josdejong/svelte-jsoneditor).
+As of v0.11, it's no longer necessary to explicitly install the [vanilla-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) dependency.
 
-If you want to specify dependency versions:
+#### Update Dependency Versions
+
+```shell
+npm rm json-editor-vue && npm i json-editor-vue
+```
+
+#### Specify Dependency Versions
 
 ```json5
 // package.json
@@ -89,7 +95,7 @@ If you want to specify dependency versions:
 }
 ```
 
-or scoped:
+With Scope:
 
 ```json5
 // package.json

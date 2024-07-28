@@ -62,9 +62,15 @@
 
 ### 依赖
 
-从 v0.11 开始，不再需要显式安装 [vanilla-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)，
+从 v0.11 开始，不再必须显式安装依赖 [vanilla-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
 
-如果需要指定依赖的版本：
+#### 更新依赖版本
+
+```shell
+npm rm json-editor-vue && npm i json-editor-vue
+```
+
+#### 指定依赖版本
 
 ```json5
 // package.json
@@ -89,7 +95,7 @@
 }
 ```
 
-或缩小作用范围：
+缩小作用范围：
 
 ```json5
 // package.json
@@ -202,7 +208,7 @@ createApp()
 >
 > 暂不支持 (vanilla-jsoneditor 不提供 IIFE 或 UMD 导出)，
 >
-> 如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+> 如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言
 
 ```html
 <!doctype html>
@@ -323,7 +329,7 @@ Vue.use(JsonEditorVue, {
 >
 > 暂不支持 (vanilla-jsoneditor 不提供 IIFE 或 UMD 导出)，
 >
-> 如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+> 如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言
 
 ```html
 <!doctype html>
@@ -462,7 +468,7 @@ Vue.use(JsonEditorVue, {
 >
 > 暂不支持 (vanilla-jsoneditor 不提供 IIFE 或 UMD 导出)，
 >
-> 如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言。
+> 如有需要请在[这里](https://github.com/josdejong/svelte-jsoneditor/discussions/196)留言
 
 ```html
 <!doctype html>
