@@ -114,11 +114,12 @@ const JsonEditorVue = defineComponent({
     const stringifiedComputed = computed(() => conclude([props.stringified, propsGlobal.stringified, true], {
       type: Boolean as PropType<boolean>,
     }))
+    let parse = JSON.parse
     const onChange = debounce((updatedContent: { json?: any, text?: string }) => {
       preventUpdatingContent.value = true
       if (!stringifiedComputed.value && updatedContent.text) {
         if (jsonEditor.value && !jsonEditor.value.validate()) {
-          updatedContent.json = JSON.parse(updatedContent.text)
+          updatedContent.json = parse(updatedContent.text)
         }
         updatedContent.text = undefined
       }
@@ -172,6 +173,8 @@ const JsonEditorVue = defineComponent({
           type: Object,
         },
       )
+
+      parse = initialAttrs.parser?.parse || JSON.parse
 
       jsonEditor.value = new JSONEditor({
         target: currentInstance?.$refs.jsonEditorRef as Element,
@@ -231,6 +234,7 @@ const JsonEditorVue = defineComponent({
           if (newAttrs.onChangeMode || newAttrs['on-change-mode']) {
             defaultFunctionAttrs.onChangeMode = onChangeMode
           }
+          parse = (newAttrs.parser as JSON)?.parse || JSON.parse
           jsonEditor.value?.updateProps(
             Object.getOwnPropertyNames(defaultFunctionAttrs).length > 0
               ? conclude([newAttrs, defaultFunctionAttrs], {
