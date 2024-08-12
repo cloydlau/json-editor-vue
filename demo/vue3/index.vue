@@ -28,7 +28,7 @@ const data = reactive({
       c: 'd',
     },
   },
-  mode: undefined,
+  mode: 'text',
   readOnly: false,
   parser: LosslessJSONParser,
 })
@@ -37,7 +37,7 @@ const jsonEditorVueRef = ref()
 onMounted(() => {
   jsonEditorVueRef.value.jsonEditor.focus()
 })
-const stringified = ref(true)
+const stringified = ref(false)
 </script>
 
 <template>
