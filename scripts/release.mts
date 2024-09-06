@@ -22,7 +22,7 @@ async function release() {
   }
 
   console.log(cyan('Unit testing...'))
-  if (spawn.sync('pnpm', ['test-unit'], { stdio: 'inherit' }).status === 1) {
+  if (spawn.sync('pnpm', ['test'], { stdio: 'inherit' }).status === 1) {
     return
   }
 

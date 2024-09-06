@@ -52,8 +52,10 @@
   ],
   "scripts": {
     "dev": "esno ./scripts/dev.mts",
-    "test-unit": "vitest run",
-    "coverage": "vitest run --coverage",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
     "doc": "vitepress dev --open /README",
     "build": "vite build",
     "release": "esno ./scripts/release.mts",
