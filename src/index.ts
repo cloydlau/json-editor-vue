@@ -1,11 +1,14 @@
+import { destr, safeDestr } from 'destr'
 import { debounce } from 'lodash-es'
 import { JSONEditor, Mode } from 'vanilla-jsoneditor'
 import { computed, defineComponent, getCurrentInstance, h, isVue3, onMounted, onUnmounted, ref, unref, watch, watchEffect } from 'vue-demi'
 import { conclude, resolveConfig } from 'vue-global-config'
+import type { JSONEditorPropsOptional } from 'vanilla-jsoneditor'
 import type { App, Plugin, PropType } from 'vue-demi'
 import { PascalCasedName as name } from '../package.json'
 
 type SFCWithInstall<T> = T & Plugin
+interface Parser { parse: typeof destr, stringify: typeof JSON.stringify }
 
 const propsGlobal: Record<string, any> = {}
 const attrsGlobal: Record<string, any> = {}
@@ -114,7 +117,7 @@ const JsonEditorVue = defineComponent({
     const stringifiedComputed = computed(() => conclude([props.stringified, propsGlobal.stringified, true], {
       type: Boolean as PropType<boolean>,
     }))
-    let parse = JSON.parse
+    let parse = destr
     const onChange = debounce((updatedContent: { json?: any, text?: string }) => {
       preventUpdatingContent.value = true
       if (!stringifiedComputed.value && updatedContent.text) {
@@ -131,8 +134,8 @@ const JsonEditorVue = defineComponent({
       )
     }, debounceComputed.value)
 
-    const mergeFunction = (previousValue: (...args: any) => unknown, currentValue: (...args: any) => unknown) => (...args: any) => {
-      previousValue(...args)
+    const mergeFunction = (accumulator: (...args: any) => unknown, currentValue: (...args: any) => unknown) => (...args: any) => {
+      accumulator(...args)
       currentValue(...args)
     }
 
@@ -154,28 +157,37 @@ const JsonEditorVue = defineComponent({
           initialBoolAttrs,
           attrs,
           attrsGlobal,
-          {
-            onChange,
-            onChangeMode,
-            mode: modeComputed.value,
-            ...(initialValue !== undefined && {
-              content: {
-                [(typeof initialValue === 'string' && modeComputed.value === 'text' && stringifiedComputed.value)
-                  ? 'text'
-                  : 'json']: initialValue,
-              },
-            }),
-          },
         ],
         {
           camelizeObjectKeys: true,
+          defaultIsDynamic: true,
+          default: (userProp: JSONEditorPropsOptional) => {
+            parse = (userProp.parser as Parser)?.parse || destr
+            return {
+              onChange,
+              onChangeMode,
+              mode: modeComputed.value,
+              // Can not just pass one of parse and stringify
+              parser: {
+                // SafeDestr is used by default so that it will not affect the result of jsonEditor.value.validate()
+                // When stringified is disabled, destr is used by default for better performance (destr is only called when JSON is valid)
+                parse: safeDestr,
+                stringify: JSON.stringify,
+              },
+              ...(initialValue !== undefined && {
+                content: {
+                  [(typeof initialValue === 'string' && modeComputed.value === 'text' && stringifiedComputed.value)
+                    ? 'text'
+                    : 'json']: initialValue,
+                },
+              }),
+            }
+          },
           mergeFunction,
           mergeObject: 'shallow',
           type: Object,
         },
       )
-
-      parse = initialAttrs.parser?.parse || JSON.parse
 
       jsonEditor.value = new JSONEditor({
         target: currentInstance?.$refs.jsonEditorRef as Element,
@@ -235,7 +247,7 @@ const JsonEditorVue = defineComponent({
           if (newAttrs.onChangeMode || newAttrs['on-change-mode']) {
             defaultFunctionAttrs.onChangeMode = onChangeMode
           }
-          parse = (newAttrs.parser as JSON)?.parse || JSON.parse
+          parse = (newAttrs.parser as Parser)?.parse || destr
           jsonEditor.value?.updateProps(
             Object.getOwnPropertyNames(defaultFunctionAttrs).length > 0
               ? conclude([newAttrs, defaultFunctionAttrs], {

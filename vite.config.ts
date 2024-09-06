@@ -1,12 +1,12 @@
 import vue from '@vitejs/plugin-vue'
-import dts from 'vite-plugin-dts'
-import { version } from 'vue'
+import { visualizer } from 'rollup-plugin-visualizer'
 import { parse } from 'semver'
-import type { SemVer } from 'semver'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import { visualizer } from 'rollup-plugin-visualizer'
-import { PascalCasedName, name } from './package.json'
+import dts from 'vite-plugin-dts'
+import { version } from 'vue'
+import type { SemVer } from 'semver'
+import { name, PascalCasedName } from './package.json'
 
 const { major, minor } = parse(version) as SemVer
 

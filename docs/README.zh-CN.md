@@ -42,6 +42,7 @@
 
 - 🚀 高性能
   - 支持高达 512 MB 的大型 JSON 文档
+  - 反序列化默认使用 [destr](https://github.com/unjs/destr)，比 `JSON.parse` 快达 35.96 倍
 - 💪 强力
   - 预览、编辑、格式化、校验、压缩、排序、查询、过滤、转换、修复、高亮 JSON
   - 7 种原始数据类型包括 `BigInt` and `Symbol`
@@ -152,8 +153,8 @@ const value = ref()
 #### 全局注册
 
 ```ts
-import { createApp } from 'vue'
 import JsonEditorVue from 'json-editor-vue'
+import { createApp } from 'vue'
 
 createApp()
   .use(JsonEditorVue, {
@@ -274,8 +275,8 @@ const value = ref()
 #### 全局注册
 
 ```ts
-import Vue from 'vue'
 import JsonEditorVue from 'json-editor-vue'
+import Vue from 'vue'
 
 Vue.use(JsonEditorVue, {
   // 全局 props & attrs（单向数据流）
@@ -379,9 +380,9 @@ npx jsr add @cloydlau/json-editor-vue
 
 ```vue
 <script>
-import Vue from 'vue'
 import VCA from '@vue/composition-api'
 import JsonEditorVue from 'json-editor-vue'
+import Vue from 'vue'
 
 Vue.use(VCA)
 
@@ -406,9 +407,9 @@ export default {
 #### 全局注册
 
 ```ts
-import Vue from 'vue'
 import VCA from '@vue/composition-api'
 import JsonEditorVue from 'json-editor-vue'
+import Vue from 'vue'
 
 Vue.use(VCA)
 Vue.use(JsonEditorVue, {
@@ -677,8 +678,8 @@ export default {
 ```ts
 // ~/plugins/JsonEditorVue.client.js
 
-import Vue from 'vue'
 import JsonEditorVue from 'json-editor-vue'
+import Vue from 'vue'
 
 Vue.use(JsonEditorVue, {
   // 全局 props & attrs（单向数据流）
@@ -739,8 +740,8 @@ export default {
 
 ```vue
 <script>
-import Vue from 'vue'
 import VCA from '@vue/composition-api'
+import Vue from 'vue'
 
 Vue.use(VCA)
 
@@ -792,9 +793,9 @@ export default {
 ```ts
 // ~/plugins/JsonEditorVue.client.js
 
-import Vue from 'vue'
 import VCA from '@vue/composition-api'
 import JsonEditorVue from 'json-editor-vue'
+import Vue from 'vue'
 
 Vue.use(VCA)
 Vue.use(JsonEditorVue, {
@@ -905,7 +906,8 @@ module.exports = {
     // 让 webpack 识别 `.mjs` 文件
     config.module
       .rule('mjs')
-      .include.add(/node_modules/)
+      .include
+      .add(/node_modules/)
       .type('javascript/auto')
       .end()
   },
@@ -1062,8 +1064,8 @@ onMounted(() => {
 
 ```vue
 <script setup>
-import 'vanilla-jsoneditor/themes/jse-theme-dark.css'
 import JsonEditorVue from 'json-editor-vue'
+import 'vanilla-jsoneditor/themes/jse-theme-dark.css'
 </script>
 
 <template>

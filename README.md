@@ -42,6 +42,7 @@
 
 - 🚀 Performant
   - Handle large JSON documents up to 512 MB
+  - Deserialize with [destr](https://github.com/unjs/destr) by default, up to 35.96x faster than `JSON.parse`
 - 💪 Powerful
   - View, edit, format, validate, compact, sort, query, filter, transform, repair, highlight JSON
   - 7 primitive data types including `BigInt` and `Symbol`
@@ -154,8 +155,8 @@ const value = ref()
 #### Global Registration
 
 ```ts
-import { createApp } from 'vue'
 import JsonEditorVue from 'json-editor-vue'
+import { createApp } from 'vue'
 
 createApp()
   .use(JsonEditorVue, {
@@ -276,8 +277,8 @@ const value = ref()
 #### Global Registration
 
 ```ts
-import Vue from 'vue'
 import JsonEditorVue from 'json-editor-vue'
+import Vue from 'vue'
 
 Vue.use(JsonEditorVue, {
   // global props & attrs (one-way data flow)
@@ -381,9 +382,9 @@ npx jsr add @cloydlau/json-editor-vue
 
 ```vue
 <script>
-import Vue from 'vue'
 import VCA from '@vue/composition-api'
 import JsonEditorVue from 'json-editor-vue'
+import Vue from 'vue'
 
 Vue.use(VCA)
 
@@ -408,9 +409,9 @@ export default {
 #### Global Registration
 
 ```ts
-import Vue from 'vue'
 import VCA from '@vue/composition-api'
 import JsonEditorVue from 'json-editor-vue'
+import Vue from 'vue'
 
 Vue.use(VCA)
 Vue.use(JsonEditorVue, {
@@ -679,8 +680,8 @@ export default {
 ```ts
 // ~/plugins/JsonEditorVue.client.js
 
-import Vue from 'vue'
 import JsonEditorVue from 'json-editor-vue'
+import Vue from 'vue'
 
 Vue.use(JsonEditorVue, {
   // global props & attrs (one-way data flow)
@@ -741,8 +742,8 @@ export default {
 
 ```vue
 <script>
-import Vue from 'vue'
 import VCA from '@vue/composition-api'
+import Vue from 'vue'
 
 Vue.use(VCA)
 
@@ -794,9 +795,9 @@ export default {
 ```ts
 // ~/plugins/JsonEditorVue.client.js
 
-import Vue from 'vue'
 import VCA from '@vue/composition-api'
 import JsonEditorVue from 'json-editor-vue'
+import Vue from 'vue'
 
 Vue.use(VCA)
 Vue.use(JsonEditorVue, {
@@ -907,7 +908,8 @@ module.exports = {
     // Getting webpack to recognize the `.mjs` file
     config.module
       .rule('mjs')
-      .include.add(/node_modules/)
+      .include
+      .add(/node_modules/)
       .type('javascript/auto')
       .end()
   },
@@ -1064,8 +1066,8 @@ onMounted(() => {
 
 ```vue
 <script setup>
-import 'vanilla-jsoneditor/themes/jse-theme-dark.css'
 import JsonEditorVue from 'json-editor-vue'
+import 'vanilla-jsoneditor/themes/jse-theme-dark.css'
 </script>
 
 <template>
