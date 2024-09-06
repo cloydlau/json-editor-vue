@@ -1,6 +1,6 @@
-import { nextTick } from 'vue'
 import { mount } from '@vue/test-utils'
 import { expect, it } from 'vitest'
+import { nextTick } from 'vue'
 import JsonEditorVue from '../src/index'
 
 it('text mode + set value', async () => {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { onMounted, reactive, ref, version } from 'vue'
 import { parse, stringify } from 'lossless-json'
+import { onMounted, reactive, ref, version } from 'vue'
 import JsonEditorVue from '../../src'
 
 const LosslessJSONParser = {

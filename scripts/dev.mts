@@ -1,12 +1,12 @@
 // pnpm i only-allow esno prompts cross-spawn kolorist magicast del -D -w
 
 import fs from 'node:fs'
-import prompts from 'prompts'
 import spawn from 'cross-spawn'
-import { loadFile, writeFile } from 'magicast'
-import type { ASTNode } from 'magicast'
 import { cyan } from 'kolorist'
+import { loadFile, writeFile } from 'magicast'
 import { addVitePlugin } from 'magicast/helpers'
+import prompts from 'prompts'
+import type { ASTNode } from 'magicast'
 
 type VueVersion = '3' | '2.7' | '2.6'
 

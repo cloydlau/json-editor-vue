@@ -1,17 +1,17 @@
 'use strict'
 const path = require('node:path')
-const webpack = require('webpack')
-const merge = require('webpack-merge')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const webpack = require('webpack')
+const merge = require('webpack-merge')
 const config = require('../config')
 
 const env = require('../config/prod.env')
-const baseWebpackConfig = require('./webpack.base.conf')
 const utils = require('./utils')
+const baseWebpackConfig = require('./webpack.base.conf')
 
 const webpackConfig = merge(baseWebpackConfig, {
   module: {

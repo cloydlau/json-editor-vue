@@ -1,15 +1,15 @@
 /* eslint-disable node/prefer-global/process */
 'use strict'
 const path = require('node:path')
-const merge = require('webpack-merge')
-const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const portfinder = require('portfinder')
+const webpack = require('webpack')
+const merge = require('webpack-merge')
 const config = require('../config')
-const baseWebpackConfig = require('./webpack.base.conf')
 const utils = require('./utils')
+const baseWebpackConfig = require('./webpack.base.conf')
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)

@@ -1,12 +1,12 @@
 // pnpm i esno prompts semver cross-spawn kolorist del open -D -w
 
 import fs from 'node:fs'
+import spawn from 'cross-spawn'
+import { deleteAsync } from 'del'
+import { cyan } from 'kolorist'
+import open from 'open'
 import prompts from 'prompts'
 import * as semver from 'semver'
-import spawn from 'cross-spawn'
-import { cyan } from 'kolorist'
-import { deleteAsync } from 'del'
-import open from 'open'
 
 const docsPath = ['./README.md', './docs/README.zh-CN.md']
 
