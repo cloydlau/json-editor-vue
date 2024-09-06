@@ -1,8 +1,8 @@
 import { debounce } from 'lodash-es'
 import { JSONEditor, Mode } from 'vanilla-jsoneditor'
 import { computed, defineComponent, getCurrentInstance, h, isVue3, onMounted, onUnmounted, ref, unref, watch, watchEffect } from 'vue-demi'
-import type { App, Plugin, PropType } from 'vue-demi'
 import { conclude, resolveConfig } from 'vue-global-config'
+import type { App, Plugin, PropType } from 'vue-demi'
 import { PascalCasedName as name } from '../package.json'
 
 type SFCWithInstall<T> = T & Plugin
@@ -170,6 +170,7 @@ const JsonEditorVue = defineComponent({
         {
           camelizeObjectKeys: true,
           mergeFunction,
+          mergeObject: 'shallow',
           type: Object,
         },
       )
@@ -240,6 +241,7 @@ const JsonEditorVue = defineComponent({
               ? conclude([newAttrs, defaultFunctionAttrs], {
                 camelizeObjectKeys: true,
                 mergeFunction,
+                mergeObject: 'shallow',
                 type: Object,
               })
               : newAttrs,
