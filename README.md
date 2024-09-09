@@ -1014,7 +1014,7 @@ import { Mode } from 'vanilla-jsoneditor'
 </script>
 
 <template>
-  <JsonEditorVue :mode="Mode.text" :stringified="false" :debounce="1000" />
+  <JsonEditorVue :mode="Mode.text" :stringified="false" />
 </template>
 ```
 
