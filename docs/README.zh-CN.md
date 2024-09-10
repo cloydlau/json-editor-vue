@@ -34,7 +34,7 @@
 >
 > 与 Star 数量是天上地下的差别：<a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="github stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=9f7be1&logo=github&style=flat"></a>
 >
-> 如有帮助，请考虑点亮一下 ⭐ 或[买一杯咖啡](#捐赠)以支持我们的长期维护工作：<a href="https://github.com/cloydlau/json-editor-vue/issues"><img alt="github stars" src="https://img.shields.io/github/issues-raw/cloydlau/json-editor-vue"></a>
+> 如有帮助，请考虑[点亮一下 ⭐](https://github.com/cloydlau/json-editor-vue) 或[买一杯咖啡](#捐赠)以支持我们的长期维护工作：<a href="https://github.com/cloydlau/json-editor-vue/issues"><img alt="github stars" src="https://img.shields.io/github/issues-raw/cloydlau/json-editor-vue"></a>
 
 <br>
 

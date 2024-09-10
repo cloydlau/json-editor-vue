@@ -34,7 +34,7 @@
 >
 > While having a extremely dismal number of Stars: <a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="github stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=9f7be1&logo=github&style=flat"></a>
 >
-> Please consider starring ⭐ or [donating](#donate) to support our ongoing maintenance if you find it useful: <a href="https://github.com/cloydlau/json-editor-vue/issues"><img alt="github stars" src="https://img.shields.io/github/issues-raw/cloydlau/json-editor-vue"></a>
+> Please consider [starring ⭐](https://github.com/cloydlau/json-editor-vue) or [donating](#donate) to support our ongoing maintenance if you find it useful: <a href="https://github.com/cloydlau/json-editor-vue/issues"><img alt="github stars" src="https://img.shields.io/github/issues-raw/cloydlau/json-editor-vue"></a>
 
 <br>
 
