@@ -10,9 +10,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "json-editor-vue": "^0.10.5",
-    "vanilla-jsoneditor": "^0.11.5",
-    "vue": "^2.7.14"
+    "json-editor-vue": "latest",
+    "vue": "^2.7.16"
   },
   "devDependencies": {
     "@babel/core": "^7.20.7",
@@ -47,7 +46,7 @@
     "url-loader": "^0.5.8",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
-    "vue-template-compiler": "^2.7.14",
+    "vue-template-compiler": "^2.7.16",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",

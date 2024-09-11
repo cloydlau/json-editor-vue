@@ -59,7 +59,7 @@
     "doc": "vitepress dev --open /README",
     "build": "vite build",
     "release": "esno ./scripts/release.mts",
-    "license-scan": "license-checker --summary --out ./licenses.txt",
+    "license-scan": "license-checker --summary --out ./dependency-licenses.txt",
     "lint": "eslint \"**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,json,md,html,css,scss,sass}\" --ignore-pattern stats.html",
     "lint:fix": "eslint \"**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,json,md,html,css,scss,sass}\" --ignore-pattern stats.html --fix",
     "preinstall": "node -e \"if (process.env.INIT_CWD === process.cwd()) { process.exit(1) }\" || npx only-allow pnpm",

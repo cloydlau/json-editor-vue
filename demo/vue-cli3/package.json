@@ -8,7 +8,6 @@
   "dependencies": {
     "core-js": "2",
     "json-editor-vue": "latest",
-    "vanilla-jsoneditor": "latest",
     "vue": "2"
   },
   "devDependencies": {
