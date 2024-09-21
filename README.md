@@ -1037,7 +1037,7 @@ Including the boolean properties of svelte-jsoneditor like `readOnly` with no va
 
 <br>
 
-## Expose
+## Exposes
 
 | Name       | Description         | Type   |
 | ---------- | ------------------- | ------ |

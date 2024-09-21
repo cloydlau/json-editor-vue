@@ -1035,7 +1035,7 @@ import { Mode } from 'vanilla-jsoneditor'
 
 <br>
 
-## Expose
+## 外部方法
 
 | 名称       | 说明            | 类型   |
 | ---------- | --------------- | ------ |
