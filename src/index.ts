@@ -111,7 +111,7 @@ const JsonEditorVue = defineComponent({
     }
 
     const debounceComputed = computed(() => {
-      return conclude([props.debounce, propsGlobal.debounce, 100], {
+      return conclude([props.debounce, propsGlobal.debounce, 300], {
         type: Number as PropType<number>,
       })
     })
