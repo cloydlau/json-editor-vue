@@ -1,13 +1,14 @@
+import type { JSONContent, JSONEditorPropsOptional, TextContent } from 'vanilla-jsoneditor'
+import type { App, Plugin, PropType } from 'vue-demi'
 import { destr, safeDestr } from 'destr'
 import { debounce } from 'lodash-es'
 import { JSONEditor, Mode } from 'vanilla-jsoneditor'
 import { computed, defineComponent, getCurrentInstance, h, isVue3, onMounted, onUnmounted, ref, unref, watch, watchEffect } from 'vue-demi'
 import { conclude, resolveConfig } from 'vue-global-config'
-import type { JSONEditorPropsOptional } from 'vanilla-jsoneditor'
-import type { App, Plugin, PropType } from 'vue-demi'
 import { PascalCasedName as name } from '../package.json'
 
 type SFCWithInstall<T> = T & Plugin
+type UpdatedContent = JSONContent & Partial<TextContent>
 interface Parser { parse: typeof destr, stringify: typeof JSON.stringify }
 
 const propsGlobal: Record<string, any> = {}
@@ -19,11 +20,11 @@ enum ModelValueProp {
 }
 const modelValueProp: ModelValueProp = isVue3 ? ModelValueProp.vue3 : ModelValueProp.vue2
 
-enum UpdateModelValue {
+enum UpdateModelValueEvent {
   vue3 = 'update:modelValue',
   vue2 = 'input',
 }
-const updateModelValue = isVue3 ? UpdateModelValue.vue3 : UpdateModelValue.vue2
+const updateModelValueEvent = isVue3 ? UpdateModelValueEvent.vue3 : UpdateModelValueEvent.vue2
 
 const boolAttrs = [
   'mainMenuBar',
@@ -80,7 +81,7 @@ const JsonEditorVue = defineComponent({
   },
   props,
   emits: {
-    [updateModelValue](_payload: any) {
+    [updateModelValueEvent](_payload: any) {
       return true
     },
     'update:mode': function (_payload: Mode) {
@@ -118,7 +119,8 @@ const JsonEditorVue = defineComponent({
       type: Boolean as PropType<boolean>,
     }))
     let parse = destr
-    const onChange = debounce((updatedContent: { json?: any, text?: string }) => {
+
+    const updateModelValue = (updatedContent: UpdatedContent) => {
       preventUpdatingContent.value = true
       if (!stringifiedComputed.value && updatedContent.text) {
         if (jsonEditor.value && !jsonEditor.value.validate()) {
@@ -127,12 +129,22 @@ const JsonEditorVue = defineComponent({
         updatedContent.text = undefined
       }
       emit(
-        updateModelValue,
+        updateModelValueEvent,
         updatedContent.text === undefined
           ? updatedContent.json
           : updatedContent.text,
       )
-    }, debounceComputed.value)
+    }
+    const updateModelValueDebounced = debounce(updateModelValue, debounceComputed.value)
+
+    const onChange = (updatedContent: UpdatedContent) => {
+      if (modeComputed.value === 'text') {
+        updateModelValueDebounced(updatedContent)
+      }
+      else {
+        updateModelValue(updatedContent)
+      }
+    }
 
     const mergeFunction = (accumulator: (...args: any) => unknown, currentValue: (...args: any) => unknown) => (...args: any) => {
       accumulator(...args)
