@@ -17,10 +17,9 @@
   <a href="https://jsr.io/@cloydlau/json-editor-vue"><img alt="jsr" src="https://jsr.io/badges/@cloydlau/json-editor-vue"></a>
   <br>
   <a href="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml"><img alt="build status" src="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml/badge.svg?branch=main"></a>
-  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue?ref=badge_shield&issueType=license" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue.svg?type=shield&issueType=license"/></a>
-  <a href="https://bundlejs.com/?q=json-editor-vue"><img alt="minified gzip/brotli size" src="https://deno.bundlejs.com/?q=json-editor-vue&badge"></a>
-  <br>
+  <a href="https://bundlephobia.com/package/json-editor-vue"><img alt="minzipped size" src="https://img.shields.io/bundlephobia/minzip/json-editor-vue"></a>
   <a href="https://www.npmjs.com/package/json-editor-vue?activeTab=versions"><img alt="created at" src="https://img.shields.io/github/created-at/cloydlau/json-editor-vue?&color=1C404E&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgNDggNDgiPjxnIGZpbGw9Im5vbmUiPjxwYXRoIGQ9Ik04IDQwaDMyVjI0SDh6Ii8+PHBhdGggc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iNCIgZD0iTTQwIDQwSDhtMzIgMEg0aDRtMzIgMGg0bS00IDBWMjRIOHYxNiIvPjxwYXRoIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjQiIGQ9Im00MCAzNGwtNC0ybC00IDJsLTQtMmwtNCAybC00LTJsLTQgMmwtNC0ybC00IDJtMjQtMTB2LTltLTggOXYtOW0tOCA5di05bTE2LTVWOG0tOCAyVjhtLTggMlY4TTggMjR2MTZtMzItMTZ2MTYiLz48L2c+PC9zdmc+"></a>
+  <br>
   <a href="https://github.com/antfu/eslint-config"><img alt="code style" src="https://antfu.me/badge-code-style.svg"></a>
   <a href="https://conventionalcommits.org"><img alt="conventional commits" src="https://img.shields.io/badge/commits-Conventional-FE5196.svg?logo=conventionalcommits"></a>
   <a href="https://semantic-release.gitbook.io"><img alt="semantic release" src="https://img.shields.io/badge/release-semantic-e10079?logo=semantic-release"></a>
@@ -186,7 +185,7 @@ createApp()
           "vue": "https://cdn.jsdelivr.net/npm/vue/dist/vue.esm-browser.prod.js",
           "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v3/index.mjs",
           "vanilla-jsoneditor": "https://cdn.jsdelivr.net/npm/vanilla-jsoneditor",
-          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.16/dist/json-editor-vue.mjs"
+          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.17/dist/json-editor-vue.mjs"
         }
       }
     </script>
@@ -230,7 +229,7 @@ createApp()
     <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
     <!-- TODO -->
     <script src="./vanilla-jsoneditor.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.16"></script>
+    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.17"></script>
     <script>
       const { createApp, ref } = Vue
 
@@ -306,7 +305,7 @@ Vue.use(JsonEditorVue, {
           "vue": "https://cdn.jsdelivr.net/npm/vue@2/dist/vue.esm.browser.min.js",
           "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v2.7/index.mjs",
           "vanilla-jsoneditor": "https://cdn.jsdelivr.net/npm/vanilla-jsoneditor",
-          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.16/dist/json-editor-vue.mjs"
+          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.17/dist/json-editor-vue.mjs"
         }
       }
     </script>
@@ -351,7 +350,7 @@ Vue.use(JsonEditorVue, {
     <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
     <!-- TODO -->
     <script src="./vanilla-jsoneditor.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.16"></script>
+    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.17"></script>
     <script>
       new Vue({
         components: { JsonEditorVue },
@@ -445,7 +444,7 @@ Vue.use(JsonEditorVue, {
           "@vue/composition-api/dist/vue-composition-api.mjs": "https://cdn.jsdelivr.net/npm/@vue/composition-api/dist/vue-composition-api.mjs",
           "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v2/index.mjs",
           "vanilla-jsoneditor": "https://cdn.jsdelivr.net/npm/vanilla-jsoneditor",
-          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.16/dist/json-editor-vue.mjs"
+          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.17/dist/json-editor-vue.mjs"
         }
       }
     </script>
@@ -491,7 +490,7 @@ Vue.use(JsonEditorVue, {
     <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
     <!-- TODO -->
     <script src="./vanilla-jsoneditor.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.16"></script>
+    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.17"></script>
     <script>
       const { createApp, ref } = VueCompositionAPI
 

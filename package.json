@@ -1,7 +1,7 @@
 {
   "name": "json-editor-vue",
   "PascalCasedName": "JsonEditorVue",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "private": false,
   "description": "Vue and Nuxt 2/3 isomorphic JSON editor, viewer, formatter and validator.",
   "author": {
