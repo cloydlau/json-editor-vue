@@ -5,7 +5,7 @@
 </h1>
 
 <p align="center">
-  Vue and Nuxt 2/3 一体通用 JSON 编辑 & 预览 & 格式化 & 校验工具
+  Vue 和 Nuxt 2/3 一体通用 JSON 编辑 & 预览 & 格式化 & 校验工具
   <br>
   <a href="../README.md">English</a> | 简体中文
 </p>
