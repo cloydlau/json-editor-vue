@@ -45,7 +45,7 @@
   - 反序列化默认使用 [destr](https://github.com/unjs/destr)，比 `JSON.parse` 快达 35.96 倍
 - 💪 强力
   - 预览、编辑、格式化、校验、压缩、排序、查询、过滤、转换、修复、高亮 JSON
-  - 7 种原始数据类型包括 `BigInt` and `Symbol`
+  - 7 种原始数据类型包括 [BigInt](#bigint) and `Symbol`
   - 3 种编辑模式：文本模式 & 树形模式 & 表格模式
   - 2 种主题：浅色主题 & 深色主题
   - 双向绑定：[parsed 或 stringified JSON](#parsed-json-vs-stringified-json)
@@ -1029,6 +1029,25 @@ onMounted(() => {
 
 <template>
   <JsonEditorVue ref="jsonEditorVueRef" />
+</template>
+```
+
+<br>
+
+## BigInt
+
+```shell
+npm i lossless-json
+```
+
+```vue
+<script setup>
+import JsonEditorVue from 'json-editor-vue'
+import { parse, stringify } from 'lossless-json'
+</script>
+
+<template>
+  <JsonEditorVue :parser="{ parse, stringify }" />
 </template>
 ```
 

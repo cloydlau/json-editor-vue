@@ -45,7 +45,7 @@
   - Deserialize with [destr](https://github.com/unjs/destr) by default, up to 35.96x faster than `JSON.parse`
 - 💪 Powerful
   - View, edit, format, validate, compact, sort, query, filter, transform, repair, highlight JSON
-  - 7 primitive data types including `BigInt` and `Symbol`
+  - 7 primitive data types including [BigInt](#bigint) and `Symbol`
   - 3 edit modes: text mode & tree mode & table mode
   - 2 themes: light theme & dark theme
   - 2-way binding: [parsed or stringified JSON](#parsed-json-vs-stringified-json)
@@ -1031,6 +1031,25 @@ onMounted(() => {
 
 <template>
   <JsonEditorVue ref="jsonEditorVueRef" />
+</template>
+```
+
+<br>
+
+## BigInt
+
+```shell
+npm i lossless-json
+```
+
+```vue
+<script setup>
+import JsonEditorVue from 'json-editor-vue'
+import { parse, stringify } from 'lossless-json'
+</script>
+
+<template>
+  <JsonEditorVue :parser="{ parse, stringify }" />
 </template>
 ```
 
