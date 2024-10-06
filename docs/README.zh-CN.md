@@ -14,7 +14,7 @@
   <a href="https://cloydlau.github.io/playground/json-editor-vue/"><img alt="playground" src="https://img.shields.io/badge/Playground-blue?color=9BE4E0&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzNiNDAzZiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xMiA1aDMuNWE1IDUgMCAwIDEgMCAxMEgxMGwtNC4wMTUgNC4yMjdhMi4zIDIuMyAwIDAgMS0zLjkyMy0yLjAzNWwxLjYzNC04LjE3M0E1IDUgMCAwIDEgOC42IDV6Ii8+PHBhdGggZD0ibTE0IDE1bDQuMDcgNC4yODRhMi4zIDIuMyAwIDAgMCAzLjkyNS0yLjAyM2wtMS42LTguMjMyTTggOXYybS0xLTFoMm01IDBoMiIvPjwvZz48L3N2Zz4="></a>
   <br>
   <a href="https://npmjs.com/package/json-editor-vue"><img alt="npm" src="https://img.shields.io/npm/v/json-editor-vue.svg?labelColor=cb3837&color=1C404E"></a>
-  <a href="https://jsr.io/@cloydlau/json-editor-vue"><img alt="jsr" src="https://jsr.io/badges/@cloydlau/json-editor-vue"></a>
+  <a href="https://jsr.io/@cloydlau"><img alt="jsr" src="https://jsr.io/badges/@cloydlau"></a>
   <br>
   <a href="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml"><img alt="build status" src="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml/badge.svg?branch=main"></a>
   <a href="https://bundlephobia.com/package/json-editor-vue"><img alt="minzipped size" src="https://img.shields.io/bundlephobia/minzip/json-editor-vue"></a>
@@ -126,11 +126,7 @@ npm rm json-editor-vue && npm i json-editor-vue
 ### Vue 3
 
 ```shell
-# npm
 npm i json-editor-vue
-
-# jsr
-npx jsr add @cloydlau/json-editor-vue
 ```
 
 #### 局部注册
@@ -248,11 +244,7 @@ createApp()
 ### Vue 2.7
 
 ```shell
-# npm
 npm i json-editor-vue
-
-# jsr
-npx jsr add @cloydlau/json-editor-vue
 ```
 
 #### 局部注册
@@ -368,12 +360,7 @@ Vue.use(JsonEditorVue, {
 ### Vue 2.6 或更早版本
 
 ```shell
-# npm
 npm i @vue/composition-api json-editor-vue
-
-# jsr
-npm i @vue/composition-api
-npx jsr add @cloydlau/json-editor-vue
 ```
 
 #### 局部注册
@@ -511,11 +498,7 @@ Vue.use(JsonEditorVue, {
 ### Nuxt 3
 
 ```shell
-# npm
 npm i json-editor-vue
-
-# jsr
-npx jsr add @cloydlau/json-editor-vue
 ```
 
 #### 局部注册
@@ -602,11 +585,7 @@ const value = ref()
 ### Nuxt 2 + Vue 2.7
 
 ```shell
-# npm
 npm i json-editor-vue
-
-# jsr
-npx jsr add @cloydlau/json-editor-vue
 ```
 
 #### 局部注册
@@ -708,12 +687,7 @@ const value = ref()
 ### Nuxt 2 + Vue 2.6 或更早版本
 
 ```shell
-# npm
 npm i @vue/composition-api json-editor-vue
-
-# jsr
-npm i @vue/composition-api
-npx jsr add @cloydlau/json-editor-vue
 ```
 
 #### 局部注册
