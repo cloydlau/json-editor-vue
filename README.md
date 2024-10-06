@@ -1020,9 +1020,12 @@ Including the boolean properties of svelte-jsoneditor like `readOnly` with no va
 
 ```vue
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, useTemplateRef } from 'vue'
 
-const jsonEditorVueRef = ref()
+// Vue ≥ v3.5
+const jsonEditorVueRef = useTemplateRef('jsonEditorVueRef')
+// Vue < v3.5
+// const jsonEditorVueRef = ref()
 
 onMounted(() => {
   jsonEditorVueRef.value.jsonEditor.focus()

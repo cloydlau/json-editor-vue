@@ -1018,9 +1018,12 @@ import { Mode } from 'vanilla-jsoneditor'
 
 ```vue
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, useTemplateRef } from 'vue'
 
-const jsonEditorVueRef = ref()
+// Vue ≥ v3.5
+const jsonEditorVueRef = useTemplateRef('jsonEditorVueRef')
+// Vue < v3.5
+// const jsonEditorVueRef = ref()
 
 onMounted(() => {
   jsonEditorVueRef.value.jsonEditor.focus()
