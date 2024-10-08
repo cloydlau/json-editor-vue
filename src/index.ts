@@ -201,7 +201,7 @@ const JsonEditorVue = defineComponent({
         },
       )
 
-      jsonEditor.value = new JSONEditor({
+      jsonEditor.value = createJSONEditor({
         target: currentInstance?.$refs.jsonEditorRef as Element,
         props: initialAttrs,
       })
