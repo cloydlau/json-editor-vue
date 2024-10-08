@@ -2,7 +2,7 @@ import type { JSONContent, JSONEditorPropsOptional, TextContent } from 'vanilla-
 import type { App, Plugin, PropType } from 'vue-demi'
 import { destr, safeDestr } from 'destr'
 import { debounce } from 'lodash-es'
-import { JSONEditor, Mode } from 'vanilla-jsoneditor'
+import { createJSONEditor, Mode } from 'vanilla-jsoneditor'
 import { computed, defineComponent, getCurrentInstance, h, isVue3, onMounted, onUnmounted, ref, unref, watch, watchEffect } from 'vue-demi'
 import { conclude, resolveConfig } from 'vue-global-config'
 import { PascalCasedName as name } from '../package.json'
@@ -201,7 +201,7 @@ const JsonEditorVue = defineComponent({
         },
       )
 
-      jsonEditor.value = new JSONEditor({
+      jsonEditor.value = createJSONEditor({
         target: currentInstance?.$refs.jsonEditorRef as Element,
         props: initialAttrs,
       })
