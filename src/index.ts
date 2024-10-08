@@ -202,7 +202,7 @@ const JsonEditorVue = defineComponent({
       )
 
       jsonEditor.value = createJSONEditor({
-        target: currentInstance?.$refs.jsonEditorRef as Element,
+        target: currentInstance?.$refs.jsonEditorRef as HTMLDivElement,
         props: initialAttrs,
       })
 
