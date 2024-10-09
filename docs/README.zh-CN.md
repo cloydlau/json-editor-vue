@@ -54,7 +54,7 @@
   - Vue 2.6/2.7/3 一体通用
   - 支持 SSR，Nuxt 2/3 一体通用
   - 支持 Vite，Vue CLI，webpack，CDN...
-  - 支持微前端 ([wujie](https://github.com/Tencent/wujie)，[qiankun](https://github.com/umijs/qiankun)，[single-spa](https://github.com/single-spa/single-spa)...)
+  - 支持微前端
   - 支持 PC 端 & 移动端
   - 局部注册并传参，或全局注册并传参 ([vue-global-config](https://github.com/cloydlau/vue-global-config) 提供技术支持)
 

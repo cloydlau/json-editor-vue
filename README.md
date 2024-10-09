@@ -54,7 +54,7 @@
   - Vue 2.6/2.7/3 isomorphic
   - Support SSR, Nuxt 2/3 isomorphic
   - Support Vite, Vue CLI, webpack, CDN...
-  - Support microfrontends ([wujie](https://github.com/Tencent/wujie), [qiankun](https://github.com/umijs/qiankun), [single-spa](https://github.com/single-spa/single-spa)...)
+  - Support microfrontends
   - Support PC & mobile devices
   - Local registration & configuration, or global registration & configuration (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
 
