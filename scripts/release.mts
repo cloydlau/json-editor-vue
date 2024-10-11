@@ -31,6 +31,11 @@ async function release() {
     return
   }
 
+  console.log(cyan('Publinting...'))
+  if (spawn.sync('npx', ['publint'], { stdio: 'inherit' }).status === 1) {
+    return
+  }
+
   console.log(cyan('Checking exports...'))
   if (spawn.sync('pnpm', ['check-exports'], { stdio: 'inherit' }).status === 1) {
     return
