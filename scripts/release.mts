@@ -2,7 +2,7 @@
 
 import fs from 'node:fs'
 import spawn from 'cross-spawn'
-import { deleteAsync } from 'del'
+// import { deleteAsync } from 'del'
 import { cyan } from 'kolorist'
 import open from 'open'
 import prompts from 'prompts'
@@ -31,11 +31,11 @@ async function release() {
     return
   }
 
-  console.log(cyan('Packing...'))
-  if (spawn.sync('npm', ['pack'], { stdio: 'inherit' }).status === 1) {
+  console.log(cyan('Checking exports...'))
+  if (spawn.sync('pnpm', ['check-exports'], { stdio: 'inherit' }).status === 1) {
     return
   }
-  await deleteAsync(['./*.tgz'])
+  // await deleteAsync(['./*.tgz'])
 
   const jsrConfig = JSON.parse(fs.readFileSync('./jsr.json', 'utf-8'))
   const npmConfig = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))

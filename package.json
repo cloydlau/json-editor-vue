@@ -34,9 +34,14 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/json-editor-vue.d.ts",
-      "import": "./dist/json-editor-vue.mjs",
-      "require": "./dist/json-editor-vue.umd.js"
+      "import": {
+        "types": "./dist/json-editor-vue.d.mts",
+        "default": "./dist/json-editor-vue.mjs"
+      },
+      "require": {
+        "types": "./dist/json-editor-vue.d.ts",
+        "default": "./dist/json-editor-vue.umd.js"
+      }
     },
     "./*": "./*"
   },
@@ -57,7 +62,9 @@
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
     "doc": "vitepress dev --open /README",
-    "build": "vite build",
+    "build": "vite build && pnpm typegen",
+    "typegen": "npx tsup --entry.json-editor-vue src/index.ts --format esm,cjs --cjsInterop --clean --dts-only",
+    "check-exports": "pnpm build && npx attw $(npm pack)",
     "release": "esno ./scripts/release.mts",
     "license-scan": "license-checker --summary --out ./dependency-licenses.txt",
     "lint": "eslint \"**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,json,md,html,css,scss,sass}\" --ignore-pattern stats.html",
@@ -80,6 +87,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.7.3",
+    "@arethetypeswrong/cli": "^0.16.4",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@types/cross-spawn": "^6.0.6",
@@ -87,10 +95,10 @@
     "@types/node": "^22.7.5",
     "@types/prompts": "^2.4.9",
     "@types/semver": "^7.5.8",
-    "@vitejs/plugin-vue": "^5.1.4",
+    "@vitejs/plugin-vue": "latest",
     "@vitest/ui": "^2.1.2",
-    "@vue/compiler-sfc": "^3.5.11",
-    "@vue/test-utils": "^2.4.6",
+    "@vue/compiler-sfc": "latest",
+    "@vue/test-utils": "latest",
     "axios": "^1.7.7",
     "case-police": "^0.7.0",
     "cross-spawn": "^7.0.3",
@@ -112,6 +120,7 @@
     "rollup-plugin-visualizer": "^5.12.0",
     "semver": "^7.6.3",
     "simple-git-hooks": "^2.11.1",
+    "tsup": "^8.3.0",
     "typescript": "^5.6.2",
     "unplugin-auto-import": "^0.18.3",
     "unplugin-vue-components": "^0.27.4",
@@ -119,7 +128,7 @@
     "vite-plugin-dts": "4.2.3",
     "vitepress": "^1.4.0",
     "vitest": "^2.1.2",
-    "vue": "^3.5.11",
+    "vue": "latest",
     "vue-global-config": "^0.6.2",
     "zhlint": "^0.8.2"
   },
