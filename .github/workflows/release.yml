@@ -32,12 +32,9 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: cnpm sync
-        if: success()
-
-      - run: curl -L https://npmmirror.com/sync/json-editor-vue
-        if: success()
-
       - run: npx changelogithub
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: pnpm sync-to-cnpm
+        if: success()

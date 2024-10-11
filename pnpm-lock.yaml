@@ -63,6 +63,9 @@ importers:
       case-police:
         specifier: ^0.7.0
         version: 0.7.0
+      cnpm:
+        specifier: ^9.4.0
+        version: 9.4.0
       cross-spawn:
         specifier: ^7.0.3
         version: 7.0.3
@@ -1728,6 +1731,23 @@ packages:
   cliui@8.0.1:
     resolution: {integrity: sha512-BSeNnyus75C4//NQ9gQt1/csTXyo/8Sb+afLAkzAptFuMsod9HFokGNudZpi/oQV73hnVK+sR+5PVRMd+Dr7YQ==}
     engines: {node: '>=12'}
+
+  cnpm@9.4.0:
+    resolution: {integrity: sha512-oxvozguyEuXp/3Ie0JEtmHKt8+OayZfNH40/B1gmtok2+0dHTS0Kt4uUn5rZ8qIYNk5UzzFVmu1pZxEn0no/iQ==}
+    engines: {node: '>= 14.18.0'}
+    hasBin: true
+    bundledDependencies:
+      - auto-correct
+      - bagpipe
+      - commander
+      - cross-spawn
+      - giturl
+      - ini
+      - npm
+      - npm-request
+      - npminstall
+      - open
+      - urllib
 
   code-red@1.0.4:
     resolution: {integrity: sha512-7qJWqItLA8/VPVlKJlFXU+NBlo/qyfs39aJcuMT/2ere32ZqvF5OSxgdM5xOfJJ7O429gg2HM47y8v9P+9wrNw==}
@@ -6206,6 +6226,8 @@ snapshots:
       string-width: 4.2.3
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
+
+  cnpm@9.4.0: {}
 
   code-red@1.0.4:
     dependencies:
