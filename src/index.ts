@@ -96,7 +96,7 @@ const JsonEditorVue = defineComponent({
     const modeComputed = ref()
     watchEffect(() => {
       modeComputed.value = conclude([props.mode, propsGlobal.mode], {
-        type: String as PropType<Mode>,
+        type: String,
       })
       jsonEditor.value?.updateProps({
         mode: modeComputed.value || Mode.tree,
@@ -112,11 +112,11 @@ const JsonEditorVue = defineComponent({
 
     const debounceComputed = computed(() => {
       return conclude([props.debounce, propsGlobal.debounce, 300], {
-        type: Number as PropType<number>,
+        type: Number,
       })
     })
     const stringifiedComputed = computed(() => conclude([props.stringified, propsGlobal.stringified, true], {
-      type: Boolean as PropType<boolean>,
+      type: Boolean,
     }))
     let parse = destr
 
