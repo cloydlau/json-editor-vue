@@ -4,39 +4,39 @@ import fs from 'node:fs'
 import spawn from 'cross-spawn'
 // import { deleteAsync } from 'del'
 import { cyan } from 'kolorist'
-import open from 'open'
+// import open from 'open'
 import prompts from 'prompts'
 import * as semver from 'semver'
 
 const docsPath = ['./README.md', './docs/README.zh-CN.md']
 
 async function release() {
-  console.log(cyan('Fetching origin...'))
+  console.log(cyan('\nFetching origin...'))
   if (spawn.sync('git', ['pull'], { stdio: 'inherit' }).status === 1) {
     return
   }
 
-  console.log(cyan('Linting staged...'))
+  console.log(cyan('\nLinting staged...'))
   if (spawn.sync('npx', ['lint-staged'], { stdio: 'inherit' }).status === 1) {
     return
   }
 
-  console.log(cyan('Unit testing...'))
+  console.log(cyan('\nUnit testing...'))
   if (spawn.sync('pnpm', ['test'], { stdio: 'inherit' }).status === 1) {
     return
   }
 
-  console.log(cyan('Building...'))
+  console.log(cyan('\nBuilding...'))
   if (spawn.sync('pnpm', ['build'], { stdio: 'inherit' }).status === 1) {
     return
   }
 
-  console.log(cyan('Publinting...'))
+  console.log(cyan('\nPublinting...'))
   if (spawn.sync('npx', ['publint'], { stdio: 'inherit' }).status === 1) {
     return
   }
 
-  console.log(cyan('Checking exports...'))
+  console.log(cyan('\nChecking exports...'))
   if (spawn.sync('pnpm', ['check-exports'], { stdio: 'inherit' }).status === 1) {
     return
   }
@@ -126,7 +126,7 @@ async function release() {
   fs.writeFileSync('./jsr.json', JSON.stringify(jsrConfig, null, 2))
   fs.writeFileSync('./package.json', JSON.stringify(npmConfig, null, 2))
 
-  console.log(cyan('Committing...'))
+  console.log(cyan('\nCommitting...'))
   if (spawn.sync('git', ['add', '-A'], { stdio: 'inherit' }).status === 1) {
     return
   }
@@ -139,7 +139,7 @@ async function release() {
     return
   }
 
-  console.log(cyan('Pushing...'))
+  console.log(cyan('\nPushing...'))
   if (spawn.sync('git', ['push'], { stdio: 'inherit' }).status === 1) {
     return
   }
@@ -147,22 +147,23 @@ async function release() {
     return
   }
   if (spawn.sync('git', ['push', 'origin', `refs/tags/v${targetVersion}`], { stdio: 'inherit' }).status === 1) {
-    return
+    // return
   }
 
-  console.log(cyan('Publishing to jsr...'))
+  /* console.log(cyan('\nPublishing to jsr...'))
   if (spawn.sync('npx', ['jsr', 'publish'], { stdio: 'inherit' }).status === 1) {
     return
-  }
+  } */
 
-  console.log(cyan('Publishing to npm...'))
+  // Automatic provenance generation not supported outside of GitHub Actions
+  /* console.log(cyan('\nPublishing to npm...'))
   if (spawn.sync('npm', ['publish', '--registry=https://registry.npmjs.org', '--provenance'], { stdio: 'inherit' }).status === 1) {
     return
-  }
+  } */
 
-  console.log(cyan('Updating npmmirror...'))
+  /* console.log(cyan('\nUpdating npmmirror...'))
   spawn.sync('cnpm', ['sync'], { stdio: 'inherit' })
-  open(`https://npmmirror.com/sync/${name}`)
+  open(`https://npmmirror.com/sync/${name}`) */
 }
 
 try {

@@ -2,7 +2,7 @@
   "name": "json-editor-vue",
   "PascalCasedName": "JsonEditorVue",
   "type": "commonjs",
-  "version": "0.17.1",
+  "version": "0.17.2",
   "private": false,
   "description": "Vue and Nuxt 2/3 isomorphic JSON editor, viewer, formatter and validator.",
   "author": {
@@ -86,7 +86,7 @@
     }
   },
   "dependencies": {
-    "vanilla-jsoneditor": "^1.0.6",
+    "vanilla-jsoneditor": "^1.0.7",
     "vue-demi": "^0.14.10"
   },
   "devDependencies": {
@@ -126,7 +126,7 @@
     "semver": "^7.6.3",
     "simple-git-hooks": "^2.11.1",
     "tsup": "^8.3.0",
-    "typescript": "^5.6.2",
+    "typescript": "^5.6.3",
     "unplugin-auto-import": "^0.18.3",
     "unplugin-vue-components": "^0.27.4",
     "vite": "^5.4.8",
@@ -138,7 +138,7 @@
     "zhlint": "^0.8.2"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged",
+    "pre-commit": "pnpm lint-staged && actionlint",
     "commit-msg": "npx --no -- commitlint --edit ${1}"
   },
   "lint-staged": {

@@ -5,18 +5,39 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  id-token: write # This is required for requesting the JWT
+
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - uses: actions/setup-node@v3
+      - uses: pnpm/action-setup@v4
+        with:
+          version: latest
+      - uses: actions/setup-node@v4
         with:
           node-version: latest
+          registry-url: https://registry.npmjs.org
+          cache: pnpm
+
+      - run: pnpm i
+      - run: pnpm build
+      - run: npx jsr publish
+
+      - run: npm publish --registry=https://registry.npmjs.org --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - run: cnpm sync
+        if: success()
+
+      - run: curl -L https://npmmirror.com/sync/json-editor-vue
+        if: success()
 
       - run: npx changelogithub
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
