@@ -1081,6 +1081,32 @@ Detailed changes for each release are documented in the [release notes](https://
 
 <br>
 
+## Cases
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/google/litmus">
+          <img height="40" valign="middle" src="./docs/google.svg" />
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/nuxt/devtools">
+          <img height="30" valign="middle" src="./docs/nuxt.svg" />
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://pr.new">
+          Calling for more
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
 ## Donate
 
 You can buy us a coffee via WeChat Pay 💗
