@@ -26,7 +26,7 @@ jobs:
 
       - run: pnpm i
       - run: pnpm build
-      - run: npx jsr publish
+      - run: npx jsr publish --allow-dirty
 
       - run: npm publish --registry=https://registry.npmjs.org --provenance
         env:
