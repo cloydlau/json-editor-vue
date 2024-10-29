@@ -7,7 +7,7 @@ on:
 
 permissions:
   id-token: write # This is required for requesting the JWT
-  contents: write
+  contents: write # 403 Forbidden error on changelogithub
 
 jobs:
   release:
@@ -22,12 +22,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: latest
-          registry-url: https://registry.npmjs.org
           cache: pnpm
 
+      - run: pnpm config set registry https://registry.npmmirror.com
       - run: pnpm i
       - run: pnpm build
-      - run: npx jsr publish --allow-dirty
+      - run: npx jsr publish
 
       - run: npm publish --registry=https://registry.npmjs.org --provenance
         env:
