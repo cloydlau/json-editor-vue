@@ -6,6 +6,7 @@ import { createJSONEditor, Mode } from 'vanilla-jsoneditor'
 import { computed, defineComponent, getCurrentInstance, h, isVue3, onMounted, onUnmounted, ref, unref, watch, watchEffect } from 'vue-demi'
 import { conclude, resolveConfig } from 'vue-global-config'
 import { PascalCasedName as name } from '../package.json'
+import { BOOL_ATTRS } from './constants'
 
 type SFCWithInstall<T> = T & Plugin
 type UpdatedContent = JSONContent & Partial<TextContent>
@@ -26,17 +27,6 @@ enum UpdateModelValueEvent {
 }
 const updateModelValueEvent = isVue3 ? UpdateModelValueEvent.vue3 : UpdateModelValueEvent.vue2
 
-const boolAttrs = [
-  'mainMenuBar',
-  'navigationBar',
-  'statusBar',
-  'askToFormat',
-  'readOnly',
-  'escapeControlCharacters',
-  'escapeUnicodeCharacters',
-  'flattenColumns',
-] as const
-
 const props = {
   [modelValueProp]: {},
   mode: {
@@ -50,7 +40,7 @@ const props = {
     default: undefined,
   },
   ...Object.fromEntries(
-    boolAttrs.map(boolAttr => [
+    BOOL_ATTRS.map(boolAttr => [
       boolAttr,
       {
         type: Boolean as PropType<boolean>,
@@ -65,7 +55,7 @@ const props = {
   debounce: { type: PropType<number> }
   stringified: { type: PropType<boolean>, default: undefined }
 } & {
-  [key in typeof boolAttrs[number]]: {
+  [key in typeof BOOL_ATTRS[number]]: {
     type: PropType<boolean>
     default: undefined
   }
@@ -160,7 +150,7 @@ const JsonEditorVue = defineComponent({
     onMounted(() => {
       const initialValue = conclude([props[modelValueProp], propsGlobal[modelValueProp]])
       const initialBoolAttrs = Object.fromEntries(
-        Array.from(boolAttrs, boolAttr => [boolAttr, conclude([props[boolAttr], propsGlobal[boolAttr]])]).filter(
+        Array.from(BOOL_ATTRS, boolAttr => [boolAttr, conclude([props[boolAttr], propsGlobal[boolAttr]])]).filter(
           ([, v]) => v !== undefined,
         ),
       )
@@ -237,10 +227,10 @@ const JsonEditorVue = defineComponent({
       )
 
       watch(
-        () => Array.from(boolAttrs, boolAttr => props[boolAttr]),
+        () => Array.from(BOOL_ATTRS, boolAttr => props[boolAttr]),
         (values) => {
           jsonEditor.value?.updateProps(
-            Object.fromEntries(Array.from(values, (v, i) => [boolAttrs[i], v]).filter(([, v]) => v !== undefined)),
+            Object.fromEntries(Array.from(values, (v, i) => [BOOL_ATTRS[i], v]).filter(([, v]) => v !== undefined)),
           )
         },
       )
