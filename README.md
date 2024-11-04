@@ -73,6 +73,10 @@ As of v0.11, it's no longer necessary to explicitly install the [vanilla-jsonedi
 npm rm json-editor-vue && npm i json-editor-vue
 ```
 
+> [!Warning]
+>
+> Not working for major version bump, fot that you can [specify dependency versions](#specify-dependency-versions) (if necessary)
+
 #### Specify Dependency Versions
 
 ```json5

@@ -73,6 +73,10 @@
 npm rm json-editor-vue && npm i json-editor-vue
 ```
 
+> [!Warning]
+>
+> 无法升级大版本号，你可以通过[指定依赖版本](#指定依赖版本)来升级大版本（如有必要）
+
 #### 指定依赖版本
 
 ```json5
