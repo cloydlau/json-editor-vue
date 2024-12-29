@@ -25,18 +25,10 @@
   <a href="https://conventionalcommits.org"><img alt="conventional commits" src="https://img.shields.io/badge/commits-Conventional-FE5196.svg?logo=conventionalcommits"></a>
   <a href="https://semantic-release.gitbook.io"><img alt="semantic release" src="https://img.shields.io/badge/release-semantic-e10079?logo=semantic-release"></a>
   <a href="https://arethetypeswrong.github.io/?p=json-editor-vue"><img alt="attw" src="https://img.shields.io/badge/are_the_types_wrong%3F-analyze-3178C6?logo=typescript&logoColor=white"></a>
-  <a href="https://pr.new"><img src="https://developer.stackblitz.com/img/start_pr_dark_small.svg" alt="Start new PR in StackBlitz Codeflow"></a>
+  <a href="https://pr.new/https://github.com/cloydlau/json-editor-vue"><img src="https://developer.stackblitz.com/img/start_pr_dark_small.svg" alt="Start new PR in StackBlitz Codeflow"></a>
 </p>
 
 <img width="48.5%" src="https://raw.githubusercontent.com/cloydlau/json-editor-vue/main/docs/text-mode.png" alt="text mode">&nbsp;<img width="48.5%" src="https://raw.githubusercontent.com/cloydlau/json-editor-vue/main/docs/tree-mode.png" alt="table mode">
-
-> [!Important]
->
-> json-editor-vue had surpassed [1 million downloads](https://npm.chart.dev/json-editor-vue): <a href="https://npm-stat.com/charts.html?package=json-editor-vue&from=2020-07-15"><img alt="npm downloads" src="https://img.shields.io/npm/dm/json-editor-vue?label=npm&color=cb3837"></a> <a href="https://www.jsdelivr.com/package/npm/json-editor-vue"><img alt="jsDelivr downloads" src="https://data.jsdelivr.com/v1/package/npm/json-editor-vue/badge?period=all&style=rounded"></a> <a href="https://github.com/jsr-io/jsr/issues/14"><img alt="JSR downloads" src="https://img.shields.io/badge/JSR-unknown-faee4a.svg"></a> <a href="https://github.com/mjackson/unpkg/issues/250"><img alt="unpkg downloads" src="https://img.shields.io/badge/unpkg-unknown-black.svg"></a>
->
-> While having a extremely dismal number of Stars: <a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=9f7be1&logo=github&style=flat"></a>
->
-> Please consider [starring ⭐](https://github.com/cloydlau/json-editor-vue) or [donating](#donate) to support our ongoing maintenance if it helps: <a href="https://github.com/cloydlau/json-editor-vue/issues?q=is%3Aissue+is%3Aclosed"><img alt="GitHub issues closed" src="https://img.shields.io/github/issues-closed/cloydlau/json-editor-vue?logo=github"></a>
 
 <br>
 
@@ -58,6 +50,45 @@
   - Support microfrontends
   - Support PC & mobile devices
   - Local registration & configuration, or global registration & configuration (Powered by [vue-global-config](https://github.com/cloydlau/vue-global-config))
+
+<br>
+
+## Cases
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/nuxt/devtools">
+          <img height="30" valign="middle" src="./docs/nuxt.svg" />
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/google/litmus">
+          <img height="40" valign="middle" src="./docs/google.svg" />
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/MRC-Epid-it24/intake24">
+          <img height="30" valign="middle" src="./docs/mrc_tu_cambridge.png" />
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/RockChinQ/LangBot">
+          <img height="40" valign="middle" src="./docs/langbot.png" />
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+> [!Important]
+>
+> json-editor-vue had surpassed [1 million downloads](https://npm.chart.dev/json-editor-vue): <a href="https://npm-stat.com/charts.html?package=json-editor-vue&from=2020-07-15"><img alt="npm downloads" src="https://img.shields.io/npm/dm/json-editor-vue?label=npm&color=cb3837"></a> <a href="https://www.jsdelivr.com/package/npm/json-editor-vue"><img alt="jsDelivr downloads" src="https://data.jsdelivr.com/v1/package/npm/json-editor-vue/badge?period=all&style=rounded"></a>
+>
+> While having a extremely dismal number of Stars: <a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=9f7be1&logo=github&style=flat"></a>
+>
+> Please consider [starring ⭐](https://github.com/cloydlau/json-editor-vue) or [donating](#donate) to support our ongoing maintenance if it helps: <a href="https://github.com/cloydlau/json-editor-vue/issues?q=is%3Aissue+is%3Aclosed"><img alt="GitHub issues closed" src="https://img.shields.io/github/issues-closed/cloydlau/json-editor-vue?logo=github"></a>
 
 <br>
 
@@ -1082,32 +1113,6 @@ import 'vanilla-jsoneditor/themes/jse-theme-dark.css'
 ## Changelog
 
 Detailed changes for each release are documented in the [release notes](https://github.com/cloydlau/json-editor-vue/releases)
-
-<br>
-
-## Cases
-
-<table>
-  <tbody>
-    <tr>
-      <td align="center">
-        <a href="https://github.com/google/litmus">
-          <img height="40" valign="middle" src="./docs/google.svg" />
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/nuxt/devtools">
-          <img height="30" valign="middle" src="./docs/nuxt.svg" />
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://pr.new">
-          Calling for more
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
 
 <br>
 
