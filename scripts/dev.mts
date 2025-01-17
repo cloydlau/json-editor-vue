@@ -59,10 +59,10 @@ async function dev() {
     return
   }
 
-  console.log(cyan('Fetching origin...'))
+  console.info(cyan('Fetching origin...'))
   spawn('git', ['pull'], { stdio: 'inherit' })
 
-  console.log(cyan(`Switching to Vue ${targetVersion}...`))
+  console.info(cyan(`Switching to Vue ${targetVersion}...`))
   const mod = await loadFile('./vite.config.ts')
 
   // imported 表示命名导入的值，默认导入是 default
@@ -140,7 +140,7 @@ async function dev() {
 
   if (isDepsChanged) {
     fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2))
-    console.log(cyan('Linting package.json...'))
+    console.info(cyan('Linting package.json...'))
     spawn('npx', ['eslint', './package.json', '--fix'], { stdio: 'inherit' })
     await installDependencies()
   }
@@ -149,14 +149,14 @@ async function dev() {
 
   async function installDependencies() {
     /* if (['darwin', 'linux'].includes(process.platform)) {
-      console.log(cyan('Checking pnpm version...'))
+      console.info(cyan('Checking pnpm version...'))
       const latestPNPMVersion = spawn.sync('npm', ['view', 'pnpm', 'version']).stdout.toString().trim()
       const currentPNPMVersion = spawn.sync('pnpm', ['-v']).stdout.toString().trim()
       // Mac 自带 curl，Linux 不一定，Windows 不支持指定 pnpm 版本
       if (latestPNPMVersion !== currentPNPMVersion) {
-        console.log(cyan('Upgrading pnpm...'))
+        console.info(cyan('Upgrading pnpm...'))
         try {
-          console.log(execSync(`curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=${latestPNPMVersion} sh -`).toString())
+          console.info(execSync(`curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=${latestPNPMVersion} sh -`).toString())
           // const curlProcess = spawn.sync('curl', ['-fsSL', 'https://get.pnpm.io/install.sh'], {
           //   env: { PNPM_VERSION: latestPNPMVersion },
           //   stdio: ['pipe', 'pipe', 'pipe'], // Redirect stdin, stdout, and stderr
@@ -172,27 +172,27 @@ async function dev() {
           //   })
           //
           //   if (shProcess.status === 0) {
-          //     console.log('pnpm installation successful.')
+          //     console.info('pnpm installation successful.')
           //   } else {
           //     console.error('pnpm installation failed.')
           //   }
           // } else {
           //   console.error('curl command failed.')
           // }
-          console.log(cyan('Setting registry...'))
+          console.info(cyan('Setting registry...'))
           spawn.sync('pnpm', ['config', 'set', 'registry', 'https://registry.npmmirror.com'], { stdio: 'inherit' })
-          // console.log(cyan('Installing node lts...'))
+          // console.info(cyan('Installing node lts...'))
           // spawn.sync('pnpm', ['env', 'use', '-g', 'lts'], { stdio: 'inherit' })
-          console.log(cyan('Installing global packages...'))
+          console.info(cyan('Installing global packages...'))
           spawn('pnpm', ['add', 'cnpm', '@antfu/ni', '-g'], { stdio: 'inherit' })
-          console.log(cyan('Deleting ./node_modules...'))
+          console.info(cyan('Deleting ./node_modules...'))
           await deleteAsync(['./node_modules'])
         } catch (e) {
 
         }
       }
     } */
-    console.log(cyan('Installing dependencies...'))
+    console.info(cyan('Installing dependencies...'))
     spawn.sync('pnpm', ['i'], { stdio: 'inherit' })
     spawn.sync('npx', ['vue-demi-switch', targetVersion === '2.6' ? '2' : targetVersion], { stdio: 'inherit' })
   }

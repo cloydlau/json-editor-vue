@@ -253,11 +253,11 @@ const JsonEditorVue = defineComponent({
           jsonEditor.value?.updateProps(
             Object.getOwnPropertyNames(defaultFunctionAttrs).length > 0
               ? conclude([newAttrs, defaultFunctionAttrs], {
-                camelizeObjectKeys: true,
-                mergeFunction,
-                mergeObject: 'shallow',
-                type: Object,
-              })
+                  camelizeObjectKeys: true,
+                  mergeFunction,
+                  mergeObject: 'shallow',
+                  type: Object,
+                })
               : newAttrs,
           )
         },

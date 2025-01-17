@@ -1,5 +1,0 @@
-├─ MIT: 88
-├─ Apache-2.0: 7
-├─ BSD-2-Clause: 3
-├─ BSD-3-Clause: 2
-└─ ISC: 2
