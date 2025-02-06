@@ -84,7 +84,7 @@
 
 > [!Important]
 >
-> json-editor-vue had surpassed [1 million downloads](https://npm.chart.dev/json-editor-vue): <a href="https://npm-stat.com/charts.html?package=json-editor-vue&from=2020-07-15"><img alt="npm downloads" src="https://img.shields.io/npm/dm/json-editor-vue?label=npm&color=cb3837"></a> <a href="https://www.jsdelivr.com/package/npm/json-editor-vue"><img alt="jsDelivr downloads" src="https://data.jsdelivr.com/v1/package/npm/json-editor-vue/badge?period=all&style=rounded"></a>
+> json-editor-vue had surpassed [2 million downloads](https://npm.chart.dev/json-editor-vue): <a href="https://npm-stat.com/charts.html?package=json-editor-vue&from=2020-07-15"><img alt="npm downloads" src="https://img.shields.io/npm/dm/json-editor-vue?label=npm&color=cb3837"></a> <a href="https://www.jsdelivr.com/package/npm/json-editor-vue"><img alt="jsDelivr downloads" src="https://data.jsdelivr.com/v1/package/npm/json-editor-vue/badge?period=all&style=rounded"></a>
 >
 > While having a extremely dismal number of Stars: <a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=9f7be1&logo=github&style=flat"></a>
 >
