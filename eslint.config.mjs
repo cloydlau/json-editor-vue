@@ -47,7 +47,14 @@ export default antfu(
       },
     },
   },
-  [nounsanitized.configs.recommended], // 代码安全性检测
-  // mimic ESLintRC-style extends
-  ...compat.extends('plugin:financial/recommended'), // 避免财务计算
+  [nounsanitized.configs.recommended], // Code Security Check
+  /**
+   * mimic ESLintRC-style extends
+   *
+   * This rule is used to avoid financial calculations
+   * For non-financial calculation cases, you can add the comments below to ignore:
+   *   // Reason for ignoring: Not related to finance, calculating xxx
+   *   // eslint-disable-next-line financial/no-division (or financial/no-float-calculation)
+   */
+  ...compat.extends('plugin:financial/recommended'),
 )

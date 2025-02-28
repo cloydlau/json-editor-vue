@@ -94,74 +94,6 @@
 
 ## Install
 
-### Dependencies
-
-As of v0.11, it's no longer necessary to explicitly install the [vanilla-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) dependency.
-
-#### Update Dependency Versions
-
-```shell
-npm rm json-editor-vue && npm i json-editor-vue
-```
-
-> [!Warning]
->
-> Not working for major version bump, fot that you can [specify dependency versions](#specify-dependency-versions) (if necessary)
-
-#### Specify Dependency Versions
-
-```json5
-// package.json
-{
-  // npm/cnpm/bun
-  "overrides": {
-    "vanilla-jsoneditor": "***",
-    "vue-demi": "***"
-  },
-  // yarn/bun
-  "resolutions": {
-    "vanilla-jsoneditor": "***",
-    "vue-demi": "***"
-  },
-  // pnpm
-  "pnpm": {
-    "overrides": {
-      "vanilla-jsoneditor": "***",
-      "vue-demi": "***"
-    }
-  }
-}
-```
-
-With Scope:
-
-```json5
-// package.json
-{
-  // npm/cnpm/bun
-  "overrides": {
-    "json-editor-vue": {
-      "vanilla-jsoneditor": "***",
-      "vue-demi": "***"
-    }
-  },
-  // yarn/bun
-  "resolutions": {
-    "json-editor-vue/vanilla-jsoneditor": "***",
-    "json-editor-vue/vue-demi": "***"
-  },
-  // pnpm
-  "pnpm": {
-    "overrides": {
-      "json-editor-vue>vanilla-jsoneditor": "***",
-      "json-editor-vue>vue-demi": "***"
-    }
-  }
-}
-```
-
-<br>
-
 ### Vue 3
 
 ```shell
@@ -218,7 +150,7 @@ createApp()
           "vue": "https://cdn.jsdelivr.net/npm/vue/dist/vue.esm-browser.prod.js",
           "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v3/index.mjs",
           "vanilla-jsoneditor": "https://cdn.jsdelivr.net/npm/vanilla-jsoneditor",
-          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.17/dist/json-editor-vue.mjs"
+          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.18/dist/json-editor-vue.mjs"
         }
       }
     </script>
@@ -262,7 +194,7 @@ createApp()
     <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
     <!-- TODO -->
     <script src="./vanilla-jsoneditor.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.18"></script>
     <script>
       const { createApp, ref } = Vue
 
@@ -334,7 +266,7 @@ Vue.use(JsonEditorVue, {
           "vue": "https://cdn.jsdelivr.net/npm/vue@2/dist/vue.esm.browser.min.js",
           "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v2.7/index.mjs",
           "vanilla-jsoneditor": "https://cdn.jsdelivr.net/npm/vanilla-jsoneditor",
-          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.17/dist/json-editor-vue.mjs"
+          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.18/dist/json-editor-vue.mjs"
         }
       }
     </script>
@@ -379,7 +311,7 @@ Vue.use(JsonEditorVue, {
     <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
     <!-- TODO -->
     <script src="./vanilla-jsoneditor.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.18"></script>
     <script>
       new Vue({
         components: { JsonEditorVue },
@@ -468,7 +400,7 @@ Vue.use(JsonEditorVue, {
           "@vue/composition-api/dist/vue-composition-api.mjs": "https://cdn.jsdelivr.net/npm/@vue/composition-api/dist/vue-composition-api.mjs",
           "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v2/index.mjs",
           "vanilla-jsoneditor": "https://cdn.jsdelivr.net/npm/vanilla-jsoneditor",
-          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.17/dist/json-editor-vue.mjs"
+          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.18/dist/json-editor-vue.mjs"
         }
       }
     </script>
@@ -514,7 +446,7 @@ Vue.use(JsonEditorVue, {
     <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
     <!-- TODO -->
     <script src="./vanilla-jsoneditor.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.18"></script>
     <script>
       const { createApp, ref } = VueCompositionAPI
 
@@ -961,6 +893,72 @@ module.exports = {
       },
     ],
   },
+}
+```
+
+<br>
+
+### Update Dependency Versions
+
+```shell
+npm rm json-editor-vue && npm i json-editor-vue
+```
+
+> [!Warning]
+>
+> Not working for major version bump, fot that you can [specify dependency versions](#specify-dependency-versions) (if necessary)
+
+<br>
+
+### Specify Dependency Versions
+
+```json5
+// package.json
+{
+  // npm/cnpm/bun
+  "overrides": {
+    "vanilla-jsoneditor": "***",
+    "vue-demi": "***"
+  },
+  // yarn/bun
+  "resolutions": {
+    "vanilla-jsoneditor": "***",
+    "vue-demi": "***"
+  },
+  // pnpm
+  "pnpm": {
+    "overrides": {
+      "vanilla-jsoneditor": "***",
+      "vue-demi": "***"
+    }
+  }
+}
+```
+
+With Scope:
+
+```json5
+// package.json
+{
+  // npm/cnpm/bun
+  "overrides": {
+    "json-editor-vue": {
+      "vanilla-jsoneditor": "***",
+      "vue-demi": "***"
+    }
+  },
+  // yarn/bun
+  "resolutions": {
+    "json-editor-vue/vanilla-jsoneditor": "***",
+    "json-editor-vue/vue-demi": "***"
+  },
+  // pnpm
+  "pnpm": {
+    "overrides": {
+      "json-editor-vue>vanilla-jsoneditor": "***",
+      "json-editor-vue>vue-demi": "***"
+    }
+  }
 }
 ```
 

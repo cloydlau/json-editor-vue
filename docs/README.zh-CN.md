@@ -94,72 +94,6 @@
 
 ## 安装
 
-### 依赖
-
-从 v0.11 开始，不再必须显式安装依赖 [vanilla-jsoneditor](https://github.com/josdejong/svelte-jsoneditor)
-
-#### 更新依赖版本
-
-```shell
-npm rm json-editor-vue && npm i json-editor-vue
-```
-
-> [!Warning]
->
-> 无法升级大版本号，你可以通过[指定依赖版本](#指定依赖版本)来升级大版本（如有必要）
-
-#### 指定依赖版本
-
-```json5
-// package.json
-{
-  // npm/cnpm/bun
-  "overrides": {
-    "vanilla-jsoneditor": "***",
-    "vue-demi": "***"
-  },
-  // yarn/bun
-  "resolutions": {
-    "vanilla-jsoneditor": "***",
-    "vue-demi": "***"
-  },
-  // pnpm
-  "pnpm": {
-    "overrides": {
-      "vanilla-jsoneditor": "***",
-      "vue-demi": "***"
-    }
-  }
-}
-```
-
-缩小作用范围：
-
-```json5
-// package.json
-{
-  // npm/cnpm/bun
-  "overrides": {
-    "json-editor-vue": {
-      "vanilla-jsoneditor": "***",
-      "vue-demi": "***"
-    }
-  },
-  // yarn/bun
-  "resolutions": {
-    "json-editor-vue/vanilla-jsoneditor": "***",
-    "json-editor-vue/vue-demi": "***"
-  },
-  // pnpm
-  "pnpm": {
-    "overrides": {
-      "json-editor-vue>vanilla-jsoneditor": "***",
-      "json-editor-vue>vue-demi": "***"
-    }
-  }
-}
-```
-
 ### Vue 3
 
 ```shell
@@ -216,7 +150,7 @@ createApp()
           "vue": "https://cdn.jsdelivr.net/npm/vue/dist/vue.esm-browser.prod.js",
           "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v3/index.mjs",
           "vanilla-jsoneditor": "https://cdn.jsdelivr.net/npm/vanilla-jsoneditor",
-          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.17/dist/json-editor-vue.mjs"
+          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.18/dist/json-editor-vue.mjs"
         }
       }
     </script>
@@ -260,7 +194,7 @@ createApp()
     <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
     <!-- TODO -->
     <script src="./vanilla-jsoneditor.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.18"></script>
     <script>
       const { createApp, ref } = Vue
 
@@ -332,7 +266,7 @@ Vue.use(JsonEditorVue, {
           "vue": "https://cdn.jsdelivr.net/npm/vue@2/dist/vue.esm.browser.min.js",
           "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v2.7/index.mjs",
           "vanilla-jsoneditor": "https://cdn.jsdelivr.net/npm/vanilla-jsoneditor",
-          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.17/dist/json-editor-vue.mjs"
+          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.18/dist/json-editor-vue.mjs"
         }
       }
     </script>
@@ -377,7 +311,7 @@ Vue.use(JsonEditorVue, {
     <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
     <!-- TODO -->
     <script src="./vanilla-jsoneditor.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.18"></script>
     <script>
       new Vue({
         components: { JsonEditorVue },
@@ -466,7 +400,7 @@ Vue.use(JsonEditorVue, {
           "@vue/composition-api/dist/vue-composition-api.mjs": "https://cdn.jsdelivr.net/npm/@vue/composition-api/dist/vue-composition-api.mjs",
           "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/v2/index.mjs",
           "vanilla-jsoneditor": "https://cdn.jsdelivr.net/npm/vanilla-jsoneditor",
-          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.17/dist/json-editor-vue.mjs"
+          "json-editor-vue": "https://cdn.jsdelivr.net/npm/json-editor-vue@0.18/dist/json-editor-vue.mjs"
         }
       }
     </script>
@@ -512,7 +446,7 @@ Vue.use(JsonEditorVue, {
     <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
     <!-- TODO -->
     <script src="./vanilla-jsoneditor.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/json-editor-vue@0.18"></script>
     <script>
       const { createApp, ref } = VueCompositionAPI
 
@@ -959,6 +893,72 @@ module.exports = {
       },
     ],
   },
+}
+```
+
+<br>
+
+### 更新依赖版本
+
+```shell
+npm rm json-editor-vue && npm i json-editor-vue
+```
+
+> [!Warning]
+>
+> 无法升级大版本号，你可以通过[指定依赖版本](#指定依赖版本)来升级大版本（如有必要）
+
+<br>
+
+### 指定依赖版本
+
+```json5
+// package.json
+{
+  // npm/cnpm/bun
+  "overrides": {
+    "vanilla-jsoneditor": "***",
+    "vue-demi": "***"
+  },
+  // yarn/bun
+  "resolutions": {
+    "vanilla-jsoneditor": "***",
+    "vue-demi": "***"
+  },
+  // pnpm
+  "pnpm": {
+    "overrides": {
+      "vanilla-jsoneditor": "***",
+      "vue-demi": "***"
+    }
+  }
+}
+```
+
+缩小作用范围：
+
+```json5
+// package.json
+{
+  // npm/cnpm/bun
+  "overrides": {
+    "json-editor-vue": {
+      "vanilla-jsoneditor": "***",
+      "vue-demi": "***"
+    }
+  },
+  // yarn/bun
+  "resolutions": {
+    "json-editor-vue/vanilla-jsoneditor": "***",
+    "json-editor-vue/vue-demi": "***"
+  },
+  // pnpm
+  "pnpm": {
+    "overrides": {
+      "json-editor-vue>vanilla-jsoneditor": "***",
+      "json-editor-vue>vue-demi": "***"
+    }
+  }
 }
 ```
 

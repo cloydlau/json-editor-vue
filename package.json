@@ -2,7 +2,7 @@
   "name": "json-editor-vue",
   "PascalCasedName": "JsonEditorVue",
   "type": "commonjs",
-  "version": "0.17.3",
+  "version": "0.18.0",
   "private": false,
   "description": "Vue and Nuxt 2/3 isomorphic JSON editor, viewer, formatter and validator.",
   "author": {
@@ -69,7 +69,6 @@
     "typegen": "npx tsup --entry.json-editor-vue src/index.ts --format esm,cjs --cjsInterop --clean --dts-only",
     "build": "vite build && pnpm typegen",
     "release": "esno ./scripts/release.mts",
-    "sync-to-cnpm": "npx cnpm sync && curl -L https://npmmirror.com/sync/json-editor-vue",
     "lint": "eslint \"**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,json,md,html,css,scss,sass}\"",
     "lint:fix": "eslint \"**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,json,md,html,css,scss,sass}\" --fix",
     "preinstall": "node -e \"if (process.env.INIT_CWD === process.cwd()) { process.exit(1) }\" || npx only-allow pnpm && pnpm config set registry https://registry.npmmirror.com",
