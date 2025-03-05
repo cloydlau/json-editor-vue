@@ -71,8 +71,8 @@
     "release": "esno ./scripts/release.mts",
     "lint": "eslint \"**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,json,md,html,css,scss,sass}\"",
     "lint:fix": "eslint \"**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,json,md,html,css,scss,sass}\" --fix",
-    "preinstall": "node -e \"if (process.env.INIT_CWD === process.cwd()) { process.exit(1) }\" || npx only-allow pnpm && pnpm config set registry https://registry.npmmirror.com",
-    "postinstall": "node -e \"if (process.env.INIT_CWD === process.cwd()) { process.exit(1) }\" || npx simple-git-hooks && git config core.hooksPath .git/hooks/ && npx license-checker --summary --out ./licenses.txt"
+    "preinstall": "node -e \"if (process.env.INIT_CWD === process.cwd()) { process.exit(1) }\" || (npx only-allow pnpm && pnpm config set registry https://registry.npmmirror.com)",
+    "postinstall": "node -e \"if (process.env.INIT_CWD === process.cwd()) { process.exit(1) }\" || (npx simple-git-hooks && git config core.hooksPath .git/hooks/ && npx license-checker --summary --out ./licenses.txt)"
   },
   "peerDependencies": {
     "@vue/composition-api": ">=1",
