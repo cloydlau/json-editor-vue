@@ -1015,7 +1015,7 @@ FAQ: 如何在 text 模式下保持绑定值是 parsed JSON？
 >
 > - 对于大型 JSON 文档性能不佳
 > - 请根据你的 JSON 大小来调整 `debounce` 的值
-> - 输入值无效时会输出空
+> - 输入值无效时会输出 `undefined`
 
 ```vue
 <script setup>

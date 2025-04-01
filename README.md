@@ -1015,7 +1015,7 @@ FAQ: How to keep the value as parsed JSON in text mode?
 >
 > - Not performant for large JSON documents.
 > - Adjust the `debounce` value based on the size of your JSON.
-> - Will output empty value when the input value is invalid.
+> - Will output `undefined` when the input value is invalid.
 
 ```vue
 <script setup>
