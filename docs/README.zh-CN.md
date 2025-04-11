@@ -69,6 +69,11 @@
         </a>
       </td>
       <td align="center">
+        <a href="https://github.com/TencentBlueKing/blueking-paas">
+          <img height="20" valign="middle" src="./tencent.png" />
+        </a>
+      </td>
+      <td align="center">
         <a href="https://github.com/MRC-Epid-it24/intake24">
           <img height="30" valign="middle" src="./mrc_tu_cambridge.png" />
         </a>
