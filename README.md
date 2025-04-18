@@ -56,30 +56,40 @@
 ## Cases
 
 <table>
-  <tbody>
-    <tr>
-      <td align="center">
-        <a href="https://github.com/nuxt/devtools">
-          <img height="30" valign="middle" src="./docs/nuxt.svg" />
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/google/litmus">
-          <img height="40" valign="middle" src="./docs/google.svg" />
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/MRC-Epid-it24/intake24">
-          <img height="30" valign="middle" src="./docs/mrc_tu_cambridge.png" />
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/RockChinQ/LangBot">
-          <img height="40" valign="middle" src="./docs/langbot.png" />
-        </a>
-      </td>
-    </tr>
-  </tbody>
+  <tr align="center">
+    <td>
+      <a href="https://github.com/nuxt/devtools">
+        <img height="30" valign="middle" src="./docs/nuxt.svg" />
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/google/litmus">
+        <img height="40" valign="middle" src="./docs/google.svg" />
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/mozilla-ai/lumigator">
+        <img height="35" valign="middle" src="./docs/mozilla.svg" />
+      </a>
+    </td>
+  </tr>
+  <tr align="center">
+    <td>
+      <a href="https://github.com/TencentBlueKing/blueking-paas">
+        <img height="20" valign="middle" src="./docs/tencent.png" />
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/MRC-Epid-it24/intake24">
+        <img height="30" valign="middle" src="./docs/mrc_tu_cambridge.png" />
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/RockChinQ/LangBot">
+        <img height="35" valign="middle" src="./docs/langbot.png" />
+      </a>
+    </td>
+  </tr>
 </table>
 
 > [!Important]
