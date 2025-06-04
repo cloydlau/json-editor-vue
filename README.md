@@ -977,13 +977,13 @@ With Scope:
 
 ## Props
 
-| Name                                                   | Description                                                                                   | Type    | Default     |
-| ------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ------- | ----------- |
-| v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | binding value                                                                                 | any     |             |
-| mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | edit mode                                                                                     | `Mode`  | `Mode.tree` |
-| debounce                                               | debounce delay to update the binding value when typing in text mode, in milliseconds          | number  | `300`       |
-| stringified                                            | whether to keep the binding value as stringified JSON in text mode                            | boolean | `true`      |
-| ...                                                    | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |         |             |
+| Name                                                   | Description                                                                                   | Type                                 | Default     |
+| ------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ------------------------------------ | ----------- |
+| v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | binding value                                                                                 | any                                  |             |
+| mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | edit mode                                                                                     | `Mode` /<br>you can use string in JS | `Mode.tree` |
+| debounce                                               | debounce delay to update the binding value when typing in text mode, in milliseconds          | number                               | `300`       |
+| stringified                                            | whether to keep the binding value as stringified JSON in text mode                            | boolean                              | `true`      |
+| ...                                                    | properties of [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) |                                      |             |
 
 ### parsed JSON vs. stringified JSON
 
@@ -1037,6 +1037,10 @@ import { Mode } from 'vanilla-jsoneditor'
   <JsonEditorVue :mode="Mode.text" :stringified="false" />
 </template>
 ```
+
+> [!Tip]
+>
+> You can use `mode="text"` in JavaScript context without installing vanilla-jsoneditor.
 
 ### Naming convention
 

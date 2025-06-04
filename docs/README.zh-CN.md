@@ -977,13 +977,13 @@ npm rm json-editor-vue && npm i json-editor-vue
 
 ## 属性
 
-| 名称                                                   | 说明                                                                                   | 类型    | 默认值      |
-| ------------------------------------------------------ | -------------------------------------------------------------------------------------- | ------- | ----------- |
-| v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | 绑定值                                                                                 | any     |             |
-| mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | 编辑模式                                                                               | `Mode`  | `Mode.tree` |
-| debounce                                               | 在 text 模式下输入时更新绑定值的去抖延迟 (毫秒)                                        | number  | `300`       |
-| stringified                                            | 在 text 模式下保持绑定值为 stringified JSON                                            | boolean | `true`      |
-| ...                                                    | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的属性 |         |             |
+| 名称                                                   | 说明                                                                                   | 类型                                | 默认值      |
+| ------------------------------------------------------ | -------------------------------------------------------------------------------------- | ----------------------------------- | ----------- |
+| v-model /<br>modelValue (Vue 3) /<br>value (Vue 2)     | 绑定值                                                                                 | any                                 |             |
+| mode /<br>v-model:mode (Vue 3) /<br>:mode.sync (Vue 2) | 编辑模式                                                                               | `Mode` /<br>可以在 JS 中使用 string | `Mode.tree` |
+| debounce                                               | 在 text 模式下输入时更新绑定值的去抖延迟 (毫秒)                                        | number                              | `300`       |
+| stringified                                            | 在 text 模式下保持绑定值为 stringified JSON                                            | boolean                             | `true`      |
+| ...                                                    | [svelte-jsoneditor](https://github.com/josdejong/svelte-jsoneditor/#properties) 的属性 |                                     |             |
 
 ### parsed JSON vs. stringified JSON
 
@@ -1037,6 +1037,10 @@ import { Mode } from 'vanilla-jsoneditor'
   <JsonEditorVue :mode="Mode.text" :stringified="false" />
 </template>
 ```
+
+> [!Tip]
+>
+> 可以在 JavaScript 上下文中使用 `mode="text"` 而无需安装 vanilla-jsoneditor.
 
 ### 命名惯例
 
