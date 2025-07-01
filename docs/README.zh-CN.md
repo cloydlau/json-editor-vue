@@ -60,35 +60,43 @@
   <tr align="center">
     <td>
       <a href="https://github.com/nuxt/devtools">
-        <img height="30" valign="middle" src="./nuxt.svg" />
+        <img height="30" valign="middle" src="./cases/nuxt.svg" />
       </a>
     </td>
     <td>
       <a href="https://github.com/google/litmus">
-        <img height="40" valign="middle" src="./google.svg" />
+        <img height="40" valign="middle" src="./cases/google.svg" />
       </a>
     </td>
     <td>
       <a href="https://github.com/mozilla-ai/lumigator">
-        <img height="35" valign="middle" src="./mozilla.svg" />
+        <img height="35" valign="middle" src="./cases/mozilla.svg" />
       </a>
     </td>
   </tr>
   <tr align="center">
     <td>
       <a href="https://github.com/TencentBlueKing/blueking-paas">
-        <img height="20" valign="middle" src="./tencent.png" />
+        <img height="20" valign="middle" src="./cases/tencent.png" />
       </a>
     </td>
     <td>
       <a href="https://github.com/MRC-Epid-it24/intake24">
-        <img height="30" valign="middle" src="./mrc_tu_cambridge.png" />
+        <img height="30" valign="middle" src="./cases/mrc_tu_cambridge.png" />
       </a>
     </td>
     <td>
-      <a href="https://github.com/RockChinQ/LangBot">
-        <img height="35" valign="middle" src="./langbot.png" />
-      </a>
+      <a href="https://github.com/RockChinQ/LangBot"><img height="35" valign="middle" src="./cases/langbot.png" /></a>
+      <a href="https://github.com/RockChinQ/LangBot"> LangBot</a>
+    </td>
+  </tr>
+  <tr align="center">
+    <td>
+      <a href="https://github.com/mealie-recipes/mealie"><img height="30" valign="middle" src="./cases/mealie.png" /></a>
+      <a href="https://github.com/mealie-recipes/mealie"> Mealie</a>
+    </td>
+    <td>
+      <a href="https://github.com/sharevb/it-tools"><img height="50" valign="middle" src="./cases/it-tools.png" /></a>
     </td>
   </tr>
 </table>
