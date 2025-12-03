@@ -5,7 +5,7 @@
 </h1>
 
 <p align="center">
-  Vue and Nuxt 2/3 isomorphic JSON editor, viewer, formatter and validator.
+  Vue 2/3 isomorphic JSON editor, viewer, formatter and validator.
   <br>
   English | <a href="./docs/README.zh-CN.md">简体中文</a>
 </p>
@@ -26,7 +26,7 @@
   <a href="https://github.com/antfu/eslint-config"><img alt="code style" src="https://antfu.me/badge-code-style.svg"></a>
   <a href="https://conventionalcommits.org"><img alt="conventional commits" src="https://img.shields.io/badge/commits-Conventional-FE5196.svg?logo=conventionalcommits"></a>
   <a href="https://semantic-release.gitbook.io"><img alt="semantic release" src="https://img.shields.io/badge/release-semantic-e10079?logo=semantic-release"></a>
-  <a href="https://arethetypeswrong.github.io/?p=json-editor-vue"><img alt="attw" src="https://img.shields.io/badge/are_the_types_wrong%3F-analyze-3178C6?logo=typescript&logoColor=white"></a>
+  <a href="https://arethetypeswrong.github.io/?p=json-editor-vue"><img alt="attw" src="https://img.shields.io/badge/are_the_types_wrong%3F-check-3178C6?logo=typescript&logoColor=white"></a>
 </p>
 
 <img width="48.5%" src="https://raw.githubusercontent.com/cloydlau/json-editor-vue/main/docs/text-mode.png" alt="text mode">&nbsp;<img width="48.5%" src="https://raw.githubusercontent.com/cloydlau/json-editor-vue/main/docs/tree-mode.png" alt="table mode">
@@ -46,7 +46,7 @@
   - 2-way binding: [parsed or stringified JSON](#parsed-json-vs-stringified-json)
 - 🤸 Flexible
   - Vue 2.6/2.7/3 isomorphic
-  - Support SSR, Nuxt 2/3 isomorphic
+  - Support SSR, Nuxt 2/3/4 isomorphic
   - Support Vite, Vue CLI, webpack, CDN...
   - Support microfrontends
   - Support PC & mobile devices
@@ -86,24 +86,43 @@
       </a>
     </td>
     <td>
-      <a href="https://github.com/RockChinQ/LangBot"><img height="35" valign="middle" src="./docs/cases/langbot.png" /></a>
-      <a href="https://github.com/RockChinQ/LangBot"> LangBot</a>
+      <a href="https://github.com/sharevb/it-tools"><img height="50" valign="middle" src="./docs/cases/it-tools.png" /></a>
     </td>
   </tr>
   <tr align="center">
     <td>
-      <a href="https://github.com/mealie-recipes/mealie"><img height="30" valign="middle" src="./docs/cases/mealie.png" /></a>
+      <a href="https://github.com/RockChinQ/LangBot"><img height="35" valign="middle" src="./docs/cases/langbot.png" /></a>
+      <a href="https://github.com/RockChinQ/LangBot"> LangBot</a>
+    </td>
+    <td>
+      <a href="https://github.com/mealie-recipes/mealie"><img height="35" valign="middle" src="./docs/cases/mealie.png" /></a>
       <a href="https://github.com/mealie-recipes/mealie"> Mealie</a>
     </td>
     <td>
-      <a href="https://github.com/sharevb/it-tools"><img height="50" valign="middle" src="./docs/cases/it-tools.png" /></a>
+      <a href="https://github.com/arkime/arkime"><img height="30" valign="middle" src="./docs/cases/Arkime.png" /></a>
+    </td>
+  </tr>
+  <tr align="center">
+    <td>
+      <a href="https://github.com/OpenBankProject/API-Explorer-II"><img height="30" valign="middle" src="./docs/cases/OBP.png" /></a>
+    </td>
+    <td>
+      <a href="https://github.com/opea-project/GenAIEval"><img height="40" valign="middle" src="./docs/cases/opea.png" /></a>
+    </td>
+    <td>
+      <a href="https://github.com/OpenGeoscience/geoinsight"><img height="30" valign="middle" src="./docs/cases/OpenGeoscience.png" /></a>
+    </td>
+  </tr>
+  <tr align="center">
+    <td>
+      <a href="https://github.com/MISP/MISP-Fleet-Commander"><img height="40" valign="middle" src="./docs/cases/misp.png" /></a>
     </td>
   </tr>
 </table>
 
 > [!Important]
 >
-> json-editor-vue had surpassed [2 million downloads](https://npm.chart.dev/json-editor-vue): <a href="https://npm-stat.com/charts.html?package=json-editor-vue&from=2020-07-15"><img alt="npm downloads" src="https://img.shields.io/npm/dm/json-editor-vue?label=npm&color=cb3837"></a> <a href="https://www.jsdelivr.com/package/npm/json-editor-vue"><img alt="jsDelivr downloads" src="https://data.jsdelivr.com/v1/package/npm/json-editor-vue/badge?period=all&style=rounded"></a>
+> json-editor-vue had surpassed [3 million downloads](https://npm.chart.dev/json-editor-vue): <a href="https://npm-stat.com/charts.html?package=json-editor-vue&from=2020-07-15"><img alt="npm downloads" src="https://img.shields.io/npm/dm/json-editor-vue?label=npm&color=cb3837"></a> <a href="https://www.jsdelivr.com/package/npm/json-editor-vue"><img alt="jsDelivr downloads" src="https://data.jsdelivr.com/v1/package/npm/json-editor-vue/badge?period=all&style=rounded"></a>
 >
 > While having a extremely dismal number of Stars: <a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=9f7be1&logo=github&style=flat"></a>
 >
