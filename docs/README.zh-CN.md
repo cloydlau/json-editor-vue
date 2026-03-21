@@ -5,7 +5,7 @@
 </h1>
 
 <p align="center">
-  Vue 和 Nuxt 2/3 一体通用 JSON 编辑 & 预览 & 格式化 & 校验工具
+  Vue 2/3 一体通用 JSON 编辑 & 预览 & 格式化 & 校验工具
   <br>
   <a href="../README.md">English</a> | 简体中文
 </p>
@@ -26,7 +26,7 @@
   <a href="https://github.com/antfu/eslint-config"><img alt="code style" src="https://antfu.me/badge-code-style.svg"></a>
   <a href="https://conventionalcommits.org"><img alt="conventional commits" src="https://img.shields.io/badge/commits-Conventional-FE5196.svg?logo=conventionalcommits"></a>
   <a href="https://semantic-release.gitbook.io"><img alt="semantic release" src="https://img.shields.io/badge/release-semantic-e10079?logo=semantic-release"></a>
-  <a href="https://arethetypeswrong.github.io/?p=json-editor-vue"><img alt="attw" src="https://img.shields.io/badge/are_the_types_wrong%3F-analyze-3178C6?logo=typescript&logoColor=white"></a>
+  <a href="https://arethetypeswrong.github.io/?p=json-editor-vue"><img alt="attw" src="https://img.shields.io/badge/are_the_types_wrong%3F-check-3178C6?logo=typescript&logoColor=white"></a>
 </p>
 
 <img width="48.5%" src="https://raw.githubusercontent.com/cloydlau/json-editor-vue/main/docs/text-mode.png" alt="text mode">&nbsp;<img width="48.5%" src="https://raw.githubusercontent.com/cloydlau/json-editor-vue/main/docs/tree-mode.png" alt="table mode">
@@ -40,13 +40,13 @@
   - 反序列化默认使用 [destr](https://github.com/unjs/destr)，比 `JSON.parse` 快达 35.96 倍
 - 💪 强力
   - 预览、编辑、格式化、校验、压缩、排序、查询、过滤、转换、修复、高亮 JSON
-  - 7 种原始数据类型包括 [BigInt](#bigint) and `Symbol`
+  - 7 种原始数据类型包括 [BigInt](#bigint) 和 `Symbol`
   - 3 种编辑模式：文本模式 & 树形模式 & 表格模式
   - 2 种主题：浅色主题 & 深色主题
   - 双向绑定：[parsed 或 stringified JSON](#parsed-json-vs-stringified-json)
 - 🤸 灵活
   - Vue 2.6/2.7/3 一体通用
-  - 支持 SSR，Nuxt 2/3 一体通用
+  - 支持 SSR，Nuxt 2/3/4 一体通用
   - 支持 Vite，Vue CLI，webpack，CDN...
   - 支持微前端
   - 支持 PC 端 & 移动端
@@ -86,24 +86,43 @@
       </a>
     </td>
     <td>
-      <a href="https://github.com/RockChinQ/LangBot"><img height="35" valign="middle" src="./cases/langbot.png" /></a>
-      <a href="https://github.com/RockChinQ/LangBot"> LangBot</a>
+      <a href="https://github.com/sharevb/it-tools"><img height="50" valign="middle" src="./cases/it-tools.png" /></a>
     </td>
   </tr>
   <tr align="center">
     <td>
-      <a href="https://github.com/mealie-recipes/mealie"><img height="30" valign="middle" src="./cases/mealie.png" /></a>
+      <a href="https://github.com/RockChinQ/LangBot"><img height="35" valign="middle" src="./cases/langbot.png" /></a>
+      <a href="https://github.com/RockChinQ/LangBot"> LangBot</a>
+    </td>
+    <td>
+      <a href="https://github.com/mealie-recipes/mealie"><img height="35" valign="middle" src="./cases/mealie.png" /></a>
       <a href="https://github.com/mealie-recipes/mealie"> Mealie</a>
     </td>
     <td>
-      <a href="https://github.com/sharevb/it-tools"><img height="50" valign="middle" src="./cases/it-tools.png" /></a>
+      <a href="https://github.com/arkime/arkime"><img height="30" valign="middle" src="./cases/Arkime.png" /></a>
+    </td>
+  </tr>
+  <tr align="center">
+    <td>
+      <a href="https://github.com/OpenBankProject/API-Explorer-II"><img height="30" valign="middle" src="./cases/OBP.png" /></a>
+    </td>
+    <td>
+      <a href="https://github.com/opea-project/GenAIEval"><img height="40" valign="middle" src="./cases/opea.png" /></a>
+    </td>
+    <td>
+      <a href="https://github.com/OpenGeoscience/geoinsight"><img height="30" valign="middle" src="./cases/OpenGeoscience.png" /></a>
+    </td>
+  </tr>
+  <tr align="center">
+    <td>
+      <a href="https://github.com/MISP/MISP-Fleet-Commander"><img height="40" valign="middle" src="./cases/misp.png" /></a>
     </td>
   </tr>
 </table>
 
 > [!Important]
 >
-> json-editor-vue 已过[两百万下载](https://npm.chart.dev/json-editor-vue)：<a href="https://npm-stat.com/charts.html?package=json-editor-vue&from=2020-07-15"><img alt="npm downloads" src="https://img.shields.io/npm/dm/json-editor-vue?label=npm&color=cb3837"></a> <a href="https://www.jsdelivr.com/package/npm/json-editor-vue"><img alt="jsDelivr downloads" src="https://data.jsdelivr.com/v1/package/npm/json-editor-vue/badge?period=all&style=rounded"></a>
+> json-editor-vue 已过[四百万下载](https://npm.chart.dev/json-editor-vue)：<a href="https://npm-stat.com/charts.html?package=json-editor-vue&from=2020-07-15"><img alt="npm downloads" src="https://img.shields.io/npm/dm/json-editor-vue?label=npm&color=cb3837"></a> <a href="https://www.jsdelivr.com/package/npm/json-editor-vue"><img alt="jsDelivr downloads" src="https://data.jsdelivr.com/v1/package/npm/json-editor-vue/badge?period=all&style=rounded"></a>
 >
 > 与 Star 数量是天上地下的差别：<a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=9f7be1&logo=github&style=flat"></a>
 >
