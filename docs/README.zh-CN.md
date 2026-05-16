@@ -99,7 +99,8 @@
       <a href="https://github.com/mealie-recipes/mealie"> Mealie</a>
     </td>
     <td>
-      <a href="https://github.com/arkime/arkime"><img height="30" valign="middle" src="./cases/Arkime.png" /></a>
+      <a href="https://github.com/moyangzhan/langchain4j-aideepin"><img height="35" valign="middle" src="./cases/aideepin.png" /></a>
+      <a href="https://github.com/moyangzhan/langchain4j-aideepin"> LangChain4j-AIDeepin</a>
     </td>
   </tr>
   <tr align="center">
@@ -114,6 +115,9 @@
     </td>
   </tr>
   <tr align="center">
+    <td>
+      <a href="https://github.com/arkime/arkime"><img height="30" valign="middle" src="./cases/Arkime.png" /></a>
+    </td>
     <td>
       <a href="https://github.com/MISP/MISP-Fleet-Commander"><img height="40" valign="middle" src="./cases/misp.png" /></a>
     </td>
