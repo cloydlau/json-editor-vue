@@ -1,2 +1,10 @@
+shellEmulator: true
+trustPolicy: no-downgrade
 packages:
   - '*'
+allowBuilds:
+  core-js: true
+  esbuild: true
+  simple-git-hooks: true
+  vue-demi: true
+  vue-global-config: true
