@@ -109,16 +109,12 @@ describe('onChange / onChangeMode', () => {
       debounce: 0,
     })
 
-    vi.spyOn(wrapper.vm.jsonEditor, 'validate').mockReturnValue({
-      validationErrors: [{ path: [], message: 'invalid' }],
-    } as never)
-
     vi.useFakeTimers()
     capturedProps!.onChange!({ text: 'not-json' })
     await vi.advanceTimersByTimeAsync(0)
     await nextTick()
 
-    // text cleared, json left unset → emits undefined
+    // text 被清空且未解析出 json → emit undefined
     expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([undefined])
   })
 

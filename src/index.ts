@@ -115,8 +115,14 @@ const JsonEditorVue = defineComponent({
     const updateModelValue = (updatedContent: UpdatedContent) => {
       preventUpdatingContent.value = true
       if (!stringifiedComputed.value && updatedContent.text) {
-        if (jsonEditor.value && !jsonEditor.value.validate()) {
+        try {
+          // 校验并解析本次 onChange 的 text，而不是编辑器里可能尚未同步的内容
+          // 默认 destr 遇非法 JSON 不抛错，故先用 safeDestr 做校验
+          safeDestr(updatedContent.text)
           updatedContent.json = parse(updatedContent.text)
+        }
+        catch {
+          // 非法 JSON：不写入 json，最终 emit undefined
         }
         updatedContent.text = undefined
       }
@@ -173,8 +179,8 @@ const JsonEditorVue = defineComponent({
               mode: modeComputed.value,
               // Can not just pass one of parse and stringify
               parser: {
-                // SafeDestr is used by default so that it will not affect the result of jsonEditor.value.validate()
-                // When stringified is disabled, destr is used by default for better performance (destr is only called when JSON is valid)
+                // 编辑器用 safeDestr，避免非法 JSON 干扰 validate()
+                // stringified 关闭时，onChange 路径先 safeDestr 校验再走 parse（默认 destr）
                 parse: safeDestr,
                 stringify: JSON.stringify,
               },
