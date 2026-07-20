@@ -64,6 +64,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
+    "test:coverage:docs": "esno ./scripts/update-coverage-docs.mts",
     "test:ui": "vitest --ui",
     "doc": "vitepress dev --open /README",
     "typegen": "tsup --entry.json-editor-vue src/index.ts --format esm,cjs --cjsInterop --clean --dts-only",
@@ -103,6 +104,7 @@
     "@types/semver": "^7.7.1",
     "@vitejs/plugin-legacy": "^8.2.1",
     "@vitejs/plugin-vue": "^6.0.8",
+    "@vitest/coverage-v8": "^4.1.10",
     "@vitest/ui": "^4.1.10",
     "@vue/compiler-sfc": "^3.5.40",
     "@vue/test-utils": "^2.4.11",
@@ -143,7 +145,7 @@
     "zhlint": "^0.8.2"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm exec lint-staged",
+    "pre-commit": "pnpm exec lint-staged && pnpm run test:coverage:docs",
     "commit-msg": "pnpm exec commitlint --edit ${1}"
   },
   "lint-staged": {

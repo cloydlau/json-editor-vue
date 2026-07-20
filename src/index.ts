@@ -19,12 +19,14 @@ enum ModelValueProp {
   vue3 = 'modelValue',
   vue2 = 'value',
 }
+/* v8 ignore next -- Vue 2 path; tests run on Vue 3 */
 const modelValueProp: ModelValueProp = isVue3 ? ModelValueProp.vue3 : ModelValueProp.vue2
 
 enum UpdateModelValueEvent {
   vue3 = 'update:modelValue',
   vue2 = 'input',
 }
+/* v8 ignore next -- Vue 2 path; tests run on Vue 3 */
 const updateModelValueEvent = isVue3 ? UpdateModelValueEvent.vue3 : UpdateModelValueEvent.vue2
 
 const props = {
@@ -267,6 +269,7 @@ const JsonEditorVue = defineComponent({
       )
 
       // There's no `expose` in @vue/composition-api
+      /* v8 ignore start */
       if (!expose) {
         expose = (exposed: Record<string, any> | undefined): void => {
           for (const k in exposed) {
@@ -275,6 +278,7 @@ const JsonEditorVue = defineComponent({
         }
         expose({ jsonEditor })
       }
+      /* v8 ignore stop */
     })
 
     return () => h('div', { ref: 'jsonEditorRef' })
