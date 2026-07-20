@@ -1,11 +1,12 @@
 import fs from 'node:fs'
-import { cyan } from 'ansis'
+import { styleText } from 'node:util'
 import spawn from 'cross-spawn'
-// import { deleteAsync } from 'del'
 import prompts from 'prompts'
 import * as semver from 'semver'
 
 const docsPath = ['./README.md', './docs/README.zh-CN.md']
+
+const cyan = (text: string) => styleText('cyan', text)
 
 // 执行发版流程：校验、选择版本、生成变更日志、提交并发布到 npm
 async function release() {
@@ -186,7 +187,7 @@ async function release() {
     }
   }
 
-  const published = withStrippedPostinstall(() => {
+  withStrippedPostinstall(() => {
     console.info(cyan('\nPublishing to npm...'))
     if (spawn.sync('npm', ['publish', '--registry=https://registry.npmjs.org', '--access=public'], { stdio: 'inherit' }).status === 1) {
       console.info(cyan('\nPublish failed. You can retry manually:\n'))
@@ -202,9 +203,6 @@ async function release() {
     spawn('curl', ['-L', `https://npmmirror.com/sync/${name}`], { stdio: 'inherit' })
     return true
   })
-  if (!published) {
-    return
-  }
 }
 
 release().catch(console.error)

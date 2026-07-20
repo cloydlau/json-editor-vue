@@ -1,10 +1,13 @@
 shellEmulator: true
 trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 10080
 packages:
   - '*'
 allowBuilds:
+  '@code-inspector/core': true
   core-js: true
   esbuild: true
+  node-pty: true
   simple-git-hooks: true
   vue-demi: true
   vue-global-config: true

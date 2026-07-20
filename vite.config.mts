@@ -1,15 +1,17 @@
 import type { SemVer } from 'semver'
 import vue from '@vitejs/plugin-vue'
+import { codeInspectorPlugin } from 'code-inspector-plugin'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { parse } from 'semver'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import { defineConfig } from 'vite'
 import { version } from 'vue'
 import { name, PascalCasedName } from './package.json'
 
 const { major, minor } = parse(version) as SemVer
 
-export default {
+export default defineConfig({
   optimizeDeps: {
     exclude: ['vue-demi'],
   },
@@ -27,6 +29,8 @@ export default {
       output: {
         globals: {
           [name]: PascalCasedName,
+          'vanilla-jsoneditor': 'JSONEditor',
+          'vue-demi': 'VueDemi',
         },
       },
     },
@@ -35,28 +39,28 @@ export default {
     {
       name: 'html-transform',
       transformIndexHtml(html: string) {
-        return html.replace(/\{\{ NAME \}\}/, name).replace(/\{\{ VUE_VERSION \}\}/g, String(major === 3 ? major : `${major}.${minor}`))
+        return html
+          .replace(/\{\{ NAME \}\}/, name)
+          .replace(/\{\{ VUE_VERSION \}\}/g, String(major === 3 ? major : `${major}.${minor}`))
       },
     },
-    /* dts({
-      rollupTypes: true,
-    }), */
     AutoImport({
-      // targets to transform
       include: [
-        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+        /\.[tj]sx?$/,
         /\.vue$/,
-        /\.vue\?vue/, // .vue
-        /\.md$/, // .md
+        /\.vue\?vue/,
+        /\.md$/,
       ],
-      // global imports to register
       imports: [
-      // presets
         (major === 3 || (major === 2 && minor >= 7)) ? 'vue' : '@vue/composition-api',
       ],
     }),
     Components(),
     { ...visualizer(), apply: 'build' },
+    codeInspectorPlugin({
+      bundler: 'vite',
+      showSwitch: true,
+    }),
     vue(),
   ],
-}
+})

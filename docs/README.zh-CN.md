@@ -20,7 +20,7 @@
   <br>
   <a href="https://www.npmjs.com/package/json-editor-vue?activeTab=versions"><img alt="created at" src="https://img.shields.io/github/created-at/cloydlau/json-editor-vue?&color=1C404E&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgNDggNDgiPjxnIGZpbGw9Im5vbmUiPjxwYXRoIGQ9Ik04IDQwaDMyVjI0SDh6Ii8+PHBhdGggc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iNCIgZD0iTTQwIDQwSDhtMzIgMEg0aDRtMzIgMGg0bS00IDBWMjRIOHYxNiIvPjxwYXRoIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjQiIGQ9Im00MCAzNGwtNC0ybC00IDJsLTQtMmwtNCAybC00LTJsLTQgMmwtNC0ybC00IDJtMjQtMTB2LTltLTggOXYtOW0tOCA5di05bTE2LTVWOG0tOCAyVjhtLTggMlY4TTggMjR2MTZtMzItMTZ2MTYiLz48L2c+PC9zdmc+"></a>
   <a href="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml"><img alt="build status" src="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml/badge.svg?branch=main"></a>
-  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue?ref=badge_shield&issueType=license" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue.svg?type=shield&issueType=license"/></a>
+  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue?ref=badge_shield&issueType=license"><img alt="FOSSA Status" src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue.svg?type=shield&issueType=license"/></a>
   <a href="https://bundlejs.com/?q=json-editor-vue"><img alt="minzipped size" src="https://deno.bundlejs.com/?q=json-editor-vue&badge&badge-style=flat"></a>
   <br>
   <a href="https://github.com/antfu/eslint-config"><img alt="code style" src="https://antfu.me/badge-code-style.svg"></a>
@@ -60,66 +60,66 @@
   <tr align="center">
     <td>
       <a href="https://github.com/nuxt/devtools">
-        <img height="30" valign="middle" src="./cases/nuxt.svg" />
+        <img height="30" valign="middle" src="./cases/nuxt.svg" alt="Nuxt" />
       </a>
     </td>
     <td>
       <a href="https://github.com/google/litmus">
-        <img height="40" valign="middle" src="./cases/google.svg" />
+        <img height="40" valign="middle" src="./cases/google.svg" alt="Google" />
       </a>
     </td>
     <td>
       <a href="https://github.com/mozilla-ai/lumigator">
-        <img height="35" valign="middle" src="./cases/mozilla.svg" />
+        <img height="35" valign="middle" src="./cases/mozilla.svg" alt="Mozilla" />
       </a>
     </td>
   </tr>
   <tr align="center">
     <td>
       <a href="https://github.com/TencentBlueKing/blueking-paas">
-        <img height="20" valign="middle" src="./cases/tencent.png" />
+        <img height="20" valign="middle" src="./cases/tencent.png" alt="Tencent BlueKing" />
       </a>
     </td>
     <td>
       <a href="https://github.com/MRC-Epid-it24/intake24">
-        <img height="30" valign="middle" src="./cases/mrc_tu_cambridge.png" />
+        <img height="30" valign="middle" src="./cases/mrc_tu_cambridge.png" alt="MRC Epidemiology Unit / University of Cambridge" />
       </a>
     </td>
     <td>
-      <a href="https://github.com/sharevb/it-tools"><img height="50" valign="middle" src="./cases/it-tools.png" /></a>
+      <a href="https://github.com/sharevb/it-tools"><img height="50" valign="middle" src="./cases/it-tools.png" alt="IT Tools" /></a>
     </td>
   </tr>
   <tr align="center">
     <td>
-      <a href="https://github.com/RockChinQ/LangBot"><img height="35" valign="middle" src="./cases/langbot.png" /></a>
+      <a href="https://github.com/RockChinQ/LangBot"><img height="35" valign="middle" src="./cases/langbot.png" alt="LangBot" /></a>
       <a href="https://github.com/RockChinQ/LangBot"> LangBot</a>
     </td>
     <td>
-      <a href="https://github.com/mealie-recipes/mealie"><img height="35" valign="middle" src="./cases/mealie.png" /></a>
+      <a href="https://github.com/mealie-recipes/mealie"><img height="35" valign="middle" src="./cases/mealie.png" alt="Mealie" /></a>
       <a href="https://github.com/mealie-recipes/mealie"> Mealie</a>
     </td>
     <td>
-      <a href="https://github.com/moyangzhan/langchain4j-aideepin"><img height="35" valign="middle" src="./cases/aideepin.png" /></a>
+      <a href="https://github.com/moyangzhan/langchain4j-aideepin"><img height="35" valign="middle" src="./cases/aideepin.png" alt="LangChain4j-AIDeepin" /></a>
       <a href="https://github.com/moyangzhan/langchain4j-aideepin"> LangChain4j-AIDeepin</a>
     </td>
   </tr>
   <tr align="center">
     <td>
-      <a href="https://github.com/OpenBankProject/API-Explorer-II"><img height="30" valign="middle" src="./cases/OBP.png" /></a>
+      <a href="https://github.com/OpenBankProject/API-Explorer-II"><img height="30" valign="middle" src="./cases/OBP.png" alt="Open Bank Project" /></a>
     </td>
     <td>
-      <a href="https://github.com/opea-project/GenAIEval"><img height="40" valign="middle" src="./cases/opea.png" /></a>
+      <a href="https://github.com/opea-project/GenAIEval"><img height="40" valign="middle" src="./cases/opea.png" alt="OPEA" /></a>
     </td>
     <td>
-      <a href="https://github.com/OpenGeoscience/geoinsight"><img height="30" valign="middle" src="./cases/OpenGeoscience.png" /></a>
+      <a href="https://github.com/OpenGeoscience/geoinsight"><img height="30" valign="middle" src="./cases/OpenGeoscience.png" alt="OpenGeoscience" /></a>
     </td>
   </tr>
   <tr align="center">
     <td>
-      <a href="https://github.com/arkime/arkime"><img height="30" valign="middle" src="./cases/Arkime.png" /></a>
+      <a href="https://github.com/arkime/arkime"><img height="30" valign="middle" src="./cases/Arkime.png" alt="Arkime" /></a>
     </td>
     <td>
-      <a href="https://github.com/MISP/MISP-Fleet-Commander"><img height="40" valign="middle" src="./cases/misp.png" /></a>
+      <a href="https://github.com/MISP/MISP-Fleet-Commander"><img height="40" valign="middle" src="./cases/misp.png" alt="MISP" /></a>
     </td>
   </tr>
 </table>
