@@ -99,10 +99,24 @@ async function release() {
     throw new Error(`invalid target version: ${targetVersion}`)
   }
 
+  let account = spawn.sync('npm', ['whoami', '--registry=https://registry.npmjs.org']).stdout.toString().trim()
+
+  if (!account) {
+    console.info(cyan('\nNot logged in to npm, please login first:'))
+    if (spawn.sync('npm', ['login', '--registry=https://registry.npmjs.org'], { stdio: 'inherit' }).status === 1) {
+      return
+    }
+    account = spawn.sync('npm', ['whoami', '--registry=https://registry.npmjs.org']).stdout.toString().trim()
+    if (!account) {
+      console.error('Login failed, aborting release.')
+      return
+    }
+  }
+
   const { yes } = await prompts({
     type: 'confirm',
     name: 'yes',
-    message: `Releasing v${targetVersion}. Confirm?`,
+    message: `Releasing v${targetVersion} under this account: ${account}. Confirm?`,
   })
 
   if (!yes) {
@@ -154,15 +168,19 @@ async function release() {
     return
   } */
 
-  // Automatic provenance generation not supported outside of GitHub Actions
-  /* console.info(cyan('\nPublishing to npm...'))
-  if (spawn.sync('npm', ['publish', '--registry=https://registry.npmjs.org', '--provenance'], { stdio: 'inherit' }).status === 1) {
+  console.info(cyan('\nPublishing to npm...'))
+  if (spawn.sync('npm', ['publish', '--registry=https://registry.npmjs.org', '--access=public'], { stdio: 'inherit' }).status === 1) {
+    console.info(cyan('\nPublish failed. You can retry manually:\n'))
+    console.info('  npm publish --registry=https://registry.npmjs.org --access=public')
+    console.info('  pnpm exec cnpm sync')
+    console.info(`  curl -L https://npmmirror.com/sync/${name}`)
     return
-  } */
+  }
 
-  /* console.info(cyan('\nUpdating npmmirror...'))
-  spawn.sync('cnpm', ['sync'], { stdio: 'inherit' })
-  open(`https://npmmirror.com/sync/${name}`) */
+  // 异步触发 cnpm 镜像同步，无需等待完成
+  console.info(cyan('\nSync to cnpm...'))
+  spawn('pnpm', ['exec', 'cnpm', 'sync'], { stdio: 'inherit' })
+  spawn('curl', ['-L', `https://npmmirror.com/sync/${name}`], { stdio: 'inherit' })
 }
 
 try {
