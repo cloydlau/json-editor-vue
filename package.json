@@ -68,6 +68,7 @@
     "doc": "vitepress dev --open /README",
     "typegen": "tsup --entry.json-editor-vue src/index.ts --format esm,cjs --cjsInterop --clean --dts-only",
     "build": "vite build && pnpm typegen",
+    "attw": "attw --pack .",
     "release": "esno ./scripts/release.mts",
     "lint": "eslint \"**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,json,md,html,css,scss,sass}\"",
     "lint:fix": "eslint \"**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,json,md,html,css,scss,sass}\" --fix",

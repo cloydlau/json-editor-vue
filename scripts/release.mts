@@ -24,6 +24,11 @@ async function release() {
     return
   }
 
+  console.info(cyan('\nAnalyzing types...'))
+  if (spawn.sync('pnpm', ['attw'], { stdio: 'inherit' }).status === 1) {
+    return
+  }
+
   console.info(cyan('\nBuilding...'))
   if (spawn.sync('pnpm', ['build'], { stdio: 'inherit' }).status === 1) {
     return
@@ -33,13 +38,6 @@ async function release() {
   if (spawn.sync('pnpm', ['exec', 'publint'], { stdio: 'inherit' }).status === 1) {
     return
   }
-
-  /* console.info(cyan('\nAnalyzing types...'))
-  const attw = spawn.sync('pnpm', ['exec', 'attw', '$(npm pack)'], { stdio: 'inherit' })
-  await deleteAsync(['./*.tgz'])
-  if (attw.status === 1) {
-    return
-  } */
 
   const jsrConfig = JSON.parse(fs.readFileSync('./jsr.json', 'utf-8'))
   const npmConfig = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
