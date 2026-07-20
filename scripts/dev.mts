@@ -1,12 +1,15 @@
-// pnpm i only-allow esno prompts cross-spawn kolorist magicast del -D -w
+// pnpm i only-allow esno prompts cross-spawn magicast del -D -w
 
-import type { ASTNode } from 'magicast'
 import fs from 'node:fs'
+import { styleText } from 'node:util'
 import spawn from 'cross-spawn'
-import { cyan } from 'kolorist'
+import { destr } from 'destr'
 import { loadFile, writeFile } from 'magicast'
 import { addVitePlugin } from 'magicast/helpers'
+import ncu from 'npm-check-updates'
 import prompts from 'prompts'
+
+const cyan = (text: string) => styleText('cyan', text)
 
 type VueVersion = '3' | '2.7' | '2.6'
 
@@ -47,6 +50,138 @@ const toPackageOptions: Record<VueVersion, Record<string, Record<string, any>>> 
   },
 }
 
+/**
+ * 解析配置中的版本约束，供 ncu 查询具体版本。
+ * - latest → 最新版，写入 ^x.y.z
+ * - ^N → 大版本 N 内最新，写入 ^x.y.z
+ * - ~N.M → 中版本 N.M 内最新，写入 ~x.y.z
+ */
+function parseVersionConstraint(version: unknown): {
+  prefix: '^' | '~'
+  seed: string
+  target: 'latest' | 'minor' | 'patch'
+} | null {
+  if (typeof version !== 'string') {
+    return null
+  }
+  if (version === 'latest') {
+    return { prefix: '^', seed: '0.0.0', target: 'latest' }
+  }
+  const caretMajor = version.match(/^\^(\d+)$/)
+  if (caretMajor) {
+    return { prefix: '^', seed: `${caretMajor[1]}.0.0`, target: 'minor' }
+  }
+  const tildeMinor = version.match(/^~(\d+)\.(\d+)$/)
+  if (tildeMinor) {
+    return { prefix: '~', seed: `${tildeMinor[1]}.${tildeMinor[2]}.0`, target: 'patch' }
+  }
+  return null
+}
+
+/**
+ * 将依赖配置中的 latest / ^major / ~major.minor 解析为带冷却期的具体版本范围。
+ * @param packageOptions 当前 Vue 版本对应的依赖配置
+ */
+async function resolveDependencyVersions(packageOptions: Record<string, Record<string, any>>) {
+  const pending: Array<{
+    option: string
+    name: string
+    prefix: '^' | '~'
+    seed: string
+    target: 'latest' | 'minor' | 'patch'
+  }> = []
+
+  for (const [option, dependencies] of Object.entries(packageOptions)) {
+    for (const [name, version] of Object.entries(dependencies)) {
+      const constraint = parseVersionConstraint(version)
+      if (constraint) {
+        pending.push({ option, name, ...constraint })
+      }
+    }
+  }
+
+  if (!pending.length) {
+    return
+  }
+
+  const byTarget: Record<'latest' | 'minor' | 'patch', typeof pending> = {
+    latest: [],
+    minor: [],
+    patch: [],
+  }
+  for (const item of pending) {
+    byTarget[item.target].push(item)
+  }
+
+  for (const target of ['latest', 'minor', 'patch'] as const) {
+    const deps = byTarget[target]
+    if (!deps.length) {
+      continue
+    }
+
+    const packageData: Record<string, Record<string, string>> = {}
+    for (const { option, name, seed } of deps) {
+      packageData[option] ||= {}
+      packageData[option][name] = seed
+    }
+
+    const upgrades = await ncu({
+      cooldown: '1d',
+      packageData,
+      packageManager: 'pnpm',
+      target,
+      jsonUpgraded: true,
+      silent: true,
+    }) as Record<string, string>
+
+    for (const { option, name, prefix, seed } of deps) {
+      const resolved = upgrades[name] ?? (target === 'latest' ? undefined : seed)
+      if (!resolved) {
+        throw new Error(`无法获取 ${name} 的版本`)
+      }
+      const version = resolved.replace(/^[~^]/, '')
+      const versionRange = `${prefix}${version}`
+      packageOptions[option][name] = versionRange
+      console.info(cyan(`Resolved ${name}@${versionRange}`))
+    }
+  }
+}
+
+const vueRelatedPlugins = new Set([
+  ...Object.values(toVitePlugin),
+  'unplugin-vue2-script-setup/vite',
+])
+
+/** 已是目标 Vue 插件组合时跳过写盘，避免无谓改动触发 Vite 重启。 */
+function needsViteConfigSwitch(mod: Awaited<ReturnType<typeof loadFile>>, targetVersion: VueVersion) {
+  const current = Object.values(mod.imports)
+    .filter((item): item is NonNullable<typeof item> => Boolean(item) && vueRelatedPlugins.has(item.from))
+    .map(item => item.from)
+  const expected = targetVersion === '2.6'
+    ? [toVitePlugin[targetVersion], 'unplugin-vue2-script-setup/vite']
+    : [toVitePlugin[targetVersion]]
+  return current.length !== expected.length || expected.some(pkg => !current.includes(pkg))
+}
+
+// 按当前 Vue 大版本同步 ESLint 的 vueVersion：Vue 2 写入配置，Vue 3 删除。
+function syncEslintVueVersion(targetVersion: VueVersion) {
+  const eslintConfigPath = './eslint.config.mjs'
+  const vue2OptionLine = '    vue: { vueVersion: 2 },\n'
+  const lessOpinionatedLine = '    lessOpinionated: true,\n'
+  let content = fs.readFileSync(eslintConfigPath, 'utf-8')
+  content = content.replace(/\n {4}vue: \{ vueVersion: 2 \},\n/, '\n')
+  if (targetVersion !== '3') {
+    if (!content.includes(vue2OptionLine)) {
+      if (!content.includes(lessOpinionatedLine)) {
+        throw new Error('eslint.config.mjs 中未找到 lessOpinionated: true')
+      }
+      content = content.replace(lessOpinionatedLine, `${lessOpinionatedLine}${vue2OptionLine}`)
+    }
+  }
+  fs.writeFileSync(eslintConfigPath, content)
+}
+
+// 切换开发环境的 Vue 版本并启动 Vite。
 async function dev() {
   const { targetVersion }: { targetVersion: VueVersion } = await prompts({
     type: 'select',
@@ -59,59 +194,65 @@ async function dev() {
     return
   }
 
+  await resolveDependencyVersions(toPackageOptions[targetVersion])
+
   console.info(cyan('Fetching origin...'))
   spawn('git', ['pull'], { stdio: 'inherit' })
 
   console.info(cyan(`Switching to Vue ${targetVersion}...`))
-  const mod = await loadFile('./vite.config.ts')
+  syncEslintVueVersion(targetVersion)
+  const mod = await loadFile('./vite.config.mts')
 
-  // imported 表示命名导入的值，默认导入是 default
-  // k 和 mod.imports[k].local 和 constructor 三者一致，表示导入取的别名
+  // 只在需要切换 Vue 插件时写 vite.config：启动路径不做 eslint --fix。
+  // 异步 fix 会在 Vite ready 后改写被 watch 的文件，触发半截 restart；同步 fix 又会拖慢每次 dev。
+  if (needsViteConfigSwitch(mod, targetVersion)) {
+    // imported 表示命名导入的值，默认导入是 default
+    // k 和 mod.imports[k].local 和 constructor 三者一致，表示导入取的别名
 
-  // 删掉 vue 相关引入
-  const existedVuePlugins: Record<string, boolean> = {}
-  for (const k in mod.imports) {
-    for (const vueVersion in toVitePlugin) {
-      if (mod.imports[k] && [toVitePlugin[vueVersion as VueVersion], 'unplugin-vue2-script-setup/vite'].includes(mod.imports[k].from)) {
-        delete mod.imports[k]
-        existedVuePlugins[k] = true
+    // 删掉 vue 相关引入
+    const existedVuePlugins: Record<string, boolean> = {}
+    for (const k in mod.imports) {
+      for (const ver of vueVersion) {
+        if (mod.imports[k] && [toVitePlugin[ver], 'unplugin-vue2-script-setup/vite'].includes(mod.imports[k].from)) {
+          delete mod.imports[k]
+          existedVuePlugins[k] = true
+        }
       }
     }
-  }
 
-  // 删掉 vue 相关插件
-  const options = mod.exports.default.$type === 'function-call'
-    ? mod.exports.default.$args[0]
-    : mod.exports.default
-  if (Object.keys(existedVuePlugins).length && options.plugins?.length) {
-    for (let i = options.plugins.length - 1; i > 0; i--) {
-      const p = options.plugins[i]
-      if (p?.$type === 'function-call' && existedVuePlugins[p.$callee]) {
-        options.plugins.splice(i, 1)
+    // 删掉 vue 相关插件
+    const options = mod.exports.default.$type === 'function-call'
+      ? mod.exports.default.$args[0]
+      : mod.exports.default
+    if (Object.keys(existedVuePlugins).length && options.plugins?.length) {
+      for (let i = options.plugins.length - 1; i > 0; i--) {
+        const p = options.plugins[i]
+        if (p?.$type === 'function-call' && existedVuePlugins[p.$callee]) {
+          options.plugins.splice(i, 1)
+        }
       }
     }
-  }
 
-  // 添加 vue 相关插件
-  addVitePlugin(mod, {
-    from: toVitePlugin[targetVersion],
-    imported: targetVersion === '2.6' ? 'createVuePlugin' : 'default',
-    constructor: 'vue',
-  })
-  if (targetVersion === '2.6') {
+    // 添加 vue 相关插件
     addVitePlugin(mod, {
-      from: 'unplugin-vue2-script-setup/vite',
-      imported: 'default',
-      constructor: 'ScriptSetup',
+      from: toVitePlugin[targetVersion],
+      imported: targetVersion === '2.6' ? 'createVuePlugin' : 'default',
+      constructor: 'vue',
     })
-  }
+    if (targetVersion === '2.6') {
+      addVitePlugin(mod, {
+        from: 'unplugin-vue2-script-setup/vite',
+        imported: 'default',
+        constructor: 'ScriptSetup',
+      })
+    }
 
-  await writeFile(mod as unknown as ASTNode, './vite.config.ts')
-  spawn('npx', ['eslint', './vite.config.ts', '--fix'], { stdio: 'inherit' })
+    await writeFile(mod, './vite.config.mts')
+  }
 
   let isDepsChanged = false
 
-  const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
+  const pkg = destr(fs.readFileSync('./package.json', 'utf-8')) as JSON
 
   // 删除非目标版本的依赖
   for (const ver of vueVersion) {
@@ -139,9 +280,7 @@ async function dev() {
   }
 
   if (isDepsChanged) {
-    fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2))
-    console.info(cyan('Linting package.json...'))
-    spawn('npx', ['eslint', './package.json', '--fix'], { stdio: 'inherit' })
+    fs.writeFileSync('./package.json', `${JSON.stringify(pkg, null, 2)}\n`)
     await installDependencies()
   }
 
@@ -199,7 +338,7 @@ async function dev() {
 }
 
 try {
-  dev()
+  await dev()
 }
 catch (e) {
   console.error(e)
