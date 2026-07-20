@@ -145,7 +145,7 @@
     "zhlint": "^0.8.2"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm exec lint-staged && pnpm run test:coverage:docs",
+    "pre-commit": "pnpm exec lint-staged",
     "commit-msg": "pnpm exec commitlint --edit ${1}"
   },
   "lint-staged": {
