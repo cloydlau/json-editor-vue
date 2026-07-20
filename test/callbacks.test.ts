@@ -85,6 +85,24 @@ describe('onChange / onChangeMode', () => {
     expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['{"a":2}'])
   })
 
+  it('applies updated debounce wait after prop change', async () => {
+    vi.useFakeTimers()
+    const wrapper = mountEditor({
+      mode: 'text',
+      modelValue: '{"a":1}',
+      debounce: 300,
+    })
+
+    await wrapper.setProps({ debounce: 50 })
+    await nextTick()
+
+    capturedProps!.onChange!({ text: '{"a":2}' })
+    expect(wrapper.emitted('update:modelValue')).toBeUndefined()
+
+    await vi.advanceTimersByTimeAsync(50)
+    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['{"a":2}'])
+  })
+
   it('parses text into json when stringified is false and content is valid', async () => {
     const wrapper = mountEditor({
       mode: 'text',

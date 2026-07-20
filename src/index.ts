@@ -133,7 +133,13 @@ const JsonEditorVue = defineComponent({
           : updatedContent.text,
       )
     }
-    const updateModelValueDebounced = debounce(updateModelValue, debounceComputed.value)
+
+    // debounce 等待时间随 prop 变化时重建，避免只在挂载时生效一次
+    let updateModelValueDebounced = debounce(updateModelValue, debounceComputed.value)
+    watch(debounceComputed, (wait) => {
+      updateModelValueDebounced.cancel()
+      updateModelValueDebounced = debounce(updateModelValue, wait)
+    })
 
     const onChange = (updatedContent: UpdatedContent) => {
       if (modeComputed.value === 'text') {
@@ -152,6 +158,7 @@ const JsonEditorVue = defineComponent({
     expose?.({ jsonEditor })
 
     onUnmounted(() => {
+      updateModelValueDebounced.cancel()
       jsonEditor.value?.destroy()
     })
 
