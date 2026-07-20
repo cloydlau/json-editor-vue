@@ -139,11 +139,13 @@
 ## 测试覆盖率
 
 <!-- coverage-table:start -->
-| File | % Stmts | % Branch | % Funcs | % Lines |
-| --- | ---: | ---: | ---: | ---: |
-| All files | 100 | 100 | 100 | 100 |
-| constants.ts | 100 | 100 | 100 | 100 |
-| index.ts | 100 | 100 | 100 | 100 |
+
+| File         | % Stmts | % Branch | % Funcs | % Lines |
+| ------------ | ------: | -------: | ------: | ------: |
+| All files    |     100 |      100 |     100 |     100 |
+| constants.ts |     100 |      100 |     100 |     100 |
+| index.ts     |     100 |      100 |     100 |     100 |
+
 <!-- coverage-table:end -->
 
 <br>
@@ -962,7 +964,7 @@ npm rm json-editor-vue && npm i json-editor-vue
 
 > [!Warning]
 >
-> 无法升级大版本号，你可以通过[指定依赖版本](#指定依赖版本)来升级大版本（如有必要）
+> 无法升级大版本号，你可以通过[指定依赖版本](#指定依赖版本)来升级大版本 (如有必要)
 
 <br>
 
@@ -1032,8 +1034,8 @@ npm rm json-editor-vue && npm i json-editor-vue
 
 ### parsed JSON vs. stringified JSON
 
-- parsed JSON: 就是我们平常所说的 JSON，可以是任何数据类型
-- stringified JSON: 序列化后的 JSON，一定是 string 类型
+- parsed JSON：就是我们平常所说的 JSON，可以是任何数据类型
+- stringified JSON：序列化后的 JSON，一定是 string 类型
 
 ### svelte-jsoneditor 与 json-editor-vue 中绑定值的差异
 
@@ -1065,7 +1067,7 @@ npm rm json-editor-vue && npm i json-editor-vue
 >
 > 详情见 https://github.com/josdejong/svelte-jsoneditor/pull/166
 
-FAQ: 如何在 text 模式下保持绑定值是 parsed JSON？
+FAQ：如何在 text 模式下保持绑定值是 parsed JSON？
 
 > [!Caution]
 >
@@ -1085,7 +1087,7 @@ import { Mode } from 'vanilla-jsoneditor'
 
 > [!Tip]
 >
-> 可以在 JavaScript 上下文中使用 `mode="text"` 而无需安装 vanilla-jsoneditor.
+> 可以在 JavaScript 上下文中使用 `mode="text"` 而无需安装 vanilla-jsoneditor。
 
 ### 命名惯例
 

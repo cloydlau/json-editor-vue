@@ -1,16 +1,16 @@
 import { mount } from '@vue/test-utils'
 import { createJSONEditor } from 'vanilla-jsoneditor'
-import { defineComponent, nextTick, ref } from 'vue'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { defineComponent, nextTick, ref } from 'vue'
 import JsonEditorVue from '../src/index'
 
-type EditorProps = {
+interface EditorProps {
   onChange?: (content: { json?: unknown, text?: string }) => void
   onChangeMode?: (mode: string) => void
   parser?: { parse: (value: string) => unknown, stringify: typeof JSON.stringify }
 }
 
-type EditorInstance = {
+interface EditorInstance {
   updateProps: (props: EditorProps) => void
   get: () => { json?: unknown, text?: string }
   set: (content: unknown) => void
@@ -23,7 +23,7 @@ type EditorInstance = {
 const createJSONEditorMock = vi.mocked(createJSONEditor)
 let capturedProps: EditorProps | undefined
 let capturedEditor: EditorInstance | undefined
-let wrappers: ReturnType<typeof mount>[] = []
+const wrappers: ReturnType<typeof mount>[] = []
 
 vi.mock('vanilla-jsoneditor', async (importOriginal) => {
   const actual = await importOriginal<typeof import('vanilla-jsoneditor')>()
@@ -43,8 +43,9 @@ beforeEach(() => {
 })
 
 afterEach(() => {
-  while (wrappers.length)
+  while (wrappers.length) {
     wrappers.pop()?.unmount()
+  }
   vi.useRealTimers()
 })
 

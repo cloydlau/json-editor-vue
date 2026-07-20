@@ -139,11 +139,13 @@
 ## Test Coverage
 
 <!-- coverage-table:start -->
-| File | % Stmts | % Branch | % Funcs | % Lines |
-| --- | ---: | ---: | ---: | ---: |
-| All files | 100 | 100 | 100 | 100 |
-| constants.ts | 100 | 100 | 100 | 100 |
-| index.ts | 100 | 100 | 100 | 100 |
+
+| File         | % Stmts | % Branch | % Funcs | % Lines |
+| ------------ | ------: | -------: | ------: | ------: |
+| All files    |     100 |      100 |     100 |     100 |
+| constants.ts |     100 |      100 |     100 |     100 |
+| index.ts     |     100 |      100 |     100 |     100 |
+
 <!-- coverage-table:end -->
 
 <br>

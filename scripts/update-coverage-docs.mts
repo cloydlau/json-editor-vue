@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import spawn from 'cross-spawn'
 
@@ -42,21 +43,26 @@ const docs = [
 
 // 将覆盖率百分比格式化为表格单元格文案。
 function formatPct(pct: number | string): string {
-  if (typeof pct !== 'number' || Number.isNaN(pct))
+  if (typeof pct !== 'number' || Number.isNaN(pct)) {
     return '-'
+  }
   return Number.isInteger(pct) ? String(pct) : pct.toFixed(2).replace(/\.?0+$/, '')
 }
 
 // 按覆盖率选择 shields.io badge 颜色。
 function badgeColor(pct: number): string {
-  if (pct >= 100)
+  if (pct >= 100) {
     return 'brightgreen'
-  if (pct >= 90)
+  }
+  if (pct >= 90) {
     return 'green'
-  if (pct >= 80)
+  }
+  if (pct >= 80) {
     return 'yellow'
-  if (pct >= 70)
+  }
+  if (pct >= 70) {
     return 'orange'
+  }
   return 'red'
 }
 
@@ -81,8 +87,9 @@ function buildMarkdownTable(summary: CoverageSummary): string {
   ]
 
   for (const [filePath, metrics] of Object.entries(summary)) {
-    if (filePath === 'total')
+    if (filePath === 'total') {
       continue
+    }
     rows.push([
       relativeFile(filePath),
       formatPct(metrics.statements.pct),
@@ -97,7 +104,8 @@ function buildMarkdownTable(summary: CoverageSummary): string {
   const body = rows.map(([file, stmts, branch, funcs, lines]) =>
     `| ${file} | ${stmts} | ${branch} | ${funcs} | ${lines} |`).join('\n')
 
-  return [header, sep, body].join('\n')
+  // 表格上下留空行，方便 eslint markdown 格式化
+  return `\n${header}\n${sep}\n${body}\n`
 }
 
 /**
@@ -123,14 +131,20 @@ function updateBadge(content: string, linesPct: number): string {
  */
 function upsertCoverageSection(content: string, heading: string, before: string, table: string): string {
   const block = `${START}\n${table}\n${END}`
-  const section = `${heading}\n\n${block}\n`
+  // 只带前置 <br>；后置 <br> 属于下一章节，不在这里增删
+  const section = `<br>\n\n${heading}\n\n${block}\n`
+  const escapedHeading = heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
-  // 先清掉已有覆盖率章节（无论当前在文档何处）
+  // 只移除覆盖率章节及其前置 <br>
   content = content.replace(
-    new RegExp(`(?:\\n<br>\\n)?\\n*${heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\n+${START}[\\s\\S]*?${END}\\n*(?:<br>\\n)?\\n*`),
+    new RegExp(`(?:\\n<br>\\n)?\\n*${escapedHeading}\\n+${START}[\\s\\S]*?${END}\\n*`),
     '\n',
   )
 
+  const beforeWithBr = `\n<br>\n\n${before}`
+  if (content.includes(beforeWithBr)) {
+    return content.replace(beforeWithBr, `\n${section}${beforeWithBr}`)
+  }
   if (content.includes(before)) {
     return content.replace(before, `${section}\n<br>\n\n${before}`)
   }
@@ -144,8 +158,9 @@ function runCoverage() {
     cwd: root,
     stdio: 'inherit',
   })
-  if (result.status !== 0)
+  if (result.status !== 0) {
     process.exit(result.status ?? 1)
+  }
 }
 
 // 读取 Vitest 输出的 coverage-summary.json。
@@ -155,6 +170,24 @@ function readSummary(): CoverageSummary {
     process.exit(1)
   }
   return JSON.parse(fs.readFileSync(summaryPath, 'utf8')) as CoverageSummary
+}
+
+// 对已更新的文档执行与 lint-staged 一致的自动修复。
+function lintDocs() {
+  const files = docs.map(doc => path.relative(root, doc.file))
+  const commands: Array<[string, string[]]> = [
+    ['pnpm', ['exec', 'case-police', '--fix', ...files]],
+    ['pnpm', ['exec', 'zhlint', '--fix', ...files]],
+    ['pnpm', ['exec', 'eslint', '--cache', '--fix', ...files]],
+  ]
+  for (const [command, args] of commands) {
+    const result = spawn.sync(command, args, {
+      cwd: root,
+      stdio: 'inherit',
+    })
+    if (result.status !== 0)
+      process.exit(result.status ?? 1)
+  }
 }
 
 // 跑覆盖率、同步中英文 README 中的表格与 badge，并 stage 文档改动供本次 commit 纳入。
@@ -173,12 +206,15 @@ function main() {
     console.info(`Updated coverage table in ${path.relative(root, doc.file)}`)
   }
 
+  lintDocs()
+
   const staged = spawn.sync('git', ['add', 'README.md', 'docs/README.zh-CN.md'], {
     cwd: root,
     stdio: 'inherit',
   })
-  if (staged.status !== 0)
+  if (staged.status !== 0) {
     process.exit(staged.status ?? 1)
+  }
 }
 
 main()

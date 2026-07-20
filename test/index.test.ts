@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
-import { createApp, nextTick } from 'vue'
 import { afterEach, describe, expect, it, vi } from 'vitest'
+import { createApp, nextTick } from 'vue'
 import JsonEditorVue from '../src/index'
 
 const wrappers: ReturnType<typeof mount>[] = []
