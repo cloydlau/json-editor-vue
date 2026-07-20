@@ -12,8 +12,8 @@ type SFCWithInstall<T> = T & Plugin
 type UpdatedContent = JSONContent & Partial<TextContent>
 interface Parser { parse: typeof destr, stringify: typeof JSON.stringify }
 
-const propsGlobal: Record<string, any> = {}
-const attrsGlobal: Record<string, any> = {}
+let propsGlobal: Record<string, any> = {}
+let attrsGlobal: Record<string, any> = {}
 
 enum ModelValueProp {
   vue3 = 'modelValue',
@@ -67,8 +67,9 @@ const JsonEditorVue = defineComponent({
   name,
   install(app: App, options?: typeof props): void {
     const optionsGlobal = resolveConfig(options || {}, { props })
-    Object.assign(propsGlobal, optionsGlobal.props)
-    Object.assign(attrsGlobal, optionsGlobal.attrs)
+    // 直接替换引用，避免多次 install 时旧字段残留
+    propsGlobal = { ...optionsGlobal.props }
+    attrsGlobal = { ...optionsGlobal.attrs }
     app.component(name, this)
   },
   props,
