@@ -32,7 +32,19 @@ jobs:
           npx jsr publish --allow-dirty
         continue-on-error: true
 
-      - run: npm publish --registry=https://registry.npmjs.org --provenance
+      # 发布到 npm 的包不要带 postinstall（simple-git-hooks），避免终端用户安装时触发多余脚本 / pnpm approve-builds。
+      # 只改 CI 工作区里的 package.json，不影响 git 仓库。
+      - run: |
+          node -e "
+            const fs = require('fs')
+            const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'))
+            if (pkg.scripts?.postinstall) {
+              delete pkg.scripts.postinstall
+              fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n')
+              console.log('Stripped postinstall from package.json for npm publish')
+            }
+          "
+          npm publish --registry=https://registry.npmjs.org --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
