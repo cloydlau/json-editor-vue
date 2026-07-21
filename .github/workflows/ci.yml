@@ -14,15 +14,26 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: latest
 
+      # lts/* auto-tracks Active LTS, but resolving the alias hits GitHub's
+      # node-versions API and can intermittently time out — retry once.
       - name: Set node version to LTS
-        uses: actions/setup-node@v3
+        id: setup-node
+        continue-on-error: true
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      - name: Retry set node version to LTS
+        if: steps.setup-node.outcome == 'failure'
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
           cache: pnpm
@@ -38,15 +49,24 @@ jobs:
   unit-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: latest
 
       - name: Set node version to LTS
-        uses: actions/setup-node@v3
+        id: setup-node
+        continue-on-error: true
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      - name: Retry set node version to LTS
+        if: steps.setup-node.outcome == 'failure'
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
           cache: pnpm

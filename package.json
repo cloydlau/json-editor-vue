@@ -73,9 +73,9 @@
     "release": "esno ./scripts/release.mts",
     "lint": "eslint \"**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,json,md,html,css,scss,sass}\"",
     "lint:fix": "eslint \"**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,json,md,html,css,scss,sass}\" --fix",
+    "lint:inspect": "pnpm exec eslint-config-inspector",
     "pnpm:devPreinstall": "pnpm dlx only-allow pnpm && pnpm config set registry https://registry.npmmirror.com",
-    "postinstall": "simple-git-hooks && git config core.hooksPath .git/hooks/",
-    "lint:inspect": "pnpm exec eslint-config-inspector"
+    "postinstall": "simple-git-hooks && git config core.hooksPath .git/hooks/"
   },
   "peerDependencies": {
     "@vue/composition-api": ">=1",
@@ -112,7 +112,7 @@
     "browserslist-to-esbuild": "^2.1.1",
     "case-police": "^2.2.1",
     "cnpm": "^9.4.0",
-    "code-inspector-plugin": "^2.0.3",
+    "code-inspector-plugin": "^2.0.4",
     "cross-spawn": "^7.0.6",
     "del": "^8.0.1",
     "destr": "^2.0.5",
