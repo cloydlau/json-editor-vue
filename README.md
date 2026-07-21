@@ -13,7 +13,7 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/json-editor-vue?activeTab=versions"><img alt="since" src="https://img.shields.io/github/created-at/cloydlau/json-editor-vue?label=since&color=1C404E&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgNDggNDgiPjxnIGZpbGw9Im5vbmUiPjxwYXRoIGQ9Ik04IDQwaDMyVjI0SDh6Ii8+PHBhdGggc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iNCIgZD0iTTQwIDQwSDhtMzIgMEg0aDRtMzIgMGg0bS00IDBWMjRIOHYxNiIvPjxwYXRoIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjQiIGQ9Im00MCAzNGwtNC0ybC00IDJsLTQtMmwtNCAybC00LTJsLTQgMmwtNC0ybC00IDJtMjQtMTB2LTltLTggOXYtOW0tOCA5di05bTE2LTVWOG0tOCAyVjhtLTggMlY4TTggMjR2MTZtMzItMTZ2MTYiLz48L2c+PC9zdmc+"></a>
   <br>
-  <a href="https://npmjs.com/package/json-editor-vue"><img alt="npm version" src="https://img.shields.io/npm/v/json-editor-vue.svg?labelColor=cb3837&color=1C404E"></a>
+  <a href="https://npmjs.com/package/json-editor-vue"><img alt="npm version" src="https://img.shields.io/npm/v/json-editor-vue.svg?logo=npm&logoColor=white&labelColor=cb3837&color=1C404E"></a>
   <a href="https://jsr.io/@cloydlau"><img alt="JSR Scope" src="https://jsr.io/badges/@cloydlau"></a>
   <br>
   <a href="https://cloydlau.github.io/playground/json-editor-vue/"><img alt="playground" src="https://img.shields.io/badge/Playground-blue?color=9BE4E0&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzNiNDAzZiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xMiA1aDMuNWE1IDUgMCAwIDEgMCAxMEgxMGwtNC4wMTUgNC4yMjdhMi4zIDIuMyAwIDAgMS0zLjkyMy0yLjAzNWwxLjYzNC04LjE3M0E1IDUgMCAwIDEgOC42IDV6Ii8+PHBhdGggZD0ibTE0IDE1bDQuMDcgNC4yODRhMi4zIDIuMyAwIDAgMCAzLjkyNS0yLjAyM2wtMS42LTguMjMyTTggOXYybS0xLTFoMm01IDBoMiIvPjwvZz48L3N2Zz4="></a>
@@ -21,12 +21,12 @@
   <a href="https://pr.new/https://github.com/cloydlau/json-editor-vue"><img src="https://developer.stackblitz.com/img/start_pr_dark_small.svg" alt="Start new PR in StackBlitz Codeflow"></a>
   <br>
   <a href="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml"><img alt="build status" src="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml/badge.svg?branch=main"></a>
-  <a href="#test-coverage"><img alt="coverage" src="https://img.shields.io/badge/coverage-100%25-brightgreen"></a>
+  <a href="#test-coverage"><img alt="coverage" src="https://img.shields.io/badge/coverage-100%25-brightgreen?logo=vitest&logoColor=white"></a>
   <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue?ref=badge_shield&issueType=license"><img alt="FOSSA Status" src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue.svg?type=shield&issueType=license"/></a>
-  <a href="https://bundlejs.com/?q=json-editor-vue"><img alt="minzipped size" src="https://deno.bundlejs.com/?q=json-editor-vue&badge&badge-style=flat"></a>
+  <a href="https://bundlejs.com/?q=json-editor-vue"><img alt="minzipped size" src="https://img.shields.io/badge/minzip-331%20kB-3B82F6?logo=esbuild&logoColor=white"></a>
   <br>
   <a href="https://github.com/antfu/eslint-config"><img alt="code style" src="https://antfu.me/badge-code-style.svg"></a>
-  <a href="https://conventionalcommits.org"><img alt="conventional commits" src="https://img.shields.io/badge/commits-Conventional-FE5196.svg?logo=conventionalcommits"></a>
+  <a href="https://conventionalcommits.org"><img alt="conventional commits" src="https://img.shields.io/badge/commits-Conventional-FE5196.svg?logo=conventionalcommits&logoColor=white"></a>
   <a href="https://semantic-release.gitbook.io"><img alt="semantic release" src="https://img.shields.io/badge/release-semantic-e10079?logo=semantic-release"></a>
   <a href="https://arethetypeswrong.github.io/?p=json-editor-vue"><img alt="attw" src="https://img.shields.io/badge/are_the_types_wrong%3F-check-3178C6?logo=typescript&logoColor=white"></a>
 </p>
