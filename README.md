@@ -23,7 +23,7 @@
   <a href="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml"><img alt="build status" src="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml/badge.svg?branch=main"></a>
   <a href="#test-coverage"><img alt="coverage" src="https://img.shields.io/badge/coverage-100%25-brightgreen?logo=vitest&logoColor=white"></a>
   <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue?ref=badge_shield&issueType=license"><img alt="FOSSA Status" src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue.svg?type=shield&issueType=license"/></a>
-  <a href="https://bundlejs.com/?q=json-editor-vue"><img alt="minzipped size" src="https://img.shields.io/badge/minzip-331%20kB-3B82F6?logo=esbuild&logoColor=white"></a>
+  <a href="https://bundlejs.com/?q=json-editor-vue"><img alt="minzipped size" src="https://img.shields.io/badge/minzip-334%20kB-3B82F6?logo=esbuild&logoColor=white"></a>
   <br>
   <a href="https://github.com/antfu/eslint-config"><img alt="code style" src="https://antfu.me/badge-code-style.svg"></a>
   <a href="https://conventionalcommits.org"><img alt="conventional commits" src="https://img.shields.io/badge/commits-Conventional-FE5196.svg?logo=conventionalcommits&logoColor=white"></a>
@@ -132,7 +132,7 @@
 >
 > While having a extremely dismal number of Stars: <a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=9f7be1&logo=github&style=flat"></a>
 >
-> Please consider [starring ⭐](https://github.com/cloydlau/json-editor-vue) or [donating](#donate) to support our ongoing maintenance if it helps: <a href="https://github.com/cloydlau/json-editor-vue/issues?q=is%3Aissue+is%3Aclosed"><img alt="GitHub issues closed" src="https://img.shields.io/github/issues-closed/cloydlau/json-editor-vue?logo=github"></a>
+> Please consider [starring ⭐](https://github.com/cloydlau/json-editor-vue) to support our ongoing maintenance if it helps: <a href="https://github.com/cloydlau/json-editor-vue/issues?q=is%3Aissue+is%3Aclosed"><img alt="GitHub issues closed" src="https://img.shields.io/github/issues-closed/cloydlau/json-editor-vue?logo=github"></a>
 
 <br>
 
@@ -1173,13 +1173,5 @@ import 'vanilla-jsoneditor/themes/jse-theme-dark.css'
 ## Changelog
 
 Detailed changes for each release are documented in the [release notes](https://github.com/cloydlau/json-editor-vue/releases)
-
-<br>
-
-## Donate
-
-You can buy us a coffee via WeChat Pay 💗
-
-<img alt="WeChat Pay" src="https://raw.githubusercontent.com/cloydlau/json-editor-vue/main/docs/wechat-pay.jpg" width="150px">
 
 <br>

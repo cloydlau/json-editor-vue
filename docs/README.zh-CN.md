@@ -23,7 +23,7 @@
   <a href="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml"><img alt="build status" src="https://github.com/cloydlau/json-editor-vue/actions/workflows/ci.yml/badge.svg?branch=main"></a>
   <a href="#测试覆盖率"><img alt="coverage" src="https://img.shields.io/badge/coverage-100%25-brightgreen?logo=vitest&logoColor=white"></a>
   <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue?ref=badge_shield&issueType=license"><img alt="FOSSA Status" src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcloydlau%2Fjson-editor-vue.svg?type=shield&issueType=license"/></a>
-  <a href="https://bundlejs.com/?q=json-editor-vue"><img alt="minzipped size" src="https://img.shields.io/badge/minzip-331%20kB-3B82F6?logo=esbuild&logoColor=white"></a>
+  <a href="https://bundlejs.com/?q=json-editor-vue"><img alt="minzipped size" src="https://img.shields.io/badge/minzip-334%20kB-3B82F6?logo=esbuild&logoColor=white"></a>
   <br>
   <a href="https://github.com/antfu/eslint-config"><img alt="code style" src="https://antfu.me/badge-code-style.svg"></a>
   <a href="https://conventionalcommits.org"><img alt="conventional commits" src="https://img.shields.io/badge/commits-Conventional-FE5196.svg?logo=conventionalcommits&logoColor=white"></a>
@@ -132,7 +132,7 @@
 >
 > 与 Star 数量是天上地下的差别：<a href="https://github.com/cloydlau/json-editor-vue/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/cloydlau/json-editor-vue?color=9f7be1&logo=github&style=flat"></a>
 >
-> 如有帮助，请考虑[点亮一下 ⭐](https://github.com/cloydlau/json-editor-vue) 或[买一杯咖啡](#捐赠)以支持我们的长期维护工作：<a href="https://github.com/cloydlau/json-editor-vue/issues?q=is%3Aissue+is%3Aclosed"><img alt="GitHub issues closed" src="https://img.shields.io/github/issues-closed/cloydlau/json-editor-vue?logo=github"></a>
+> 如有帮助，请考虑[点亮一下 ⭐](https://github.com/cloydlau/json-editor-vue)以支持我们的长期维护工作：<a href="https://github.com/cloydlau/json-editor-vue/issues?q=is%3Aissue+is%3Aclosed"><img alt="GitHub issues closed" src="https://img.shields.io/github/issues-closed/cloydlau/json-editor-vue?logo=github"></a>
 
 <br>
 
@@ -1173,13 +1173,5 @@ import 'vanilla-jsoneditor/themes/jse-theme-dark.css'
 ## 更新日志
 
 各版本详细改动请参考 [release notes](https://github.com/cloydlau/json-editor-vue/releases)
-
-<br>
-
-## 捐赠
-
-可以通过微信支付帮维护团队买一杯咖啡 💗
-
-<img alt="WeChat Pay" src="https://raw.githubusercontent.com/cloydlau/json-editor-vue/main/docs/wechat-pay.jpg" width="150px">
 
 <br>
