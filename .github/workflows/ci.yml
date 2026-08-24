@@ -78,3 +78,6 @@ jobs:
 
       - name: Run unit tests
         run: pnpm run test:coverage
+
+      - name: Run type tests
+        run: pnpm run test:types

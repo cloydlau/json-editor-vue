@@ -185,8 +185,9 @@ function lintDocs() {
       cwd: root,
       stdio: 'inherit',
     })
-    if (result.status !== 0)
+    if (result.status !== 0) {
       process.exit(result.status ?? 1)
+    }
   }
 }
 

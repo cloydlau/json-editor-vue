@@ -1,4 +1,4 @@
-import type { JSONContent, JSONEditorPropsOptional, TextContent } from 'vanilla-jsoneditor'
+import type { JSONContent, JsonEditor, JSONEditorPropsOptional, TextContent } from 'vanilla-jsoneditor'
 import type { App, Plugin, PropType } from 'vue-demi'
 import { destr, safeDestr } from 'destr'
 import { debounce } from 'lodash-es'
@@ -8,7 +8,15 @@ import { conclude, resolveConfig } from 'vue-global-config'
 import { PascalCasedName as name } from '../package.json'
 import { BOOL_ATTRS } from './constants'
 
-type SFCWithInstall<T> = T & Plugin
+// 交叉一个构造签名把 expose 出去的类型注入实例类型：
+// 交叉类型中的构造签名按成员顺序形成重载，TS 对重载签名 infer（InstanceType）时取最后一个，
+// 因此 InstanceType<typeof 导出的组件> 会带上 Exposed。
+type SFCWithInstall<T extends abstract new (...args: any) => any, Exposed extends object = object>
+  = & T
+    & Plugin
+    & {
+      new (): InstanceType<T> & Exposed
+    }
 type UpdatedContent = JSONContent & Partial<TextContent>
 interface Parser { parse: typeof destr, stringify: typeof JSON.stringify }
 
@@ -299,4 +307,9 @@ const JsonEditorVue = defineComponent({
   },
 })
 
-export default JsonEditorVue as SFCWithInstall<typeof JsonEditorVue>
+// jsonEditor 在 setup 里是 Ref<JsonEditor>，这里须写解包后的 JsonEditor：
+// expose 的 ref 在组件实例（proxy）上已自动解包，Exposed 要从实例的视角写；
+// 若带上 Ref，类型检查照过，但消费方访问 .value 时运行时是 undefined
+export default JsonEditorVue as SFCWithInstall<typeof JsonEditorVue, {
+  jsonEditor: JsonEditor
+}>

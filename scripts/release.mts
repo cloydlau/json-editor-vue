@@ -34,6 +34,7 @@ function updateMinzipBadge() {
     }
 
     const gzippedBytes = gzipSync(fs.readFileSync(outfile)).byteLength
+    // eslint-disable-next-line financial/no-division -- minzip badge 的 kB 换算非金融场景，取整展示
     const label = `${Math.round(gzippedBytes / 1000)} kB`
     const badgeUrl = `https://img.shields.io/badge/minzip-${encodeURIComponent(label)}-3B82F6?logo=esbuild&logoColor=white`
     const pattern = /https:\/\/img\.shields\.io\/badge\/minzip-[^"'\\\s]+/g
@@ -68,6 +69,11 @@ async function release() {
 
   console.info(cyan('\nUnit testing...'))
   if (spawn.sync('pnpm', ['test'], { stdio: 'inherit' }).status === 1) {
+    return
+  }
+
+  console.info(cyan('\nType testing...'))
+  if (spawn.sync('pnpm', ['test:types'], { stdio: 'inherit' }).status === 1) {
     return
   }
 
