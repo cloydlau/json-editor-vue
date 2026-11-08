@@ -83,15 +83,20 @@
       </a>
     </td>
     <td>
+      <a href="https://github.com/ZTE-AICloud/Co-Sight">
+        <img height="25" valign="middle" src="./cases/zte.png" alt="ZTE AICloud" />
+      </a>
+    </td>
+    <td>
       <a href="https://github.com/MRC-Epid-it24/intake24">
         <img height="30" valign="middle" src="./cases/mrc_tu_cambridge.png" alt="MRC Epidemiology Unit / University of Cambridge" />
       </a>
     </td>
+  </tr>
+  <tr align="center">
     <td>
       <a href="https://github.com/sharevb/it-tools"><img height="50" valign="middle" src="./cases/it-tools.png" alt="IT Tools" /></a>
     </td>
-  </tr>
-  <tr align="center">
     <td>
       <a href="https://github.com/RockChinQ/LangBot"><img height="35" valign="middle" src="./cases/langbot.png" alt="LangBot" /></a>
       <a href="https://github.com/RockChinQ/LangBot"> LangBot</a>
@@ -99,10 +104,6 @@
     <td>
       <a href="https://github.com/mealie-recipes/mealie"><img height="35" valign="middle" src="./cases/mealie.png" alt="Mealie" /></a>
       <a href="https://github.com/mealie-recipes/mealie"> Mealie</a>
-    </td>
-    <td>
-      <a href="https://github.com/moyangzhan/langchain4j-aideepin"><img height="35" valign="middle" src="./cases/aideepin.png" alt="LangChain4j-AIDeepin" /></a>
-      <a href="https://github.com/moyangzhan/langchain4j-aideepin"> LangChain4j-AIDeepin</a>
     </td>
   </tr>
   <tr align="center">
@@ -122,6 +123,10 @@
     </td>
     <td>
       <a href="https://github.com/MISP/MISP-Fleet-Commander"><img height="40" valign="middle" src="./cases/misp.png" alt="MISP" /></a>
+    </td>
+    <td>
+      <a href="https://github.com/moyangzhan/langchain4j-aideepin"><img height="35" valign="middle" src="./cases/aideepin.png" alt="LangChain4j-AIDeepin" /></a>
+      <a href="https://github.com/moyangzhan/langchain4j-aideepin"> LangChain4j-AIDeepin</a>
     </td>
   </tr>
 </table>
